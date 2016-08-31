@@ -1,0 +1,281 @@
+%TODO 等的使用
+%%TODO 内容问题
+%%HACK 粗鄙技巧
+%%CODE 代码改进
+
+%TODO——注意事项
+
+\documentclass[oneside]{book}
+
+%TODO——宏包
+%%方便定义命令
+%\usepackage{suffix}
+
+%%页面尺寸
+\usepackage{geometry}
+	\geometry{
+		a4paper,
+		left = 2.54 cm, right = 2.54 cm, top = 3.18 cm, bottom = 3.18 cm,
+		headheight = 3 cm
+	}
+
+%%设置标题
+\usepackage{titlesec}
+
+%%交叉引用，超链接等
+\usepackage[hyperindex]{hyperref}
+	\hypersetup{
+		%  PDF 书签
+		bookmarksopen = true,
+		bookmarksopenlevel = 1,
+		bookmarksnumbered = true,
+		%  PDF 标题作者
+%		pdftitle = {},
+%		pdfauthor = {},
+		%脚注
+%		hyperfootnotes = false,
+		%目录  只引用页码
+		linktoc = page,
+		%超链接颜色
+		colorlinks,
+		linkcolor = {red!60!black},
+		citecolor = {green!50!black},
+		urlcolor = {blue!70!black}
+	}
+
+%%常规字体选择
+\usepackage[no-math]{fontspec}
+	\setmainfont[
+		Extension = .otf,
+		BoldFont = xits-bold,
+		ItalicFont = xits-italic,
+		BoldItalicFont = xits-bolditalic,
+		SlantedFont = xits-italic
+	]{xits-regular}
+%	\setsansfont[
+%		Extension = .otf,
+%		BoldFont = texgyreheros-bold,
+%		ItalicFont = texgyreheros-italic,
+%		SlantedFont = texgyreheros-italic
+%	]{texgyreheros-regular}
+%	\setmonofont[
+%		Extension = .otf,
+%		BoldFont = texgyrecursor-bold,
+%		ItalicFont = texgyrecursor-italic,
+%		SlantedFont = texgyrecursor-italic,
+%		Ligatures = NoCommon
+%	]{texgyrecursor-regular}
+%	\newfontfamily{\SourceSans}{Source Sans Pro}
+%	\newfontfamily{\Songti}{方正书宋_GBK}
+
+%%AMS 数学支持
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%%Pi 符号
+\usepackage{pifont}
+	% 正确 √
+	\newcommand{\cmark}{\ding{51}}
+	% 错误 ×
+	\newcommand{\xmark}{\ding{55}}
+
+%%调用 Unicode OpenType 数学字体
+\usepackage{unicode-math}
+	\setmathfont[
+		math-style = ISO,
+		bold-style = ISO
+	]{xits-math.otf}
+%加粗使用 \symbf{}
+%直立希腊字母：\uppi 等
+
+%%中文文字处理
+\usepackage[UTF8, heading = true]{ctex}
+	\pagestyle{empty}
+\usepackage{xeCJK}
+	\setCJKmainfont[
+		BoldFont = 方正黑体_GBK,
+		ItalicFont = 方正楷体_GBK,
+		Mapping = fullwidth-stop
+	]{方正书宋_GBK}
+	\setCJKsansfont[
+		BoldFont = 方正黑体_GBK,
+		ItalicFont = 方正黑体_GBK,
+		Mapping = fullwidth-stop
+	]{方正黑体_GBK}
+%	\setCJKsansfont[
+%		BoldFont = 思源黑体 CN Regular,
+%		ItalicFont = 思源黑体 CN Regular,
+%		Mapping = fullwidth-stop
+%	]{思源黑体 CN Regular}
+	\setCJKmonofont[
+		BoldFont = 方正仿宋_GBK,
+		ItalicFont = 方正楷体_GBK,
+		Mapping = fullwidth-stop
+	]{方正仿宋_GBK}
+	\setCJKfamilyfont{宋体}{方正书宋_GBK}
+	\setCJKfamilyfont{楷体}{方正楷体_GBK}
+	\setCJKfamilyfont{黑体}{方正黑体_GBK}
+	\setCJKfamilyfont{仿宋}{方正仿宋_GBK}
+
+%%脚注增强版
+\usepackage[stable, perpage, bottom]{footmisc}
+	%需要调用 pifont 宏包
+	%衬线加圈阳文数字：\ding{172}~\ding{181} (1~10)
+	%无衬线加圈阳文数字：\ding{192}~\ding{201} (1~10)
+	\renewcommand{\thefootnote}{\ding{\numexpr191+\value{footnote} } }
+	%TODO：20160705 脚注不用上标
+	%HACK：20160709 见 http://tex.stackexchange.com/questions/19844/how-to-set-superscript-footnote-mark-in-the-text-body-but-normalsized-in-the-foo
+	\makeatletter
+	\newlength{\fnBreite}
+	\renewcommand{\@makefntext}[1]{%
+		\settowidth{\fnBreite}{\footnotesize\@thefnmark.i}%
+		\protect\footnotesize\upshape%
+		\setlength{\@tempdima}{\columnwidth}%
+		\addtolength{\@tempdima}{-\fnBreite}%
+		\makebox[\fnBreite][l]{\@thefnmark\phantom{  }}%
+		\parbox[t]{\@tempdima}%
+		{\everypar{\hspace*{1em}}\hspace*{-1em}\upshape#1}%
+	}
+	\makeatother
+
+%%颜色
+\usepackage[svgnames]{xcolor}
+
+%%图形
+%\usepackage{graphicx}
+
+%%绘图
+%\usepackage{tikz}
+%	\usepgflibrary{arrows.meta}
+%	\tikzset{>=Stealth}
+
+%%数学工具
+\usepackage{mathtools}
+
+%%强调公式
+\usepackage[ntheorem]{empheq}
+
+%%张量
+\usepackage{tensor}
+
+%%物理、数学符号
+\usepackage{physics}
+
+%%单位
+%\usepackage{siunitx}
+
+%%定制列表环境
+%\usepackage{enumitem}
+%	%定义带缩进的左对齐格式
+%	%前一个参数 2.1 em 确定标签的位置
+%	%后一个参数 1.2 em 确定标签与文字的距离
+%	%HACK：20160709 可能与字体、字号、标签内容有关
+%	\SetLabelAlign{leftalignwithindent}{\hspace{2.1 em} \makebox[1.2 em][l]{#1}}
+
+%%定理类环境
+\usepackage[thmmarks, amsmath]{ntheorem}
+	\theoremstyle{nonumberplain} %带编号
+	\theoremheaderfont{\bfseries}
+	\theorembodyfont{\normalfont}
+	\theoremsymbol{\mbox{$\Box$}}
+		\newtheorem{myProof}{证明：}
+
+%%索引
+
+%TODO——环境
+%%定制列表（编号）
+%\newenvironment{myEnumerate}
+%	{\begin{enumerate} [
+%%		label=\bullet, %标签样式：圆点
+%		align = leftalignwithindent, %对齐（见上）
+%		listparindent = 2 em, %条目段落缩进
+%		leftmargin = 0 pt, %文字左边距
+%		topsep = 0 pt,
+%		itemsep = 0 pt,
+%		parsep = 0 pt
+%	]}
+%	{\end{enumerate}}
+%子公式
+\newenvironment{mySubEq}
+	{\subequations \renewcommand{\theequation}%
+		{\theparentequation-\alph{equation}}}%
+	{\endsubequations%
+		\ignorespacesafterend}
+%大括号公式
+\newenvironment{braceEq}[1][align]
+	{\mySubEq%
+		\setkeys{EmphEqEnv}{#1}%
+		\setkeys{EmphEqOpt}{left = \empheqlbrace}%
+		\EmphEqMainEnv}%
+	{\endEmphEqMainEnv \endmySubEq}
+
+%TODO——命令
+%% 空行
+\newcommand{\blankline}{\mbox{}}
+%% 强调
+\newcommand{\emphA}[1]{{\bfseries #1}}
+\newcommand{\emphB}[1]{{\itshape #1}}
+%% 数集黑板粗体
+\newcommand{\setbb}[1]{\symbb{#1}}
+\newcommand{\realR}{\setbb{R}}
+%% 哥特体
+%\newcommand{\gothic}[1]{\symfrak{#1}}
+%\newcommand{\domainB}{\gothic{B}} %邻域
+%\newcommand{\domainD}{\gothic{D}} %定义域
+
+%% 向量
+\newcommand{\V}[1]{\symbf{#1}}
+%% 张量(Tensor)
+\newcommand{\Tens}[1]{\symbf{#1}}
+%% 矩阵(Matrix)
+\newcommand{\Mat}[1]{\symbf{#1}}
+
+%% Kronecker Delta
+\newcommand{\kroneckerDelta}[2]{\delta^{#1}_{#2}}
+%% 内积括号形式(Inner Product Braket)
+\newcommand{\ipb}[3]{\qty(#1,\,#2)_{#3}}
+%% 定义等号
+%\newcommand{\defeq}{\coloneq}
+\newcommand{\defeq}{\triangleq}
+
+%% m 维实空间
+\newcommand{\Rm}{\realR^m}
+%% 以 m 维 Euclid 空间为底空间的 r 阶张量全体
+\newcommand{\Tensors}[1]{\symcal{J}^{#1}\qty(\Rm)}
+
+%% 公式用标点、文字
+\newcommand{\comma}{\text{，}}
+\newcommand{\fullstop}{\text{．}}
+\newcommand{\semicomma}{\text{；}}
+%\newcommand{\const}{\text{const.}}
+
+%TODO——标题页
+\title{
+	\vspace{-4 cm} \color{Sienna} \Huge 张量分析
+}
+\author{
+	\CJKfamily{楷体} \color{DarkRed} \Large 复旦大学\phantom{空格}谢锡麟
+}
+\date{
+	\CJKfamily{楷体} \color{Goldenrod} \Large \today
+}
+
+
+\begin{document}
+%	\frontmatter
+%	\maketitle
+%	
+%%	\tableofcontents
+%	
+%	\mainmatter
+	\chapter{张量的定义及表示}
+		\input{Chapters/Chapter1}
+	
+%	\backmatter
+%	{
+%		\small
+%		\bibliography{Reference}
+%	}
+%	\printindex[pkg]
+%	\printindex[cmd]
+\end{document}
