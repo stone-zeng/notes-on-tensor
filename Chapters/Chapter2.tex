@@ -1,0 +1,27 @@
+\section{张量积}
+	\emphA{张量积}也叫\emphA{张量并}，用符号“$\tp$”表示。
+	在 \ref{subsec:张量的表示与简单张量} 小节给出简单张量的定义时，
+	实际上就用到了张量积。张量积的定义为：
+	\begin{align}
+		\forall\,\Tens{\Phi}\in\Tensors{p},\,\Tens{\Psi}\in\Tensors{q},
+		&\mathrel{\phantom{=}} \Tens{\Phi}\tp\Tens{\Psi}
+			\in\Tensors{p+q} \notag \\
+		&=\qty(\tensor{\Phi}{^{i_1}^{\cdots}^{i_p}} \,
+				\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p})
+			\tp \qty(\tensor{\Psi}{_{j_1}_{\cdots}_{j_q}} \,
+				\V{g}^{j_1}\tp\cdots\tp\V{g}^{j_q}) \notag \\
+		&\defeq \tensor{\Phi}{^{i_1}^{\cdots}^{i_p}} \:
+			\tensor{\Psi}{_{j_1}_{\cdots}_{j_q}}\,
+			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p})
+			\tp \qty(\V{g}^{j_1}\tp\cdots
+				\tp\V{g}^{j_q}_{\phantom{i_p}}) \fullstop
+	\end{align}
+	由该定义可以知道，关于简单张量 $\qty(\V{g}_{i_1}\tp\cdots
+		\tp\V{g}_{i_p}) \tp \qty(\V{g}^{j_1}\tp\cdots
+		\tp\V{g}^{j_q}_{\phantom{i_p}})$，相应的张量分量为
+	\begin{equation}
+		\tensor{\qty\big(\Phi\tp\Psi)}
+			{^{i_1}^{\cdots}^{i_p}_{j_1}_{\cdots}_{j_q}} \fullstop
+	\end{equation}
+	
+\section{\texorpdfstring{$e$ 点积}{e 点积}}

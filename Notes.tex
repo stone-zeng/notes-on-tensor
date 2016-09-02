@@ -211,7 +211,7 @@
 
 %TODO——命令
 %% 空行
-\newcommand{\blankline}{\mbox{}}
+\newcommand{\blankline}{\mbox{}\par\mbox{}}
 %% 强调
 \newcommand{\emphA}[1]{{\bfseries #1}}
 \newcommand{\emphB}[1]{{\itshape #1}}
@@ -234,6 +234,9 @@
 \newcommand{\kroneckerDelta}[2]{\delta^{#1}_{#2}}
 %% 内积括号形式(Inner Product Braket)
 \newcommand{\ipb}[3]{\qty(#1,\,#2)_{#3}}
+
+%% 张量积(Tensor Product)
+\newcommand{\tp}{\otimes}
 %% 定义等号
 %\newcommand{\defeq}{\coloneq}
 \newcommand{\defeq}{\triangleq}
@@ -271,6 +274,8 @@
 	\chapter{张量的定义及表示}
 		\input{Chapters/Chapter1}
 	
+	\chapter{张量的代数运算}
+		\input{Chapters/Chapter2}
 %	\backmatter
 %	{
 %		\small
