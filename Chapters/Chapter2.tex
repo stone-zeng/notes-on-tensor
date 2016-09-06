@@ -6,12 +6,12 @@
 		\forall\,\Tens{\Phi}\in\Tensors{p},\,\Tens{\Psi}\in\Tensors{q},
 		&\mathrel{\phantom{=}} \Tens{\Phi}\tp\Tens{\Psi}
 			\in\Tensors{p+q} \notag \\
-		&=\qty(\tensor{\Phi}{^{i_1}^{\cdots}^{i_p}} \,
+		&=\qty(\Phi^{i_1 \cdots i_p} \,
 				\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p})
-			\tp \qty(\tensor{\Psi}{_{j_1}_{\cdots}_{j_q}} \,
+			\tp \qty(\Psi_{j_1 \cdots j_q} \,
 				\V{g}^{j_1}\tp\cdots\tp\V{g}^{j_q}) \notag \\
-		&\defeq \tensor{\Phi}{^{i_1}^{\cdots}^{i_p}} \:
-			\tensor{\Psi}{_{j_1}_{\cdots}_{j_q}}\,
+		&\defeq \Phi^{i_1 \cdots i_p} \:
+			\Psi_{j_1 \cdots j_q}\,
 			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p})
 			\tp \qty(\V{g}^{j_1}\tp\cdots
 				\tp\V{g}^{j_q}_{\phantom{i_p}}) \fullstop
@@ -21,7 +21,47 @@
 		\tp\V{g}^{j_q}_{\phantom{i_p}})$，相应的张量分量为
 	\begin{equation}
 		\tensor{\qty\big(\Phi\tp\Psi)}
-			{^{i_1}^{\cdots}^{i_p}_{j_1}_{\cdots}_{j_q}} \fullstop
+			{^{i_1 \cdots i_p}_{j_1 \cdots j_q}} \fullstop
 	\end{equation}
 	
 \section{\texorpdfstring{$e$ 点积}{e 点积}}
+	张量的 \emphA{$e$ 点积}可以用符号“$\edp$”表示。
+	从这个符号可以看出 $e$ 点积的作用：前 $e$ 个指标缩并，后面的点乘。
+	
+	对于任意的 $\Tens{\Phi}\in\Tensors{p},\,
+		\Tens{\Psi}\in\Tensors{q},\,
+		e\leqslant\min\qty{p,\,q}\in\natN$，$e$ 点积是这样定义的：
+	\begin{align}
+		&\mathrel{\phantom{=}} \Tens{\Phi}\edp\Tens{\Psi} \notag \\
+		&=\qty(\Phi^{i_1 \cdots i_{p-e} i_{p-e+1} \cdots i_p} \,
+			\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-e}}
+			\tp\hl{\V{g}_{i_{p-e+1}}\tp\cdots\tp\V{g}_{i_p}}
+			) \notag \\
+		&\mathrel{\phantom{=}}\quad\edp
+			\qty(\Psi^{j_1 \cdots j_e j_{e+1} \cdots j_q} \,
+			\hl{\V{g}_{j_1}\tp\cdots\tp\V{g}_{j_e}}
+			\tp\V{g}_{j_{e+1}}\tp\cdots\tp\V{g}_{j_q}) \notag
+		\intertext{把高亮的部分做内积，得到\emphB{度量}：}
+		&\defeq\Phi^{i_1 \cdots i_{p-e} i_{p-e+1} \cdots i_p} \:
+			\Psi^{j_1 \cdots j_e j_{e+1} \cdots j_q} \notag \\
+		&\mathrel{\phantom{=}}\quad\cdot
+			g_{i_{p-e+1} j_1} \cdots g_{i_p j_e} \,
+			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-e}})
+			\tp\qty(\V{g}_{j_{e+1}}\tp\cdots\tp\V{g}_{j_q}) \notag
+		\intertext{玩一下“指标升降游戏”（注意有两种结合方式：
+			与 $\Phi$ 或 $\Psi$），可得}
+		&=\left\{\begin{lgathered}
+				\tensor{\Phi}{^{i_1 \cdots i_{p-e}}_{\hl{j_1 \cdots j_e}}}
+				\Psi^{\hl{j_1 \cdots j_e} j_{e+1} \cdots j_q} \\
+				\Phi^{i_1 \cdots i_{p-e} \hl{i_{p-e+1} \cdots i_p}}
+				\tensor{\Psi}{_{\hl{i_{p-e+1} \cdots i_p}}^{j_{e+1}
+					\cdots j_q}}
+			\end{lgathered}\right\}
+			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-e}})
+			\tp\qty(\V{g}_{j_{e+1}}\tp\cdots\tp\V{g}_{j_q}) \fullstop
+	\end{align}
+	最后一式的大括号中，高亮的 $j_1 \cdots j_e$
+	和 $i_{p-e+1} \cdots i_p$ 都是哑标，所以可以求和求掉。因此有
+	\begin{equation}
+		\Tens{\Phi}\edp\Tens{\Psi} \in \Tensors{p+q-2e} \fullstop
+	\end{equation}

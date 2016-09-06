@@ -215,9 +215,16 @@
 %% 强调
 \newcommand{\emphA}[1]{{\bfseries #1}}
 \newcommand{\emphB}[1]{{\itshape #1}}
+%% 高亮(Highlight)
+\newcommand{\hl}[2][yellow]{\mathchoice%
+	{\colorbox{#1}{$\displaystyle #2$}}%
+	{\colorbox{#1}{$\textstyle #2$}}%
+	{\colorbox{#1}{$\scriptstyle #2$}}%
+	{\colorbox{#1}{$\scriptscriptstyle #2$}}}
 %% 数集黑板粗体
 \newcommand{\setbb}[1]{\symbb{#1}}
 \newcommand{\realR}{\setbb{R}}
+\newcommand{\intN}{\setbb{N}}
 %% 哥特体
 %\newcommand{\gothic}[1]{\symfrak{#1}}
 %\newcommand{\domainB}{\gothic{B}} %邻域
@@ -237,12 +244,16 @@
 
 %% 张量积(Tensor Product)
 \newcommand{\tp}{\otimes}
+%% e-点积
+\newcommand{\edp}[1][e]{\mathbin{\dbinom{#1}{\cdot}}}
 %% 定义等号
 %\newcommand{\defeq}{\coloneq}
 \newcommand{\defeq}{\triangleq}
 
 %% m 维实空间
 \newcommand{\Rm}{\realR^m}
+%% 自然数集(正整数集)
+\newcommand{\natN}{\intN^{*}}
 %% 以 m 维 Euclid 空间为底空间的 r 阶张量全体
 \newcommand{\Tensors}[1]{\symcal{J}^{#1}\qty(\Rm)}
 
@@ -251,6 +262,8 @@
 \newcommand{\fullstop}{\text{．}}
 \newcommand{\semicomma}{\text{；}}
 %\newcommand{\const}{\text{const.}}
+
+%\renewcommand{\intertext}[1]{\shortintertext{\textit{#1}}}
 
 %TODO——标题页
 \title{
