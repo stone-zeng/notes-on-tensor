@@ -85,6 +85,12 @@
 		math-style = ISO,
 		bold-style = ISO
 	]{xits-math.otf}
+%	]{libertinusmath-regular.otf}
+%	]{texgyreschola-math.otf}
+%	]{texgyredejavu-math.otf}
+%	]{texgyrepagella-math.otf}
+%	]{latinmodern-math.otf}
+%	]{MinionMath-Regular.otf}
 %加粗使用 \symbf{}
 %直立希腊字母：\uppi 等
 
@@ -238,14 +244,20 @@
 \newcommand{\Mat}[1]{\symbf{#1}}
 
 %% Kronecker Delta
-\newcommand{\kroneckerDelta}[2]{\delta^{#1}_{#2}}
+\newcommand{\KroneckerDelta}[2]{\delta^{#1}_{#2}}
+%% Levi-Civita 记号
+\newcommand{\LeviCivita}[1]{\tensor{\epsilon}{#1}}
 %% 内积括号形式(Inner Product Braket)
 \newcommand{\ipb}[3]{\qty(#1,\,#2)_{#3}}
 
 %% 张量积(Tensor Product)
 \newcommand{\tp}{\otimes}
-%% e-点积
+%% e-点积(e Dot Product)
 \newcommand{\edp}[1][e]{\mathbin{\dbinom{#1}{\cdot}}}
+%% 全点积(Full Dot Product)
+\newcommand{\fdp}{\odot}
+%% 叉乘(has been defined in physics package)
+\renewcommand{\cp}{\times}
 %% 定义等号
 %\newcommand{\defeq}{\coloneq}
 \newcommand{\defeq}{\triangleq}
@@ -255,7 +267,7 @@
 %% 自然数集(正整数集)
 \newcommand{\natN}{\intN^{*}}
 %% 以 m 维 Euclid 空间为底空间的 r 阶张量全体
-\newcommand{\Tensors}[1]{\symcal{J}^{#1}\qty(\Rm)}
+\newcommand{\Tensors}[2][\Rm]{\symcal{J}^{#2}\qty(#1)}
 
 %% 公式用标点、文字
 \newcommand{\comma}{\text{，}}

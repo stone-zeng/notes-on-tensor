@@ -10,7 +10,7 @@
 				\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p})
 			\tp \qty(\Psi_{j_1 \cdots j_q} \,
 				\V{g}^{j_1}\tp\cdots\tp\V{g}^{j_q}) \notag \\
-		&\defeq \Phi^{i_1 \cdots i_p} \:
+		&\defeq \Phi^{i_1 \cdots i_p} \,
 			\Psi_{j_1 \cdots j_q}\,
 			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p})
 			\tp \qty(\V{g}^{j_1}\tp\cdots
@@ -42,7 +42,7 @@
 			\hl{\V{g}_{j_1}\tp\cdots\tp\V{g}_{j_e}}
 			\tp\V{g}_{j_{e+1}}\tp\cdots\tp\V{g}_{j_q}) \notag
 		\intertext{把高亮的部分做内积，得到\emphB{度量}：}
-		&\defeq\Phi^{i_1 \cdots i_{p-e} i_{p-e+1} \cdots i_p} \:
+		&\defeq\Phi^{i_1 \cdots i_{p-e} i_{p-e+1} \cdots i_p} \,
 			\Psi^{j_1 \cdots j_e j_{e+1} \cdots j_q} \notag \\
 		&\mathrel{\phantom{=}}\quad\cdot
 			g_{i_{p-e+1} j_1} \cdots g_{i_p j_e} \,
@@ -51,17 +51,102 @@
 		\intertext{玩一下“指标升降游戏”（注意有两种结合方式：
 			与 $\Phi$ 或 $\Psi$），可得}
 		&=\left\{\begin{lgathered}
-				\tensor{\Phi}{^{i_1 \cdots i_{p-e}}_{\hl{j_1 \cdots j_e}}}
+				\tensor{\Phi}{^{i_1 \cdots i_{p-e}}_{\hl{j_1 \cdots j_e}}} \,
 				\Psi^{\hl{j_1 \cdots j_e} j_{e+1} \cdots j_q} \\
-				\Phi^{i_1 \cdots i_{p-e} \hl{i_{p-e+1} \cdots i_p}}
+				\Phi^{i_1 \cdots i_{p-e} \hl{i_{p-e+1} \cdots i_p}} \,
 				\tensor{\Psi}{_{\hl{i_{p-e+1} \cdots i_p}}^{j_{e+1}
 					\cdots j_q}}
 			\end{lgathered}\right\}
 			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-e}})
 			\tp\qty(\V{g}_{j_{e+1}}\tp\cdots\tp\V{g}_{j_q}) \fullstop
 	\end{align}
-	最后一式的大括号中，高亮的 $j_1 \cdots j_e$
-	和 $i_{p-e+1} \cdots i_p$ 都是哑标，所以可以求和求掉。因此有
+	最后一步的大括号中，高亮的 $j_1 \cdots j_e$
+	和 $i_{p-e+1} \cdots i_p$ 都是哑标，可以通过求和求掉。因此有
 	\begin{equation}
 		\Tens{\Phi}\edp\Tens{\Psi} \in \Tensors{p+q-2e} \fullstop
 	\end{equation}
+	换句话说，$e$ 点积的作用就是将指标\emphB{哑标化}。
+	
+	作为一个特殊的应用，接下来我们介绍\emphA{全点积}，用符号“\fdp”表示。
+	对于任意的 $\Tens{\Phi},\,\Tens{\Psi}\in\Tensors{p}$，有
+	\begin{align}
+		&\mathrel{\phantom{=}} \Tens{\Phi}\fdp\Tens{\Psi}
+			\defeq \Tens{\Phi}\edp[p]\Tens{\Psi} \notag \\
+		&=\qty(\Phi^{i_1 \cdots i_p}\,\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p})
+			\edp[p]
+			\qty(\Psi^{j_1 \cdots j_p}\,\V{g}_{j_1}\tp\cdots\tp\V{g}_{j_p})
+			\notag \\
+		&=\Phi^{i_1 \cdots i_p} \, \Psi^{j_1 \cdots j_p} \,
+			g_{i_1 j_1} \cdots g_{i_p j_p} \notag \\
+		&=\left\{\begin{lgathered}
+				\Phi_{j_1 \cdots j_p} \, \Psi^{j_1 \cdots j_p} \\
+				\Phi^{i_1 \cdots i_p} \, \Psi_{i_1 \cdots i_p}
+			\end{lgathered}\right.
+			\in\realR \fullstop
+	\end{align}
+	可见，全点积将\emphB{全部}指标哑标化。
+	
+	张量自身和自身的全点积，定义为它的\emphA{范数}：
+	\begin{equation}
+		\Tens{\Phi}\fdp\Tens{\Phi}
+		=\Phi^{i_1 \cdots i_p} \, \Phi_{i_1 \cdots i_p}
+		\eqcolon \qty|\Tens{\Phi}|^2_{\Tensors{p}} \fullstop
+	\end{equation}
+	
+\section{叉乘}
+	张量的\emphA{叉乘}要求底空间为 $\realR^3$。
+	对于任意的 $\Tens{\Phi}\in\Tensors[\realR^3]{p},\,
+	\Tens{\Psi}\in\Tensors[\realR^3]{q}$，叉乘的定义如下：
+	\begin{align}
+		&\mathrel{\phantom{=}} \Tens{\Phi}\cp\Tens{\Psi} \notag \\
+		&=\qty(\Phi^{i_1 \cdots i_{p-1} i_p} \,
+				\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-1}}\tp\V{g}_{i_p})
+			\cp \qty(\Psi_{j_1 j_2 \cdots j_q} \,
+				\V{g}^{j_1}\tp\V{g}^{j_2}\cdots\tp\V{g}^{j_q}) \notag \\
+		&\defeq \Phi^{i_1 \cdots i_p} \, \Psi_{j_1 \cdots j_p} \,
+			\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-1}}
+			\tp\qty(\V{g}_{i_p}\cp\V{g}^{j_1})
+			\tp\V{g}^{j_2}\cdots\tp\V{g}^{j_q}
+			\in\Tensors[\realR^3]{p+q-1} \fullstop
+	\end{align}
+	注意到，此时简单张量的维数已经降了一阶。
+	
+	利用\emphA{Levi-Civita 记号}，可以进一步展开上式。
+	\begin{align}
+		\V{g}_{i_p}\cp\V{g}^{j_1}
+		=\LeviCivita{_{i_p}^{j_1}_s}\,\V{g}^s \comma
+	\end{align}
+	式中的
+	\begin{equation}
+		\LeviCivita{_{i_p}^{j_1}_s}
+		=\det[\V{g}_{i_p},\,\V{g}^{j_1},\,\V{g}_s] \fullstop
+	\end{equation}
+	于是
+	\begin{equation}
+		\Tens{\Phi}\cp\Tens{\Psi} \,
+		=\LeviCivita{_{i_p}^{j_1}_s}\,
+			\Phi^{i_1 \cdots i_p} \, \Psi_{j_1 \cdots j_p}
+			\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-1}} \tp\V{g}^s
+			\tp\V{g}^{j_2}\cdots\tp\V{g}^{j_q} \fullstop
+	\end{equation}
+	
+	下面我们再来类比地定义一种混合积“$\edp[\cp]$”。
+	对于任意的 $\Tens{\Phi},\,\Tens{\Psi}\in\Tensors{3}$，定义
+	\begin{align}
+		\Tens{\Phi}\edp[\cp]\Tens{\Psi}
+		&=\qty(\Phi^{ijk}\,\V{g}_i\tp\V{g}_j\tp\V{g}_k)
+			\edp[\cp]\qty(\Psi_{pqr}\,\V{g}^p\tp\V{g}^q\tp\V{g}^r)\notag \\
+		&\defeq \Phi^{ijk}\,\Psi_{pqr} \,
+			\KroneckerDelta{q}{j} \,
+			\V{g}_i\tp\qty(\V{g}_k\cp\V{g}^p)\tp\V{g}^r \notag
+		\intertext{缩并掉 Kronecker δ，
+			同时利用 Levi-Civita 记号展开叉乘项，可有}
+		&=\LeviCivita{_k^p_s}\,\Phi^{ijk}\,\Psi_{pjr}\,
+			\V{g}_i\tp\V{g}^s\tp\V{g}^r \comma
+	\end{align}
+	式中的
+	\begin{equation}
+		\LeviCivita{_k^p_s}=\det[\V{g}_k,\,\V{g}^p,\,\V{g}_s] \fullstop
+	\end{equation}
+	
+	对于这种混合积，并没有一般的约定。不同的研究者往往会采用不同的写法及表示。

@@ -10,14 +10,14 @@
 	\end{equation}称为\emphA{逆变基}。
 	它们满足\emphA{对偶关系}：
 	\begin{equation}
-		\qty(\V{g}^i,\,\V{g}_j)_{\Rm}=\kroneckerDelta{i}{j}
+		\qty(\V{g}^i,\,\V{g}_j)_{\Rm}=\KroneckerDelta{i}{j}
 		=\left\{\begin{aligned}
 			1,\quad i&=j \semicomma\\
 			0,\quad i&\neq j \fullstop
 		\end{aligned}\right.
 		\label{eq:对偶关系}
 	\end{equation}
-	这里的 $\kroneckerDelta{i}{j}$ 是 \emphA{Kronecker δ 函数}。
+	这里的 $\KroneckerDelta{i}{j}$ 是 \emphA{Kronecker δ 函数}。
 	
 \subsection{度量}
 	下面引入\emphA{度量}的概念。其定义为
@@ -30,13 +30,13 @@
 	
 	下面证明
 	\begin{equation}
-		g_{ik}\,g^{kj} = \kroneckerDelta{j}{i} \fullstop
+		g_{ik}\,g^{kj} = \KroneckerDelta{j}{i} \fullstop
 		\label{eq:度量之积}
 	\end{equation}
 	它也可以写成矩阵的形式：
 	\begin{equation}
 		\qty[g_{ik}]\qty[g^{kj}]
-		=\qty[\kroneckerDelta{j}{i}]=\Mat{I}_m \comma
+		=\qty[\KroneckerDelta{j}{i}]=\Mat{I}_m \comma
 	\end{equation}
 	其中的 $\Mat{I}_m$ 是 $m$ 阶单位阵。
 	\begin{myProof}
@@ -48,7 +48,7 @@
 		后文将说明 $g^{kj}\V{g}_k=\V{g}^j$，因此可得
 		\begin{equation}
 			g_{ik}\,g^{kj}=\qty(\V{g}_i,\,\V{g}^j)_{\Rm}
-			=\kroneckerDelta{j}{i} \fullstop
+			=\KroneckerDelta{j}{i} \fullstop
 		\end{equation}
 		
 		要注意的是，这里的指标 $k$ 是\emphB{哑标}。
@@ -64,12 +64,12 @@
 		\V{g}_i &=\qty(\V{g}_i,\,\V{g}_k)_{\Rm} \,\V{g}^k
 		=g_{ik}\,\V{g}^k \comma \label{eq:基向量转换关系1} \\
 		\V{g}_i &=\qty(\V{g}_i,\,\V{g}^k)_{\Rm} \,\V{g}_k
-		=\kroneckerDelta{k}{i}\V{g}_k \label{eq:基向量转换关系2}
+		=\KroneckerDelta{k}{i}\V{g}_k \label{eq:基向量转换关系2}
 	\end{braceEq}
 	以及
 	\begin{braceEq}
 		\V{g}^i &=\qty(\V{g}^i,\,\V{g}_k)_{\Rm} \,\V{g}^k
-		=\kroneckerDelta{i}{k}\,\V{g}^k \comma \label{eq:基向量转换关系3} \\
+		=\KroneckerDelta{i}{k}\,\V{g}^k \comma \label{eq:基向量转换关系3} \\
 		\V{g}^i &=\qty(\V{g}^i,\,\V{g}^k)_{\Rm} \,\V{g}_k
 		=g^{ik}\V{g}_k \fullstop \label{eq:基向量转换关系4}
 	\end{braceEq}
@@ -108,18 +108,19 @@
 	并且“吃法”具有线性性。
 
 	对于一般地张量空间 $\Tensors{r}$，我们引入了线性结构：
-	\begin{equation}
+	\begin{multline}
 		\forall\,\alpha,\,\beta\in\realR,\,
 		\Tens{\Phi},\,\Tens{\Psi}\in\Tensors{r},\quad
-		\qty(\alpha\Tens{\Phi}+\beta\Tens{\Psi})
-		\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)
-		\defeq \alpha\Tens{\Phi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)
-			+\beta\Tens{\Psi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)
+		\qty(\alpha\,\Tens{\Phi}+\beta\,\Tens{\Psi})
+		\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r) \\
+		\defeq
+			\alpha\,\Tens{\Phi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)
+			+\beta\,\Tens{\Psi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)
 		\comma
-	\end{equation}
+	\end{multline}
 	于是
 	\begin{equation}
-		\alpha\Tens{\Phi}+\beta\Tens{\Psi} \in \Tensors{r} \fullstop
+		\alpha\,\Tens{\Phi}+\beta\,\Tens{\Psi} \in \Tensors{r} \fullstop
 	\end{equation}
 	
 	下面我们要获得 $\Tens{\Phi}$ 的表示。
@@ -130,9 +131,9 @@
 		\Tens{\Phi}\qty(\V{u},\,\V{v},\,\V{w}) \notag\\
 		&=\Tens{\Phi}\qty(u^i\V{g}_i,\,v_j\V{g}^j,\,w^k\V{g}_k) \notag
 		\intertext{考虑到 $\Tens{\Phi}$ 对第一变元的线性性，可得}
-		&=u^i\,\Tens{\Phi}\qty(\V{g}_i,\,v_j\V{g}^j,\,w^k\V{g}_k) \notag
+		&=u^i\,,\Tens{\Phi}\qty(\V{g}_i,\,v_j\V{g}^j,\,w^k\V{g}_k) \notag
 		\intertext{同理，}
-		&=u^i v_j w^k\,\Tens{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)
+		&=u^i v_j w^k\,,\Tens{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)
 		\fullstop
 		\label{eq:张量的表示1}
 	\end{align}
@@ -328,13 +329,13 @@
 	
 	容易看出，这两个系数具有如下性质：
 	\begin{equation}
-		c^{(i)}_k c^k_{(j)} = \kroneckerDelta{i}{j} \fullstop
+		c^{(i)}_k c^k_{(j)} = \KroneckerDelta{i}{j} \fullstop
 	\end{equation}
 	写成矩阵形式\footnote{%
 		通常我们约定上面的标号作为行号，下面的标号作为列号。}，为
 	\begin{equation}
 		\qty[c^{(i)}_k]\qty[c^k_{(j)}]
-		=\qty[\kroneckerDelta{j}{i}]=\Mat{I}_m \fullstop
+		=\qty[\KroneckerDelta{j}{i}]=\Mat{I}_m \fullstop
 	\end{equation}
 	换句话说，两个系数矩阵是互逆的。
 	\begin{myProof}
