@@ -147,8 +147,8 @@
 	\begin{equation}
 		u^i v_j w^k
 		= \ipb{\V{u}}{\V{g}^i}{\Rm}
-		\cdot \ipb{\V{v}}{\V{g}_j}{\Rm}
-		\cdot \ipb{\V{w}}{\V{g}^k}{\Rm} \fullstop
+		\cdotp \ipb{\V{v}}{\V{g}_j}{\Rm}
+		\cdotp \ipb{\V{w}}{\V{g}^k}{\Rm} \fullstop
 		\label{eq:张量的表示2}
 	\end{equation}
 	
@@ -157,8 +157,8 @@
 		\forall\,\V{u},\,\V{v},\,\V{w}\in\Rm,\quad
 		\V{\xi}\tp\V{\eta}\tp\V{\zeta}\qty(\V{u},\,\V{v},\,\V{w})
 		\defeq \ipb{\V{\xi}}{\V{u}}{\Rm}
-		\cdot \ipb{\V{\eta}}{\V{v}}{\Rm}
-		\cdot \ipb{\V{\zeta}}{\V{w}}{\Rm} \in\realR \comma
+		\cdotp \ipb{\V{\eta}}{\V{v}}{\Rm}
+		\cdotp \ipb{\V{\zeta}}{\V{w}}{\Rm} \in\realR \comma
 	\end{equation}
 	式中 $\V{\xi},\,\V{\eta},\,\V{\zeta}\in\Rm$，
 	而暂时把 $\V{\xi}\tp\V{\eta}\tp\V{\zeta}$ 理解为一种记号。
@@ -170,8 +170,8 @@
 		\V{\xi}\tp\V{\eta}\tp\V{\zeta}
 		\qty(\V{u},\,\alpha\tilde{\V{v}}+\beta\hat{\V{v}},\,\V{w})
 		&\defeq \ipb{\V{\xi}}{\V{u}}{\Rm}
-		\cdot \ipb{\V{\eta}}{\alpha\tilde{\V{v}}+\beta\hat{\V{v}}}{\Rm}
-		\cdot \ipb{\V{\zeta}}{\V{w}}{\Rm} \in\realR \notag
+		\cdotp \ipb{\V{\eta}}{\alpha\tilde{\V{v}}+\beta\hat{\V{v}}}{\Rm}
+		\cdotp \ipb{\V{\zeta}}{\V{w}}{\Rm} \in\realR \notag
 		\intertext{注意到
 			$\ipb{\V{\eta}}{\alpha\tilde{\V{v}}+\beta\hat{\V{v}}}{\Rm}
 				=\alpha\ipb{\V{\eta}}{\tilde{\V{v}}}{\Rm}
@@ -205,7 +205,7 @@
 		&\mathrel{\phantom{=}}
 			\Tens{\Phi}\qty(\V{u},\,\V{v},\,\V{w}) \notag\\
 		&=\Tens{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)
-			\cdot\V{g}^i\tp\V{g}_j\tp\V{g}^k
+			\cdotp\V{g}^i\tp\V{g}_j\tp\V{g}^k
 			\qty(\V{u},\,\V{v},\,\V{w}) \notag
 		\intertext{由于
 			$\Tens{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \in\Rm$，因此}

@@ -8,10 +8,10 @@
 \documentclass[oneside]{book}
 
 %TODO——宏包
-%%方便定义命令
+%% 方便定义命令
 %\usepackage{suffix}
 
-%%页面尺寸
+%% 页面尺寸
 \usepackage{geometry}
 	\geometry{
 		a4paper,
@@ -19,10 +19,10 @@
 		headheight = 3 cm
 	}
 
-%%设置标题
+%% 设置标题
 \usepackage{titlesec}
 
-%%交叉引用，超链接等
+%% 交叉引用，超链接等
 \usepackage[hyperindex]{hyperref}
 	\hypersetup{
 		%  PDF 书签
@@ -43,7 +43,7 @@
 		urlcolor = {blue!70!black}
 	}
 
-%%常规字体选择
+%% 常规字体选择
 \usepackage[no-math]{fontspec}
 	\setmainfont[
 		Extension = .otf,
@@ -68,18 +68,19 @@
 %	\newfontfamily{\SourceSans}{Source Sans Pro}
 %	\newfontfamily{\Songti}{方正书宋_GBK}
 
-%%AMS 数学支持
+%% AMS 数学支持
 \usepackage{amsmath}
+	\allowdisplaybreaks
 \usepackage{amssymb}
 
-%%Pi 符号
+%% Pi 符号
 \usepackage{pifont}
 	% 正确 √
 	\newcommand{\cmark}{\ding{51}}
 	% 错误 ×
 	\newcommand{\xmark}{\ding{55}}
 
-%%调用 Unicode OpenType 数学字体
+%% 调用 Unicode OpenType 数学字体
 \usepackage{unicode-math}
 	\setmathfont[
 		math-style = ISO,
@@ -94,7 +95,7 @@
 %加粗使用 \symbf{}
 %直立希腊字母：\uppi 等
 
-%%中文文字处理
+%% 中文文字处理
 \usepackage[UTF8, heading = true]{ctex}
 	\pagestyle{plain}
 \usepackage{xeCJK}
@@ -123,7 +124,7 @@
 	\setCJKfamilyfont{黑体}{方正黑体_GBK}
 	\setCJKfamilyfont{仿宋}{方正仿宋_GBK}
 
-%%脚注增强版
+%% 脚注增强版
 \usepackage[stable, perpage, bottom]{footmisc}
 	%需要调用 pifont 宏包
 	%衬线加圈阳文数字：\ding{172}~\ding{181} (1~10)
@@ -144,33 +145,36 @@
 	}
 	\makeatother
 
-%%颜色
+%% 颜色
 \usepackage[svgnames]{xcolor}
 
-%%图形
-%\usepackage{graphicx}
+%% 表格虚线
+\usepackage{arydshln}
 
-%%绘图
+%% 图形
+\usepackage{graphicx}
+
+%% 绘图
 %\usepackage{tikz}
 %	\usepgflibrary{arrows.meta}
 %	\tikzset{>=Stealth}
 
-%%数学工具
+%% 数学工具
 \usepackage{mathtools}
 
-%%强调公式
+%% 强调公式
 \usepackage[ntheorem]{empheq}
 
-%%张量
+%% 张量
 \usepackage{tensor}
 
-%%物理、数学符号
+%% 物理、数学符号
 \usepackage{physics}
 
-%%单位
+%% 单位
 %\usepackage{siunitx}
 
-%%定制列表环境
+%% 定制列表环境
 %\usepackage{enumitem}
 %	%定义带缩进的左对齐格式
 %	%前一个参数 2.1 em 确定标签的位置
@@ -178,7 +182,7 @@
 %	%HACK：20160709 可能与字体、字号、标签内容有关
 %	\SetLabelAlign{leftalignwithindent}{\hspace{2.1 em} \makebox[1.2 em][l]{#1}}
 
-%%定理类环境
+%% 定理类环境
 \usepackage[thmmarks, amsmath]{ntheorem}
 	\theoremstyle{nonumberplain} %带编号
 	\theoremheaderfont{\bfseries}
@@ -186,10 +190,10 @@
 	\theoremsymbol{\mbox{$\Box$}}
 		\newtheorem{myProof}{证明：}
 
-%%索引
+%% 索引
 
 %TODO——环境
-%%定制列表（编号）
+%% 定制列表（编号）
 %\newenvironment{myEnumerate}
 %	{\begin{enumerate} [
 %%		label=\bullet, %标签样式：圆点
@@ -227,6 +231,11 @@
 	{\colorbox{#1}{$\textstyle #2$}}%
 	{\colorbox{#1}{$\scriptstyle #2$}}%
 	{\colorbox{#1}{$\scriptscriptstyle #2$}}}
+\newcommand{\hlw}[1]{\mathchoice%
+	{\colorbox{white}{$\displaystyle #1$}}%
+	{\colorbox{white}{$\textstyle #1$}}%
+	{\colorbox{white}{$\scriptstyle #1$}}%
+	{\colorbox{white}{$\scriptscriptstyle #1$}}}
 %% 数集黑板粗体
 \newcommand{\setbb}[1]{\symbb{#1}}
 \newcommand{\realR}{\setbb{R}}
@@ -242,7 +251,11 @@
 \newcommand{\Tens}[1]{\symbf{#1}}
 %% 矩阵(Matrix)
 \newcommand{\Mat}[1]{\symbf{#1}}
+%% 置换(Permutation)
+\newcommand{\Perm}[1]{\symbf{#1}}
 
+%% 恒等映照(Identity)
+\newcommand{\Id}{\mathbfsfup{Id}}
 %% Kronecker Delta
 \newcommand{\KroneckerDelta}[2]{\delta^{#1}_{#2}}
 %% Levi-Civita 记号
@@ -253,11 +266,13 @@
 %% 张量积(Tensor Product)
 \newcommand{\tp}{\otimes}
 %% e-点积(e Dot Product)
-\newcommand{\edp}[1][e]{\mathbin{\dbinom{#1}{\cdot}}}
+\newcommand{\edp}[1][e]{\mathbin{\dbinom{#1}{\cdotp}}}
 %% 全点积(Full Dot Product)
 \newcommand{\fdp}{\odot}
 %% 叉乘(has been defined in physics package)
-\renewcommand{\cp}{\times}
+\renewcommand{\cp}{\vectimes}
+%% 复合(Composite)
+\newcommand{\comp}{\circ}
 %% 定义等号
 %\newcommand{\defeq}{\coloneq}
 \newcommand{\defeq}{\triangleq}
@@ -268,6 +283,17 @@
 \newcommand{\natN}{\intN^{*}}
 %% 以 m 维 Euclid 空间为底空间的 r 阶张量全体
 \newcommand{\Tensors}[2][\Rm]{\symcal{J}^{#2}\qty(#1)}
+
+%% 符号(Sign)
+\DeclareMathOperator{\sign}{sgn}
+
+%% 带圈数字(Circle digit)
+\newcommand{\circNum}[1]{%
+	\ifnum #1=0%
+		\mathord{\symbol{9450}}%
+	\else%
+		\mathord{\symbol{\numexpr9311+#1}}%
+	\fi}
 
 %% 公式用标点、文字
 \newcommand{\comma}{\text{，}}
@@ -299,7 +325,7 @@
 	\chapter{张量的定义及表示}
 		\input{Chapters/Chapter1}
 	
-	\chapter{张量的代数运算}
+	\chapter{张量的运算性质}
 		\input{Chapters/Chapter2}
 %	\backmatter
 %	{

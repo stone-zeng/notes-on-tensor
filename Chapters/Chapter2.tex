@@ -44,7 +44,7 @@
 		\intertext{把高亮的部分做内积，得到\emphB{度量}：}
 		&\defeq\Phi^{i_1 \cdots i_{p-e} i_{p-e+1} \cdots i_p} \,
 			\Psi^{j_1 \cdots j_e j_{e+1} \cdots j_q} \notag \\
-		&\mathrel{\phantom{=}}\quad\cdot
+		&\mathrel{\phantom{=}}\quad\cdotp
 			g_{i_{p-e+1} j_1} \cdots g_{i_p j_e} \,
 			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-e}})
 			\tp\qty(\V{g}_{j_{e+1}}\tp\cdots\tp\V{g}_{j_q}) \notag
@@ -150,3 +150,216 @@
 	\end{equation}
 	
 	对于这种混合积，并没有一般的约定。不同的研究者往往会采用不同的写法及表示。
+	
+\section{置换}
+\subsection{置换的定义}
+	\emphA{置换}运算实际上是一种交换位置或者改变次序的运算。
+	之后我们还将引入针对张量的\emph{置换算子}，它是外积运算和外微分运算的基础。
+	这些运算是现代张量分析与微分几何的支柱。
+	
+	我们从一个例子开始。下面是一个 $2 \times 7$ 的“矩阵”：
+	\begin{equation}
+		\Perm{\sigma}=\mqty[
+			\circNum{1} & \circNum{2} & \circNum{3} & \circNum{4} &
+				\circNum{5} & \circNum{6} & \circNum{7} \\
+			\circNum{7} & \circNum{4} & \circNum{5} & \circNum{1} &
+				\circNum{6} & \circNum{2} & \circNum{3}
+		] \fullstop
+		\label{eq:置换序号定义}
+	\end{equation}
+	矩阵里面的每一个数字表示一个位置。可以想象成 7 把椅子，
+	先是按第一行的顺序依次排列，再按照第二行的顺序打乱，重新排列。
+	于是这就成为一个\emphA{7 阶置换}。这个定义等价于
+	\begin{mySubEq}
+		\begin{gather}
+			\Perm{\sigma}=\mqty*(
+				4 & 9 & 2 & 7 & 5 & 8 & 3 \\
+				3 & 7 & 5 & 4 & 8 & 9 & 2
+			) \comma \label{eq:置换元素表示_数字}
+			\intertext{自然也等价于}
+			\Perm{\sigma}=\mqty*(
+				\spadesuit & \heartsuit & \diamondsuit & \clubsuit &
+					\varspadesuit & \varheartsuit & \vardiamondsuit \\
+				\vardiamondsuit & \clubsuit & \varspadesuit & \spadesuit &
+					\varheartsuit & \heartsuit & \diamondsuit
+			) \comma \label{eq:置换元素表示_符号}
+		\end{gather}
+	\end{mySubEq}
+	当然，换用任何元素也都是可以的。
+	
+	通常我们用方括号表示置换的\emphA{序号定义}，即标号的排列轮换；
+	用圆括号表示\emphA{元素定义}，即标号对应元素的轮换。
+	
+\subsection{置换的符号}
+	接着来定义置换的\emphA{符号} $\sign\Perm{\sigma}$。
+	这里我们把每次交换两个数字称为一次“操作”。
+	如果经过\emphB{偶数次}“操作”，可以把经置换后的序列恢复为原来的顺序，
+	那么该置换的符号 $\sign\Perm{\sigma} = 1$；
+	而如果经过\emphB{奇数次}“操作”才可以复原，则 $\sign\Perm{\sigma}=-1$。
+	若用一个式子表示，则为
+	\begin{equation}
+		\sign\Perm{\sigma} = (-1)^n \comma
+	\end{equation}
+	其中的 $n$ 是恢复原本顺序所需“操作”的次数.
+	
+	下面我们以式~\eqref{eq:置换序号定义} 所定义的 $\Perm{\sigma}$ 为例，
+	演示求置换符号的过程。这里的关键是通过两两交换，
+	按如下步骤把式~\eqref{eq:置换元素表示_符号} 的第二行变换成第一行：
+	\begin{gather*}
+		\mqty{
+			\hl{\vardiamondsuit} & \hlw{\clubsuit} & \hlw{\varspadesuit} &
+				\hl{\spadesuit} & \hlw{\varheartsuit} & \hlw{\heartsuit} &
+				\hlw{\diamondsuit}
+		} \\
+		\mqty{ & & & \Downarrow & & & } \\
+		\mqty{
+			\hl[pink]{\spadesuit} & \hl{\clubsuit} & \hlw{\varspadesuit} &
+				\hl[pink]{\vardiamondsuit} & \hlw{\varheartsuit} &
+				\hl{\heartsuit} & \hlw{\diamondsuit}
+		} \\
+		\mqty{ & & & \Downarrow & & & } \\
+		\mqty{
+			\hlw{\spadesuit} & \hl[pink]{\heartsuit} & \hl{\varspadesuit} &
+				\hlw{\vardiamondsuit} & \hlw{\varheartsuit} &
+				\hl[pink]{\clubsuit} & \hl{\diamondsuit}
+		} \\
+		\mqty{ & & & \Downarrow & & & } \\
+		\mqty{
+			\hlw{\spadesuit} & \hlw{\heartsuit} & \hl[pink]{\diamondsuit} &
+				\hl{\vardiamondsuit} & \hlw{\varheartsuit} & \hl{\clubsuit} &
+				\hl[pink]{\varspadesuit}
+		} \\
+		\mqty{ & & & \Downarrow & & & } \\
+		\mqty{
+			\hlw{\spadesuit} & \hlw{\heartsuit} & \hlw{\diamondsuit} &
+				\hl[pink]{\clubsuit} & \hl{\varheartsuit} &
+				\hl[pink]{\vardiamondsuit} & \hl{\varspadesuit}
+		} \\
+		\mqty{ & & & \Downarrow & & & } \\
+		\phantom{\mspace{10mu}}\mqty{
+			\hlw{\spadesuit} & \hlw{\heartsuit} & \hlw{\diamondsuit} &
+				\hlw{\clubsuit} & \hl[pink]{\varspadesuit} &
+				\hl{\vardiamondsuit} &
+				\hl{\hl[pink]{\varheartsuit}}
+		} \\
+		\mqty{ & & & \Downarrow & & & } \\
+		\mqty{
+			\hlw{\spadesuit} & \hlw{\heartsuit} & \hlw{\diamondsuit} &
+				\hlw{\clubsuit} & \hlw{\varspadesuit} &
+				\hl[pink]{\varheartsuit} & \hl[pink]{\vardiamondsuit}
+		}
+	\end{gather*}
+	一共进行了 6 次两两交换，因此 $\sign\Perm{\sigma}=1$。
+	
+\subsection{置换的复合}
+	再定义一个置换
+	\begin{equation}
+		\Perm{\tau}=\mqty[
+			1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+			5 & 1 & 7 & 3 & 6 & 4 & 2
+		] \fullstop
+	\end{equation}
+	注意这里用了方括号，因此它是一个\emphB{序号定义}。
+	方便起见，以后的序号我们都只用不带圈的普通数字表示。
+	考虑之前定义的置换
+	\begin{equation}
+		\Perm{\sigma}=\mqty[
+			1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+			7 & 4 & 5 & 1 & 6 & 2 & 3
+		] \comma
+	\end{equation}
+	则 $\Perm{\tau}$ 与 $\Perm{\sigma}$ 的复合
+	\begin{equation}
+		\Perm{\tau}\comp\Perm{\sigma}=
+		\qty(\begin{array}{@{}ccccccc@{}}
+			\dicei & \diceii & \diceiii & \diceiv & \dicev &
+				\dicevi & \circledtwodots \\
+			\circledtwodots & \diceiv & \dicev & \dicei & \dicevi &
+				\diceii & \diceiii \\
+			\hdashline
+			\dicevi & \circledtwodots & \diceiii & \dicev & \diceii &
+				\dicei & \diceiv
+		\end{array})
+		\quad\mqty{\\ \leftarrow\Perm{\sigma} \\ \leftarrow\Perm{\tau}}
+	\end{equation}
+	与函数、线性变换等的复合类似，这里也用小圆圈“$\comp$”表示置换的复合。
+	
+	假设经过置换 $\Perm{\sigma}$、$\Perm{\tau}$ 作用后得到的序列，
+	分别需要 $p$ 次和 $q$ 次两两交换才能复原为原来的序列。
+	那么很显然，经过复合置换 $\Perm{\tau}\comp\Perm{\sigma}$ 作用后的序列，
+	经过 $q+p$ 次两两交换也一定可以复原。因此，复合置换的符号
+	\begin{equation}
+		\sign\qty(\Perm{\tau}\comp\Perm{\sigma})
+		=(-1)^{q+p}=(-1)^q \cdotp (-1)^p
+		=\sign\Perm{\tau}\cdotp\sign\Perm{\sigma} \fullstop
+	\end{equation}
+	
+\subsection{逆置换}
+	逆置换 $\Perm{\sigma}^{-1}$ 的定义为
+	\begin{equation}
+		\Perm{\sigma}^{-1}\comp\Perm{\sigma} = \Id \comma
+	\end{equation}
+	其中的“$\Id$”是\emphA{恒等映照}。
+	
+	仍然使用式~\eqref{eq:置换元素表示_符号}：
+	\begin{equation}
+		\Perm{\sigma}=\mqty*(
+			\spadesuit & \heartsuit & \diamondsuit & \clubsuit &
+				\varspadesuit & \varheartsuit & \vardiamondsuit \\
+			\vardiamondsuit & \clubsuit & \varspadesuit & \spadesuit &
+				\varheartsuit & \heartsuit & \diamondsuit
+		) \comma
+	\end{equation}
+	那么自然有
+	\begin{equation}
+		\Perm{\sigma}^{-1}=\mqty*(
+			\vardiamondsuit & \clubsuit & \varspadesuit & \spadesuit &
+				\varheartsuit & \heartsuit & \diamondsuit \\
+			\spadesuit & \heartsuit & \diamondsuit & \clubsuit &
+				\varspadesuit & \varheartsuit & \vardiamondsuit
+		) \fullstop
+	\end{equation}
+	显然，我们有 $\Perm{\sigma}^{-1}\comp\Perm{\sigma} = \Id$。
+	
+	回忆一下逆矩阵的定义。矩阵 $\Mat{A}$ 的逆 $\Mat{A}^{-1}$ 既要满足
+	$\Mat{A}^{-1}\Mat{A}=\Mat{I}$，又要满足
+	$\Mat{A}\Mat{A}^{-1}=\Mat{I}$。对于置换也是如此，
+	因此我们需要检查 $\Perm{\sigma}\comp\Perm{\sigma}^{-1}$：\footnote{%
+		该式中的数字角标用来澄清原始序号。}
+	\begin{equation}
+		\Perm{\sigma}\comp\Perm{\sigma}^{-1}=
+		\qty(\begin{array}{@{}ccccccc@{}}
+			\vardiamondsuit & \clubsuit & \varspadesuit & \spadesuit &
+				\varheartsuit & \heartsuit & \diamondsuit \\
+			\spadesuit_1 & \heartsuit_2 & \diamondsuit_3 & \clubsuit_4 &
+				\varspadesuit_5 & \varheartsuit_6 & \vardiamondsuit_7 \\
+			\hdashline
+			\vardiamondsuit_7 & \clubsuit_4 & \varspadesuit_5 &
+				\spadesuit_1 & \varheartsuit_6 &
+				\heartsuit_2 & \diamondsuit_3
+		\end{array})
+		\quad\mqty{
+			\\ \leftarrow\Perm{\sigma}^{-1} \\
+			\leftarrow\Perm{\sigma}\phantom{^{-1}}
+		}
+	\end{equation}
+	可见的确有 $\Perm{\sigma}\comp\Perm{\sigma}^{-1}=\Id$。
+	
+	另外，由于恒等映照 $\Id$ 作用后序列不发生变化，
+	复原所需的交换次数为 0，因此
+	\begin{equation}
+		\sign\Id=(-1)^0=1 \fullstop
+	\end{equation}
+	而根据定义，
+	\begin{equation}
+		\Id=\Perm{\sigma}^{-1}\comp\Perm{\sigma} \comma
+	\end{equation}
+	故有
+	\begin{equation}
+		\sign\Perm{\sigma} \cdotp \sign\Perm{\sigma}^{-1} = 1 \fullstop
+	\end{equation}
+	由此，可以推知
+	\begin{equation}
+		\sign\Perm{\sigma}=\sign\Perm{\sigma}^{-1} \comma
+	\end{equation}
+	即置换与它的逆具有\emphB{相同}的符号。
