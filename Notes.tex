@@ -262,6 +262,8 @@
 \newcommand{\LeviCivita}[1]{\tensor{\epsilon}{#1}}
 %% 内积括号形式(Inner Product Braket)
 \newcommand{\ipb}[3]{\qty(#1,\,#2)_{#3}}
+%% 集合(带描述)
+\DeclarePairedDelimiterX\set[2]{\{}{\}}{#1 \;\delimsize\vert\; #2}
 
 %% 张量积(Tensor Product)
 \newcommand{\tp}{\otimes}
@@ -283,8 +285,10 @@
 \newcommand{\natN}{\intN^{*}}
 %% 以 m 维 Euclid 空间为底空间的 r 阶张量全体
 \newcommand{\Tensors}[2][\Rm]{\symcal{J}^{#2}\qty(#1)}
+%% r 阶置换全体
+\newcommand{\Permutations}[1]{P_{#1}}
 
-%% 符号(Sign)
+%% 符号函数(Sign)
 \DeclareMathOperator{\sign}{sgn}
 
 %% 带圈数字(Circle digit)

@@ -151,12 +151,15 @@
 	
 	对于这种混合积，并没有一般的约定。不同的研究者往往会采用不同的写法及表示。
 	
-\section{置换}
-\subsection{置换的定义}
-	\emphA{置换}运算实际上是一种交换位置或者改变次序的运算。
+\section{置换（一）}
+	本节主要介绍\emphA{置换运算}的定义及相关概念，
+	这将使我们暂时离开张量运算的主线。
+	
+	置换运算实际上是一种交换位置或者改变次序的运算。
 	之后我们还将引入针对张量的\emph{置换算子}，它是外积运算和外微分运算的基础。
 	这些运算是现代张量分析与微分几何的支柱。
 	
+\subsection{置换的定义}
 	我们从一个例子开始。下面是一个 $2 \times 7$ 的“矩阵”：
 	\begin{equation}
 		\Perm{\sigma}=\mqty[
@@ -363,3 +366,113 @@
 		\sign\Perm{\sigma}=\sign\Perm{\sigma}^{-1} \comma
 	\end{equation}
 	即置换与它的逆具有\emphB{相同}的符号。
+	
+\section{置换（二）}
+	本节将介绍置换运算的基本性质。
+	
+\subsection{置换的穷尽}
+	先要做一点铺垫。设有序数组
+	\begin{equation}
+		\qty{i_1,\,i_2,\,\cdots,\,i_r}
+	\end{equation}
+	经置换 $\Perm{\sigma}$ 作用后成为
+	\begin{equation}
+		\qty{\Perm{\sigma}(i_1),\,\Perm{\sigma}(i_2),\,
+			\cdots,\,\Perm{\sigma}(i_r)} \comma
+	\end{equation}
+	则根据之前的元素定义（圆括号），可以把 $\Perm{\sigma}$ 记为
+	\begin{equation}
+		\Perm{\sigma}=\mqty*(
+			i_1 & i_2 & \cdots & i_r \\
+			\Perm{\sigma}(i_1) & \Perm{\sigma}(i_2) &
+				\cdots & \Perm{\sigma}(i_r)
+		)\fullstop
+	\end{equation}
+	每次置换都将得到一个有序数组。把它们组合到一起，就可以得到集合
+	\begin{equation}
+		\set[\bigg]
+			{\qty(\Perm{\sigma}(i_1),\,\Perm{\sigma}(i_2),\,
+				\cdots,\,\Perm{\sigma}(i_r))}
+			{\forall\,\Perm{\sigma}\in\Permutations{r}} \fullstop
+	\end{equation}
+	其中的 $\Permutations{r}$ 表示 $r$ 阶置换的全体。
+	根据排列组合原理，$r$ 阶置换的总数等于 $r$ 个元素的\emphB{全排列数}。
+	即该集合共有 $r!$ 个元素。
+	
+	下面我们要证明
+	\begin{mySubEq}
+		\begin{align}
+			&\mathrel{\phantom{=}}\set[\bigg]
+				{\qty(\Perm{\sigma}(i_1),\,\Perm{\sigma}(i_2),\,
+					\cdots,\,\Perm{\sigma}(i_r))}
+				{\forall\,\Perm{\sigma}\in\Permutations{r}} \notag \\
+			%
+			&=\set[\bigg]
+				{\qty(
+					\Perm{\tau}\comp\Perm{\sigma}(i_1),\,
+					\Perm{\tau}\comp\Perm{\sigma}(i_2),\,\cdots,\,
+					\Perm{\tau}\comp\Perm{\sigma}(i_r) )}
+				{\forall\,\Perm{\sigma},\,\Perm{\tau}\in\Permutations{r}}
+				\label{eq:置换的穷尽_复合1} \\
+			&=\set[\bigg]
+				{\qty(
+					\Perm{\sigma}\comp\Perm{\tau}(i_1),\,
+					\Perm{\sigma}\comp\Perm{\tau}(i_2),\,\cdots,\,
+					\Perm{\sigma}\comp\Perm{\tau}(i_r) )}
+				{\forall\,\Perm{\sigma},\,\Perm{\tau}\in\Permutations{r}}
+				\label{eq:置换的穷尽_复合2} \\
+			&=\set[\bigg]
+				{\qty(
+					\Perm{\sigma}^{-1}(i_1),\,
+					\Perm{\sigma}^{-1}(i_2),\,\cdots,\,
+					\Perm{\sigma}^{-1}(i_r))}
+				{\forall\,\Perm{\sigma}\in\Permutations{r}} 
+				\label{eq:置换的穷尽_逆} \fullstop
+		\end{align}
+	\end{mySubEq}
+	\colorbox{pink}{这说明置换构成了置换群。？}
+	
+	\begin{myProof}
+		证明的思路是说明集合互相包含。
+		
+		对于式~\eqref{eq:置换的穷尽_复合1}，
+		右边的 $\Perm{\tau}\comp\Perm{\sigma}$ 也是一个 $r$ 阶置换，
+		自然符合左边集合的定义，因此 $\text{右边}\subset\text{左边}$。
+		由于这一步是相当显然的，以下的几个证明我们将略去该步。
+		另一方面，左边的 $\Perm{\sigma}$ 可以表示成
+		\begin{equation}
+			\Perm{\sigma}
+			=\Id\comp\Perm{\sigma}
+			=\qty(\Perm{\tau}\comp\Perm{\tau}^{-1}) \comp\Perm{\sigma}
+			=\Perm{\tau}\comp \qty(\Perm{\tau}^{-1}\comp\Perm{\sigma})
+			\comma
+		\end{equation}
+		这就是右边集合的定义，因此 $\text{左边}\subset\text{右边}$。
+		故可证得等式成立。
+		
+		对于式~\eqref{eq:置换的穷尽_复合2}，我们有
+		\begin{equation}
+			\Perm{\sigma}
+			=\Perm{\sigma}\comp\Id
+			=\Perm{\sigma}\comp \qty(\Perm{\tau}^{-1}\comp\Perm{\tau})
+			=\qty(\Perm{\sigma}\comp\Perm{\tau}^{-1}) \comp\Perm{\tau}
+			\comma
+		\end{equation}
+		它符合了右边集合的定义，因此 $\text{左边}\subset\text{右边}$。
+		于是等式成立。
+		
+		对于式~\eqref{eq:置换的穷尽_逆}，我们有
+		\begin{equation}
+			\Perm{\sigma}=\qty(\Perm{\sigma}^{-1})^{-1} \comma
+		\end{equation}
+		它符合了右边集合的定义，因此 $\text{左边}\subset\text{右边}$。
+		于是等式成立。
+	\end{myProof}
+	
+\subsection{数组元素的乘积}
+%	
+%	
+%	
+%	
+\section{置换（三）}
+	本节将介绍针对张量的\emphA{置换算子}。
