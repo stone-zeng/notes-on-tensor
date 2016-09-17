@@ -372,14 +372,14 @@
 	
 \subsection{置换的穷尽}
 	先要做一点铺垫。设有序数组
-	\begin{equation}
+	\begin{equation*}
 		\qty{i_1,\,i_2,\,\cdots,\,i_r}
-	\end{equation}
+	\end{equation*}
 	经置换 $\Perm{\sigma}$ 作用后成为
-	\begin{equation}
+	\begin{equation*}
 		\qty{\Perm{\sigma}(i_1),\,\Perm{\sigma}(i_2),\,
 			\cdots,\,\Perm{\sigma}(i_r)} \comma
-	\end{equation}
+	\end{equation*}
 	则根据之前的元素定义（圆括号），可以把 $\Perm{\sigma}$ 记为
 	\begin{equation}
 		\Perm{\sigma}=\mqty*(
@@ -470,6 +470,100 @@
 	\end{myProof}
 	
 \subsection{数组元素的乘积}
+	设有序数组 $\qty{i_1,\,i_2,\,\cdots,\,i_r}$、
+	$\qty{j_1,\,j_2,\,\cdots,\,j_r}$ 和 $\qty{k_1,\,k_2,\,\cdots,\,k_r}$
+	经 $r$ 阶置换 $\Perm{\sigma}$ 作用后分别成为
+	$\qty{\Perm{\sigma}(i_1),\,\Perm{\sigma}(i_2),\,
+		\cdots,\,\Perm{\sigma}(i_r)}$、
+	$\qty{\Perm{\sigma}(j_1),\,\Perm{\sigma}(j_2),\,
+		\cdots,\,\Perm{\sigma}(j_r)}$ 和
+	$\qty{\Perm{\sigma}(k_1),\,\Perm{\sigma}(k_2),\,
+		\cdots,\,\Perm{\sigma}(k_r)}$，也就是说
+	\begin{equation}
+		\Perm{\sigma}=\mqty*(
+			i_1 & i_2 & \cdots & i_r \\
+			\Perm{\sigma}(i_1) & \Perm{\sigma}(i_2) &
+				\cdots & \Perm{\sigma}(i_r) )
+		=\mqty*(
+			j_1 & j_2 & \cdots & j_r \\
+			\Perm{\sigma}(j_1) & \Perm{\sigma}(j_2) &
+				\cdots & \Perm{\sigma}(j_r) )
+		=\mqty*(
+			k_1 & k_2 & \cdots & k_r \\
+			\Perm{\sigma}(k_1) & \Perm{\sigma}(k_2) &
+				\cdots & \Perm{\sigma}(k_r) ) \fullstop
+	\end{equation}
+	于是我们可以得到
+	\begin{align}
+		\forall\,\Perm{\sigma}\in\Permutations{r}\, ,
+		&\mathrel{\phantom{=}} A_{i_1 j_1 k_1} A_{i_2 j_2 k_2} \cdots
+			A_{i_r j_r k_r} \notag \\
+		&=A_{\Perm{\sigma}(i_1)\,\Perm{\sigma}(j_1)\,\Perm{\sigma}(k_1)}
+			A_{\Perm{\sigma}(i_2)\,\Perm{\sigma}(j_2)\,\Perm{\sigma}(k_2)}
+			\cdots
+			A_{\Perm{\sigma}(i_r)\,\Perm{\sigma}(j_r)\,\Perm{\sigma}(k_r)}
+			\comma
+	\end{align}
+	式中的 $A_{ijk}$ 表示三维数组 $\Mat{A}$ 的一个元素，其指标为 $ijk$。
+	
+	我们通过一个例子来说明这一条性质。还是用式~\eqref{eq:置换元素表示_数字} 和
+	\eqref{eq:置换元素表示_符号} 所定义的置换 $\Perm{\sigma}$：
+	\begin{equation}
+		\Perm{\sigma}=\mqty*(
+			4 & 9 & 2 & 7 & 5 & 8 & 3 \\
+			3 & 7 & 5 & 4 & 8 & 9 & 2 )
+		=\mqty*(
+			\spadesuit & \heartsuit & \diamondsuit & \clubsuit &
+				\varspadesuit & \varheartsuit & \vardiamondsuit \\
+			\vardiamondsuit & \clubsuit & \varspadesuit & \spadesuit &
+				\varheartsuit & \heartsuit & \diamondsuit ) \fullstop
+				\label{eq:置换元素表示_数组元素的乘积举例}
+	\end{equation}
+	随意写出一个数组元素乘积：
+	\begin{equation}
+		A_{379}A_{264}A_{157}A_{483}A_{698}
+		A_{\diamondsuit\clubsuit\heartsuit}
+		A_{\vardiamondsuit\varspadesuit\varheartsuit} \fullstop
+		\label{eq:数组元素乘积举例}
+	\end{equation}
+	三组下标分别为
+	\begin{equation}
+		\left\{\begin{lgathered}
+			3,\,2,\,1,\,4,\,6,\,\diamondsuit,\,\vardiamondsuit;\\
+			7,\,6,\,5,\,8,\,9,\,\clubsuit,\,\varspadesuit;\\
+			9,\,4,\,7,\,3,\,8,\,\heartsuit,\,\varheartsuit.\\
+		\end{lgathered}
+		\right.
+	\end{equation}
+	考虑 $\Perm{\sigma}$ 的\emphB{序号定义}式~\eqref{eq:置换序号定义}：
+	\begin{equation}
+		\Perm{\sigma}=\mqty[
+			1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+			7 & 4 & 5 & 1 & 6 & 2 & 3
+		] \fullstop
+	\end{equation}
+	所谓序号只是位置的抽象表示，而不代表任何真实的元素。
+	请记住：置换始终是\emphB{位置}的变换，而非\emphB{元素}的变换，
+	不要被式~\eqref{eq:置换元素表示_数组元素的乘积举例} 给迷惑了。
+	把 $\Perm{\sigma}$ 作用在这三组下标上，可得
+	\begin{equation}
+		\left\{\begin{lgathered}
+			\vardiamondsuit,\,4,\,6,\,3,\,\diamondsuit,\,2,\,1;\\
+			\varspadesuit,\,8,\,9,\,7,\,\clubsuit,\,6,\,5;\\
+			\varheartsuit,\,3,\,8,\,9,\,\heartsuit,\,4,\,7.\\
+		\end{lgathered}
+		\right.
+	\end{equation}
+	于是之前的数组元素乘积就变成了
+	\begin{equation}
+		A_{\vardiamondsuit\varspadesuit\varheartsuit}
+		A_{483}A_{698}A_{379}
+		A_{\diamondsuit\clubsuit\heartsuit}
+		A_{264}A_{157} \fullstop
+	\end{equation}
+	比对一下各元素，可见与式~\eqref{eq:数组元素乘积举例} 的确是完全一样的。
+	
+\subsection{哑标的穷尽}
 %	
 %	
 %	

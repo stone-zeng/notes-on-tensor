@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/W32TeX) (preloaded format=xelatex 2016.9.14)  17 SEP 2016 01:15
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/W32TeX) (preloaded format=xelatex 2016.9.14)  17 SEP 2016 22:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2820,15 +2820,15 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 3.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Package hyperref Info: bookmark level for unknown myProof defaults to 0 on inpu
-t line 43.
+t line 44.
  [1
 
 
 ] [2]
 LaTeX Font Info:    Font shape `EU1/xits-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.52823pt on input line 195.
+(Font)              scaled to size 7.52823pt on input line 196.
 LaTeX Font Info:    Font shape `EU1/xits-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.528pt on input line 195.
+(Font)              scaled to size 7.528pt on input line 196.
  [3] [4]
 [5]) [6]
 第二章
@@ -2847,12 +2847,12 @@ LaTeX Font Info:    Font shape `EU1/xits-math.otf(2)/m/n' will be
 (Font)              scaled to size 9.03358pt on input line 27.
  [7
 
-] [8] [9] [10] [11])
+] [8] [9] [10] [11] [12])
 \tf@thm=\write4
 \openout4 = `Notes.thm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 341.
- [12]
+ [13]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 341.
  (./Notes.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 341.
@@ -2860,12 +2860,12 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 341.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 341.
  ) 
 Here is how much of TeX's memory you used:
- 33949 strings out of 495544
- 634199 string characters out of 6186321
- 748232 words of memory out of 5000000
- 36853 multiletter control sequences out of 15000+600000
+ 33959 strings out of 495544
+ 634339 string characters out of 6186321
+ 748310 words of memory out of 5000000
+ 36863 multiletter control sequences out of 15000+600000
  12117 words of font info for 101 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  58i,24n,80p,10361b,790s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Notes.pdf (12 pages).
+Output written on Notes.pdf (13 pages).
