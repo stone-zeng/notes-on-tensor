@@ -73,6 +73,9 @@
 	\allowdisplaybreaks
 \usepackage{amssymb}
 
+%% 数学工具(Must before `unicode-math')
+\usepackage{mathtools}
+
 %% Pi 符号
 \usepackage{pifont}
 	% 正确 √
@@ -159,9 +162,6 @@
 %	\usepgflibrary{arrows.meta}
 %	\tikzset{>=Stealth}
 
-%% 数学工具
-\usepackage{mathtools}
-
 %% 强调公式
 \usepackage[ntheorem]{empheq}
 
@@ -236,61 +236,99 @@
 	{\colorbox{white}{$\textstyle #1$}}%
 	{\colorbox{white}{$\scriptstyle #1$}}%
 	{\colorbox{white}{$\scriptscriptstyle #1$}}}
-%% 数集黑板粗体
-\newcommand{\setbb}[1]{\symbb{#1}}
-\newcommand{\realR}{\setbb{R}}
-\newcommand{\intN}{\setbb{N}}
+
+%TODO——数学命令
+%--------数学字体--------%
+%% 数集 黑板粗体
+\let\SET=\symbb
+%% 空间 花体
+\let\SPACE=\symcal
+%% 特殊空间 无衬线体
+\let\SPACEX=\symsfup
+%% 符号 倾斜粗体
+\let\SYMBOL=\symbf
+%% 一般算子 无衬线倾斜粗体
+\let\OPERATOR=\symbfsf
+%% 特殊算子 无衬线直立粗体
+\let\OPERATORX=\symbfsfup
 %% 哥特体
 %\newcommand{\gothic}[1]{\symfrak{#1}}
 %\newcommand{\domainB}{\gothic{B}} %邻域
 %\newcommand{\domainD}{\gothic{D}} %定义域
 
-%% 向量
-\newcommand{\V}[1]{\symbf{#1}}
-%% 张量(Tensor)
-\newcommand{\Tens}[1]{\symbf{#1}}
-%% 矩阵(Matrix)
-\newcommand{\Mat}[1]{\symbf{#1}}
-%% 置换(Permutation)
-\newcommand{\Perm}[1]{\symbf{#1}}
+%--------数集--------%
+\newcommand{\realR}{\SET{R}}
+\newcommand{\intN}{\SET{N}}
+%% m 维实空间
+\newcommand{\Rm}{\realR^m}
+%% 自然数集(正整数集)
+\newcommand{\natN}{\intN^{*}}
 
-%% 恒等映照(Identity)
-\newcommand{\Id}{\mathbfsfup{Id}}
+%--------空间--------%
+%% 以 m 维实空间为底空间的(r)阶张量全体
+\newcommand{\Tensors}[2][\Rm]{\SPACE{T}^{#2}\qty(#1)}
+%% (r)阶置换全体
+\newcommand{\Permutations}[1]{\SPACE{P}_{#1}}
+%% 以 m 维实空间为底空间的(r)阶对称张量全体
+\newcommand{\SymTensors}[2][\Rm]{\SPACE{S}^{#2}\qty(#1)}
+%% 以 m 维实空间为底空间的(r)阶反对称张量全体
+\newcommand{\SkwTensors}[2][\Rm]{\Lambda^{#2}\qty(#1)}
+
+%--------特殊空间--------%
+%% 对称张量全体(Symmetric Tensors)
+\newcommand{\Sym}{\SPACEX{Sym}}
+%% 反对称张量全体(Anti-symmetric Tensors)
+\newcommand{\Skw}{\SPACEX{Skw}}
+
+%--------量(Quantity)--------%
+%% 向量
+\newcommand{\V}[1]{\SYMBOL{#1}}
+%% 张量(Tensor)
+\renewcommand{\T}[1]{\SYMBOL{#1}}
+%% 矩阵(Matrix)
+\newcommand{\Mat}[1]{\SYMBOL{#1}}
+%% 置换(Permutation)
+\newcommand{\Perm}[1]{\SYMBOL{#1}}
+
+%--------特殊量--------%
 %% Kronecker Delta
 \newcommand{\KroneckerDelta}[2]{\delta^{#1}_{#2}}
 %% Levi-Civita 记号
 \newcommand{\LeviCivita}[1]{\tensor{\epsilon}{#1}}
-%% 内积括号形式(Inner Product Braket)
-\newcommand{\ipb}[3]{\qty(#1,\,#2)_{#3}}
-%% 集合(带描述)
-\DeclarePairedDelimiterX\set[2]{\{}{\}}{#1 \;\delimsize\vert\; #2}
 
+%--------算子--------%
+\newcommand{\opPerm}[1][\sigma]{\OPERATOR{I}_{#1}}
+
+%--------特殊算子--------%
+%% 恒等映照(Identity)
+\newcommand{\Id}{\OPERATORX{Id}}
+
+%--------数学符号--------%
+%% 定义(X: x → X)(Math Definition)
+\newcommand{\mdef}[3]{{#1}:\,{#2}\mapsto{#3}}
+%% 带描述集合
+\DeclarePairedDelimiterX\set[2]{\{}{\}}{#1 \;\delimsize\vert\; #2}
+%% 内积(括号形式)(Inner Product Braket)
+\newcommand{\ipb}[3][\Rm]{\qty(#2,\,#3)_{#1}}
 %% 张量积(Tensor Product)
 \newcommand{\tp}{\otimes}
 %% e-点积(e Dot Product)
 \newcommand{\edp}[1][e]{\mathbin{\dbinom{#1}{\cdotp}}}
 %% 全点积(Full Dot Product)
 \newcommand{\fdp}{\odot}
-%% 叉乘(has been defined in physics package)
+%% 叉乘(Cross Product)(has been defined in `physics' package)
 \renewcommand{\cp}{\vectimes}
 %% 复合(Composite)
 \newcommand{\comp}{\circ}
-%% 定义等号
+%% 定义等号(Definition Equal)
 %\newcommand{\defeq}{\coloneq}
 \newcommand{\defeq}{\triangleq}
 
-%% m 维实空间
-\newcommand{\Rm}{\realR^m}
-%% 自然数集(正整数集)
-\newcommand{\natN}{\intN^{*}}
-%% 以 m 维 Euclid 空间为底空间的 r 阶张量全体
-\newcommand{\Tensors}[2][\Rm]{\symcal{J}^{#2}\qty(#1)}
-%% r 阶置换全体
-\newcommand{\Permutations}[1]{P_{#1}}
-
+%--------函数名称--------%
 %% 符号函数(Sign)
-\DeclareMathOperator{\sign}{sgn}
+\DeclareMathOperator{\sgn}{sgn}
 
+%--------公式杂项--------%
 %% 带圈数字(Circle digit)
 \newcommand{\circNum}[1]{%
 	\ifnum #1=0%
@@ -298,14 +336,13 @@
 	\else%
 		\mathord{\symbol{\numexpr9311+#1}}%
 	\fi}
-
-%% 公式用标点、文字
+%% 标点、文字
 \newcommand{\comma}{\text{，}}
 \newcommand{\fullstop}{\text{．}}
 \newcommand{\semicomma}{\text{；}}
 %\newcommand{\const}{\text{const.}}
-
 %\renewcommand{\intertext}[1]{\shortintertext{\textit{#1}}}
+
 
 %TODO——标题页
 \title{

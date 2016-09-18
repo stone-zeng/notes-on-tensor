@@ -1,10 +1,10 @@
 \section{张量积}
 	\emphA{张量积}也叫\emphA{张量并}，用符号“$\tp$”表示。
-	在 \ref{subsec:张量的表示与简单张量} 小节给出简单张量的定义时，
+	在 \ref{subsec:张量的表示与简单张量}~小节给出简单张量的定义时，
 	实际上就用到了张量积。张量积的定义为：
 	\begin{align}
-		\forall\,\Tens{\Phi}\in\Tensors{p},\,\Tens{\Psi}\in\Tensors{q},
-		&\mathrel{\phantom{=}} \Tens{\Phi}\tp\Tens{\Psi}
+		\forall\,\T{\Phi}\in\Tensors{p},\,\T{\Psi}\in\Tensors{q},
+		&\mathrel{\phantom{=}} \T{\Phi}\tp\T{\Psi}
 			\in\Tensors{p+q} \notag \\
 		&=\qty(\Phi^{i_1 \cdots i_p} \,
 				\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p})
@@ -28,11 +28,11 @@
 	张量的 \emphA{$e$ 点积}可以用符号“$\edp$”表示。
 	从这个符号可以看出 $e$ 点积的作用：前 $e$ 个指标缩并，后面的点乘。
 	
-	对于任意的 $\Tens{\Phi}\in\Tensors{p},\,
-		\Tens{\Psi}\in\Tensors{q},\,
+	对于任意的 $\T{\Phi}\in\Tensors{p},\,
+		\T{\Psi}\in\Tensors{q},\,
 		e\leqslant\min\qty{p,\,q}\in\natN$，$e$ 点积是这样定义的：
 	\begin{align}
-		&\mathrel{\phantom{=}} \Tens{\Phi}\edp\Tens{\Psi} \notag \\
+		&\mathrel{\phantom{=}} \T{\Phi}\edp\T{\Psi} \notag \\
 		&=\qty(\Phi^{i_1 \cdots i_{p-e} i_{p-e+1} \cdots i_p} \,
 			\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-e}}
 			\tp\hl{\V{g}_{i_{p-e+1}}\tp\cdots\tp\V{g}_{i_p}}
@@ -63,15 +63,15 @@
 	最后一步的大括号中，高亮的 $j_1 \cdots j_e$
 	和 $i_{p-e+1} \cdots i_p$ 都是哑标，可以通过求和求掉。因此有
 	\begin{equation}
-		\Tens{\Phi}\edp\Tens{\Psi} \in \Tensors{p+q-2e} \fullstop
+		\T{\Phi}\edp\T{\Psi} \in \Tensors{p+q-2e} \fullstop
 	\end{equation}
 	换句话说，$e$ 点积的作用就是将指标\emphB{哑标化}。
 	
 	作为一个特殊的应用，接下来我们介绍\emphA{全点积}，用符号“\fdp”表示。
-	对于任意的 $\Tens{\Phi},\,\Tens{\Psi}\in\Tensors{p}$，有
+	对于任意的 $\T{\Phi},\,\T{\Psi}\in\Tensors{p}$，有
 	\begin{align}
-		&\mathrel{\phantom{=}} \Tens{\Phi}\fdp\Tens{\Psi}
-			\defeq \Tens{\Phi}\edp[p]\Tens{\Psi} \notag \\
+		&\mathrel{\phantom{=}} \T{\Phi}\fdp\T{\Psi}
+			\defeq \T{\Phi}\edp[p]\T{\Psi} \notag \\
 		&=\qty(\Phi^{i_1 \cdots i_p}\,\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p})
 			\edp[p]
 			\qty(\Psi^{j_1 \cdots j_p}\,\V{g}_{j_1}\tp\cdots\tp\V{g}_{j_p})
@@ -88,17 +88,17 @@
 	
 	张量自身和自身的全点积，定义为它的\emphA{范数}：
 	\begin{equation}
-		\Tens{\Phi}\fdp\Tens{\Phi}
+		\T{\Phi}\fdp\T{\Phi}
 		=\Phi^{i_1 \cdots i_p} \, \Phi_{i_1 \cdots i_p}
-		\eqcolon \qty|\Tens{\Phi}|^2_{\Tensors{p}} \fullstop
+		\eqcolon \qty|\T{\Phi}|^2_{\Tensors{p}} \fullstop
 	\end{equation}
 	
 \section{叉乘}
 	张量的\emphA{叉乘}要求底空间为 $\realR^3$。
-	对于任意的 $\Tens{\Phi}\in\Tensors[\realR^3]{p},\,
-	\Tens{\Psi}\in\Tensors[\realR^3]{q}$，叉乘的定义如下：
+	对于任意的 $\T{\Phi}\in\Tensors[\realR^3]{p},\,
+	\T{\Psi}\in\Tensors[\realR^3]{q}$，叉乘的定义如下：
 	\begin{align}
-		&\mathrel{\phantom{=}} \Tens{\Phi}\cp\Tens{\Psi} \notag \\
+		&\mathrel{\phantom{=}} \T{\Phi}\cp\T{\Psi} \notag \\
 		&=\qty(\Phi^{i_1 \cdots i_{p-1} i_p} \,
 				\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-1}}\tp\V{g}_{i_p})
 			\cp \qty(\Psi_{j_1 j_2 \cdots j_q} \,
@@ -123,7 +123,7 @@
 	\end{equation}
 	于是
 	\begin{equation}
-		\Tens{\Phi}\cp\Tens{\Psi} \,
+		\T{\Phi}\cp\T{\Psi} \,
 		=\LeviCivita{_{i_p}^{j_1}_s}\,
 			\Phi^{i_1 \cdots i_p} \, \Psi_{j_1 \cdots j_p}
 			\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-1}} \tp\V{g}^s
@@ -131,9 +131,9 @@
 	\end{equation}
 	
 	下面我们再来类比地定义一种混合积“$\edp[\cp]$”。
-	对于任意的 $\Tens{\Phi},\,\Tens{\Psi}\in\Tensors{3}$，定义
+	对于任意的 $\T{\Phi},\,\T{\Psi}\in\Tensors{3}$，定义
 	\begin{align}
-		\Tens{\Phi}\edp[\cp]\Tens{\Psi}
+		\T{\Phi}\edp[\cp]\T{\Psi}
 		&=\qty(\Phi^{ijk}\,\V{g}_i\tp\V{g}_j\tp\V{g}_k)
 			\edp[\cp]\qty(\Psi_{pqr}\,\V{g}^p\tp\V{g}^q\tp\V{g}^r)\notag \\
 		&\defeq \Phi^{ijk}\,\Psi_{pqr} \,
@@ -194,14 +194,14 @@
 	用圆括号表示\emphA{元素定义}，即标号对应元素的轮换。
 	
 \subsection{置换的符号}
-	接着来定义置换的\emphA{符号} $\sign\Perm{\sigma}$。
+	接着来定义置换的\emphA{符号} $\sgn\Perm{\sigma}$。
 	这里我们把每次交换两个数字称为一次“操作”。
 	如果经过\emphB{偶数次}“操作”，可以把经置换后的序列恢复为原来的顺序，
-	那么该置换的符号 $\sign\Perm{\sigma} = 1$；
-	而如果经过\emphB{奇数次}“操作”才可以复原，则 $\sign\Perm{\sigma}=-1$。
+	那么该置换的符号 $\sgn\Perm{\sigma} = 1$；
+	而如果经过\emphB{奇数次}“操作”才可以复原，则 $\sgn\Perm{\sigma}=-1$。
 	若用一个式子表示，则为
 	\begin{equation}
-		\sign\Perm{\sigma} = (-1)^n \comma
+		\sgn\Perm{\sigma} = (-1)^n \comma
 	\end{equation}
 	其中的 $n$ 是恢复原本顺序所需“操作”的次数.
 	
@@ -252,7 +252,7 @@
 				\hl[pink]{\varheartsuit} & \hl[pink]{\vardiamondsuit}
 		}
 	\end{gather*}
-	一共进行了 6 次两两交换，因此 $\sign\Perm{\sigma}=1$。
+	一共进行了 6 次两两交换，因此 $\sgn\Perm{\sigma}=1$。
 	
 \subsection{置换的复合}
 	再定义一个置换
@@ -292,9 +292,9 @@
 	那么很显然，经过复合置换 $\Perm{\tau}\comp\Perm{\sigma}$ 作用后的序列，
 	经过 $q+p$ 次两两交换也一定可以复原。因此，复合置换的符号
 	\begin{equation}
-		\sign\qty(\Perm{\tau}\comp\Perm{\sigma})
+		\sgn\qty(\Perm{\tau}\comp\Perm{\sigma})
 		=(-1)^{q+p}=(-1)^q \cdotp (-1)^p
-		=\sign\Perm{\tau}\cdotp\sign\Perm{\sigma} \fullstop
+		=\sgn\Perm{\tau}\cdotp\sgn\Perm{\sigma} \fullstop
 	\end{equation}
 	
 \subsection{逆置换}
@@ -351,7 +351,7 @@
 	另外，由于恒等映照 $\Id$ 作用后序列不发生变化，
 	复原所需的交换次数为 0，因此
 	\begin{equation}
-		\sign\Id=(-1)^0=1 \fullstop
+		\sgn\Id=(-1)^0=1 \fullstop
 	\end{equation}
 	而根据定义，
 	\begin{equation}
@@ -359,11 +359,11 @@
 	\end{equation}
 	故有
 	\begin{equation}
-		\sign\Perm{\sigma} \cdotp \sign\Perm{\sigma}^{-1} = 1 \fullstop
+		\sgn\Perm{\sigma} \cdotp \sgn\Perm{\sigma}^{-1} = 1 \fullstop
 	\end{equation}
 	由此，可以推知
 	\begin{equation}
-		\sign\Perm{\sigma}=\sign\Perm{\sigma}^{-1} \comma
+		\sgn\Perm{\sigma}=\sgn\Perm{\sigma}^{-1} \comma
 	\end{equation}
 	即置换与它的逆具有\emphB{相同}的符号。
 	
@@ -469,7 +469,7 @@
 		于是等式成立。
 	\end{myProof}
 	
-\subsection{数组元素的乘积}
+\subsection{数组元素的乘积} \label{subsec:数组元素的乘积}
 	设有序数组 $\qty{i_1,\,i_2,\,\cdots,\,i_r}$、
 	$\qty{j_1,\,j_2,\,\cdots,\,j_r}$ 和 $\qty{k_1,\,k_2,\,\cdots,\,k_r}$
 	经 $r$ 阶置换 $\Perm{\sigma}$ 作用后分别成为
@@ -493,17 +493,17 @@
 			\Perm{\sigma}(k_1) & \Perm{\sigma}(k_2) &
 				\cdots & \Perm{\sigma}(k_r) ) \fullstop
 	\end{equation}
-	于是我们可以得到
-	\begin{align}
-		\forall\,\Perm{\sigma}\in\Permutations{r}\, ,
-		&\mathrel{\phantom{=}} A_{i_1 j_1 k_1} A_{i_2 j_2 k_2} \cdots
-			A_{i_r j_r k_r} \notag \\
-		&=A_{\Perm{\sigma}(i_1)\,\Perm{\sigma}(j_1)\,\Perm{\sigma}(k_1)}
+	我们有如下结论：
+	\begin{equation}
+		\forall\,\Perm{\sigma}\in\Permutations{r}\, ,\quad
+		A_{i_1 j_1 k_1} A_{i_2 j_2 k_2} \cdots
+			A_{i_r j_r k_r}
+		=A_{\Perm{\sigma}(i_1)\,\Perm{\sigma}(j_1)\,\Perm{\sigma}(k_1)}
 			A_{\Perm{\sigma}(i_2)\,\Perm{\sigma}(j_2)\,\Perm{\sigma}(k_2)}
 			\cdots
 			A_{\Perm{\sigma}(i_r)\,\Perm{\sigma}(j_r)\,\Perm{\sigma}(k_r)}
 			\comma
-	\end{align}
+	\end{equation}
 	式中的 $A_{ijk}$ 表示三维数组 $\Mat{A}$ 的一个元素，其指标为 $ijk$。
 	
 	我们通过一个例子来说明这一条性质。还是用式~\eqref{eq:置换元素表示_数字} 和
@@ -564,9 +564,255 @@
 	比对一下各元素，可见与式~\eqref{eq:数组元素乘积举例} 的确是完全一样的。
 	
 \subsection{哑标的穷尽}
-%	
-%	
-%	
-%	
+	考虑如下集合：
+	\begin{equation}
+		\set[\bigg]
+		{\qty(i_1,\,i_2,\,\cdots,\,i_r)}
+		{\qty{i_1,\,i_2,\,\cdots,\,i_r}
+			\text{\ 可取\ } 1,\,2,\,\cdots,\,m}
+		\fullstop
+	\end{equation}
+	每个 $i_k$ 都有 $m$ 种取法，而 $i_k$ 又有 $r$ 个，
+	因此该集合一共有 $m^r$ 元素。我们有
+	\begin{mySubEq}
+		\begin{align}
+		\forall\,\Perm{\sigma}\in\Permutations{r}\, ,
+			&\mathrel{\phantom{=}}\set[\bigg]
+			{\qty(i_1,\,i_2,\,\cdots,\,i_r)}
+			{\qty{i_1,\,i_2,\,\cdots,\,i_r}
+				\text{\ 可取\ } 1,\,2,\,\cdots,\,m} \notag \\
+			&=\set[\bigg]
+			{\qty(\Perm{\sigma}(i_1),\,\Perm{\sigma}(i_2),\,
+				\cdots,\,\Perm{\sigma}(i_r) )}
+			{\qty{i_1,\,i_2,\,\cdots,\,i_r}
+				\text{\ 可取\ } 1,\,2,\,\cdots,\,m}
+			\label{eq:哑标的穷尽_置换} \\
+			&=\set[\bigg]
+			{\qty(\Perm{\sigma}^{-1}(i_1),\,\Perm{\sigma}^{-1}(i_2),\,
+				\cdots,\,\Perm{\sigma}^{-1}(i_r) )}
+			{\qty{i_1,\,i_2,\,\cdots,\,i_r}
+				\text{\ 可取\ } 1,\,2,\,\cdots,\,m} \fullstop
+			\label{eq:哑标的穷尽_逆置换}
+		\end{align}
+	\end{mySubEq}
+	这里，$i_k$ 起的就是\emphB{哑标}的作用。
+	
+	\begin{myProof}
+		无论怎样置换，$\Perm{\sigma}(i_k)$ 都是 $1,\,2,\,\cdots,\,m$ 中的数。
+		因此，对于 $\forall\,\Perm{\sigma}\in\Permutations{r}$，
+		\begin{equation}
+			\qty(\Perm{\sigma}(i_1),\,\Perm{\sigma}(i_2),\,
+				\cdots,\,\Perm{\sigma}(i_r) )
+			\in\set[\bigg]
+				{\qty(i_1,\,i_2,\,\cdots,\,i_r)}
+				{\qty{i_1,\,i_2,\,\cdots,\,i_r}
+					\text{\ 可取\ } 1,\,2,\,\cdots,\,m} \comma
+		\end{equation}
+		即
+		\begin{align}
+			&\mathrel{\phantom{\subset}}\set[\bigg]
+			{\qty(\Perm{\sigma}(i_1),\,\Perm{\sigma}(i_2),\,
+				\cdots,\,\Perm{\sigma}(i_r) )}
+			{\qty{i_1,\,i_2,\,\cdots,\,i_r}
+				\text{\ 可取\ } 1,\,2,\,\cdots,\,m} \notag \\
+			&\subset\set[\bigg]
+			{\qty(i_1,\,i_2,\,\cdots,\,i_r)}
+			{\qty{i_1,\,i_2,\,\cdots,\,i_r}
+				\text{\ 可取\ } 1,\,2,\,\cdots,\,m} \fullstop
+		\end{align}
+		另一方面，由于 $\Id=\Perm{\sigma}^{-1}\comp\Perm{\sigma}$，即
+		\begin{equation}
+			\qty(i_1,\,i_2,\,\cdots,\,i_r)
+			=\qty(\Perm{\sigma}^{-1}\comp\Perm{\sigma}(i_1),\,
+				\Perm{\sigma}^{-1}\comp\Perm{\sigma}(i_2),\,
+				\cdots,\,\Perm{\sigma}^{-1}\comp\Perm{\sigma}(i_r) ) \comma
+		\end{equation}
+		而进行一次逆置换仍然使得元素不离开原有的范围，也就是说
+		\begin{equation}
+			\qty(i_1,\,i_2,\,\cdots,\,i_r)
+			\in\set[\bigg]
+				{\qty(\Perm{\sigma}(i_1),\,\Perm{\sigma}(i_2),\,
+					\cdots,\,\Perm{\sigma}(i_r) )}
+				{\qty{i_1,\,i_2,\,\cdots,\,i_r}
+					\text{\ 可取\ } 1,\,2,\,\cdots,\,m} \comma
+		\end{equation}
+		即
+		\begin{align}
+			&\mathrel{\phantom{\subset}}\set[\bigg]
+			{\qty(i_1,\,i_2,\,\cdots,\,i_r)}
+			{\qty{i_1,\,i_2,\,\cdots,\,i_r}
+				\text{\ 可取\ } 1,\,2,\,\cdots,\,m} \notag \\
+			&\subset\set[\bigg]
+			{\qty(\Perm{\sigma}(i_1),\,\Perm{\sigma}(i_2),\,
+				\cdots,\,\Perm{\sigma}(i_r) )}
+			{\qty{i_1,\,i_2,\,\cdots,\,i_r}
+				\text{\ 可取\ } 1,\,2,\,\cdots,\,m} \fullstop
+		\end{align}
+		两个集合互相包含，也就证得了式~\eqref{eq:哑标的穷尽_置换}。
+		
+		用相同的方法也可证得关于逆置换的 \eqref{eq:哑标的穷尽_逆置换}~式，
+		此处从略。
+	\end{myProof}
+	
 \section{置换（三）}
-	本节将介绍针对张量的\emphA{置换算子}。
+	本节将给出
+	
+\section{置换（四）}
+	本节将回归张量运算的主线，引入\emphA{置换算子}。
+	
+\subsection{置换算子；对称张量与反对称张量}
+	对于任意的置换 $\Perm{\sigma}\in\Permutations{r}$，定义\emphA{置换算子}
+	\begin{equation}
+		\mdef{\opPerm}
+			{\Tensors{r}\ni\T{\Phi}}
+			{\opPerm(\T{\Phi})\in\Tensors{r}} \comma
+	\end{equation}
+	式中
+	\begin{equation}
+		\opPerm(\T{\Phi})\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)
+		\defeq\T{\Phi}\qty(\V{u}_{\Perm{\sigma}(1)},\,
+			\V{u}_{\Perm{\sigma}(2)},\,\cdots,\,
+			\V{u}_{\Perm{\sigma}(r)})
+		\in\realR \fullstop
+	\end{equation}
+	这里的“$\cdots\in\realR$”是由于张量的定义：\emphB{多重线性函数}。
+	
+	如果我们的置换
+	\begin{equation}
+		\Perm{\sigma}=\mqty*(
+			i_1 & i_2 & \cdots & i_r \\
+			\Perm{\sigma}(i_1) & \Perm{\sigma}(i_1) & \cdots
+				& \Perm{\sigma}(i_1)
+		) \comma
+	\end{equation}
+	那么对应的置换算子将满足
+	\begin{equation}
+		\opPerm(\T{\Phi})\qty(\V{u}_{i_1},\,\V{u}_{i_2},\,
+			\cdots,\,\V{u}_{i_r})
+		\defeq\T{\Phi}\qty(\V{u}_{\Perm{\sigma}(i_1)},\,
+			\V{u}_{\Perm{\sigma}(i_2)},\,\cdots,\,
+			\V{u}_{\Perm{\sigma}(i_r)}) \fullstop
+	\end{equation}
+	
+	\blankline
+	
+	有了置换算子，我们就可以来定义\emphA{对称张量}和\emphA{反对称张量}。
+	对称张量的全体记为 $\Sym$，反对称张量的全体记为 $\Skw$。
+	如果以 $\Rm$ 为底空间，
+	又分别可以记为 $\SymTensors{r}$ 和 $\SkwTensors{r}$。
+	
+	对于任意的 $\T{\Phi}\in\Tensors{r}$，如果
+	\begin{equation}
+		\opPerm(\T{\Phi})=\T{\Phi} \comma
+	\end{equation}
+	则称 $\T{\Phi}$ 为\emphB{对称张量}，
+	即 $\T{\Phi}\in\Sym \text{\ 或\ } \SymTensors{r}$；如果
+	\begin{equation}
+		\opPerm(\T{\Phi})=\sgn\Perm{\sigma}\cdotp\T{\Phi} \comma
+	\end{equation}
+	则称 $\T{\Phi}$ 为\emphB{反对称张量}，
+	即 $\T{\Phi}\in\Skw \text{\ 或\ } \SkwTensors{r}$。
+	
+\subsection{置换算子的表示}
+	根据上文给出的定义，我们有
+	\begin{equation}
+		\opPerm(\T{\Phi})\qty(\V{u}_{i_1},\,\cdots,\,\V{u}_{i_r})
+		\defeq\T{\Phi}\qty(\V{u}_{\Perm{\sigma}(i_1)},\,\cdots,\,
+			\V{u}_{\Perm{\sigma}(i_r)}) \fullstop
+	\end{equation}
+	首先回忆一下 \ref{subsec:张量的表示与简单张量}~小节中张量的表示：
+	选一组基（协变、逆变均可），然后把张量用这组基表示。于是
+	\begin{align}
+		&\mathrel{\phantom{=}}\opPerm(\T{\Phi})
+			\qty(\V{u}_{i_1},\,\cdots,\,\V{u}_{i_r})
+		=\T{\Phi}\qty(\V{u}_{\Perm{\sigma}(i_1)},\,\cdots,\,
+			\V{u}_{\Perm{\sigma}(i_r)}) \notag
+		\intertext{把向量用协变基表示：}
+		&=\T{\Phi}\qty(u^{i_1}_{\Perm{\sigma}(i_1)}\,\V{g}_{i_1},\,
+			\cdots,\,u^{i_r}_{\Perm{\sigma}(i_r)}\,\V{g}_{i_r}) \notag
+		\intertext{根据张量的线性性，提出系数：}
+		&=\T{\Phi}\qty(\V{g}_{i_1},\,\cdots,\,\V{g}_{i_r}) \cdotp
+			\qty(u^{i_1}_{\Perm{\sigma}(i_1)} \cdots
+				u^{i_r}_{\Perm{\sigma}(i_r)}) \notag
+		\intertext{前半部分可以用张量分量表示；
+			而后半部分是一组逆变分量，可以写成内积的形式}
+		&=\tensor{\Phi}{_{i_1 \cdots i_p}}
+			\qty[\ipb{\V{u}_{\Perm{\sigma}(i_1)}}{\V{g}^{i_1}}\cdots
+				\ipb{\V{u}_{\Perm{\sigma}(i_r)}}{\V{g}^{i_r}}]
+		\addtocounter{equation}{1}
+		\tag{\theequation*}
+		\label{eq:置换算子的表示_中间步骤}
+		\intertext{注意到方括号中的其实是简单张量的定义，这就有}
+		&=\tensor{\Phi}{_{i_1 \cdots i_p}}
+			\V{g}^{i_1}\tp\cdots\tp\V{g}^{i_r}
+			\qty(\V{u}_{\Perm{\sigma}(i_1)},\,\cdots,\,
+				\V{u}_{\Perm{\sigma}(i_r)}) \fullstop
+		\addtocounter{equation}{-1}
+	\end{align}
+	最后一步仍然没能回到 $\qty(\V{u}_{i_1},\,\cdots,\,\V{u}_{i_r})$，
+	因此以上推导只是简单地展开了 $\T{\Phi}$，并没有获得实质性的结果。
+	
+	然而，只要稍作改动，情况就会大不相同。
+	考虑一下 \ref{subsec:数组元素的乘积}~小节中置换有关数组元素乘积的性质：
+	\begin{equation}
+		\forall\,\Perm{\tau}\in\Permutations{r},\quad
+		A_{i_1 j_1} \cdots A_{i_r j_r}
+		=A_{\Perm{\tau}(i_1) \Perm{\tau}(j_1)} \cdots
+			A_{\Perm{\tau}(i_r) \Perm{\tau}(j_r)} \comma
+		\label{eq:置换算子的表示推导_置换性质}
+	\end{equation}
+	式中
+	\begin{equation}
+		\Perm{\tau}
+		=\mqty*(
+			i_1 & \cdots & i_r \\
+			\Perm{\tau}(i_1) & \cdots & \Perm{\tau}(i_r) )
+		=\mqty*(
+			j_1 & \cdots & j_r \\
+			\Perm{\tau}(j_1) & \cdots & \Perm{\tau}(j_r) ) \fullstop
+	\end{equation}
+	由此可以看出，式~\eqref{eq:置换算子的表示_中间步骤} 中方括号中的部分
+	其实是由 $\Perm{\sigma}(i_k)$ 和 $i_k$ 两套指标确定的一组数：
+	\begin{equation}
+		A_{\Perm{\sigma}(i_k)\,i_k}
+		=\ipb{\V{u}_{\Perm{\sigma}(i_k)}}{\V{g}^{i_k}} \semicomma
+	\end{equation}
+	另一方面，显然有 $\Perm{\sigma}^{-1}\in\Permutations{r}$。于是
+	\begin{align}
+		&\mathrel{\phantom{=}}\opPerm(\T{\Phi})
+			\qty(\V{u}_{i_1},\,\cdots,\,\V{u}_{i_r}) \notag \\
+		&=\tensor{\Phi}{_{i_1 \cdots i_r}}
+			\qty[\ipb{\V{u}_{\Perm{\sigma}(i_1)}}{\V{g}^{i_1}}\cdots
+				\ipb{\V{u}_{\Perm{\sigma}(i_r)}}{\V{g}^{i_r}}] \notag
+		\intertext{应用置换的性质 \eqref{eq:置换算子的表示推导_置换性质}~式：}
+		&=\tensor{\Phi}{_{i_1 \cdots i_r}}
+			\qty[
+				\ipb{\V{u}_{\Perm{\sigma}^{-1}\comp\Perm{\sigma}(i_1)}}
+					{\V{g}^{\Perm{\sigma}^{-1}(i_1)}} \cdots
+				\ipb{\V{u}_{\Perm{\sigma}^{-1}\comp\Perm{\sigma}(i_r)}}
+					{\V{g}^{\Perm{\sigma}^{-1}(i_r)}}
+			] \notag \\
+		&=\tensor{\Phi}{_{i_1 \cdots i_r}}
+			\qty[
+				\ipb{\V{u}_{i_1}}{\V{g}^{\Perm{\sigma}^{-1}(i_1)}} \cdots
+				\ipb{\V{u}_{i_2}}{\V{g}^{\Perm{\sigma}^{-1}(i_r)}}
+			] \notag
+		\intertext{同样，用简单张量表示，可得}
+		&=\tensor{\Phi}{_{i_1 \cdots i_r}}
+			\V{g}^{\Perm{\sigma}^{-1}(i_1)}\tp\cdots
+				\tp\V{g}^{\Perm{\sigma}^{-1}(i_r)}
+			\qty(\V{u}_{i_1},\,\cdots,\,\V{u}_{i_r}) \fullstop
+	\end{align}
+	这样，我们就得到了置换算子的表示：
+	\begin{align}
+		\opPerm(\T{\Phi})
+		&=\opPerm\qty(\tensor{\Phi}{_{i_1 \cdots i_r}}
+			\V{g}^{i_1}\tp\cdots\tp\V{g}^{i_r}) \notag \\
+		&=\tensor{\Phi}{_{i_1 \cdots i_r}}
+			\V{g}^{\Perm{\sigma}^{-1}(i_1)}\tp\cdots
+				\tp\V{g}^{\Perm{\sigma}^{-1}(i_r)} \fullstop
+	\end{align}
+%		
+%	
+%	
+%	

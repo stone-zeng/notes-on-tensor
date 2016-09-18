@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/W32TeX) (preloaded format=xelatex 2016.9.14)  17 SEP 2016 22:11
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/W32TeX) (preloaded format=xelatex 2016.9.14)  19 SEP 2016 01:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -602,6 +602,39 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+(d:/Texlive/2016/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
+
+(d:/Texlive/2016/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count150
+\calc@Bcount=\count151
+\calc@Adimen=\dimen165
+\calc@Bdimen=\dimen166
+\calc@Askip=\skip55
+\calc@Bskip=\skip56
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count152
+\calc@Cskip=\skip57
+)
+(d:/Texlive/2016/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count153
+\l_MT_multwidth_dim=\dimen167
+\origjot=\skip58
+\l_MT_shortvdotswithinadjustabove_dim=\dimen168
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen169
+\l_MT_above_intertext_sep=\dimen170
+\l_MT_below_intertext_sep=\dimen171
+\l_MT_above_shortintertext_sep=\dimen172
+\l_MT_below_shortintertext_sep=\dimen173
+)
 (d:/Texlive/2016/texmf-dist/tex/latex/psnfss/pifont.sty
 Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
 LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
@@ -632,9 +665,9 @@ File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 (d:/Texlive/2016/texmf-dist/tex/latex/filehook/filehook.sty
 Package: filehook 2011/10/12 v0.5d Hooks for input files
 )
-\g__um_fam_int=\count150
+\g__um_fam_int=\count154
 \g__um_primekern_muskip=\muskip18
-\l__um_primecount_int=\count151
+\l__um_primecount_int=\count155
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -679,8 +712,45 @@ Package: filehook 2011/10/12 v0.5d Hooks for input files
 . 
 . I'm going to patch macro \r@@t.
 .................................................
+\g__um_empty_fam=\mathgroup6
+.................................................
+. unicode-math info: "patch-macro"
+. 
+. I'm going to patch macro \MT_cramped_internal:Nn.
+.................................................
+
+*************************************************
+* unicode-math warning: "mathtools-colon"
+* 
+* I'm going to overwrite the following commands from the `mathtools' package:
+* 
+*     \dblcolon, \coloneqq, \Coloneqq, \eqqcolon.
+* 
+* Note that since I won't overwrite the other colon-like commands, using them
+* will lead to inconsistencies.
+*************************************************
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \dblcolon with sig. '' on line 2126.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \coloneqq with sig. '' on line 2126.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \Coloneqq with sig. '' on line 2126.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \eqqcolon with sig. '' on line 2126.
+.................................................
 ))
-\g__fontspec_family_xits-math.otf_int=\count152
+\g__fontspec_family_xits-math.otf_int=\count156
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -697,15 +767,15 @@ math;language=DFLT;+ssty=0;"<-7>"[xits-math]/OT:script=math;language=DFLT;+ssty
 . - 'small caps'  (m/sc) with NFSS spec.: 
 .................................................
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 88.
+(Font)              `operators' in the math version `normal' on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> EU1/xits-math.otf(0)/m/n on input line 
-88.
+91.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 88.
+(Font)              `operators' in the math version `bold' on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> EU1/xits-math.otf(0)/bx/n on input lin
-e 88.
+e 91.
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -739,15 +809,15 @@ T:script=math;language=DFLT;+ssty=1;"
 . \fontdimen 21\font =0pt\relax \fontdimen 22\font =2.5pt\relax \relax 
 .................................................
 LaTeX Font Info:    Encoding `OMS' has changed to `EU1' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 88.
+(Font)              `symbols' in the math version `normal' on input line 91.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/cmsy/m/n --> EU1/xits-math.otf(1)/m/n on input line
- 88.
+ 91.
 LaTeX Font Info:    Encoding `OMS' has changed to `EU1' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 88.
+(Font)              `symbols' in the math version `bold' on input line 91.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/cmsy/b/n --> EU1/xits-math.otf(1)/bx/n on input lin
-e 88.
+e 91.
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -771,19 +841,18 @@ T:script=math;language=DFLT;+ssty=1;"
 . \relax \fontdimen 12\font =6.0pt\relax \relax \fontdimen 13\font =0pt\relax 
 .................................................
 LaTeX Font Info:    Encoding `OMX' has changed to `EU1' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 8
-8.
+(Font)              `largesymbols' in the math version `normal' on input line 9
+1.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/cmex/m/n --> EU1/xits-math.otf(2)/m/n on input line
- 88.
+ 91.
 LaTeX Font Info:    Encoding `OMX' has changed to `EU1' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 88.
+(Font)              `largesymbols' in the math version `bold' on input line 91.
 
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> EU1/xits-math.otf(2)/bx/n on input lin
-e 88.
-
-(d:/Texlive/2016/texmf-dist/tex/latex/ctex/ctex.sty
+e 91.
+ (d:/Texlive/2016/texmf-dist/tex/latex/ctex/ctex.sty
 Package: ctex 2016/08/27 v2.4.3 Chinese adapter in LaTeX (CTEX)
 
 (d:/Texlive/2016/texmf-dist/tex/latex/ctex/ctexhook.sty
@@ -795,8 +864,8 @@ Package: ctexpatch 2016/08/27 v2.4.3 Patching commands (CTEX)
 (d:/Texlive/2016/texmf-dist/tex/latex/ms/everysel.sty
 Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 )
-\l__ctex_tmp_int=\count153
-\l__ctex_tmp_dim=\dimen165
+\l__ctex_tmp_int=\count157
+\l__ctex_tmp_dim=\dimen174
 \l__ctex_tmp_box=\box46
 
 (d:/Texlive/2016/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
@@ -827,23 +896,23 @@ Package: xeCJK 2016/08/27 v3.4.1 Typesetting CJK scripts with XeLaTeX
 (d:/Texlive/2016/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
 Package: xtemplate 2016/05/18 v6512 L3 Experimental prototype document function
 s
-\l__xtemplate_tmp_dim=\dimen166
-\l__xtemplate_tmp_int=\count154
+\l__xtemplate_tmp_dim=\dimen175
+\l__xtemplate_tmp_int=\count158
 \l__xtemplate_tmp_muskip=\muskip19
-\l__xtemplate_tmp_skip=\skip55
+\l__xtemplate_tmp_skip=\skip59
 )
-\l__xeCJK_tmp_int=\count155
+\l__xeCJK_tmp_int=\count159
 \l__xeCJK_tmp_box=\box47
-\l__xeCJK_tmp_dim=\dimen167
-\l__xeCJK_tmp_skip=\skip56
+\l__xeCJK_tmp_dim=\dimen176
+\l__xeCJK_tmp_skip=\skip60
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining command \xeCJKShipoutHook with sig. '' on line 148.
 .................................................
-\g__xeCJK_spacefactor_int=\count156
-\l__xeCJK_begin_int=\count157
-\l__xeCJK_end_int=\count158
+\g__xeCJK_spacefactor_int=\count160
+\l__xeCJK_begin_int=\count161
+\l__xeCJK_end_int=\count162
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -889,22 +958,22 @@ s
 . 
 . Defining command \xeCJKResetCharClass with sig. '' on line 644.
 .................................................
-\l__xeCJK_last_skip=\skip57
-\g__xeCJK_node_int=\count159
-\c__xeCJK_CJK_node_dim=\dimen168
-\c__xeCJK_CJK-space_node_dim=\dimen169
-\c__xeCJK_default_node_dim=\dimen170
-\c__xeCJK_default-space_node_dim=\dimen171
-\c__xeCJK_CJK-widow_node_dim=\dimen172
-\c__xeCJK_normalspace_node_dim=\dimen173
-\l__xeCJK_ccglue_skip=\skip58
-\l__xeCJK_ecglue_skip=\skip59
+\l__xeCJK_last_skip=\skip61
+\g__xeCJK_node_int=\count163
+\c__xeCJK_CJK_node_dim=\dimen177
+\c__xeCJK_CJK-space_node_dim=\dimen178
+\c__xeCJK_default_node_dim=\dimen179
+\c__xeCJK_default-space_node_dim=\dimen180
+\c__xeCJK_CJK-widow_node_dim=\dimen181
+\c__xeCJK_normalspace_node_dim=\dimen182
+\l__xeCJK_ccglue_skip=\skip62
+\l__xeCJK_ecglue_skip=\skip63
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining command \xeCJKnobreak with sig. '' on line 1459.
 .................................................
-\l__xeCJK_widow_penalty_int=\count160
+\l__xeCJK_widow_penalty_int=\count164
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -937,25 +1006,25 @@ s
 . Declaring object type 'xeCJK/punctuation' taking \c_zero  argument(s) on
 . line 1914.
 .................................................
-\l__xeCJK_fixed_punct_width_dim=\dimen174
-\l__xeCJK_mixed_punct_width_dim=\dimen175
-\l__xeCJK_middle_punct_width_dim=\dimen176
-\l__xeCJK_fixed_margin_width_dim=\dimen177
-\l__xeCJK_mixed_margin_width_dim=\dimen178
-\l__xeCJK_middle_margin_width_dim=\dimen179
-\l__xeCJK_bound_punct_width_dim=\dimen180
-\l__xeCJK_bound_margin_width_dim=\dimen181
-\l__xeCJK_margin_minimum_dim=\dimen182
-\l__xeCJK_kerning_total_width_dim=\dimen183
-\l__xeCJK_same_align_margin_dim=\dimen184
-\l__xeCJK_different_align_margin_dim=\dimen185
-\l__xeCJK_kerning_margin_width_dim=\dimen186
-\l__xeCJK_kerning_margin_minimum_dim=\dimen187
-\l__xeCJK_bound_dim=\dimen188
-\l__xeCJK_reverse_bound_dim=\dimen189
-\l__xeCJK_minimum_bound_dim=\dimen190
-\l__xeCJK_kerning_margin_dim=\dimen191
-\l__xeCJK_original_margin_dim=\dimen192
+\l__xeCJK_fixed_punct_width_dim=\dimen183
+\l__xeCJK_mixed_punct_width_dim=\dimen184
+\l__xeCJK_middle_punct_width_dim=\dimen185
+\l__xeCJK_fixed_margin_width_dim=\dimen186
+\l__xeCJK_mixed_margin_width_dim=\dimen187
+\l__xeCJK_middle_margin_width_dim=\dimen188
+\l__xeCJK_bound_punct_width_dim=\dimen189
+\l__xeCJK_bound_margin_width_dim=\dimen190
+\l__xeCJK_margin_minimum_dim=\dimen191
+\l__xeCJK_kerning_total_width_dim=\dimen192
+\l__xeCJK_same_align_margin_dim=\dimen193
+\l__xeCJK_different_align_margin_dim=\dimen194
+\l__xeCJK_kerning_margin_width_dim=\dimen195
+\l__xeCJK_kerning_margin_minimum_dim=\dimen196
+\l__xeCJK_bound_dim=\dimen197
+\l__xeCJK_reverse_bound_dim=\dimen198
+\l__xeCJK_minimum_bound_dim=\dimen199
+\l__xeCJK_kerning_margin_dim=\dimen256
+\l__xeCJK_original_margin_dim=\dimen257
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -973,7 +1042,7 @@ s
 . 
 . Defining command \setCJKfallbackfamilyfont with sig. 'mO{}m' on line 2506.
 .................................................
-\g__xeCJK_family_int=\count161
+\g__xeCJK_family_int=\count165
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -1030,9 +1099,9 @@ s
 . 
 . Defining command \setCJKmathfont with sig. 'O{}m' on line 3225.
 .................................................
-\l__xeCJK_fam_int=\count162
-\g__xeCJK_fam_allocation_int=\count163
-\l__xeCJK_verb_case_int=\count164
+\l__xeCJK_fam_int=\count166
+\g__xeCJK_fam_allocation_int=\count167
+\l__xeCJK_verb_case_int=\count168
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -1043,7 +1112,7 @@ s
 . 
 . Defining command \xeCJKOffVerbAddon with sig. '' on line 3469.
 .................................................
-\l__xeCJK_verb_exspace_skip=\skip60
+\l__xeCJK_verb_exspace_skip=\skip64
 
 (d:/Texlive/2016/texmf-dist/tex/xelatex/xecjk/xunicode-addon.sty
 Package: xunicode-addon 2016/08/27 v3.4.1 addon file for xunicode
@@ -1281,14 +1350,14 @@ Package: xeCJKfntef 2016/08/27 v3.4.1 xeCJK font effect
 (d:/Texlive/2016/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box50
 \UL@hyphenbox=\box51
-\UL@skip=\skip61
+\UL@skip=\skip65
 \UL@hook=\toks24
-\UL@height=\dimen193
-\UL@pe=\count165
-\UL@pixel=\dimen194
+\UL@height=\dimen258
+\UL@pe=\count169
+\UL@pixel=\dimen259
 \ULC@box=\box52
 Package: ulem 2012/05/18
-\ULdepth=\dimen195
+\ULdepth=\dimen260
 )
 (d:/Texlive/2016/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
@@ -1298,15 +1367,15 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
 (d:/Texlive/2016/texmf-dist/tex/latex/cjk/texinput/CJKfntef.sty
 Package: CJKfntef 2015/04/18 4.8.4
-\CJK@fntefSkip=\skip62
-\CJK@nest=\count166
-\CJK@fntefDimen=\dimen196
+\CJK@fntefSkip=\skip66
+\CJK@nest=\count170
+\CJK@fntefDimen=\dimen261
 \CJK@underdotBox=\box53
 \CJK@ULbox=\box54
-\CJK@underanyskip=\dimen197
+\CJK@underanyskip=\dimen262
 )
-\l__xeCJK_space_skip=\skip63
-\c__xeCJK_ulem-begin_node_dim=\dimen198
+\l__xeCJK_space_skip=\skip67
+\c__xeCJK_ulem-begin_node_dim=\dimen263
 \c__xeCJK_null_box=\box55
 .................................................
 . LaTeX info: "xparse/define-command"
@@ -1365,10 +1434,10 @@ Package: CJKfntef 2015/04/18 4.8.4
 . 
 . Redefining environment 'CJKfilltwosides' with sig. 'O{c}m' on line 1016.
 .................................................
-\c__xeCJK_filll_skip=\skip64
+\c__xeCJK_filll_skip=\skip68
 )
-\ccwd=\dimen199
-\l__ctex_ccglue_skip=\skip65
+\ccwd=\dimen264
+\l__ctex_ccglue_skip=\skip69
 )
 .................................................
 . LaTeX info: "xparse/define-command"
@@ -1380,7 +1449,7 @@ Package: CJKfntef 2015/04/18 4.8.4
 . 
 . Defining command \ziju with sig. 'm' on line 478.
 .................................................
-\l__ctex_ziju_dim=\dimen256
+\l__ctex_ziju_dim=\dimen265
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -1439,7 +1508,7 @@ Package: zhnumber 2016/05/14 v2.4 Typesetting numbers with Chinese glyphs
 . 
 . Defining command \zhdate with sig. '+s+m' on line 384.
 .................................................
-\l__zhnum_scale_int=\count167
+\l__zhnum_scale_int=\count171
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -1474,7 +1543,7 @@ File: ctex-book.def 2016/08/27 v2.4.3 Heading modification for book (CTEX)
 . Defining command \ctex_assign_heading_name:nn with sig. 'm>{\SplitArgument
 . {\c_one }{,}}+m' on line 114.
 .................................................
-\l__ctex_heading_skip=\skip66
+\l__ctex_heading_skip=\skip70
 .................................................
 . LaTeX info: "xparse/redefine-command"
 . 
@@ -1510,7 +1579,7 @@ File: ctex-fontset-windows.def 2016/08/27 v2.4.3 Windows fonts definition (CTEX
 (d:/Texlive/2016/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-windowsnew.def
 File: ctex-fontset-windowsnew.def 2016/08/27 v2.4.3 Windows fonts definition fo
 r Vista or later version (CTEX)
-\g__fontspec_family_SimSun_int=\count168
+\g__fontspec_family_SimSun_int=\count172
 .................................................
 . fontspec info: "no-font-shape"
 . 
@@ -1583,7 +1652,7 @@ File: ctex.cfg 2016/08/27 v2.4.3 Configuration file (CTEX)
 * 
 * Redefining CJKfamily `\CJKrmdefault' (SimSun(0)).
 *************************************************
-\g__fontspec_family_方正书宋_GBK_int=\count169
+\g__fontspec_family_方正书宋_GBK_int=\count173
 .................................................
 . fontspec info: "no-font-shape"
 . 
@@ -1628,9 +1697,9 @@ BK}].
 (d:/Texlive/2016/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
 \FN@temptoken=\toks25
-\footnotemargin=\dimen257
-\c@pp@next@reset=\count170
-\c@@fnserial=\count171
+\footnotemargin=\dimen266
+\c@pp@next@reset=\count174
+\c@@fnserial=\count175
 Package footmisc Info: Declaring symbol style bringhurst on input line 855.
 Package footmisc Info: Declaring symbol style chicago on input line 863.
 Package footmisc Info: Declaring symbol style wiley on input line 872.
@@ -1640,7 +1709,7 @@ Package footmisc Info: Declaring symbol style lamport* on input line 903.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 )
-\fnBreite=\skip67
+\fnBreite=\skip71
 
 (d:/Texlive/2016/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
@@ -1663,97 +1732,27 @@ File: svgnam.def 2016/05/11 v2.12 Predefined colors according to SVG 1.1 (UK)
 ))
 (d:/Texlive/2016/texmf-dist/tex/latex/arydshln/arydshln.sty
 Package: arydshln 2016/04/28 v1.73 
-\dashlinedash=\dimen258
-\dashlinegap=\dimen259
+\dashlinedash=\dimen267
+\dashlinegap=\dimen268
 \adl@box=\box58
-\adl@height=\dimen260
-\adl@heightsave=\dimen261
-\adl@depth=\dimen262
-\adl@depthsave=\dimen263
-\adl@finaldepth=\dimen264
-\adl@columns=\count172
-\adl@ncol=\count173
-\adl@currentcolumn=\count174
-\adl@currentcolumnsave=\count175
-\adl@totalheight=\count176
-\adl@totalheightsave=\count177
-\adl@dash=\count178
-\adl@gap=\count179
-\adl@cla=\count180
-\adl@clb=\count181
+\adl@height=\dimen269
+\adl@heightsave=\dimen270
+\adl@depth=\dimen271
+\adl@depthsave=\dimen272
+\adl@finaldepth=\dimen273
+\adl@columns=\count176
+\adl@ncol=\count177
+\adl@currentcolumn=\count178
+\adl@currentcolumnsave=\count179
+\adl@totalheight=\count180
+\adl@totalheightsave=\count181
+\adl@dash=\count182
+\adl@gap=\count183
+\adl@cla=\count184
+\adl@clb=\count185
 \adl@everyvbox=\toks26
-\adl@LTpagetotal=\dimen265
+\adl@LTpagetotal=\dimen274
 )
-(d:/Texlive/2016/texmf-dist/tex/latex/mathtools/mathtools.sty
-Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
-
-(d:/Texlive/2016/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count182
-\calc@Bcount=\count183
-\calc@Adimen=\dimen266
-\calc@Bdimen=\dimen267
-\calc@Askip=\skip68
-\calc@Bskip=\skip69
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count184
-\calc@Cskip=\skip70
-)
-(d:/Texlive/2016/texmf-dist/tex/latex/mathtools/mhsetup.sty
-Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
-)
-LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
-LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
-LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
-LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count185
-\l_MT_multwidth_dim=\dimen268
-\origjot=\skip71
-\l_MT_shortvdotswithinadjustabove_dim=\dimen269
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen270
-\l_MT_above_intertext_sep=\dimen271
-\l_MT_below_intertext_sep=\dimen272
-\l_MT_above_shortintertext_sep=\dimen273
-\l_MT_below_shortintertext_sep=\dimen274
-)
-\g__um_empty_fam=\mathgroup6
-.................................................
-. unicode-math info: "patch-macro"
-. 
-. I'm going to patch macro \MT_cramped_internal:Nn.
-.................................................
-
-*************************************************
-* unicode-math warning: "mathtools-colon"
-* 
-* I'm going to overwrite the following commands from the `mathtools' package:
-* 
-*     \dblcolon, \coloneqq, \Coloneqq, \eqqcolon.
-* 
-* Note that since I won't overwrite the other colon-like commands, using them
-* will lead to inconsistencies.
-*************************************************
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \dblcolon with sig. '' on line 164.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \coloneqq with sig. '' on line 164.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \Coloneqq with sig. '' on line 164.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \eqqcolon with sig. '' on line 164.
-.................................................
 (d:/Texlive/2016/texmf-dist/tex/latex/mathtools/empheq.sty
 Package: empheq 2014/07/16 v2.14 Emphasizing equations
 \l_EQ_equationtype_int=\count186
@@ -2702,33 +2701,33 @@ Package ntheorem Info: option `amsmath' handling for `thmmarks' loaded on input
  (./Notes.aux)
 \openout1 = `Notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 322.
-LaTeX Font Info:    ... okay on input line 322.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 322.
-LaTeX Font Info:    ... okay on input line 322.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 322.
-LaTeX Font Info:    ... okay on input line 322.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 322.
-LaTeX Font Info:    ... okay on input line 322.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 322.
-LaTeX Font Info:    ... okay on input line 322.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 322.
-LaTeX Font Info:    ... okay on input line 322.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 322.
-LaTeX Font Info:    ... okay on input line 322.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 322.
-LaTeX Font Info:    ... okay on input line 322.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 322.
-LaTeX Font Info:    ... okay on input line 322.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 322.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 322.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 359.
+LaTeX Font Info:    ... okay on input line 359.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 359.
+LaTeX Font Info:    ... okay on input line 359.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 359.
+LaTeX Font Info:    ... okay on input line 359.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 359.
+LaTeX Font Info:    ... okay on input line 359.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 359.
+LaTeX Font Info:    ... okay on input line 359.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 359.
+LaTeX Font Info:    ... okay on input line 359.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 359.
+LaTeX Font Info:    ... okay on input line 359.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 359.
+LaTeX Font Info:    ... okay on input line 359.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 359.
+LaTeX Font Info:    ... okay on input line 359.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 359.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 359.
 
 (d:/Texlive/2016/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 322.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 322.
-LaTeX Font Info:    ... okay on input line 322.
+LaTeX Font Info:    ... okay on input line 359.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 359.
+LaTeX Font Info:    ... okay on input line 359.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -2765,7 +2764,7 @@ LaTeX Font Info:    ... okay on input line 322.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box61
-Package hyperref Info: Link coloring ON on input line 322.
+Package hyperref Info: Link coloring ON on input line 359.
 (d:/Texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -2774,16 +2773,14 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count195
 )
-LaTeX Info: Redefining \ref on input line 322.
-LaTeX Info: Redefining \pageref on input line 322.
-LaTeX Info: Redefining \nameref on input line 322.
+LaTeX Info: Redefining \ref on input line 359.
+LaTeX Info: Redefining \pageref on input line 359.
+LaTeX Info: Redefining \nameref on input line 359.
 
 (./Notes.out) (./Notes.out)
 \@outlinefile=\write3
 \openout3 = `Notes.out'.
 
- ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 322.
 
 *************************************************
 * unicode-math warning: "mathtools-overbracket"
@@ -2792,11 +2789,14 @@ LaTeX Info: Redefining \selectfont on input line 322.
 * 
 * Use \Uoverbracket and \Uunderbracket for original `unicode-math' definition.
 *************************************************
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 359.
 .................................................
 . LaTeX info: "xparse/redefine-command"
 . 
-. Redefining command \Pifont with sig. 'm' on line 322.
+. Redefining command \Pifont with sig. 'm' on line 359.
 .................................................
+
 第一章
 (./Chapters/Chapter1.tex
 LaTeX Font Info:    Font shape `EU1/xits-math.otf(1)/m/n' will be
@@ -2826,9 +2826,9 @@ t line 44.
 
 ] [2]
 LaTeX Font Info:    Font shape `EU1/xits-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.52823pt on input line 196.
+(Font)              scaled to size 7.52823pt on input line 218.
 LaTeX Font Info:    Font shape `EU1/xits-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.528pt on input line 196.
+(Font)              scaled to size 7.528pt on input line 218.
  [3] [4]
 [5]) [6]
 第二章
@@ -2847,25 +2847,26 @@ LaTeX Font Info:    Font shape `EU1/xits-math.otf(2)/m/n' will be
 (Font)              scaled to size 9.03358pt on input line 27.
  [7
 
-] [8] [9] [10] [11] [12])
+] [8] [9] [10] [11] [12] [13] [14] [15])
 \tf@thm=\write4
 \openout4 = `Notes.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 341.
- [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 341.
- (./Notes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 341.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 341.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 341.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 378.
+ [16]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 378.
+
+(./Notes.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 378.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 378.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 378.
  ) 
 Here is how much of TeX's memory you used:
- 33959 strings out of 495544
- 634339 string characters out of 6186321
- 748310 words of memory out of 5000000
- 36863 multiletter control sequences out of 15000+600000
+ 34010 strings out of 495544
+ 635468 string characters out of 6186321
+ 749938 words of memory out of 5000000
+ 36914 multiletter control sequences out of 15000+600000
  12117 words of font info for 101 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 58i,24n,80p,10361b,790s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,24n,80p,10361b,796s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Notes.pdf (13 pages).
+Output written on Notes.pdf (16 pages).
