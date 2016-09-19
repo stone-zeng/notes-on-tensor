@@ -82,15 +82,15 @@
 	
 \subsection{向量的分量}
 	对于任意的向量 $\V{\xi} \in \Rm$，它可以用协变基表示：
-	\begin{equation}
-		\V{\xi}=\ipb{\V{\xi}}{\V{g}^k}\,\V{g}_k
-		=\xi^k \V{g}_k \comma
-	\end{equation}
-	也可以用逆变基表示：
-	\begin{equation}
-		\V{\xi}=\ipb{\V{\xi}}{\V{g}_k}\,\V{g}^k
-		=\xi_k \V{g}^k \comma
-	\end{equation}
+	\begin{mySubEq}
+		\begin{align}
+			\V{\xi}&=\ipb{\V{\xi}}{\V{g}^k}\,\V{g}_k
+			=\xi^k \V{g}_k \comma
+			\intertext{也可以用逆变基表示：}
+			\V{\xi}&=\ipb{\V{\xi}}{\V{g}_k}\,\V{g}^k
+			=\xi_k \V{g}^k \fullstop
+		\end{align}
+	\end{mySubEq}
 	式中，$\xi^k$ 是 $\V{\xi}$ 与第 $k$ 个\emphB{逆变基}做内积的结果，
 	称为 $\V{\xi}$ 的第 $k$ 个\emphA{逆变分量}；
 	而 $\xi_k$ 是 $\V{\xi}$ 与第 $k$ 个\emphB{协变基}做内积的结果，
@@ -216,13 +216,15 @@
 	要注意，由于内积的对称性，可以有两种\footnote{%
 		这里只考虑把 $\V{u}$、$\V{v}$、$\V{w}$%
 		和 $\V{g}^i$、$\V{g}_j$、$\V{g}^k$ 分别放在一起的情况。}表示方法：
-	\begin{gather}
-		\V{g}^i\tp\V{g}_j\tp\V{g}^k
-		\qty(\V{u},\,\V{v},\,\V{w})
-		\intertext{或者}
-		\V{u}\tp\V{v}\tp\V{w}
-		\qty(\V{g}^i,\,\V{g}_j,\,\V{g}^k) \comma
-	\end{gather}
+	\begin{mySubEq}
+		\begin{gather}
+			\V{g}^i\tp\V{g}_j\tp\V{g}^k
+			\qty(\V{u},\,\V{v},\,\V{w})
+			\intertext{或者}
+			\V{u}\tp\V{v}\tp\V{w}
+			\qty(\V{g}^i,\,\V{g}_j,\,\V{g}^k) \comma
+		\end{gather}
+	\end{mySubEq}
 	我们这里取上面一种。代入式~\eqref{eq:张量的表示1}，得
 	\begin{align}
 		&\mathrel{\phantom{=}}
@@ -261,13 +263,13 @@
 	实际上，对于这里的三阶张量，指标的上下一共有 8 种可能。
 	指标全部在下面的，称为\emphA{协变分量}：
 	\begin{equation}
-		\tensor{\Phi}{^i^j^k} \coloneq
-		\T{\Phi}\qty(\V{g}^i,\,\V{g}^j,\,\V{g}^k) \semicomma
+		\tensor{\Phi}{_i_j_k} \coloneq
+		\T{\Phi}\qty(\V{g}_i,\,\V{g}_j,\,\V{g}_k) \semicomma
 	\end{equation}
 	指标全部在上面的，称为\emphA{逆变分量}：
 	\begin{equation}
-		\tensor{\Phi}{_i_j_k} \coloneq
-		\T{\Phi}\qty(\V{g}_i,\,\V{g}_j,\,\V{g}_k) \semicomma
+		\tensor{\Phi}{^i^j^k} \coloneq
+		\T{\Phi}\qty(\V{g}^i,\,\V{g}^j,\,\V{g}^k) \semicomma
 	\end{equation}
 	其余 6 种，称为\emphA{混合分量}。
 	对于一个 $r$ 阶张量，显然共有 $2^r$ 种分量表示，

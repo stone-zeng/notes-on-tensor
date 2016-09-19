@@ -506,7 +506,7 @@
 	\end{equation}
 	式中的 $A_{ijk}$ 表示三维数组 $\Mat{A}$ 的一个元素，其指标为 $ijk$。
 	
-	我们通过一个例子来说明这一条性质。还是用式~\eqref{eq:置换元素表示_数字} 和
+	下面通过一个例子来说明这一条性质。还是用式~\eqref{eq:置换元素表示_数字} 和
 	\eqref{eq:置换元素表示_符号} 所定义的置换 $\Perm{\sigma}$：
 	\begin{equation}
 		\Perm{\sigma}=\mqty*(
@@ -563,7 +563,7 @@
 	\end{equation}
 	比对一下各元素，可见与式~\eqref{eq:数组元素乘积举例} 的确是完全一样的。
 	
-\subsection{哑标的穷尽}
+\subsection{哑标的穷尽} \label{subsec:哑标的穷尽}
 	考虑如下集合：
 	\begin{equation}
 		\set[\bigg]
@@ -576,7 +576,7 @@
 	因此该集合一共有 $m^r$ 元素。我们有
 	\begin{mySubEq}
 		\begin{align}
-		\forall\,\Perm{\sigma}\in\Permutations{r}\, ,
+			\forall\,\Perm{\sigma}\in\Permutations{r}\, ,
 			&\mathrel{\phantom{=}}\set[\bigg]
 			{\qty(i_1,\,i_2,\,\cdots,\,i_r)}
 			{\qty{i_1,\,i_2,\,\cdots,\,i_r}
@@ -753,7 +753,8 @@
 	因此以上推导只是简单地展开了 $\T{\Phi}$，并没有获得实质性的结果。
 	
 	然而，只要稍作改动，情况就会大不相同。
-	考虑一下 \ref{subsec:数组元素的乘积}~小节中置换有关数组元素乘积的性质：
+	考虑一下 \ref{subsec:数组元素的乘积}~小节中置换运算%
+	有关\emphB{数组元素乘积}的性质：
 	\begin{equation}
 		\forall\,\Perm{\tau}\in\Permutations{r},\quad
 		A_{i_1 j_1} \cdots A_{i_r j_r}
@@ -771,7 +772,7 @@
 			j_1 & \cdots & j_r \\
 			\Perm{\tau}(j_1) & \cdots & \Perm{\tau}(j_r) ) \fullstop
 	\end{equation}
-	由此可以看出，式~\eqref{eq:置换算子的表示_中间步骤} 中方括号中的部分
+	由此可以看出，式~\eqref{eq:置换算子的表示_中间步骤} 方括号中的部分
 	其实是由 $\Perm{\sigma}(i_k)$ 和 $i_k$ 两套指标确定的一组数：
 	\begin{equation}
 		A_{\Perm{\sigma}(i_k)\,i_k}
@@ -803,7 +804,7 @@
 				\tp\V{g}^{\Perm{\sigma}^{-1}(i_r)}
 			\qty(\V{u}_{i_1},\,\cdots,\,\V{u}_{i_r}) \fullstop
 	\end{align}
-	这样，我们就得到了置换算子的表示：
+	这样，我们就得到了置换算子的一种表示：
 	\begin{align}
 		\opPerm(\T{\Phi})
 		&=\opPerm\qty(\tensor{\Phi}{_{i_1 \cdots i_r}}
@@ -811,8 +812,56 @@
 		&=\tensor{\Phi}{_{i_1 \cdots i_r}}
 			\V{g}^{\Perm{\sigma}^{-1}(i_1)}\tp\cdots
 				\tp\V{g}^{\Perm{\sigma}^{-1}(i_r)} \fullstop
+		\label{eq:置换算子的表示_逆置换在简单张量上}
 	\end{align}
-%		
-%	
-%	
-%	
+	
+	在式~\eqref{eq:置换算子的表示_逆置换在简单张量上} 中，
+	$i_1,\,\cdots,\,i_r$ 都是哑标，要被求和求掉。
+	张量 $\T{\Phi}$ 的底空间是 $\Rm$，所以每个 $i_k$ 都有 $m$ 个取值。
+	考虑一下 \ref{subsec:哑标的穷尽}~小节中置换运算%
+	有关\emphB{哑标穷尽}的性质，有
+	\begin{align}
+		\forall\,\Perm{\sigma}\in\Permutations{r}\, ,
+		&\mathrel{\phantom{=}}\set[\bigg]
+		{\qty(i_1,\,i_2,\,\cdots,\,i_r)}
+		{\qty{i_1,\,i_2,\,\cdots,\,i_r}
+			\text{\ 可取\ } 1,\,2,\,\cdots,\,m} \notag \\
+		&=\set[\bigg]
+		{\qty(\Perm{\sigma}(i_1),\,\Perm{\sigma}(i_2),\,
+			\cdots,\,\Perm{\sigma}(i_r) )}
+		{\qty{i_1,\,i_2,\,\cdots,\,i_r}
+			\text{\ 可取\ } 1,\,2,\,\cdots,\,m} \fullstop
+	\end{align}
+	因此，我们可以把式~\eqref{eq:置换算子的表示_逆置换在简单张量上} 中的指标
+	$i_k$ 换成 $\Perm{\sigma}(i_k)$：
+	\begin{align}
+		\opPerm(\T{\Phi})
+		&=\tensor{\Phi}{_{i_1 \cdots i_r}}
+			\V{g}^{\Perm{\sigma}^{-1}(i_1)}\tp\cdots
+				\tp\V{g}^{\Perm{\sigma}^{-1}(i_r)} \notag \\
+		&=\tensor{\Phi}{_{\Perm{\sigma}(i_1) \cdots \Perm{\sigma}(i_r)}}
+			\V{g}^{\Perm{\sigma}^{-1}\comp\Perm{\sigma}(i_1)}\tp\cdots
+				\tp\V{g}^{\Perm{\sigma}^{-1}\comp
+					\Perm{\sigma}(i_r)} \notag \\
+		&=\tensor{\Phi}{_{\Perm{\sigma}(i_1) \cdots \Perm{\sigma}(i_r)}}
+			\V{g}^{i_1}\tp\cdots\tp\V{g}^{i_r} \fullstop
+	\end{align}
+	这是置换算子的另一种表示。
+	
+	综上，要获得置换算子的表示，
+	若是对\emphB{张量分量}进行操作，就直接使用对分量指标使用置换；
+	若是对\emphB{简单张量}进行操作，则要对其指标使用逆置换：\footnote{%
+		这里稍有改动，用了张量的逆变分量，不过实质都是一样的。%
+		使用协变分量还是逆变分量，这个嘛，悉听尊便。}
+	\begin{mySubEq}
+		\begin{align}
+			\opPerm(\T{\Phi})
+			&=\opPerm\qty(\tensor{\Phi}{^{i_1 \cdots i_r}}
+				\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_r}) \notag \\
+			&=\tensor{\Phi}{^{\Perm{\sigma}(i_1)\cdots\Perm{\sigma}(i_r)}}
+				\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_r} \\
+			&=\tensor{\Phi}{^{i_1 \cdots i_r}}
+				\V{g}_{\Perm{\sigma}^{-1}(i_1)}\tp\cdots
+					\tp\V{g}_{\Perm{\sigma}^{-1}(i_r)} \fullstop
+		\end{align}
+	\end{mySubEq}
