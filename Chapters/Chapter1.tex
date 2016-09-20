@@ -105,20 +105,22 @@
 	
 	首先用三阶张量举个例子。考虑任意的 $\T{\Phi}\in\Tensors{3}$，
 	其中的 $\Tensors{3}$ 表示以 $\Rm$ 为底空间的三阶张量全体。
-	所谓三阶（或三重）线性函数，指“吃掉”三个向量之后变成数，
+	所谓三阶（或三重）线性函数，指“吃掉”三个向量之后变成\emphB{实数}，
 	并且“吃法”具有线性性。
 	
 	一般地，$r$ 阶张量的定义如下：
 	\begin{equation}
-		\mdef{\T{\Phi}}{\underbrace{\Rm\times\Rm\times\cdots\times\Rm}_
-			{\text{$r$ 个 $\Rm$}}
-			\ni\qty{\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r}}
-		{\T{\Phi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)} \comma
+		\mdef{\T{\Phi}}
+			{\underbrace{\Rm\times\Rm\times\cdots\times\Rm}_
+				{\text{$r$ 个 $\Rm$}}
+				\ni\qty{\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r}}
+			{\T{\Phi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)}
+				\in\realR \comma
 	\end{equation}
 	式中的 $\T{\Phi}$ 满足
 	\begin{align}
 		\forall\,\alpha,\,\beta\in\realR,\,
-		&\mathrel{\phantom{=}}\T{\Phi}\qty(\V{u}_1,\,\cdots,\,
+		&\alspace\T{\Phi}\qty(\V{u}_1,\,\cdots,\,
 			\alpha\tilde{\V{u}}_i+\beta\hat{\V{u}}_i,\,\cdots,\,\V{u}_r)
 			\notag \\
 		&=\alpha\,\T{\Phi}\qty(\V{u}_1,\,\cdots,\,
@@ -126,13 +128,14 @@
 		+\beta\,\T{\Phi}\qty(\V{u}_1,\,\cdots,\,
 			\hat{\V{u}}_i,\,\cdots,\,\V{u_r}) \comma
 	\end{align}
-	即所谓“\emphB{对第 $i$ 个变元的线性性}”。
+	即所谓“\emphB{对第 $i$ 个变元的线性性}”。这里的 $i$ 可取
+	$1,\,2,\,\cdots,\,r$。
 
 	在张量空间 $\Tensors{r}$ 上，我们引入线性结构：
 	\begin{align}
 		\forall\,\alpha,\,\beta\in\realR,\,
 		\T{\Phi},\,\T{\Psi}\in\Tensors{r},
-		&\mathrel{\phantom{=}}\qty(\alpha\,\T{\Phi}+\beta\,\T{\Psi})
+		&\alspace\qty(\alpha\,\T{\Phi}+\beta\,\T{\Psi})
 		\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r) \notag \\
 		&\mathrel{\defeq}
 			\alpha\,\T{\Phi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)
@@ -148,7 +151,7 @@
 	根据之前任意向量用协变基或逆变基的表示，有
 	\begin{align}
 		\forall\,\V{u},\,\V{v},\,\V{w}\in\Rm,
-		&\mathrel{\phantom{=}}
+		&\alspace
 		\T{\Phi}\qty(\V{u},\,\V{v},\,\V{w}) \notag\\
 		&=\T{\Phi}\qty(u^i\V{g}_i,\,v_j\V{g}^j,\,w^k\V{g}_k) \notag
 		\intertext{考虑到 $\T{\Phi}$ 对第一变元的线性性，可得}
@@ -227,7 +230,7 @@
 	\end{mySubEq}
 	我们这里取上面一种。代入式~\eqref{eq:张量的表示1}，得
 	\begin{align}
-		&\mathrel{\phantom{=}}
+		&\alspace
 			\T{\Phi}\qty(\V{u},\,\V{v},\,\V{w}) \notag\\
 		&=\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)
 			\cdotp\V{g}^i\tp\V{g}_j\tp\V{g}^k

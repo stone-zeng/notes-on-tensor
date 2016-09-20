@@ -4,7 +4,7 @@
 	实际上就用到了张量积。张量积的定义为：
 	\begin{align}
 		\forall\,\T{\Phi}\in\Tensors{p},\,\T{\Psi}\in\Tensors{q},
-		&\mathrel{\phantom{=}} \T{\Phi}\tp\T{\Psi}
+		&\alspace \T{\Phi}\tp\T{\Psi}
 			\in\Tensors{p+q} \notag \\
 		&=\qty(\Phi^{i_1 \cdots i_p} \,
 				\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p})
@@ -32,19 +32,19 @@
 		\T{\Psi}\in\Tensors{q},\,
 		e\leqslant\min\qty{p,\,q}\in\natN$，$e$ 点积是这样定义的：
 	\begin{align}
-		&\mathrel{\phantom{=}} \T{\Phi}\edp\T{\Psi} \notag \\
+		&\alspace \T{\Phi}\edp\T{\Psi} \notag \\
 		&=\qty(\Phi^{i_1 \cdots i_{p-e} i_{p-e+1} \cdots i_p} \,
 			\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-e}}
 			\tp\hl{\V{g}_{i_{p-e+1}}\tp\cdots\tp\V{g}_{i_p}}
 			) \notag \\
-		&\mathrel{\phantom{=}}\quad\edp
+		&\alspace\quad\edp
 			\qty(\Psi^{j_1 \cdots j_e j_{e+1} \cdots j_q} \,
 			\hl{\V{g}_{j_1}\tp\cdots\tp\V{g}_{j_e}}
 			\tp\V{g}_{j_{e+1}}\tp\cdots\tp\V{g}_{j_q}) \notag
 		\intertext{把高亮的部分做内积，得到\emphB{度量}：}
 		&\defeq\Phi^{i_1 \cdots i_{p-e} i_{p-e+1} \cdots i_p} \,
 			\Psi^{j_1 \cdots j_e j_{e+1} \cdots j_q} \notag \\
-		&\mathrel{\phantom{=}}\quad\cdotp
+		&\alspace\quad\cdotp
 			g_{i_{p-e+1} j_1} \cdots g_{i_p j_e} \,
 			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-e}})
 			\tp\qty(\V{g}_{j_{e+1}}\tp\cdots\tp\V{g}_{j_q}) \notag
@@ -70,7 +70,7 @@
 	作为一个特殊的应用，接下来我们介绍\emphA{全点积}，用符号“\fdp”表示。
 	对于任意的 $\T{\Phi},\,\T{\Psi}\in\Tensors{p}$，有
 	\begin{align}
-		&\mathrel{\phantom{=}} \T{\Phi}\fdp\T{\Psi}
+		&\alspace \T{\Phi}\fdp\T{\Psi}
 			\defeq \T{\Phi}\edp[p]\T{\Psi} \notag \\
 		&=\qty(\Phi^{i_1 \cdots i_p}\,\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p})
 			\edp[p]
@@ -98,7 +98,7 @@
 	对于任意的 $\T{\Phi}\in\Tensors[\realR^3]{p},\,
 	\T{\Psi}\in\Tensors[\realR^3]{q}$，叉乘的定义如下：
 	\begin{align}
-		&\mathrel{\phantom{=}} \T{\Phi}\cp\T{\Psi} \notag \\
+		&\alspace \T{\Phi}\cp\T{\Psi} \notag \\
 		&=\qty(\Phi^{i_1 \cdots i_{p-1} i_p} \,
 				\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-1}}\tp\V{g}_{i_p})
 			\cp \qty(\Psi_{j_1 j_2 \cdots j_q} \,
@@ -295,6 +295,7 @@
 		\sgn\qty(\Perm{\tau}\comp\Perm{\sigma})
 		=(-1)^{q+p}=(-1)^q \cdotp (-1)^p
 		=\sgn\Perm{\tau}\cdotp\sgn\Perm{\sigma} \fullstop
+		\label{eq:置换复合的符号}
 	\end{equation}
 	
 \subsection{逆置换}
@@ -370,7 +371,7 @@
 \section{置换（二）}
 	本节将介绍置换运算的基本性质。
 	
-\subsection{置换的穷尽}
+\subsection{置换的穷尽} \label{subsec:置换的穷尽}
 	先要做一点铺垫。设有序数组
 	\begin{equation*}
 		\qty{i_1,\,i_2,\,\cdots,\,i_r}
@@ -402,7 +403,7 @@
 	下面我们要证明
 	\begin{mySubEq}
 		\begin{align}
-			&\mathrel{\phantom{=}}\set[\bigg]
+			&\alspace\set[\bigg]
 				{\qty(\Perm{\sigma}(i_1),\,\Perm{\sigma}(i_2),\,
 					\cdots,\,\Perm{\sigma}(i_r))}
 				{\forall\,\Perm{\sigma}\in\Permutations{r}} \notag \\
@@ -430,6 +431,14 @@
 				\label{eq:置换的穷尽_逆} \fullstop
 		\end{align}
 	\end{mySubEq}
+	
+	所谓“穷尽”，就是将 $\Permutations{r}$ 中的所有置换 $\Perm{\sigma}$
+	全部枚举出来。关于 $\Perm{\sigma}$ 的求和就是一个例子。
+	以上这条性质说明，置换 $\Perm{\sigma}$ 如果作为一个广义上的“哑标”，
+	那么穷尽的结果与用 $\Perm{\tau}\comp\Perm{\sigma}$、
+	$\Perm{\sigma}\comp\Perm{\tau}$ 或 $\Perm{\sigma}^{-1}$
+	代替该“哑标”的结果是一样的。
+	
 	\colorbox{pink}{这说明置换构成了置换群。？}
 	
 	\begin{myProof}
@@ -577,7 +586,7 @@
 	\begin{mySubEq}
 		\begin{align}
 			\forall\,\Perm{\sigma}\in\Permutations{r}\, ,
-			&\mathrel{\phantom{=}}\set[\bigg]
+			&\alspace\set[\bigg]
 			{\qty(i_1,\,i_2,\,\cdots,\,i_r)}
 			{\qty{i_1,\,i_2,\,\cdots,\,i_r}
 				\text{\ 可取\ } 1,\,2,\,\cdots,\,m} \notag \\
@@ -655,10 +664,12 @@
 	\end{myProof}
 	
 \section{置换（三）}
-	本节将给出
+	本节将给出置换运算在线性代数中的一些应用。
+	
+\subsection{行列式}
 	
 \section{置换（四）}
-	本节将回归张量运算的主线，引入\emphA{置换算子}。
+	本节将重回张量运算的主线，引入\emphA{置换算子}。
 	
 \subsection{置换算子；对称张量与反对称张量}
 	对于任意的置换 $\Perm{\sigma}\in\Permutations{r}$，定义\emphA{置换算子}
@@ -675,7 +686,7 @@
 			\V{u}_{\Perm{\sigma}(r)})
 		\in\realR \fullstop
 	\end{equation}
-	这里的“$\cdots\in\realR$”是由于张量的定义：\emphB{多重线性函数}。
+	这里的“$\cdots\in\realR$”是根据张量的定义：\emphB{多重线性函数}。
 	
 	如果我们的置换
 	\begin{equation}
@@ -694,6 +705,59 @@
 			\V{u}_{\Perm{\sigma}(i_r)}) \fullstop
 	\end{equation}
 	
+	根据张量的线性性，容易知道置换算子也具有线性性：
+	\begin{align}
+		\forall\,\T{\Phi},\,\T{\Psi}\in\Tensors{r}
+			\text{\ 以及\ } \alpha,\,\beta\in\realR,\quad
+		\opPerm(\alpha\,\T{\Phi}+\beta\,\T{\Psi})
+		=\alpha\,\opPerm(\T{\Phi})
+			+\beta\,\alpha\opPerm(\T{\Psi}) \fullstop
+		\label{eq:置换算子的线性性}
+	\end{align}
+	
+	\begin{myProof}
+		\begin{align}
+			\opPerm(\alpha\,\T{\Phi}+\beta\,\T{\Psi})
+				\qty(\V{u}_1,\,\cdots,\,\V{u}_r)
+			&=(\alpha\,\T{\Phi}+\beta\,\T{\Psi})
+				\qty(\V{u}_{\Perm{\sigma}(1)},\,\cdots,\,
+					\V{u}_{\Perm{\sigma}(r)}) \notag \\
+			&=\alpha\,\T{\Phi}\qty(\V{u}_{\Perm{\sigma}(1)},\,\cdots,\,
+					\V{u}_{\Perm{\sigma}(r)})
+				+\beta\,\T{\Psi}\qty(\V{u}_{\Perm{\sigma}(1)},\,\cdots,\,
+					\V{u}_{\Perm{\sigma}(r)}) \notag \\
+			&=\alpha\opPerm(\T{\Phi})
+					\qty(\V{u}_1,\,\cdots,\,\V{u}_r)
+				+\beta\opPerm(\T{\Psi})
+					\qty(\V{u}_1,\,\cdots,\,\V{u}_r) \notag \\
+			&=\qty[\alpha\opPerm(\T{\Phi})
+					+\beta\opPerm(\T{\Psi})]
+				\qty(\V{u}_1,\,\cdots,\,\V{u}_r) \fullstop
+			\label{eq:置换算子的复合}
+		\end{align}
+	\end{myProof}
+	两个置换算子复合的结果也是很显然的：
+	\begin{equation}
+		\forall\,\Perm{\sigma},\,\Perm{\tau}\in\Permutations{r},\quad
+		\opPerm\comp\opPerm[\Perm{\tau}]
+		=\opPerm[\Perm{\sigma}\comp\Perm{\tau}] \fullstop
+	\end{equation}
+	
+	\begin{myProof}
+		\begin{align}
+			\opPerm\comp\opPerm[\Perm{\tau}](\T{\Phi})
+				\qty(\V{u}_{i_1},\,\cdots,\,\V{u}_{i_r})
+			&=\opPerm(\T{\Phi})
+					\qty(\V{u}_{\Perm{\tau}(1)},\,
+					\cdots,\,\V{u}_{\Perm{\tau}(r)}) \notag \\
+			&=\T{\Phi}\qty(\V{u}_{\Perm{\sigma}\comp\Perm{\tau}(1)},\,
+				\cdots,\,\V{u}_{\Perm{\sigma}\comp\Perm{\tau}(r)}) \notag \\
+			&=\opPerm[\Perm{\sigma}\comp\Perm{\tau}](\T{\Phi})
+				\qty(\V{u}_{i_1},\,\cdots,\,\V{u}_{i_r}) \fullstop
+		\end{align}
+		
+	\end{myProof}
+	
 	\blankline
 	
 	有了置换算子，我们就可以来定义\emphA{对称张量}和\emphA{反对称张量}。
@@ -704,14 +768,36 @@
 	对于任意的 $\T{\Phi}\in\Tensors{r}$，如果
 	\begin{equation}
 		\opPerm(\T{\Phi})=\T{\Phi} \comma
+		\label{eq:对称张量的定义}
 	\end{equation}
 	则称 $\T{\Phi}$ 为\emphB{对称张量}，
 	即 $\T{\Phi}\in\Sym \text{\ 或\ } \SymTensors{r}$；如果
 	\begin{equation}
 		\opPerm(\T{\Phi})=\sgn\Perm{\sigma}\cdotp\T{\Phi} \comma
+		\label{eq:反对称张量的定义}
 	\end{equation}
 	则称 $\T{\Phi}$ 为\emphB{反对称张量}，
 	即 $\T{\Phi}\in\Skw \text{\ 或\ } \SkwTensors{r}$。
+	
+	有些书中采用分量形式来定义（反）对称张量。这与此处的定义是等价的：
+	\begin{mySubEq}
+		\begin{align}
+			\opPerm(\T{\Phi})=\T{\Phi} &\iff
+				\tensor{\Phi}{_{\Perm{\sigma}(i_1)\cdots\Perm{\sigma}(i_p)}}
+					=\tensor{\Phi}{_{i_1 \cdots i_p}} \comma\\
+			\opPerm(\T{\Phi})=\sgn\Perm{\sigma}\cdotp\T{\Phi} &\iff
+				\tensor{\Phi}{_{\Perm{\sigma}(i_1)\cdots\Perm{\sigma}(i_p)}}
+					=\sgn\Perm{\sigma}\cdotp\tensor{\Phi}{_{i_1 \cdots i_p}}
+					\fullstop
+		\end{align}
+	\end{mySubEq}
+	反对称张量与我们熟知的\emphB{行列式}有些类似：
+	交换两列（对于张量就是两个分量），符号相反。
+	全部分量两两交换一遍，前面的系数自然是置换的符号。
+	而如果无论怎么交换分量（当然需要全部两两交换一遍），符号都不变，
+	那这样的张量就是对称张量。
+	
+	\colorbox{pink}{一个二阶张量的协变（或逆变）分量，可以用一个矩阵表示。}如果这个张量是一个反对称张量，交换任意两个分量要添加负号；对于矩阵而言，这就意味着交换两行（或两列）……
 	
 \subsection{置换算子的表示}
 	根据上文给出的定义，我们有
@@ -723,7 +809,7 @@
 	首先回忆一下 \ref{subsec:张量的表示与简单张量}~小节中张量的表示：
 	选一组基（协变、逆变均可），然后把张量用这组基表示。于是
 	\begin{align}
-		&\mathrel{\phantom{=}}\opPerm(\T{\Phi})
+		&\alspace\opPerm(\T{\Phi})
 			\qty(\V{u}_{i_1},\,\cdots,\,\V{u}_{i_r})
 		=\T{\Phi}\qty(\V{u}_{\Perm{\sigma}(i_1)},\,\cdots,\,
 			\V{u}_{\Perm{\sigma}(i_r)}) \notag
@@ -780,7 +866,7 @@
 	\end{equation}
 	另一方面，显然有 $\Perm{\sigma}^{-1}\in\Permutations{r}$。于是
 	\begin{align}
-		&\mathrel{\phantom{=}}\opPerm(\T{\Phi})
+		&\alspace\opPerm(\T{\Phi})
 			\qty(\V{u}_{i_1},\,\cdots,\,\V{u}_{i_r}) \notag \\
 		&=\tensor{\Phi}{_{i_1 \cdots i_r}}
 			\qty[\ipb{\V{u}_{\Perm{\sigma}(i_1)}}{\V{g}^{i_1}}\cdots
@@ -822,7 +908,7 @@
 	有关\emphB{哑标穷尽}的性质，有
 	\begin{align}
 		\forall\,\Perm{\sigma}\in\Permutations{r}\, ,
-		&\mathrel{\phantom{=}}\set[\bigg]
+		&\alspace\set[\bigg]
 		{\qty(i_1,\,i_2,\,\cdots,\,i_r)}
 		{\qty{i_1,\,i_2,\,\cdots,\,i_r}
 			\text{\ 可取\ } 1,\,2,\,\cdots,\,m} \notag \\
@@ -865,3 +951,91 @@
 					\tp\V{g}_{\Perm{\sigma}^{-1}(i_r)} \fullstop
 		\end{align}
 	\end{mySubEq}
+	
+\subsection{对称化算子与反对称化算子}
+	\emphA{对称化算子 $\opSym$} 和\emphA{反对称化算子 $\opSkw$} 的定义分别为
+	\begin{align}
+		\opSym(\T{\Phi})
+			&\defeq \frac{1}{r!} \sum_{\Perm{\sigma\in\Permutations{r}}}
+				\opPerm(\T{\Phi})
+		\intertext{和}
+		\opSkw(\T{\Phi})
+			&\defeq \frac{1}{r!} \sum_{\Perm{\sigma\in\Permutations{r}}}
+				\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi}) \fullstop
+	\end{align}
+	
+	对于任意的 $\T{\Phi}\in\Tensors{r}$，我们有
+	\begin{braceEq}
+		\opSym(\T{\Phi}) &\in \Sym \comma \\
+		\opSkw(\T{\Phi}) &\in \Skw \fullstop
+	\end{braceEq}
+	这说明任意一个张量，对它作用对称化算子之后，将变为对称张量；
+	反之，作用反对称算子之后，将变为反对称张量。\footnote{%
+		换一个角度，（反）对称张量实际上可以用（反）对称化算子来定义。}
+	
+	\begin{myProof}
+		要判断 $\opSym(\T{\Phi})$ 是不是对称张量，
+		首先需要在其上作用一个置换算子 $\opPerm[\Perm{\tau}]$：
+		\begin{align}
+			\opPerm[\Perm{\tau}]\qty\big[\opSym(\T{\Phi})]
+			&=\opPerm[\Perm{\tau}]\qty[\frac{1}{r!}
+					\sum_{\Perm{\sigma\in\Permutations{r}}}
+					\opPerm(\T{\Phi})] \notag
+			\intertext{根据置换算子的线性性 \eqref{eq:置换算子的线性性}~式，可有}
+			&=\frac{1}{r!} \sum_{\Perm{\sigma\in\Permutations{r}}}
+				\opPerm[\Perm{\tau}]\comp\opPerm(\T{\Phi}) \notag
+			\intertext{再用一下 \eqref{eq:置换算子的复合}~式，得到}
+			&=\frac{1}{r!} \sum_{\Perm{\sigma\in\Permutations{r}}}
+				\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi}) \notag
+			\intertext{这里求和的作用就是把置换 $\Perm{\sigma}$ 穷尽了。
+				根据 \ref{subsec:置换的穷尽}~小节中的内容，
+				再在 $\Perm{\sigma}$ 上复合一个置换 $\Perm{\tau}$，
+				结果将保持不变：}
+			&=\frac{1}{r!} \sum_{\Perm{\sigma\in\Permutations{r}}}
+				\opPerm(\T{\Phi})
+			=\opSym(\T{\Phi}) \fullstop
+		\end{align}
+		对照一下对称张量的定义 \eqref{eq:对称张量的定义}~式，可见的确有
+		$\opSym(\T{\Phi})\in\Sym$。
+		
+		类似地，
+		\begin{align}
+			\opPerm[\Perm{\tau}]\qty\big[\opSkw(\T{\Phi})]
+			&=\opPerm[\Perm{\tau}]\qty[\frac{1}{r!}
+					\sum_{\Perm{\sigma\in\Permutations{r}}}
+					\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi})] \notag \\
+			&=\frac{1}{r!} \sum_{\Perm{\sigma\in\Permutations{r}}}
+				\sgn\Perm{\sigma}\cdotp
+				\qty\bigg[\opPerm[\Perm{\tau}]\comp\opPerm(\T{\Phi})]
+				\notag \\
+			&=\frac{1}{r!} \sum_{\Perm{\sigma\in\Permutations{r}}}
+				\sgn\Perm{\sigma}\cdotp
+				\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi}) \notag
+			\intertext{根据式~\eqref{eq:置换复合的符号}，
+				$\sgn\Perm{\tau}\cdotp\sgn\Perm{\sigma}
+				=\sgn(\Perm{\tau}\comp\Perm{\sigma})$，于是}
+			&=\frac{1}{r!} \sum_{\Perm{\sigma\in\Permutations{r}}}
+				\frac{\sgn(\Perm{\tau}\comp\Perm{\sigma})}{\sgn\Perm{\tau}}
+				\cdotp\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi}) \notag
+			\intertext{注意到始终成立
+				$\sgn\Perm{\tau}\cdotp\sgn\Perm{\tau}=1$
+				（因为 $\sgn\Perm{\tau}=\pm 1$），又有}
+			&=\frac{\sgn\Perm{\tau}}{r!}
+				\sum_{\Perm{\sigma\in\Permutations{r}}}
+				\sgn(\Perm{\tau}\comp\Perm{\sigma})
+				\cdotp\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi}) \notag
+			\intertext{利用置换的穷尽，
+				$\Perm{\tau}\comp\Perm{\sigma}$ 与 $\Perm{\sigma}$ 相比，
+				结果将保持不变：}
+			&=\sgn\tau\cdotp\qty[\frac{1}{r!}
+				\sum_{\Perm{\sigma\in\Permutations{r}}}
+				\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi})]
+			=\sgn\tau\cdotp\opSkw(\T{\Phi}) \fullstop
+		\end{align}
+		与反对称张量的定义 \eqref{eq:反对称张量的定义}~式相比，可见的确有
+		$\opSym(\T{\Phi})\in\Skw$。
+		
+		这里的操作直接对张量本身进行，没有采用涉及到张量“自变量”（向量）的繁琐计算，
+		因而显得更加干净利落。
+	\end{myProof}
+	
