@@ -60,7 +60,7 @@
 			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-e}})
 			\tp\qty(\V{g}_{j_{e+1}}\tp\cdots\tp\V{g}_{j_q}) \fullstop
 	\end{align}
-	最后一步的大括号中，高亮的 $j_1 \cdots j_e$
+	最后一步的花括号中，高亮的 $j_1 \cdots j_e$
 	和 $i_{p-e+1} \cdots i_p$ 都是哑标，可以通过求和求掉。因此有
 	\begin{equation}
 		\T{\Phi}\edp\T{\Psi} \in \Tensors{p+q-2e} \fullstop
@@ -952,7 +952,8 @@
 		\end{align}
 	\end{mySubEq}
 	
-\subsection{对称化算子与反对称化算子}
+\section{对称化算子与反对称化算子}
+\subsection{定义}
 	\emphA{对称化算子 $\opSym$} 和\emphA{反对称化算子 $\opSkw$} 的定义分别为
 	\begin{align}
 		\opSym(\T{\Phi})
@@ -963,6 +964,7 @@
 			&\defeq \frac{1}{r!} \sum_{\Perm{\sigma\in\Permutations{r}}}
 				\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi}) \fullstop
 	\end{align}
+	根据置换算子的线性性，很容易知道对称化算子与反对称化算子也具有线性性。
 	
 	对于任意的 $\T{\Phi}\in\Tensors{r}$，我们有
 	\begin{braceEq}
@@ -1039,3 +1041,88 @@
 		因而显得更加干净利落。
 	\end{myProof}
 	
+\subsection{反对称化算子的性质}
+	上文已经定义了\emphA{反对称化算子 $\opSkw$}：
+	\begin{equation}
+		\forall\,\T{\Phi}\in\Tensors{r},\quad
+		\opSkw(\T{\Phi})\defeq
+		\frac{1}{r!} \sum_{\Perm{\sigma\in\Permutations{r}}}
+		\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi})
+		\in\Skw \text{\ 或\ } \SkwTensors{r} \fullstop
+	\end{equation}
+	即任意一个 $r$ 阶张量，作用反对称化算子后就变成了 $r$ 阶反对称张量。
+	$r$ 阶反对称张量也称为 \emphA{$r$-form} （\emphA{$r$-形式}）。
+	
+	下面列出反对称化算子的几条性质。
+	
+	反对称化算子重复作用，仅相当于一次作用：
+	\begin{equation}
+		\opSkw^2 \coloneq \opSkw\comp\opSkw = \opSkw \fullstop
+	\end{equation}
+	根据数学归纳法，显然有
+	\begin{equation}
+		\forall\,p\in\natN,\quad
+		\opSkw^p \coloneq \underbrace{\opSkw\comp\cdots\comp\opSkw}_
+			{\text{$p$ 个 $\opSkw$}} = \opSkw \fullstop
+	\end{equation}
+	
+	\begin{myProof}
+		\begin{align}
+			\opSkw^2 &= \opSkw\qty\big[\opSkw(\T{\Phi})] \notag \\
+			&\defeq \opSkw\qty[\frac{1}{r!}
+				\sum_{\Perm{\sigma\in\Permutations{r}}}
+				\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi})] \notag \\
+			&\defeq \frac{1}{r!}
+				\sum_{\Perm{\tau\in\Permutations{r}}}
+				\sgn\Perm{\tau}\cdotp\opPerm[\Perm{\tau}]\qty[\frac{1}{r!}
+					\sum_{\Perm{\sigma\in\Permutations{r}}}
+					\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi})] \notag
+			\intertext{根据线性性，可有}
+			&=\frac{1}{(r!)^2} \sum_{\Perm{\tau\in\Permutations{r}}}
+				\sum_{\Perm{\sigma\in\Permutations{r}}}
+				\sgn\Perm{\tau}\sgn\Perm{\sigma}
+				\cdotp\opPerm[\Perm{\tau}]\comp\opPerm(\T{\Phi}) \notag
+			\intertext{根据式~\eqref{eq:置换复合的符号}
+				和式~\eqref{eq:置换算子的复合}，有}
+			&=\frac{1}{(r!)^2} \sum_{\Perm{\tau\in\Permutations{r}}}
+				\sum_{\Perm{\sigma\in\Permutations{r}}}
+				\sgn\qty(\Perm{\tau}\comp\Perm{\sigma}) \cdotp
+				\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi}) \notag \\
+			&=\frac{1}{(r!)^2} \sum_{\Perm{\tau\in\Permutations{r}}}
+				\qty[\sum_{\Perm{\sigma\in\Permutations{r}}}
+					\sgn\qty(\Perm{\tau}\comp\Perm{\sigma}) \cdotp
+					\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi})] \notag
+			\intertext{注意到方括号中的部分穷尽了置换 $\Perm{\sigma}$，
+				因此可以用 $\Perm{\sigma}$ 取代“指标”
+				$\Perm{\tau}\comp\Perm{\sigma}$：}
+			&=\frac{1}{(r!)^2} \sum_{\Perm{\tau\in\Permutations{r}}}
+				\qty[\sum_{\Perm{\sigma\in\Permutations{r}}}
+					\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi})] \notag
+			\intertext{回到定义，有}
+			&=\frac{1}{r!} \sum_{\Perm{\tau\in\Permutations{r}}}
+				\opSkw(\T{\Phi})
+			=\frac{1}{r!} \cdotp r! \opSkw(\T{\Phi})
+			=\opSkw(\T{\Phi}) \fullstop
+		\end{align}
+	\end{myProof}
+	
+	\blankline
+	
+	对任意两个张量 $\T{\Phi}\in\Tensors{p}$ 和
+	$\T{\Psi}\in\Tensors{q}$ 的并作用反对称化算子，可以得到如下结果：
+	\begin{equation}
+		\opSkw\qty(\T{\Phi}\tp\T{\Psi})
+		=\opSkw\qty\big[\opSkw(\T{\Phi})\tp\T{\Psi}]
+		=\opSkw\qty\big[\T{\Phi}\tp\opSkw(\T{\Psi})]
+		=\opSkw\qty\big[\opSkw(\T{\Phi})\tp\opSkw(\T{\Psi})]
+		\fullstop
+	\end{equation}
+	
+	\blankline
+	
+	反对称化算子具有所谓\emphA{反导性}：
+	\begin{equation}
+		\forall\,\T{\Phi}\in\Tensors,\,\T{\Psi}\in\Tensors{q},\quad
+		\opSkw\qty(\T{\Phi}\tp\T{\Psi})
+		=(-1)^{pq}\opSkw\qty(\T{\Psi}\tp\T{\Phi}) \fullstop
+	\end{equation}
