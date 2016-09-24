@@ -1,414 +1,414 @@
 \section{对偶基，度量}
 \subsection{对偶基}
-	$\Rm$ 空间中的基可分为两类：指标写在\emphB{下面}的基
-	\begin{equation*}
-		\qty{\V{g}_i}^m_{i=1} \subset \Rm
-	\end{equation*}
-	称为\emphA{协变基}，指标写在\emphB{上面}的基
-	\begin{equation*}
-		\qty{\V{g}^i}^m_{i=1} \subset \Rm
-	\end{equation*}
-	称为\emphA{逆变基}。
-	它们满足\emphA{对偶关系}：
-	\begin{equation}
-		\qty(\V{g}^i,\,\V{g}_j)_{\Rm}=\KroneckerDelta{i}{j}
-		=\left\{\begin{aligned}
-			1,\quad i&=j \semicomma\\
-			0,\quad i&\neq j \fullstop
-		\end{aligned}\right.
-		\label{eq:对偶关系}
-	\end{equation}
-	这里的 $\KroneckerDelta{i}{j}$ 是 \emphA{Kronecker δ 函数}。
-	
+$\Rm$ 空间中的基可分为两类：指标写在\emphB{下面}的基
+\begin{equation*}
+	\qty{\V{g}_i}^m_{i=1} \subset \Rm
+\end{equation*}
+称为\emphA{协变基}，指标写在\emphB{上面}的基
+\begin{equation*}
+	\qty{\V{g}^i}^m_{i=1} \subset \Rm
+\end{equation*}
+称为\emphA{逆变基}。
+它们满足\emphA{对偶关系}：
+\begin{equation}
+	\qty(\V{g}^i,\,\V{g}_j)_{\Rm}=\KroneckerDelta{i}{j}
+	=\left\{\begin{aligned}
+		1,\quad i&=j \semicomma\\
+		0,\quad i&\neq j \fullstop
+	\end{aligned}\right.
+	\label{eq:对偶关系}
+\end{equation}
+这里的 $\KroneckerDelta{i}{j}$ 是 \emphA{Kronecker δ 函数}。
+
 \subsection{度量}
-	下面引入\emphA{度量}的概念。其定义为
-	\begin{braceEq}
-		g_{ij} &\defeq \qty(\V{g}_i,\,\V{g}_j)_{\Rm} \comma 
-		\label{eq:度量的定义_协变} \\
-		g^{ij} &\defeq \qty(\V{g}^i,\,\V{g}^j)_{\Rm} \fullstop
-		\label{eq:度量的定义_逆变}
-	\end{braceEq}
-	
-	下面证明
-	\begin{equation}
-		g_{ik}\,g^{kj} = \KroneckerDelta{j}{i} \fullstop
-		\label{eq:度量之积}
-	\end{equation}
-	它也可以写成矩阵的形式：
-	\begin{equation}
-		\qty[g_{ik}]\qty[g^{kj}]
-		=\qty[\KroneckerDelta{j}{i}]=\Mat{I}_m \comma
-	\end{equation}
-	其中的 $\Mat{I}_m$ 是 $m$ 阶单位阵。
-	\begin{myProof}
-		\begin{equation}
-			g_{ik}\,g^{kj}
-			=\qty(\V{g}_i,\,\V{g}_k)_{\Rm} \, g^{kj}
-			=\qty(\V{g}_i,\,g^{kj}\V{g}_k)_{\Rm}
-		\end{equation}
-		后文将说明 $g^{kj}\V{g}_k=\V{g}^j$，因此可得
-		\begin{equation}
-			g_{ik}\,g^{kj}=\qty(\V{g}_i,\,\V{g}^j)_{\Rm}
-			=\KroneckerDelta{j}{i} \fullstop
-		\end{equation}
-		
-		要注意的是，这里的指标 $k$ 是\emphB{哑标}。
-		根据\emphA{Einstein 求和约定}，
-		重复指标并且一上一下时，就表示对它求和。后文除非特殊说明，也均是如此。
-	\end{myProof}
-	
-	现在澄清\emphA{基向量转换关系}。第 $i$ 个协变基向量 $\V{g}_i$ 既然是向量，
-	就必然可以用协变基或逆变基来表示。
-	根据对偶关系式~\eqref{eq:对偶关系} 和度量的定义
-	式~\eqref{eq:度量的定义_协变}、\eqref{eq:度量的定义_逆变}，可知
-	\begin{braceEq}
-		\V{g}_i &=\qty(\V{g}_i,\,\V{g}_k)_{\Rm} \,\V{g}^k
-		=g_{ik}\,\V{g}^k \comma \label{eq:基向量转换关系1} \\
-		\V{g}_i &=\qty(\V{g}_i,\,\V{g}^k)_{\Rm} \,\V{g}_k
-		=\KroneckerDelta{k}{i}\V{g}_k \label{eq:基向量转换关系2}
-	\end{braceEq}
-	以及
-	\begin{braceEq}
-		\V{g}^i &=\qty(\V{g}^i,\,\V{g}_k)_{\Rm} \,\V{g}^k
-		=\KroneckerDelta{i}{k}\,\V{g}^k \comma \label{eq:基向量转换关系3} \\
-		\V{g}^i &=\qty(\V{g}^i,\,\V{g}^k)_{\Rm} \,\V{g}_k
-		=g^{ik}\V{g}_k \fullstop \label{eq:基向量转换关系4}
-	\end{braceEq}
-	这四个式子中，式~\eqref{eq:基向量转换关系2} 和
-	\eqref{eq:基向量转换关系3} 是平凡的，
-	而式~\eqref{eq:基向量转换关系1} 和 \eqref{eq:基向量转换关系4}
-	则通过\emphB{度量}建立起了协变基与逆变基之间的关系。
-	这就称为基向量转换关系，也可以叫做“指标升降游戏”。
-	
+下面引入\emphA{度量}的概念。其定义为
+\begin{braceEq}
+	g_{ij} &\defeq \qty(\V{g}_i,\,\V{g}_j)_{\Rm} \comma 
+	\label{eq:度量的定义_协变} \\
+	g^{ij} &\defeq \qty(\V{g}^i,\,\V{g}^j)_{\Rm} \fullstop
+	\label{eq:度量的定义_逆变}
+\end{braceEq}
+
+下面证明
+\begin{equation}
+	g_{ik}\,g^{kj} = \KroneckerDelta{j}{i} \fullstop
+	\label{eq:度量之积}
+\end{equation}
+它也可以写成矩阵的形式：
+\begin{equation}
+	\qty[g_{ik}]\qty[g^{kj}]
+	=\qty[\KroneckerDelta{j}{i}]=\Mat{I}_m \comma
+\end{equation}
+其中的 $\Mat{I}_m$ 是 $m$ 阶单位阵。
+\begin{myProof}
+\begin{equation}
+	g_{ik}\,g^{kj}
+	=\qty(\V{g}_i,\,\V{g}_k)_{\Rm} \, g^{kj}
+	=\qty(\V{g}_i,\,g^{kj}\V{g}_k)_{\Rm}
+\end{equation}
+后文将说明 $g^{kj}\V{g}_k=\V{g}^j$，因此可得
+\begin{equation}
+	g_{ik}\,g^{kj}=\qty(\V{g}_i,\,\V{g}^j)_{\Rm}
+	=\KroneckerDelta{j}{i} \fullstop
+\end{equation}
+
+要注意的是，这里的指标 $k$ 是\emphB{哑标}。
+根据\emphA{Einstein 求和约定}，
+重复指标并且一上一下时，就表示对它求和。后文除非特殊说明，也均是如此。
+\end{myProof}
+
+现在澄清\emphA{基向量转换关系}。第 $i$ 个协变基向量 $\V{g}_i$ 既然是向量，
+就必然可以用协变基或逆变基来表示。
+根据对偶关系式~\eqref{eq:对偶关系} 和度量的定义
+式~\eqref{eq:度量的定义_协变}、\eqref{eq:度量的定义_逆变}，可知
+\begin{braceEq}
+	\V{g}_i &=\qty(\V{g}_i,\,\V{g}_k)_{\Rm} \,\V{g}^k
+	=g_{ik}\,\V{g}^k \comma \label{eq:基向量转换关系1} \\
+	\V{g}_i &=\qty(\V{g}_i,\,\V{g}^k)_{\Rm} \,\V{g}_k
+	=\KroneckerDelta{k}{i}\V{g}_k \label{eq:基向量转换关系2}
+\end{braceEq}
+以及
+\begin{braceEq}
+	\V{g}^i &=\qty(\V{g}^i,\,\V{g}_k)_{\Rm} \,\V{g}^k
+	=\KroneckerDelta{i}{k}\,\V{g}^k \comma \label{eq:基向量转换关系3} \\
+	\V{g}^i &=\qty(\V{g}^i,\,\V{g}^k)_{\Rm} \,\V{g}_k
+	=g^{ik}\V{g}_k \fullstop \label{eq:基向量转换关系4}
+\end{braceEq}
+这四个式子中，式~\eqref{eq:基向量转换关系2} 和
+\eqref{eq:基向量转换关系3} 是平凡的，
+而式~\eqref{eq:基向量转换关系1} 和 \eqref{eq:基向量转换关系4}
+则通过\emphB{度量}建立起了协变基与逆变基之间的关系。
+这就称为基向量转换关系，也可以叫做“指标升降游戏”。
+
 \subsection{向量的分量}
-	对于任意的向量 $\V{\xi} \in \Rm$，它可以用协变基表示：
-	\begin{mySubEq}
-		\begin{align}
-			\V{\xi}&=\ipb{\V{\xi}}{\V{g}^k}\,\V{g}_k
-			=\xi^k \V{g}_k \comma
-			\intertext{也可以用逆变基表示：}
-			\V{\xi}&=\ipb{\V{\xi}}{\V{g}_k}\,\V{g}^k
-			=\xi_k \V{g}^k \fullstop
-		\end{align}
-	\end{mySubEq}
-	式中，$\xi^k$ 是 $\V{\xi}$ 与第 $k$ 个\emphB{逆变基}做内积的结果，
-	称为 $\V{\xi}$ 的第 $k$ 个\emphA{逆变分量}；
-	而 $\xi_k$ 是 $\V{\xi}$ 与第 $k$ 个\emphB{协变基}做内积的结果，
-	称为 $\V{\xi}$ 的第 $k$ 个\emphA{协变分量}。
-	
-	以后凡是指标在下的（下标），均称为\emphB{协变}某某；
-	指标在上的（上标），称为\emphB{逆变}某某。
-	
+对于任意的向量 $\V{\xi} \in \Rm$，它可以用协变基表示：
+\begin{mySubEq}
+	\begin{align}
+		\V{\xi}&=\ipb{\V{\xi}}{\V{g}^k}\,\V{g}_k
+		=\xi^k \V{g}_k \comma
+		\intertext{也可以用逆变基表示：}
+		\V{\xi}&=\ipb{\V{\xi}}{\V{g}_k}\,\V{g}^k
+		=\xi_k \V{g}^k \fullstop
+	\end{align}
+\end{mySubEq}
+式中，$\xi^k$ 是 $\V{\xi}$ 与第 $k$ 个\emphB{逆变基}做内积的结果，
+称为 $\V{\xi}$ 的第 $k$ 个\emphA{逆变分量}；
+而 $\xi_k$ 是 $\V{\xi}$ 与第 $k$ 个\emphB{协变基}做内积的结果，
+称为 $\V{\xi}$ 的第 $k$ 个\emphA{协变分量}。
+
+以后凡是指标在下的（下标），均称为\emphB{协变}某某；
+指标在上的（上标），称为\emphB{逆变}某某。
+
 \section{张量的表示}
 \subsection{张量的表示与简单张量}\label{subsec:张量的表示与简单张量}
-	所谓\emphA{张量}，即\emphA{多重线性函数}。
-	
-	首先用三阶张量举个例子。考虑任意的 $\T{\Phi}\in\Tensors{3}$，
-	其中的 $\Tensors{3}$ 表示以 $\Rm$ 为底空间的三阶张量全体。
-	所谓三阶（或三重）线性函数，指“吃掉”三个向量之后变成\emphB{实数}，
-	并且“吃法”具有线性性。
-	
-	一般地，$r$ 阶张量的定义如下：
-	\begin{equation}
-		\mdef{\T{\Phi}}
-			{\underbrace{\Rm\times\Rm\times\cdots\times\Rm}_
-				{\text{$r$ 个 $\Rm$}}
-				\ni\qty{\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r}}
-			{\T{\Phi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)}
-				\in\realR \comma
-	\end{equation}
-	式中的 $\T{\Phi}$ 满足
-	\begin{align}
-		\forall\,\alpha,\,\beta\in\realR,\,
-		&\alspace\T{\Phi}\qty(\V{u}_1,\,\cdots,\,
-			\alpha\tilde{\V{u}}_i+\beta\hat{\V{u}}_i,\,\cdots,\,\V{u}_r)
-			\notag \\
-		&=\alpha\,\T{\Phi}\qty(\V{u}_1,\,\cdots,\,
-			\tilde{\V{u}}_i,\,\cdots,\,\V{u_r})
-		+\beta\,\T{\Phi}\qty(\V{u}_1,\,\cdots,\,
-			\hat{\V{u}}_i,\,\cdots,\,\V{u_r}) \comma
-	\end{align}
-	即所谓“\emphB{对第 $i$ 个变元的线性性}”。这里的 $i$ 可取
-	$1,\,2,\,\cdots,\,r$。
+所谓\emphA{张量}，即\emphA{多重线性函数}。
 
-	在张量空间 $\Tensors{r}$ 上，我们引入线性结构：
-	\begin{align}
-		\forall\,\alpha,\,\beta\in\realR,\,
-		\T{\Phi},\,\T{\Psi}\in\Tensors{r},
-		&\alspace\qty(\alpha\,\T{\Phi}+\beta\,\T{\Psi})
-		\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r) \notag \\
-		&\mathrel{\defeq}
-			\alpha\,\T{\Phi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)
-			+\beta\,\T{\Psi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)
-		\comma
-	\end{align}
-	于是
-	\begin{equation}
-		\alpha\,\T{\Phi}+\beta\,\T{\Psi} \in \Tensors{r} \fullstop
-	\end{equation}
-	
-	下面我们要获得 $\T{\Phi}$ 的表示。
-	根据之前任意向量用协变基或逆变基的表示，有
-	\begin{align}
-		\forall\,\V{u},\,\V{v},\,\V{w}\in\Rm,
-		&\alspace
+首先用三阶张量举个例子。考虑任意的 $\T{\Phi}\in\Tensors{3}$，
+其中的 $\Tensors{3}$ 表示以 $\Rm$ 为底空间的三阶张量全体。
+所谓三阶（或三重）线性函数，指“吃掉”三个向量之后变成\emphB{实数}，
+并且“吃法”具有线性性。
+
+一般地，$r$ 阶张量的定义如下：
+\begin{equation}
+	\mdef{\T{\Phi}}
+		{\underbrace{\Rm\times\Rm\times\cdots\times\Rm}_
+			{\text{$r$ 个 $\Rm$}}
+			\ni\qty{\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r}}
+		{\T{\Phi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)}
+			\in\realR \comma
+\end{equation}
+式中的 $\T{\Phi}$ 满足
+\begin{align}
+	\forall\,\alpha,\,\beta\in\realR,\,
+	&\alspace\T{\Phi}\qty(\V{u}_1,\,\cdots,\,
+		\alpha\tilde{\V{u}}_i+\beta\hat{\V{u}}_i,\,\cdots,\,\V{u}_r)
+		\notag \\
+	&=\alpha\,\T{\Phi}\qty(\V{u}_1,\,\cdots,\,
+		\tilde{\V{u}}_i,\,\cdots,\,\V{u_r})
+	+\beta\,\T{\Phi}\qty(\V{u}_1,\,\cdots,\,
+		\hat{\V{u}}_i,\,\cdots,\,\V{u_r}) \comma
+\end{align}
+即所谓“\emphB{对第 $i$ 个变元的线性性}”。这里的 $i$ 可取
+$1,\,2,\,\cdots,\,r$。
+
+在张量空间 $\Tensors{r}$ 上，我们引入线性结构：
+\begin{align}
+	\forall\,\alpha,\,\beta\in\realR,\,
+	\T{\Phi},\,\T{\Psi}\in\Tensors{r},
+	&\alspace\qty(\alpha\,\T{\Phi}+\beta\,\T{\Psi})
+	\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r) \notag \\
+	&\mathrel{\defeq}
+		\alpha\,\T{\Phi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)
+		+\beta\,\T{\Psi}\qty(\V{u}_1,\,\V{u}_2,\,\cdots,\,\V{u}_r)
+	\comma
+\end{align}
+于是
+\begin{equation}
+	\alpha\,\T{\Phi}+\beta\,\T{\Psi} \in \Tensors{r} \fullstop
+\end{equation}
+
+下面我们要获得 $\T{\Phi}$ 的表示。
+根据之前任意向量用协变基或逆变基的表示，有
+\begin{align}
+	\forall\,\V{u},\,\V{v},\,\V{w}\in\Rm,
+	&\alspace
+	\T{\Phi}\qty(\V{u},\,\V{v},\,\V{w}) \notag\\
+	&=\T{\Phi}\qty(u^i\V{g}_i,\,v_j\V{g}^j,\,w^k\V{g}_k) \notag
+	\intertext{考虑到 $\T{\Phi}$ 对第一变元的线性性，可得}
+	&=u^i\,\T{\Phi}\qty(\V{g}_i,\,v_j\V{g}^j,\,w^k\V{g}_k) \notag
+	\intertext{同理，}
+	&=u^i v_j w^k\,\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)
+	\fullstop
+	\label{eq:张量的表示1}
+\end{align}
+注意这里自然需要满足 Einstein 求和约定。
+
+上式中的 $\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)$ 是一个数。
+它是张量 $\T{\Phi}$ “吃掉”三个基向量的结果。
+至于 $u^i v_j w^k$ 部分，三项分别是 $\V{u}$ 的第 $i$ 个逆变分量、
+$\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
+根据向量分量的定义，可知
+\begin{equation}
+	u^i v_j w^k
+	= \ipb{\V{u}}{\V{g}^i}
+	\cdotp \ipb{\V{v}}{\V{g}_j}
+	\cdotp \ipb{\V{w}}{\V{g}^k} \fullstop
+	\label{eq:张量的表示2}
+\end{equation}
+
+\blankline
+
+暂时中断一下思路，先给出\emphA{简单张量}的定义。
+\begin{equation}
+	\forall\,\V{u},\,\V{v},\,\V{w}\in\Rm,\quad
+	\V{\xi}\tp\V{\eta}\tp\V{\zeta}\qty(\V{u},\,\V{v},\,\V{w})
+	\defeq \ipb{\V{\xi}}{\V{u}}
+	\cdotp \ipb{\V{\eta}}{\V{v}}
+	\cdotp \ipb{\V{\zeta}}{\V{w}} \in\realR \comma
+\end{equation}
+式中 $\V{\xi},\,\V{\eta},\,\V{\zeta}\in\Rm$，
+而暂时把 $\V{\xi}\tp\V{\eta}\tp\V{\zeta}$ 理解为一种记号。
+简单张量作为一个映照，组成它的三个向量分别与它们“吃掉”的第一、二、三个变元
+做内积并相乘，结果为一个实数。
+
+考虑到内积的线性性，便有（以第二个变元为例）
+\begin{align}
+	\V{\xi}\tp\V{\eta}\tp\V{\zeta}
+	\qty(\V{u},\,\alpha\tilde{\V{v}}+\beta\hat{\V{v}},\,\V{w})
+	&\defeq \ipb{\V{\xi}}{\V{u}}
+	\cdotp \ipb{\V{\eta}}{\alpha\tilde{\V{v}}+\beta\hat{\V{v}}}
+	\cdotp \ipb{\V{\zeta}}{\V{w}} \in\realR \notag
+	\intertext{注意到
+		$\ipb{\V{\eta}}{\alpha\tilde{\V{v}}+\beta\hat{\V{v}}}
+			=\alpha\ipb{\V{\eta}}{\tilde{\V{v}}}
+			+\beta\ipb{\V{\eta}}{\hat{\V{v}}}$，
+		同时再次利用简单张量的定义，可得}
+	&= \alpha \V{\xi}\tp\V{\eta}\tp\V{\zeta}
+		\qty(\V{u},\,\tilde{\V{v}},\,\V{w})
+		+\beta \V{\xi}\tp\V{\eta}\tp\V{\zeta}
+		\qty(\V{u},\,\hat{\V{v}},\,\V{w}) \fullstop
+\end{align}
+类似地，对第一变元和第三变元，同样具有线性性。因此，可以知道
+\begin{equation}
+	\V{\xi}\tp\V{\eta}\tp\V{\zeta}
+	\in\Tensors{3} \fullstop
+\end{equation}
+可见，“简单张量”的名字是名副其实的，它的确是一个特殊的张量。
+
+回过头来看 \eqref{eq:张量的表示2}~式。很明显，它可以用简单张量来表示。
+要注意，由于内积的对称性，可以有两种\footnote{%
+	这里只考虑把 $\V{u}$、$\V{v}$、$\V{w}$%
+	和 $\V{g}^i$、$\V{g}_j$、$\V{g}^k$ 分别放在一起的情况。}表示方法：
+\begin{mySubEq}
+	\begin{gather}
+		\V{g}^i\tp\V{g}_j\tp\V{g}^k
+		\qty(\V{u},\,\V{v},\,\V{w})
+		\intertext{或者}
+		\V{u}\tp\V{v}\tp\V{w}
+		\qty(\V{g}^i,\,\V{g}_j,\,\V{g}^k) \comma
+	\end{gather}
+\end{mySubEq}
+我们这里取上面一种。代入式~\eqref{eq:张量的表示1}，得
+\begin{align}
+	&\alspace
 		\T{\Phi}\qty(\V{u},\,\V{v},\,\V{w}) \notag\\
-		&=\T{\Phi}\qty(u^i\V{g}_i,\,v_j\V{g}^j,\,w^k\V{g}_k) \notag
-		\intertext{考虑到 $\T{\Phi}$ 对第一变元的线性性，可得}
-		&=u^i\,\T{\Phi}\qty(\V{g}_i,\,v_j\V{g}^j,\,w^k\V{g}_k) \notag
-		\intertext{同理，}
-		&=u^i v_j w^k\,\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)
-		\fullstop
-		\label{eq:张量的表示1}
-	\end{align}
-	注意这里自然需要满足 Einstein 求和约定。
-	
-	上式中的 $\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)$ 是一个数。
-	它是张量 $\T{\Phi}$ “吃掉”三个基向量的结果。
-	至于 $u^i v_j w^k$ 部分，三项分别是 $\V{u}$ 的第 $i$ 个逆变分量、
-	$\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
-	根据向量分量的定义，可知
-	\begin{equation}
-		u^i v_j w^k
-		= \ipb{\V{u}}{\V{g}^i}
-		\cdotp \ipb{\V{v}}{\V{g}_j}
-		\cdotp \ipb{\V{w}}{\V{g}^k} \fullstop
-		\label{eq:张量的表示2}
-	\end{equation}
-	
-	\blankline
-	
-	暂时中断一下思路，先给出\emphA{简单张量}的定义。
-	\begin{equation}
-		\forall\,\V{u},\,\V{v},\,\V{w}\in\Rm,\quad
-		\V{\xi}\tp\V{\eta}\tp\V{\zeta}\qty(\V{u},\,\V{v},\,\V{w})
-		\defeq \ipb{\V{\xi}}{\V{u}}
-		\cdotp \ipb{\V{\eta}}{\V{v}}
-		\cdotp \ipb{\V{\zeta}}{\V{w}} \in\realR \comma
-	\end{equation}
-	式中 $\V{\xi},\,\V{\eta},\,\V{\zeta}\in\Rm$，
-	而暂时把 $\V{\xi}\tp\V{\eta}\tp\V{\zeta}$ 理解为一种记号。
-	简单张量作为一个映照，组成它的三个向量分别与它们“吃掉”的第一、二、三个变元
-	做内积并相乘，结果为一个实数。
-	
-	考虑到内积的线性性，便有（以第二个变元为例）
-	\begin{align}
-		\V{\xi}\tp\V{\eta}\tp\V{\zeta}
-		\qty(\V{u},\,\alpha\tilde{\V{v}}+\beta\hat{\V{v}},\,\V{w})
-		&\defeq \ipb{\V{\xi}}{\V{u}}
-		\cdotp \ipb{\V{\eta}}{\alpha\tilde{\V{v}}+\beta\hat{\V{v}}}
-		\cdotp \ipb{\V{\zeta}}{\V{w}} \in\realR \notag
-		\intertext{注意到
-			$\ipb{\V{\eta}}{\alpha\tilde{\V{v}}+\beta\hat{\V{v}}}
-				=\alpha\ipb{\V{\eta}}{\tilde{\V{v}}}
-				+\beta\ipb{\V{\eta}}{\hat{\V{v}}}$，
-			同时再次利用简单张量的定义，可得}
-		&= \alpha \V{\xi}\tp\V{\eta}\tp\V{\zeta}
-			\qty(\V{u},\,\tilde{\V{v}},\,\V{w})
-			+\beta \V{\xi}\tp\V{\eta}\tp\V{\zeta}
-			\qty(\V{u},\,\hat{\V{v}},\,\V{w}) \fullstop
-	\end{align}
-	类似地，对第一变元和第三变元，同样具有线性性。因此，可以知道
-	\begin{equation}
-		\V{\xi}\tp\V{\eta}\tp\V{\zeta}
-		\in\Tensors{3} \fullstop
-	\end{equation}
-	可见，“简单张量”的名字是名副其实的，它的确是一个特殊的张量。
-	
-	回过头来看 \eqref{eq:张量的表示2}~式。很明显，它可以用简单张量来表示。
-	要注意，由于内积的对称性，可以有两种\footnote{%
-		这里只考虑把 $\V{u}$、$\V{v}$、$\V{w}$%
-		和 $\V{g}^i$、$\V{g}_j$、$\V{g}^k$ 分别放在一起的情况。}表示方法：
-	\begin{mySubEq}
-		\begin{gather}
-			\V{g}^i\tp\V{g}_j\tp\V{g}^k
-			\qty(\V{u},\,\V{v},\,\V{w})
-			\intertext{或者}
-			\V{u}\tp\V{v}\tp\V{w}
-			\qty(\V{g}^i,\,\V{g}_j,\,\V{g}^k) \comma
-		\end{gather}
-	\end{mySubEq}
-	我们这里取上面一种。代入式~\eqref{eq:张量的表示1}，得
-	\begin{align}
-		&\alspace
-			\T{\Phi}\qty(\V{u},\,\V{v},\,\V{w}) \notag\\
-		&=\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)
-			\cdotp\V{g}^i\tp\V{g}_j\tp\V{g}^k
-			\qty(\V{u},\,\V{v},\,\V{w}) \notag
-		\intertext{由于
-			$\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \in\Rm$，因此}
-		&=\qty[\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)
-			\V{g}^i\tp\V{g}_j\tp\V{g}^k]
-			\qty(\V{u},\,\V{v},\,\V{w}) \fullstop
-	\end{align}
-	方括号里的部分，就是根据 Einstein 求和约定，
-	用 $\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)$
-	对 $\V{g}^i\tp\V{g}_j\tp\V{g}^k$ 进行线性组合。
-	
-	由于 $\V{u}$、$\V{v}$、$\V{w}$ 选取的任意性，可以引入如下记号：
-	\begin{equation}
-		\T{\Phi}
-		=\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \,
-			\V{g}^i\tp\V{g}_j\tp\V{g}^k
-		\eqcolon \tensor{\Phi}{_i^j_k} \,
-			\V{g}^i\tp\V{g}_j\tp\V{g}^k \comma
-	\end{equation}
-	即
-	\begin{equation}
-		\tensor{\Phi}{_i^j_k}
-		\coloneq \T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \comma
-	\end{equation}
-	这称为张量的\emphA{分量}。
-	它说明一个张量可以用\emphB{张量分量}和基向量组成的\emphB{简单张量}来表示。
-	
-	指标 $i$、$j$、$k$ 的上下是任意的。这里，
-	它有赖于式~\eqref{eq:张量的表示1} 中基向量的选取。
-	实际上，对于这里的三阶张量，指标的上下一共有 8 种可能。
-	指标全部在下面的，称为\emphA{协变分量}：
-	\begin{equation}
-		\tensor{\Phi}{_i_j_k} \coloneq
-		\T{\Phi}\qty(\V{g}_i,\,\V{g}_j,\,\V{g}_k) \semicomma
-	\end{equation}
-	指标全部在上面的，称为\emphA{逆变分量}：
-	\begin{equation}
-		\tensor{\Phi}{^i^j^k} \coloneq
-		\T{\Phi}\qty(\V{g}^i,\,\V{g}^j,\,\V{g}^k) \semicomma
-	\end{equation}
-	其余 6 种，称为\emphA{混合分量}。
-	对于一个 $r$ 阶张量，显然共有 $2^r$ 种分量表示，
-	其中协变分量与逆变分量各一种，混合分量 $2^r-2$ 种。
-	
+	&=\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)
+		\cdotp\V{g}^i\tp\V{g}_j\tp\V{g}^k
+		\qty(\V{u},\,\V{v},\,\V{w}) \notag
+	\intertext{由于
+		$\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \in\Rm$，因此}
+	&=\qty[\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)
+		\V{g}^i\tp\V{g}_j\tp\V{g}^k]
+		\qty(\V{u},\,\V{v},\,\V{w}) \fullstop
+\end{align}
+方括号里的部分，就是根据 Einstein 求和约定，
+用 $\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)$
+对 $\V{g}^i\tp\V{g}_j\tp\V{g}^k$ 进行线性组合。
+
+由于 $\V{u}$、$\V{v}$、$\V{w}$ 选取的任意性，可以引入如下记号：
+\begin{equation}
+	\T{\Phi}
+	=\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \,
+		\V{g}^i\tp\V{g}_j\tp\V{g}^k
+	\eqcolon \tensor{\Phi}{_i^j_k} \,
+		\V{g}^i\tp\V{g}_j\tp\V{g}^k \comma
+\end{equation}
+即
+\begin{equation}
+	\tensor{\Phi}{_i^j_k}
+	\coloneq \T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \comma
+\end{equation}
+这称为张量的\emphA{分量}。
+它说明一个张量可以用\emphB{张量分量}和基向量组成的\emphB{简单张量}来表示。
+
+指标 $i$、$j$、$k$ 的上下是任意的。这里，
+它有赖于式~\eqref{eq:张量的表示1} 中基向量的选取。
+实际上，对于这里的三阶张量，指标的上下一共有 8 种可能。
+指标全部在下面的，称为\emphA{协变分量}：
+\begin{equation}
+	\tensor{\Phi}{_i_j_k} \coloneq
+	\T{\Phi}\qty(\V{g}_i,\,\V{g}_j,\,\V{g}_k) \semicomma
+\end{equation}
+指标全部在上面的，称为\emphA{逆变分量}：
+\begin{equation}
+	\tensor{\Phi}{^i^j^k} \coloneq
+	\T{\Phi}\qty(\V{g}^i,\,\V{g}^j,\,\V{g}^k) \semicomma
+\end{equation}
+其余 6 种，称为\emphA{混合分量}。
+对于一个 $r$ 阶张量，显然共有 $2^r$ 种分量表示，
+其中协变分量与逆变分量各一种，混合分量 $2^r-2$ 种。
+
 \subsection{张量分量之间的关系}
-	我们已经知道，
-	对于任意一个向量 $\V{\xi}\in\Rm$，它可以用协变基或逆变基表示：
-	\begin{equation}
-		\V{\xi}=\left\{\begin{aligned}
-			\xi^i\V{g}_i \comma \\
-			\xi_i\V{g}^i \fullstop
-		\end{aligned}\right.
-	\end{equation}
-	式中，协变分量与逆变分量满足\emphB{坐标转换关系}：
-	\begin{braceEq}
-		\xi^i &=\ipb{\V{\xi}}{\V{g}^i}
-		=\ipb{\V{\xi}}{g^{ik}\V{g}_k}
-		=g^{ik}\ipb{\V{\xi}}{\V{g}_k}
-		=g^{ik}\xi_k \comma \\
-		\xi_i &=\ipb{\V{\xi}}{\V{g}_i}
-		=\ipb{\V{\xi}}{g_{ik}\V{g}^k}
-		=g_{ik}\ipb{\V{\xi}}{\V{g}^k}
-		=g_{ik}\xi^k \fullstop
-	\end{braceEq}
-	每一式的第二个等号都用到了\emphB{基向量转换关系}，
-	见式~\eqref{eq:基向量转换关系1} 和 \eqref{eq:基向量转换关系4}。
-	
-	现在再来考虑张量的分量。仍以上文中的张量 $\tensor{\Phi}{_i^j_k}
-		\coloneq \T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)$ 为例，
-	我们想要知道它与张量 $\tensor{\Phi}{^p_q^r} \coloneq
-		\T{\Phi}\qty(\V{g}^p,\,\V{g}_q,\,\V{g}^r)$ 之间的关系。
-	利用基向量转换关系，可有
-	\begin{align}
-		\tensor{\Phi}{_i^j_k}
-		&\coloneq\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \notag \\
-		&=\T{\Phi}
-			\qty(g_{ip}\V{g}^p,\,g^{jq}\V{g}_q,\,g_{kr}\V{g}^r) \notag
-		\intertext{又利用张量的线性性，得}
-		&=g_{ip}g^{jq}g_{kr}
-			\T{\Phi}\qty(\V{g}^p,\,\V{g}_q,\,\V{g}^r) \notag \\
-		&=g_{ip}g^{jq}g_{kr} \tensor{\Phi}{^p_q^r} \fullstop
-	\end{align}
-	可见，张量的分量与向量的分量类似，其指标升降可通过\emphB{度量}来实现。
-	用同样的手法，还可以得到诸如
-	$\tensor{\Phi}{^i^j^k}=g^{jp}\tensor{\Phi}{^i_p^k}$、
-	$\tensor{\Phi}{^i_j^k}=g_{jp}g^{kq}\tensor{\Phi}{^i^p_k}$
-	这样的关系式。
-	
+我们已经知道，
+对于任意一个向量 $\V{\xi}\in\Rm$，它可以用协变基或逆变基表示：
+\begin{equation}
+	\V{\xi}=\left\{\begin{aligned}
+		\xi^i\V{g}_i \comma \\
+		\xi_i\V{g}^i \fullstop
+	\end{aligned}\right.
+\end{equation}
+式中，协变分量与逆变分量满足\emphB{坐标转换关系}：
+\begin{braceEq}
+	\xi^i &=\ipb{\V{\xi}}{\V{g}^i}
+	=\ipb{\V{\xi}}{g^{ik}\V{g}_k}
+	=g^{ik}\ipb{\V{\xi}}{\V{g}_k}
+	=g^{ik}\xi_k \comma \\
+	\xi_i &=\ipb{\V{\xi}}{\V{g}_i}
+	=\ipb{\V{\xi}}{g_{ik}\V{g}^k}
+	=g_{ik}\ipb{\V{\xi}}{\V{g}^k}
+	=g_{ik}\xi^k \fullstop
+\end{braceEq}
+每一式的第二个等号都用到了\emphB{基向量转换关系}，
+见式~\eqref{eq:基向量转换关系1} 和 \eqref{eq:基向量转换关系4}。
+
+现在再来考虑张量的分量。仍以上文中的张量 $\tensor{\Phi}{_i^j_k}
+	\coloneq \T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)$ 为例，
+我们想要知道它与张量 $\tensor{\Phi}{^p_q^r} \coloneq
+	\T{\Phi}\qty(\V{g}^p,\,\V{g}_q,\,\V{g}^r)$ 之间的关系。
+利用基向量转换关系，可有
+\begin{align}
+	\tensor{\Phi}{_i^j_k}
+	&\coloneq\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \notag \\
+	&=\T{\Phi}
+		\qty(g_{ip}\V{g}^p,\,g^{jq}\V{g}_q,\,g_{kr}\V{g}^r) \notag
+	\intertext{又利用张量的线性性，得}
+	&=g_{ip}g^{jq}g_{kr}
+		\T{\Phi}\qty(\V{g}^p,\,\V{g}_q,\,\V{g}^r) \notag \\
+	&=g_{ip}g^{jq}g_{kr} \tensor{\Phi}{^p_q^r} \fullstop
+\end{align}
+可见，张量的分量与向量的分量类似，其指标升降可通过\emphB{度量}来实现。
+用同样的手法，还可以得到诸如
+$\tensor{\Phi}{^i^j^k}=g^{jp}\tensor{\Phi}{^i_p^k}$、
+$\tensor{\Phi}{^i_j^k}=g_{jp}g^{kq}\tensor{\Phi}{^i^p_k}$
+这样的关系式。
+
 \subsection{相对不同基的张量分量之间的关系}
-	$\Rm$ 空间中，除了 $\qty{\V{g}_i}^m_{i=1}$ 和相应的
-	对偶基 $\qty{\V{g}^i}^m_{i=1}$ 之外，当然还可以有其他的基，
-	比如带括号的 $\qty{\V{g}_{(i)}}^m_{i=1}$ 以及对应的
-	对偶基 $\qty{\V{g}^{(i)}}^m_{i=1}$。
-	前者对应形如 $\tensor{\Phi}{^i_j^k}
-		\coloneq \T{\Phi}\qty(\V{g}^i,\,\V{g}_j,\,\V{g}^k)$ 的张量，
-	后者则对应带括号的张量，如 $\tensor{\Phi}{^{(p)}_{(q)}^{(r)}} \coloneq
-		\T{\Phi}\qty(\V{g}^{(p)},\,\V{g}_{(q)},\,\V{g}^{(r)})$。
-	下面我们来探讨这两个张量的关系。
-	
-	首先来建立基之间的关系。带括号的第 $i$ 个基向量
-	$\V{g}_{(i)}$，作为 $\Rm$ 空间中的一个向量，自然可以用另一组基来表示：
-	\begin{equation}
-		\V{g}_{(i)}=\left\{\begin{aligned}
-			\ipb{\V{g}_{(i)}}{\V{g}_k}\,\V{g}^k \comma \\
-			\ipb{\V{g}_{(i)}}{\V{g}^k}\,\V{g}_k \fullstop
-		\end{aligned}\right.
-	\end{equation}
-	同理，自然还有它的对偶基：
-	\begin{equation}
-		\V{g}^{(i)}=\left\{\begin{aligned}
-			\ipb{\V{g}^{(i)}}{\V{g}_k}\,\V{g}^k \comma \\
-			\ipb{\V{g}^{(i)}}{\V{g}^k}\,\V{g}_k \fullstop
-		\end{aligned}\right.
-	\end{equation}
-	引入记号 $c^k_{(i)} \coloneq \ipb{\V{g}_{(i)}}{\V{g}^k}$
-	和 $c^{(i)}_k \coloneq \ipb{\V{g}^{(i)}}{\V{g}_k}$，那么有
-	\begin{braceEq}
-		\V{g}_{(i)} &= c^k_{(i)}\V{g}_k \comma \\
-		\V{g}^{(i)} &= c^{(i)}_k\V{g}^k \fullstop
-	\end{braceEq}
-	
-	容易看出，这两个系数具有如下性质：
-	\begin{equation}
-		c^{(i)}_k c^k_{(j)} = \KroneckerDelta{i}{j} \fullstop
-	\end{equation}
-	写成矩阵形式\footnote{%
-		通常我们约定上面的标号作为行号，下面的标号作为列号。}，为
-	\begin{equation}
-		\qty[c^{(i)}_k]\qty[c^k_{(j)}]
-		=\qty[\KroneckerDelta{j}{i}]=\Mat{I}_m \fullstop
-	\end{equation}
-	换句话说，两个系数矩阵是互逆的。
-	\begin{myProof}
-		\begin{align}
-			c^{(i)}_k c^k_{(j)}
-			&=\ipb{\V{g}^{(i)}}{\V{g}_k}\,c^k_{(j)} \notag
-			\intertext{利用内积的线性性，有}
-			&=\ipb{\V{g}^{(i)}}{c^k_{(j)} \V{g}_k} \notag
-			\intertext{根据 $c^k_{(j)}$ 的定义，得到}
-			&=\ipb{\V{g}^{(i)}}{\V{g}_{(j)}} \fullstop
-		\end{align}
-		带括号的基同样满足对偶关系 \eqref{eq:对偶关系}~式，于是得证。
-	\end{myProof}
-	
-	上面我们用不带括号的基表示了带括号的基。反之也是可以的：
-	\begin{braceEq}
-		\V{g}_i &= \ipb{\V{g}_i}{\V{g}^{(k)}}{\Rm}\,\V{g}_{(k)}
-			=c^{(k)}_i\V{g}_{(k)} \comma \\
-		\V{g}^i &= \ipb{\V{g}^i}{\V{g}_{(k)}}{\Rm}\,\V{g}^{(k)}
-			=c^i_{(k)}\V{g}^{(k)} \fullstop
-	\end{braceEq}
-	这样一来，就建立起了不同基之间的转换关系。
-	
-	现在我们回到张量。根据张量分量的定义，
-	\begin{align}
-		\tensor{\Phi}{^i_j^k}
-		&\coloneq \T{\Phi}\qty(\V{g}^i,\,\V{g}_j,\,\V{g}^k) \notag
-		\intertext{利用之前推导的不同基向量之间的转换关系，得}
-		&=\T{\Phi}\qty(
-			c^i_{(p)}\V{g}^{(p)},\,c^{(q)}_j\V{g}_{(q)},\,
-			c^k_{(r)}\V{g}^{(r)}) \notag
-		\intertext{由张量的线性性，提出系数：}
-		&=c^i_{(p)} c^{(q)}_j c^k_{(r)} \,
-			\T{\Phi}\qty(\V{g}^{(p)},\,\V{g}_{(q)},\V{g}^{(r)}) \notag\\
-		&=c^i_{(p)} c^{(q)}_j c^k_{(r)} \,
-			\tensor{\Phi}{^{(p)}_{(q)}^{(r)}} \fullstop
-	\end{align}
-	完全类似，还可以有
-	\begin{equation}
-		\tensor{\Phi}{^{(i)}_{(j)}^{(k)}}
-		=c^{(i)}_p c^g_{(j)} c^{(k)}_r \tensor{\Phi}{^p_q^r} \fullstop
-	\end{equation}
-	
-	\blankline
-	
-	总结一下这两小节得到的结果。
-	对于同一组基下的张量分量，其指标升降通过\emphB{度量}来实现；
-	对于不同基下的张量分量，其指标转换则通过不同基之间的转换系数来完成。
+$\Rm$ 空间中，除了 $\qty{\V{g}_i}^m_{i=1}$ 和相应的
+对偶基 $\qty{\V{g}^i}^m_{i=1}$ 之外，当然还可以有其他的基，
+比如带括号的 $\qty{\V{g}_{(i)}}^m_{i=1}$ 以及对应的
+对偶基 $\qty{\V{g}^{(i)}}^m_{i=1}$。
+前者对应形如 $\tensor{\Phi}{^i_j^k}
+	\coloneq \T{\Phi}\qty(\V{g}^i,\,\V{g}_j,\,\V{g}^k)$ 的张量，
+后者则对应带括号的张量，如 $\tensor{\Phi}{^{(p)}_{(q)}^{(r)}} \coloneq
+	\T{\Phi}\qty(\V{g}^{(p)},\,\V{g}_{(q)},\,\V{g}^{(r)})$。
+下面我们来探讨这两个张量的关系。
+
+首先来建立基之间的关系。带括号的第 $i$ 个基向量
+$\V{g}_{(i)}$，作为 $\Rm$ 空间中的一个向量，自然可以用另一组基来表示：
+\begin{equation}
+	\V{g}_{(i)}=\left\{\begin{aligned}
+		\ipb{\V{g}_{(i)}}{\V{g}_k}\,\V{g}^k \comma \\
+		\ipb{\V{g}_{(i)}}{\V{g}^k}\,\V{g}_k \fullstop
+	\end{aligned}\right.
+\end{equation}
+同理，自然还有它的对偶基：
+\begin{equation}
+	\V{g}^{(i)}=\left\{\begin{aligned}
+		\ipb{\V{g}^{(i)}}{\V{g}_k}\,\V{g}^k \comma \\
+		\ipb{\V{g}^{(i)}}{\V{g}^k}\,\V{g}_k \fullstop
+	\end{aligned}\right.
+\end{equation}
+引入记号 $c^k_{(i)} \coloneq \ipb{\V{g}_{(i)}}{\V{g}^k}$
+和 $c^{(i)}_k \coloneq \ipb{\V{g}^{(i)}}{\V{g}_k}$，那么有
+\begin{braceEq}
+	\V{g}_{(i)} &= c^k_{(i)}\V{g}_k \comma \\
+	\V{g}^{(i)} &= c^{(i)}_k\V{g}^k \fullstop
+\end{braceEq}
+
+容易看出，这两个系数具有如下性质：
+\begin{equation}
+	c^{(i)}_k c^k_{(j)} = \KroneckerDelta{i}{j} \fullstop
+\end{equation}
+写成矩阵形式\footnote{%
+	通常我们约定上面的标号作为行号，下面的标号作为列号。}，为
+\begin{equation}
+	\qty[c^{(i)}_k]\qty[c^k_{(j)}]
+	=\qty[\KroneckerDelta{j}{i}]=\Mat{I}_m \fullstop
+\end{equation}
+换句话说，两个系数矩阵是互逆的。
+\begin{myProof}
+\begin{align}
+	c^{(i)}_k c^k_{(j)}
+	&=\ipb{\V{g}^{(i)}}{\V{g}_k}\,c^k_{(j)} \notag
+	\intertext{利用内积的线性性，有}
+	&=\ipb{\V{g}^{(i)}}{c^k_{(j)} \V{g}_k} \notag
+	\intertext{根据 $c^k_{(j)}$ 的定义，得到}
+	&=\ipb{\V{g}^{(i)}}{\V{g}_{(j)}} \fullstop
+\end{align}
+带括号的基同样满足对偶关系 \eqref{eq:对偶关系}~式，于是得证。
+\end{myProof}
+
+上面我们用不带括号的基表示了带括号的基。反之也是可以的：
+\begin{braceEq}
+	\V{g}_i &= \ipb{\V{g}_i}{\V{g}^{(k)}}{\Rm}\,\V{g}_{(k)}
+		=c^{(k)}_i\V{g}_{(k)} \comma \\
+	\V{g}^i &= \ipb{\V{g}^i}{\V{g}_{(k)}}{\Rm}\,\V{g}^{(k)}
+		=c^i_{(k)}\V{g}^{(k)} \fullstop
+\end{braceEq}
+这样一来，就建立起了不同基之间的转换关系。
+
+现在我们回到张量。根据张量分量的定义，
+\begin{align}
+	\tensor{\Phi}{^i_j^k}
+	&\coloneq \T{\Phi}\qty(\V{g}^i,\,\V{g}_j,\,\V{g}^k) \notag
+	\intertext{利用之前推导的不同基向量之间的转换关系，得}
+	&=\T{\Phi}\qty(
+		c^i_{(p)}\V{g}^{(p)},\,c^{(q)}_j\V{g}_{(q)},\,
+		c^k_{(r)}\V{g}^{(r)}) \notag
+	\intertext{由张量的线性性，提出系数：}
+	&=c^i_{(p)} c^{(q)}_j c^k_{(r)} \,
+		\T{\Phi}\qty(\V{g}^{(p)},\,\V{g}_{(q)},\V{g}^{(r)}) \notag\\
+	&=c^i_{(p)} c^{(q)}_j c^k_{(r)} \,
+		\tensor{\Phi}{^{(p)}_{(q)}^{(r)}} \fullstop
+\end{align}
+完全类似，还可以有
+\begin{equation}
+	\tensor{\Phi}{^{(i)}_{(j)}^{(k)}}
+	=c^{(i)}_p c^g_{(j)} c^{(k)}_r \tensor{\Phi}{^p_q^r} \fullstop
+\end{equation}
+
+\blankline
+
+总结一下这两小节得到的结果。
+对于同一组基下的张量分量，其指标升降通过\emphB{度量}来实现；
+对于不同基下的张量分量，其指标转换则通过不同基之间的转换系数来完成。
