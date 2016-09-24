@@ -175,12 +175,13 @@
 %\usepackage{siunitx}
 
 %% 定制列表环境
-%\usepackage{enumitem}
-%	%定义带缩进的左对齐格式
-%	%前一个参数 2.1 em 确定标签的位置
-%	%后一个参数 1.2 em 确定标签与文字的距离
-%	%HACK：20160709 可能与字体、字号、标签内容有关
-%	\SetLabelAlign{leftalignwithindent}{\hspace{2.1 em} \makebox[1.2 em][l]{#1}}
+\usepackage{enumitem}
+	%定义带缩进的左对齐格式
+	%前一个参数 2.1 em 确定标签的位置
+	%后一个参数 1.2 em 确定标签与文字的距离
+	%HACK：20160924 与字体、字号、标签内容有关
+	\SetLabelAlign{leftalignwithindent}%
+		{\hspace{2.1 em} \makebox[0.55 em][l]{#1}}
 
 %% 定理类环境
 \usepackage[thmmarks, amsmath]{ntheorem}
@@ -194,17 +195,17 @@
 
 %TODO——环境
 %% 定制列表（编号）
-%\newenvironment{myEnumerate}
-%	{\begin{enumerate} [
-%%		label=\bullet, %标签样式：圆点
-%		align = leftalignwithindent, %对齐（见上）
-%		listparindent = 2 em, %条目段落缩进
-%		leftmargin = 0 pt, %文字左边距
-%		topsep = 0 pt,
-%		itemsep = 0 pt,
-%		parsep = 0 pt
-%	]}
-%	{\end{enumerate}}
+\newenvironment{myEnum}
+	{\begin{enumerate}[
+%		label=\bullet, %标签样式：圆点
+		align = leftalignwithindent, %对齐（见上）
+		listparindent = 2 em, %条目段落缩进
+		leftmargin = 0 pt, %文字左边距
+		topsep = 0 pt,
+		itemsep = 0 pt,
+		parsep = 0 pt
+	]}
+	{\end{enumerate}}
 %子公式
 \newenvironment{mySubEq}
 	{\subequations \renewcommand{\theequation}%
