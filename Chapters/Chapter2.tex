@@ -1,4 +1,4 @@
-\section{张量积}
+\section{张量积} \label{sec:张量积}
 \emphA{张量积}也叫\emphA{张量并}，用符号“$\tp$”表示。
 在 \ref{subsec:张量的表示与简单张量}~小节给出简单张量的定义时，
 实际上就用到了张量积。张量积的定义为：
@@ -734,7 +734,6 @@ $\qty{\Perm{\sigma}(k_1),\,\Perm{\sigma}(k_2),\,
 	&=\qty[\alpha\opPerm(\T{\Phi})
 			+\beta\opPerm(\T{\Psi})]
 		\qty(\V{u}_1,\,\cdots,\,\V{u}_r) \fullstop
-	\label{eq:置换算子的复合}
 \end{align}
 \end{myProof}
 两个置换算子复合的结果也是很显然的：
@@ -742,6 +741,7 @@ $\qty{\Perm{\sigma}(k_1),\,\Perm{\sigma}(k_2),\,
 	\forall\,\Perm{\sigma},\,\Perm{\tau}\in\Permutations{r},\quad
 	\opPerm\comp\opPerm[\Perm{\tau}]
 	=\opPerm[\Perm{\sigma}\comp\Perm{\tau}] \fullstop
+	\label{eq:置换算子的复合}
 \end{equation}
 
 \begin{myProof}
@@ -846,7 +846,7 @@ $\qty{\Perm{\sigma}(k_1),\,\Perm{\sigma}(k_2),\,
 	A_{i_1 j_1} \cdots A_{i_r j_r}
 	=A_{\Perm{\tau}(i_1) \Perm{\tau}(j_1)} \cdots
 		A_{\Perm{\tau}(i_r) \Perm{\tau}(j_r)} \comma
-	\label{eq:置换算子的表示推导_置换性质}
+	\label{eq:置换算子的表示_推导_置换性质}
 \end{equation}
 式中
 \begin{equation}
@@ -871,7 +871,7 @@ $\qty{\Perm{\sigma}(k_1),\,\Perm{\sigma}(k_2),\,
 	&=\Phi_{i_1 \cdots i_r}
 		\qty[\ipb{\V{u}_{\Perm{\sigma}(i_1)}}{\V{g}^{i_1}}\cdots
 			\ipb{\V{u}_{\Perm{\sigma}(i_r)}}{\V{g}^{i_r}}] \notag
-	\intertext{应用置换的性质 \eqref{eq:置换算子的表示推导_置换性质}~式：}
+	\intertext{应用置换的性质 \eqref{eq:置换算子的表示_推导_置换性质}~式：}
 	&=\Phi_{i_1 \cdots i_r}
 		\qty[
 			\ipb{\V{u}_{\Perm{\sigma}^{-1}\comp\Perm{\sigma}(i_1)}}
@@ -945,10 +945,12 @@ $i_k$ 换成 $\Perm{\sigma}(i_k)$：
 		&=\opPerm\qty(\Phi^{i_1 \cdots i_r}
 			\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_r}) \notag \\
 		&=\Phi^{\Perm{\sigma}(i_1)\cdots\Perm{\sigma}(i_r)}
-			\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_r} \\
+			\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_r}
+		\label{eq:置换算子的表示_总结_对张量分量} \\
 		&=\Phi^{i_1 \cdots i_r}
 			\V{g}_{\Perm{\sigma}^{-1}(i_1)}\tp\cdots
 				\tp\V{g}_{\Perm{\sigma}^{-1}(i_r)} \fullstop
+		\label{eq:置换算子的表示_总结_对简单张量} 
 	\end{align}
 \end{mySubEq}
 
@@ -1309,9 +1311,117 @@ $\sgn\Perm{\hat{\sigma}}$ 可以写成
 
 \item 反对称化算子具有所谓\emphA{反导性}：
 \begin{equation}
-	\forall\,\T{\Phi}\in\Tensors,\,\T{\Psi}\in\Tensors{q},\quad
-	\opSkw\qty(\T{\Phi}\tp\T{\Psi})
-	=(-1)^{pq}\opSkw\qty(\T{\Psi}\tp\T{\Phi}) \fullstop
+	\forall\,\T{\Phi}\in\Tensors{p},\,\T{\Psi}\in\Tensors{q},\quad
+	\opSkw\qty\big(\T{\Phi}\tp\T{\Psi})
+	=(-1)^{pq}\cdotp\opSkw\qty\big(\T{\Psi}\tp\T{\Phi}) \fullstop
 \end{equation}
+
+\begin{myProof}
+首先单独把反对称算子展开。它所作用的张量为 $p+q$ 阶，因而相应的置换
+$\Perm{\sigma}\in\Permutations{p+q}$：
+\begin{align}
+	\opSkw&=\frac{1}{(p+q)!} \sum_{\Perm{\sigma}\in\Permutations{p+q}}
+		\sgn\Perm{\sigma}\cdotp\opPerm \notag \\
+	&=\frac{1}{(p+q)!} \sum_{\Perm{\sigma}\in\Permutations{p+q}}
+		\sgn\qty(\Perm{\sigma}\comp\Perm{\tau}^{-1})
+		\cdotp\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}] \fullstop
+\end{align}
+第二的等号与之前一样，利用了置换的穷尽。
+这里的 $\Perm{\tau}$ 是 $\Permutations{p+q}$ 中一个任意的置换。
+利用置换符号的性质，有
+\begin{equation}
+	\sgn\qty(\Perm{\sigma}\comp\Perm{\tau}^{-1})
+	=\sgn\Perm{\sigma} \cdotp \sgn\Perm{\tau}^{-1}
+	=\sgn\Perm{\sigma} \cdotp \sgn\Perm{\tau} \fullstop
+\end{equation}
+因此
+\begin{align}
+	\opSkw\qty\big(\T{\Phi}\tp\T{\Psi})
+	&=\frac{1}{(p+q)!} \sum_{\Perm{\sigma}\in\Permutations{p+q}}
+		\sgn\qty(\Perm{\sigma}\comp\Perm{\tau}^{-1})
+		\cdotp\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}]
+			\qty\big(\T{\Phi}\tp\T{\Psi}) \notag \\
+	&=\frac{\sgn\Perm{\tau}}{(p+q)!}
+		\sum_{\Perm{\sigma}\in\Permutations{p+q}}
+		\sgn\Perm{\sigma}
+		\cdotp\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}]
+			\qty\big(\T{\Phi}\tp\T{\Psi}) \fullstop
+	\label{eq:反对称化算子的反导性_证明_Part1}
+\end{align}
+
+把张量展开成分量形式，可以有
+\begin{align}
+	\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}]
+		\qty\big(\T{\Phi}\tp\T{\Psi})
+	&=\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}]
+		\qty[\Phi^{i_1 \cdots i_p}\,\Psi^{j_1 \cdots j_q}\,
+			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p}) \tp
+			\qty(\V{g}_{j_1}\tp\cdots\tp\V{g}_{j_q})] \notag
+	\intertext{根据式~\eqref{eq:置换算子的复合}，可得}
+	&=\opPerm\comp\opPerm[\Perm{\tau}^{-1}]
+		\qty[\Phi^{i_1 \cdots i_p}\,\Psi^{j_1 \cdots j_q}\,
+			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p}) \tp
+			\qty(\V{g}_{j_1}\tp\cdots\tp\V{g}_{j_q})] \notag
+	\intertext{利用置换算子的表示
+		\eqref{eq:置换算子的表示_总结_对简单张量}~一式，对简单张量进行操作：}
+	&=\opPerm\qty[
+			\Phi^{i_1 \cdots i_p}\,\Psi^{j_1 \cdots j_q}\,
+			\qty(\V{g}_{\Perm{\tau}(i_1)}\tp\cdots
+				\tp\V{g}_{\Perm{\tau}(i_p)}) \tp
+			\qty(\V{g}_{\Perm{\tau}(j_1)}\tp\cdots
+				\tp\V{g}_{\Perm{\tau}(j_q)})] \fullstop
+\end{align}
+
+根据 $\Perm{\tau}$ 的任意性，不妨取\footnote{%
+	矩阵中的 $i_p$ 和 $j_q$ 等未必是对齐的，这里的写法只是为了表示方便。}
+\begin{equation}
+	\Perm{\tau}=\mqty*(
+		i_1 & \cdots & i_p & j_1 & \cdots & j_q \\
+		j_1 & \cdots & j_q & i_1 & \cdots & i_p ) \fullstop
+\end{equation}
+这种取法恰好可以使指标为 $i$ 和 $j$ 的向量交换一下位置。于是
+\begin{align}
+	\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}]
+		\qty\big(\T{\Phi}\tp\T{\Psi})
+	&=\opPerm\qty[
+			\Phi^{i_1 \cdots i_p}\,\Psi^{j_1 \cdots j_q}\,
+			\qty(\V{g}_{\Perm{\tau}(j_1)}\tp\cdots
+				\tp\V{g}_{\Perm{\tau}(j_q)}) \tp
+			\qty(\V{g}_{\Perm{\tau}(i_1)}\tp\cdots
+				\tp\V{g}_{\Perm{\tau}(i_p)})] \notag \\
+	&=\opPerm\qty[
+			\Phi^{i_1 \cdots i_p}\,\Psi^{j_1 \cdots j_q}\,
+			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p}) \tp
+			\qty(\V{g}_{j_1}\tp\cdots\tp\V{g}_{j_q})] \notag
+	\intertext{张量分量作为\emphB{数}，可交换顺序自然无需多言：}
+	&=\opPerm\qty[
+			\Psi^{j_1 \cdots j_q}\,\Phi^{i_1 \cdots i_p}\,
+			\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p}) \tp
+			\qty(\V{g}_{j_1}\tp\cdots\tp\V{g}_{j_q})] \notag \\
+	&=\opPerm \qty\big(\T{\Psi}\tp\T{\Phi}) \fullstop
+\end{align}
+下面再考虑一下 $\Perm{\tau}$ 的符号：$j_1$ 先和 $i_p$ 交换，
+再和 $i_{p-1}$ 交换，以此类推，直到移动至 $i_1$ 的位置，一共交换了 $p$ 次。
+而 $j_2,\,\cdots,\,j_q$ 也是同理，各需进行 $p$ 次交换。
+所以总共是 $p \cdotp q$ 次两两交换。因此，
+\begin{equation}
+	\sgn\Perm{\tau}=(-1)^{pq} \fullstop
+\end{equation}
+
+回到式~\eqref{eq:反对称化算子的反导性_证明_Part1} 的推导，有
+\begin{align}
+	\opSkw\qty\big(\T{\Phi}\tp\T{\Psi})
+	&=\frac{\sgn\Perm{\tau}}{(p+q)!}
+		\sum_{\Perm{\sigma}\in\Permutations{p+q}}
+		\sgn\Perm{\sigma}
+		\cdotp\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}]
+			\qty\big(\T{\Phi}\tp\T{\Psi}) \notag \\
+	&=\frac{(-1)^{pq}}{(p+q)!}
+		\sum_{\Perm{\sigma}\in\Permutations{p+q}}
+		\sgn\Perm{\sigma}
+		\cdotp\opPerm\qty\big(\T{\Psi}\tp\T{\Phi}) \notag \\
+	&=(-1)^{pq}\cdotp\opSkw\qty\big(\T{\Psi}\tp\T{\Phi}) \fullstop
+\end{align}
+\end{myProof}
 
 \end{myEnum}
