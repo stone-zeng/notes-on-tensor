@@ -246,16 +246,14 @@
 \let\SPACE=\symcal
 %% 特殊空间 无衬线体
 \let\SPACEX=\symsfup
+%% 域(领域，定义域) 哥特体
+\let\DOMAIN=\symfrak
 %% 符号 倾斜粗体
 \let\SYMBOL=\symbf
 %% 一般算子 无衬线倾斜粗体
 \let\OPERATOR=\symsf
 %% 特殊算子 无衬线直立粗体
 \let\OPERATORX=\symbfsfup
-%% 哥特体
-%\newcommand{\gothic}[1]{\symfrak{#1}}
-%\newcommand{\domainB}{\gothic{B}} %邻域
-%\newcommand{\domainD}{\gothic{D}} %定义域
 
 %--------数集--------%
 \newcommand{\realR}{\SET{R}}
@@ -274,6 +272,8 @@
 \newcommand{\SymTensors}[2][\Rm]{\SPACE{S}^{#2}\qty(#1)}
 %% 以 m 维实空间为底空间的(r)阶反对称张量全体
 \newcommand{\SkwTensors}[2][\Rm]{\Lambda^{#2}\qty(#1)}
+%% C^p 微分同胚(Diffeomorphism)
+\newcommand{\DiffMorp}[1][p]{\SPACE{C}^{#1}}
 
 %--------特殊空间--------%
 %% 对称张量全体(Symmetric Tensors)
@@ -281,8 +281,14 @@
 %% 反对称张量全体(Anti-symmetric Tensors)
 \newcommand{\Skw}{\SPACEX{Skw}}
 
+%--------区域--------%
+%% 邻域(Neighborhood)
+%\newcommand{\domB}[1]{\DOMAIN{B}}
+%% 定义域(Domain)
+\newcommand{\domD}[1]{\DOMAIN{D}_{#1}}
+
 %--------量(Quantity)--------%
-%% 向量
+%% 向量(Vector)
 \newcommand{\V}[1]{\SYMBOL{#1}}
 %% 张量(Tensor)
 \renewcommand{\T}[1]{\SYMBOL{#1}}
@@ -310,8 +316,8 @@
 \newcommand{\Id}{\OPERATORX{Id}}
 
 %--------数学符号--------%
-%% 定义(X: x → X)(Math Definition)
-\newcommand{\mdef}[3]{{#1}:\,{#2}\mapsto{#3}}
+%% 映射(X: x → X)(Math Map)
+\newcommand{\mmap}[3]{{#1}:\,{#2}\mapsto{#3}}
 %% 带描述集合
 \DeclarePairedDelimiterX\set[2]{\{}{\}}{#1 \;\delimsize\vert\; #2}
 %% 内积(括号形式)(Inner Product Braket)
@@ -371,11 +377,14 @@
 %%	\tableofcontents
 %	
 %	\mainmatter
-	\chapter{张量的定义及表示}
-		\input{Chapters/Chapter1}
+%	\chapter{张量的定义及表示}
+%		\input{Chapters/Chapter1}
+%	
+%	\chapter{张量的运算性质}
+%		\input{Chapters/Chapter2}
 	
-	\chapter{张量的运算性质}
-		\input{Chapters/Chapter2}
+	\chapter{微分同胚}
+		\input{Chapters/Chapter3}
 %	\backmatter
 %	{
 %		\small
