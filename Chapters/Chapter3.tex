@@ -1,4 +1,4 @@
-\section{\texorpdfstring{$\DiffMorp$ 微分同胚}{C\^{}p 微分同胚}}
+\section{微分同胚}
 \subsection{双射}
 设 $f$ 是集合 $A$ 到 $B$ 的映射。
 如果 $A$ 中不同的元素有不同的像，则称 $f$ 为\emphA{单射}（也叫“一对一”）；
@@ -13,7 +13,7 @@
 	\label{fig:单射满射双射}
 \end{figure}
 
-设开集 $\domD{\V{X}},\,\domD{\V{x}}\in\Rm$，
+设开集 $\domD{\V{x}},\,\domD{\V{X}}\in\Rm$，
 它们之间存在\emphB{双射}，即\emphB{一一对应}关系：
 \begin{equation}
 	\mmap{\V{X}(\V{x})}
@@ -30,45 +30,151 @@
 			\in\domD{\V{x}}} \fullstop
 \end{equation}
 
-我们把 $\domD{\V{X}}$ 称为\emphA{物理域}，它是实际物理事件发生的区域；
-$\domD{\V{x}}$ 则称为\emphA{参数域}。
+我们把 $\domD{\V{x}}$ 称为\emphA{物理域}，它是实际物理事件发生的区域；
+$\domD{\V{X}}$ 则称为\emphA{参数域}。
 由于物理域通常较为复杂，因此我们常把参数域取为规整的形状，以便之后的处理。
 
-设物理量 $f(\V{X})$ 定义在物理域
-$\domD{\V{X}}\in\realR^3$ 上\footnote{
-	实际的物理事件当然发生在三维 Euclid 空间中（只谈“空间”），
+设物理量 $f(\V{x})$ 定义在物理域
+$\domD{\V{x}}\in\Rm$ 上\footnote{
+	实际的物理事件当然只会发生在三维 Euclid 空间中（只就“空间”而言），
 	但在数学上也可以推广到 $m$ 维。
 }，则 $f$ 就定义了一个\emphA{场}：
 \begin{equation}
 	\mmap{f}
-		{\domD{\V{X}}\ni\V{X}}
-		{f(\V{X})} \fullstop
+		{\domD{\V{x}}\ni\V{x}}
+		{f(\V{x})} \fullstop
 \end{equation}
 所谓的“场”，就是自变量用\emphB{位置}刻画的映照。
-它可以是\emphA{标量场}，如温度、压强、密度等，此时 $f(\V{X})\in\realR$；
-也可以是\emphA{向量场}，如速度、加速度、力等，此时 $f(\V{X})\in\realR^3$；
+它可以是\emphA{标量场}，如温度、压强、密度等，此时 $f(\V{x})\in\realR$；
+也可以是\emphA{向量场}，如速度、加速度、力等，此时 $f(\V{x})\in\Rm$；
 对于更深入的物理、力学研究，往往还需引入\emphA{张量场}，
-此时 $f(\V{X})\in\Tensors[\realR^3]{r}$。
+此时 $f(\V{x})\in\Tensors{r}$。
 
-$\V{X}$ 存在于物理域 $\domD{\V{X}}$ 中，我们称它为\emphA{物理坐标}。
+$\V{x}$ 存在于物理域 $\domD{\V{x}}$ 中，我们称它为\emphA{物理坐标}。
 由于上文已经定义了 $\domD{\V{x}}$ 到 $\domD{\V{X}}$ 之间的双射
-（不是 $f$！），因此 $\domD{\V{x}}$ 中就有\emphB{唯一的}
-$\V{x}$ 与 $\V{X}$ 相对应，
+（不是 $f$！），因此 $\domD{\V{X}}$ 中就有\emphB{唯一的}
+$\V{X}$ 与 $\V{x}$ 相对应，
 它称为\emphA{参数坐标}（也叫\emphA{曲线坐标}）。
-
-这样一来，由于物理域 $\domD{\V{X}}$ 上已经定义了场 $f(\V{X})$，
-参数域中也必然存在\emphB{唯一的}一个场 $\tilde{f}(\V{x})$ 与之对应：
+又因为物理域 $\domD{\V{x}}$ 上已经定义了场 $f(\V{x})$，
+参数域中必然\emphB{唯一}存在场 $\tilde{f}(\V{X})$ 与之对应：
 \begin{equation}
 	\mmap{\tilde{f}}
-		{\domD{\V{x}}\ni\V{x}}
-		{\tilde{f}(\V{x})=f\comp\V{X}(\V{x})
-			=f\qty\big(\V{X}(\V{x}))} \fullstop
+		{\domD{\V{X}}\ni\V{X}}
+		{\tilde{f}(\V{X})=f\comp\V{x}(\V{X})
+			=f\qty\big(\V{x}(\V{X}))} \fullstop
 \end{equation}
-$\V{x}$ 与 $\V{X}$ 是完全等价的，因而 $\tilde{f}$ 与 $f$ 也是完全等价的。
+$\V{X}$ 与 $\V{x}$ 是完全等价的，因而 $\tilde{f}$ 与 $f$ 也是完全等价的，
+所以同样有
+\begin{equation}
+	f(\V{x})=\tilde{f}\qty\big(\V{X}(\V{x})) \fullstop
+\end{equation}
 
 物理域中的场要满足\emphB{守恒定律}，如质量守恒、动量守恒、能量守恒等。
-从数学上来看，这些守恒定律就是需要满足的一系列\emphB{偏微分方程}。
-将场转化到参数域后，它仍要满足这些方程。
+从数学上看，这些守恒定律就是 $f(\V{x})$ 需要满足的一系列\emphB{偏微分方程}。
+将场变换到参数域后，它仍要满足这些方程。
 但我们已经设法将参数域取得较为规整，故在其上进行数值求解就会相当方便。
 
-开集：任意一点吹出一个球，这个球上的每个点都落在区域内
+\subsection{参数域方程}
+上文已经提到，物理域中的场 $f(\V{x})$ 需满足守恒定律，
+这等价于一系列偏微分方程（PDE）。
+在物理学和力学中，用到的 PDE 通常是\emphB{二阶}的，它们可以写成
+\begin{equation}
+	\forall\,\V{x}\in\domD{\V{x}},\quad
+	\sum_{\alpha=1}^{m} A_\alpha(\V{x}) \pdv{f}{x^\alpha} (\V{x})
+	+\sum_{\alpha=1}^{m}\sum_{\beta=1}^{m}
+		B_{\alpha\beta}(\V{x}) \pdv{f}{x^\beta}{x^\alpha} (\V{x}) = 0
+\end{equation}
+的形式。我们的目标是把该\emphB{物理域}方程转化为\emphB{参数域}方程，
+即关于 $\tilde{f}(\V{X})$ 的 PDE。
+多元微积分中已经提供了解决方案：\emphA{链式求导法则}。
+
+考虑到
+\begin{equation}
+	f(\V{x})=\tilde{f}\qty\big(\V{X}(\V{x}))
+	=\tilde{f}\qty(X^1(\V{x}),\,\cdots,\,X^m(\V{x})) \comma
+\end{equation}
+于是有
+\begin{equation}
+	\pdv{f}{x^\alpha} (\V{x})
+	=\sum_{s=1}^{m} \pdv{\tilde{f}}{\displaystyle X^s}
+		\qty\big(\V{X}(\V{x})) \cdotp
+		\pdv{X^s}{x^\alpha} (\V{x}) \fullstop
+	\label{eq:参数域方程_一阶偏导项}
+\end{equation}
+这里用到的链式法则，由\emphB{复合映照可微性定理}驱动，
+它要求 $\tilde{f}$ 关于 $\V{X}$ 可微，同时 $\V{X}$ 关于 $\V{x}$ 可微。
+
+%对于更高阶的项，需要更强的条件。一般地，我们要求
+%\begin{braceEq}
+%	\V{x}(\V{X})&\in\cf{\domD{\V{X}}}{\Rm} \semicomma \\
+%	\V{X}(\V{x})&\in\cf{\domD{\V{x}}}{\Rm} \fullstop
+%\end{braceEq}
+%这里的 $\DiffMorp$ 指\emphB{直至 $p$ 阶偏导数（存在且）连续}的映照全体；
+%当 $p$ 等于 1 时，这就等价于可微。
+
+通常情况下，已知条件所给定的都是 $\domD{\V{X}}$ 到 $\domD{\V{x}}$ 的映射
+\begin{equation}
+	\mmap{\V{x}(\V{X})}
+		{\domD{\V{X}}\ni\V{X}=\mqty[X^1 \\ \vdots \\ X^m]}
+		{\V{x}(\V{X})=\mqty[x^1 \\ \vdots \\ x^m](\V{X})
+			\in\domD{\V{x}}} \comma
+\end{equation}
+用它不好直接得到式~\eqref{eq:参数域方程_一阶偏导项} 中的
+$\pdv*{X^s}{x^\alpha}$ 项，但获得它的“倒数”
+$\pdv*{x^\alpha}{X^s}$ 却很容易，只需利用 \emphA{Jacobi 矩阵}：
+\begin{equation}
+	\JacobiD{\V{x}}(\V{X})
+	\defeq\mqty[
+		\displaystyle\pdv{x^1}{\displaystyle X^1} & \cdots &
+			\displaystyle\pdv{x^1}{\displaystyle X^m} \\[1ex]
+		\vdots & \ddots & \vdots \\[0.5ex]
+		\displaystyle\pdv{x^m}{\displaystyle X^1} & \cdots &
+			\displaystyle\pdv{x^m}{\displaystyle X^m}
+		] (\V{X}) \in\realR^{m \times m} \comma
+\end{equation}
+它是一个方阵。
+
+有了 Jacobi 矩阵，施加一些手法就可以得到所需要的 $\pdv*{X^s}{x^\alpha}$ 项。
+考虑到
+\begin{equation}
+	\forall\,\V{x}\in\domD{\V{x}},\quad
+	\V{x}\qty\big(\V{X}(\V{x}))=\V{x} \comma
+\end{equation}
+并且其中的 $\V{x}(\V{X})$ 和 $\V{X}(\V{x})$ 均可微，可以得到
+\begin{equation}
+	\JacobiD{\V{x}}\qty\big(\V{X}(\V{x})) 
+	\cdotp \JacobiD{\V{X}}(\V{x})
+	=\Mat{I}_{m \times m} \comma
+\end{equation}
+其中的 $\Mat{I}_{m \times m}$ 是单位阵。因此
+\begin{equation}
+	\JacobiD{\V{X}}(\V{x})
+	\defeq\mqty[
+		\displaystyle\pdv{X^1}{\displaystyle x^1} & \cdots &
+			\displaystyle\pdv{X^1}{\displaystyle x^m} \\[1ex]
+		\vdots & \ddots & \vdots \\[0.5ex]
+		\displaystyle\pdv{X^m}{\displaystyle x^1} & \cdots &
+			\displaystyle\pdv{X^m}{\displaystyle x^m} ] (\V{x})
+	=(\JacobiD{\V{x}})^{-1}(\V{X})
+	=\mqty[
+		\displaystyle\pdv{x^1}{\displaystyle X^1} & \cdots &
+			\displaystyle\pdv{x^1}{\displaystyle X^m} \\[1ex]
+		\vdots & \ddots & \vdots \\[0.5ex]
+		\displaystyle\pdv{x^m}{\displaystyle X^1} & \cdots &
+			\displaystyle\pdv{x^m}{\displaystyle X^m}
+		]^{-1} (\V{X}) \fullstop
+\end{equation}
+用代数的方法总可以求出
+\begin{equation}
+	\pdv{X^s}{x^\alpha}(\V{x})=\varphi^s_\alpha(\V{X}) \comma
+\end{equation}
+其中的 $\varphi^s_\alpha$ 是通过矩阵求逆确定的函数。这样就有
+\begin{equation}
+	\pdv{f}{x^\alpha} (\V{x})
+	=\sum_{s=1}^{m} \pdv{\tilde{f}}{\displaystyle X^s}
+		\qty\big(\V{X}(\V{x})) \cdotp
+		\varphi^s_\alpha (\V{x}) \fullstop
+\end{equation}
+
+
+%开集：任意一点吹出一个球，这个球上的每个点都落在区域内
