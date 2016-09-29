@@ -45,7 +45,7 @@
 
 %% 常规字体选择
 % 与 `graphicx' 冲突
-\PassOptionsToPackage{draft}{graphicx}
+%\PassOptionsToPackage{draft}{graphicx}
 \usepackage[no-math]{fontspec}
 	\setmainfont[
 		Extension = .otf,
@@ -241,6 +241,7 @@
 	{\colorbox{white}{$\textstyle #1$}}%
 	{\colorbox{white}{$\scriptstyle #1$}}%
 	{\colorbox{white}{$\scriptscriptstyle #1$}}}
+\newcommand{\myPROBLEM}[1]{\colorbox{red}{#1}}
 
 %TODO——数学命令
 %--------数学字体--------%
@@ -390,7 +391,7 @@
 %	
 %	\chapter{张量的运算性质}
 %		\input{Chapters/Chapter2}
-	
+%	
 	\chapter{微分同胚}
 		\input{Chapters/Chapter3}
 %	\backmatter
