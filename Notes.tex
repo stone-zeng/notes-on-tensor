@@ -8,8 +8,8 @@
 \documentclass[oneside]{book}
 
 %TODO——宏包
-%% 方便定义命令
-%\usepackage{suffix}
+%% 方便定义命令(星号版本)
+\usepackage{suffix}
 
 %% 页面尺寸
 \usepackage{geometry}
@@ -25,18 +25,18 @@
 %% 交叉引用，超链接等
 \usepackage[hyperindex]{hyperref}
 	\hypersetup{
-		%  PDF 书签
+		%% PDF 书签
 		bookmarksopen = true,
 		bookmarksopenlevel = 1,
 		bookmarksnumbered = true,
-		%  PDF 标题作者
+		%% PDF 标题作者
 %		pdftitle = {},
 %		pdfauthor = {},
-		%脚注
+		%% 脚注
 %		hyperfootnotes = false,
-		%目录  只引用页码
+		%% 目录  只引用页码
 		linktoc = page,
-		%超链接颜色
+		%% 超链接颜色
 		colorlinks,
 		linkcolor = {red!60!black},
 		citecolor = {green!50!black},
@@ -45,7 +45,7 @@
 
 %% 常规字体选择
 % 与 `graphicx' 冲突
-%\PassOptionsToPackage{draft}{graphicx}
+\PassOptionsToPackage{draft}{graphicx}
 \usepackage[no-math]{fontspec}
 	\setmainfont[
 		Extension = .otf,
@@ -54,12 +54,13 @@
 		BoldItalicFont = xits-bolditalic,
 		SlantedFont = xits-italic
 	]{xits-regular}
-%	\setsansfont[
-%		Extension = .otf,
-%		BoldFont = texgyreheros-bold,
-%		ItalicFont = texgyreheros-italic,
-%		SlantedFont = texgyreheros-italic
-%	]{texgyreheros-regular}
+	\setsansfont[
+		Extension = .otf,
+		BoldFont = texgyreheros-bold,
+		ItalicFont = texgyreheros-italic,
+		BoldItalicFont = texgyreheros-bolditalic,
+		SlantedFont = texgyreheros-italic
+	]{texgyreheros-regular}
 %	\setmonofont[
 %		Extension = .otf,
 %		BoldFont = texgyrecursor-bold,
@@ -104,6 +105,10 @@
 %% 中文文字处理
 \usepackage[UTF8, heading = true]{ctex}
 	\pagestyle{plain}
+	\ctexset{
+		section/format+ = {\normalfont\sffamily},
+		subsection/format+ = {\normalfont\sffamily}
+	}
 \usepackage{xeCJK}
 	\setCJKmainfont[
 		BoldFont = 方正黑体_GBK,
@@ -277,6 +282,8 @@
 \newcommand{\SymTensors}[2][\Rm]{\SPACE{S}^{#2}\qty(#1)}
 %% 以 m 维实空间为底空间的(r)阶反对称张量全体
 \newcommand{\SkwTensors}[2][\Rm]{\Lambda^{#2}\qty(#1)}
+%% 线性变换全体
+\newcommand{\LinearT}[2]{\SPACE{L}\qty(#1,\,#2)}
 
 %--------特殊空间--------%
 %% 对称张量全体(Symmetric Tensors)
@@ -286,7 +293,8 @@
 
 %--------区域--------%
 %% 邻域(Neighborhood)
-%\newcommand{\domB}[1]{\DOMAIN{B}}
+\newcommand{\domB}[2]{\DOMAIN{B}_{#1}\qty(#2)}
+%\WithSuffix\newcommand\domB*[2]{\DOMAIN{B}_{#1}\qty(#2)}
 %% 定义域(Domain)
 \newcommand{\domD}[1]{\DOMAIN{D}_{#1}}
 
@@ -325,6 +333,9 @@
 \newcommand{\mmap}[3]{{#1}:\,{#2}\mapsto{#3}}
 %% 带描述集合
 \DeclarePairedDelimiterX\set[2]{\{}{\}}{#1 \;\delimsize\vert\; #2}
+%% 范数
+\let\PHYSICSNORM=\norm
+\renewcommand{\norm}[2][\Rm]{\PHYSICSNORM{#2}_{#1}}
 %% 内积(括号形式)(Inner Product Braket)
 \newcommand{\ipb}[3][\Rm]{\qty(#2,\,#3)_{#1}}
 %% 张量积(Tensor Product)
@@ -339,6 +350,10 @@
 \newcommand{\DiffMorp}[1][p]{\symcal{C}^{#1}}
 %% 直至 p 阶偏导数连续的函数(Continuous Function)
 \newcommand{\cf}[3][p]{\symcal{C}^{#1}\qty(#2;\,#3)}
+%% 大 O 记号
+\newcommand{\bO}[1]{\symcal{O}\qty(#1)}
+%% 小 O 记号
+\newcommand{\sO}[1]{\symcal{o}\qty(#1)}
 %% 复合(Composite)
 \newcommand{\comp}{\circ}
 %% 定义等号(Definition Equal)

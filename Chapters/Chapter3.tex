@@ -240,3 +240,76 @@ $\domD{\V{x}}$ 与 $\domD{\V{X}}$ 之间的 \emphA{$\DiffMorp$-微分同胚}，
 把物理域中的一个部分对应到参数域上的一个部分，需要的仅仅是\emphB{双射}这一条件；
 而要使得物理域中所满足的 PDE 能够转换到参数域上，
 就需要“过去”和“回来”都满足 $p$ 阶偏导数连续的条件（即\emphB{正则性}要求）。
+
+\section{向量值映照的可微性}
+\subsection{可微性的定义}
+设 $\V{x}_0$ 是参数域 $\domD{\V{x}}$ 中的一个内点。
+在映射 $\V{X}(\V{x})$ 的作用下，
+它对应到物理域 $\domD{\V{X}}$ 中的点 $\V{X}\qty(\V{x}_0)$。
+参数域是一个\emphB{开集}。根据开集的定义，必然存在一个实数 $\lambda>0$，
+使得以 $\V{x}_0$ 为球心、$\lambda$ 为半径的球%
+能够完全落在定义域 $\domD{\V{x}}$ 内，即
+\begin{equation}
+	\domB{\lambda}{\V{x}_0}\subset\domD{\V{x}} \comma
+\end{equation}
+其中的 $\domB{\lambda}{\V{x}_0}$ 表示 $\V{x}_0$ 的 $\lambda$ 邻域。
+
+如果 $\exists\,\JacobiD{\V{X}}\qty(\V{x}_0)\in\LinearT{\Rm}{\Rm}$
+\footnote{正如之前已经定义的，$\JacobiD{\V{X}}$ 已经用来表示 Jacobi 矩阵。
+	这里还是请先暂时将它视为一种记号，其具体形式将在下一小节给出。}，满足
+\begin{equation}
+	\forall\,\V{x}_0+\V{h}\in\domB{\lambda}{\V{x}_0},\quad
+	\V{X}\qty(\V{x}_0+\V{h})-\V{X}\qty(\V{x}_0)
+	=\JacobiD{\V{X}}\qty(\V{x}_0)(\V{h})+\sO{\norm{\V{h}}}
+	\in\Rm \comma
+\end{equation}
+则称向量值映射 $\V{X}(\V{x})$ 在 $\V{x}_0$ 点\emphA{可微}。
+其中，$\LinearT{\Rm}{\Rm}$ 表示从 $\Rm$ 到 $\Rm$ 的\emphA{线性变换}全体。
+
+根据这个定义，所谓\emphB{可微性}，指由自变量变化所引起的因变量变化，
+可以用一个\emphB{线性变换}近似，而误差为\emphB{一阶}无穷小量。
+自变量可见到因变量空间最简单的映照形式就是线性映照（线性变换），
+因而具有可微性的向量值映照具有至关重要的作用。
+
+\subsection{Jacobi 矩阵}
+下面我们研究 $\JacobiD{\V{X}}\qty(\V{x}_0)\in\LinearT{\Rm}{\Rm}$
+的表达形式。由于 $\V{h}\in\Rm$，所以
+\begin{equation}
+	\V{h}=\mqty[h^1 \\ \vdots \\ h^m]
+	=h^1\V{e}_1+\cdots+h^i\V{e}_i+\cdots+h^m\V{e}_m \fullstop
+\end{equation}
+另一方面，$\JacobiD{\V{X}}\qty(\V{x}_0)\in\LinearT{\Rm}{\Rm}$
+具有\emphB{线性性}：
+\begin{equation}
+	\forall\,\alpha,\,\beta \in\realR
+		\text{\ 和\ } \tilde{\V{h}},\,\hat{\V{h}}\in\Rm,\quad
+	\JacobiD{\V{X}}\qty(\V{x}_0)
+		\qty(\alpha\tilde{\V{h}}+\beta\hat{\V{h}})
+	=\alpha \JacobiD{\V{X}}\qty(\V{x}_0)\qty(\tilde{h})
+		+\beta \JacobiD{\V{X}}\qty(\V{x}_0)\qty(\hat{h}) \fullstop
+\end{equation}
+这样就有
+\begin{align}
+	\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{h})
+	&=\JacobiD{\V{X}}\qty(\V{x}_0)
+		\qty(h^1\V{e}_1+\cdots+h^i\V{e}_i+\cdots+h^m\V{e}_m) \notag \\
+	&=h^1\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) + \cdots
+		+h^i\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_i) + \cdots
+		+h^m\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_m)
+		\label{eq:推导Jacobi矩阵表达形式_Part1}
+	\intertext{注意到 $h^i\in\realR$ 以及
+		$\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_i)\in\Rm$，
+		因而该式可以用矩阵形式表述：}
+	&=\mqty[\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) & \cdots
+			& \JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_m)]
+		\mqty[h^1 \\ \vdots \\ h^m] \fullstop
+\end{align}
+最后一步要用到\emphB{分块矩阵}的思想：左边的矩阵为 1“行” $m$ 列，
+每一“行”是一个 $m$ 维列向量；右边的矩阵（向量）则为 $m$ 行 1 列。
+两者相乘，得到 1“行” 1 列的矩阵（当然实际为 $m$ 行），
+即之前的 \eqref{eq:推导Jacobi矩阵表达形式_Part1}~式。
+
+在线性代数中，$m \times m$ 的矩阵
+$\mqty[\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) & \cdots
+& \JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_m)]$
+称为\emphA{变换矩阵}（也叫\emphA{过渡矩阵}）。
