@@ -262,6 +262,7 @@ $\domD{\V{x}}$ 与 $\domD{\V{X}}$ 之间的 \emphA{$\DiffMorp$-微分同胚}，
 	\V{X}\qty(\V{x}_0+\V{h})-\V{X}\qty(\V{x}_0)
 	=\JacobiD{\V{X}}\qty(\V{x}_0)(\V{h})+\sO{\norm{\V{h}}}
 	\in\Rm \comma
+	\label{eq:向量值映照可微性的定义}
 \end{equation}
 则称向量值映射 $\V{X}(\V{x})$ 在 $\V{x}_0$ 点\emphA{可微}。
 其中，$\LinearT{\Rm}{\Rm}$ 表示从 $\Rm$ 到 $\Rm$ 的\emphA{线性变换}全体。
@@ -304,12 +305,66 @@ $\domD{\V{x}}$ 与 $\domD{\V{X}}$ 之间的 \emphA{$\DiffMorp$-微分同胚}，
 			& \JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_m)]
 		\mqty[h^1 \\ \vdots \\ h^m] \fullstop
 \end{align}
-最后一步要用到\emphB{分块矩阵}的思想：左边的矩阵为 1“行” $m$ 列，
-每一“行”是一个 $m$ 维列向量；右边的矩阵（向量）则为 $m$ 行 1 列。
+最后一步要用到\emphB{分块矩阵}的思想：左侧的矩阵为 1“行” $m$ 列，
+每一“行”是一个 $m$ 维列向量；右侧的矩阵（向量）则为 $m$ 行 1 列。
 两者相乘，得到 1“行” 1 列的矩阵（当然实际为 $m$ 行），
 即之前的 \eqref{eq:推导Jacobi矩阵表达形式_Part1}~式。
-
 在线性代数中，$m \times m$ 的矩阵
 $\mqty[\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) & \cdots
 & \JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_m)]$
-称为\emphA{变换矩阵}（也叫\emphA{过渡矩阵}）。
+通常称为\emphA{变换矩阵}（也叫\emphA{过渡矩阵}）。
+
+接下来要搞清楚变换矩阵的具体形式。取
+\begin{equation}
+	\V{h}=\mqty[0,\,\cdots,\,\lambda,\,\cdots,\,0]\trans
+	=\lambda\,\V{e}_i\in\Rm \comma
+\end{equation}
+即除了 $\V{h}$ 的第 $i$ 各元素为 $\lambda$ 外，其余元素均为 0
+（$\lambda \neq 0$）。
+代入可微性的定义 \eqref{eq:向量值映照可微性的定义}~式，有
+\begin{align}
+	&\alspace\V{X}\qty(\V{x}_0+\V{h})-\V{X}\qty(\V{x}_0)
+	=\V{X}\qty(\V{x}_0+\lambda\,\V{e}_i)
+		-\V{X}\qty(\V{x}_0) \notag \\
+	&=\mqty[\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) & \cdots
+			& \JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_i) & \cdots
+			& \JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_m)]
+		\mqty[0 \\ \vdots \\ \lambda \\ \vdots \\ 0] 
+		+\sO{\lambda} \notag \\
+	&=\lambda\cdotp\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_i)
+		+\sO{\lambda} \fullstop
+\end{align}
+由于 $\lambda$ 是非零实数，故可以在等式两边同时除以 $\lambda$ 并取极限：
+\begin{equation}
+	\lim\limits_{\lambda\to 0}
+	\frac{\V{X}\qty(\V{x}_0+\lambda\,\V{e}_i)
+		-\V{X}\qty(\V{x}_0)}{\lambda}
+	=\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_i) \comma
+\end{equation}
+这里的 $\sO{\lambda}$ 根据其定义自然趋于 0。
+该式左侧极限中的分子部分，是自变量 $\V{x}$ 第 $i$ 个分量的变化%
+所引起因变量的变化；而分母，则是自变量第 $i$ 个分量的变化大小。
+我们引入下面的记号：
+\begin{equation}
+	\pdv{\V{X}}{x^i}\qty(\V{x}_0)
+	\coloneq \lim\limits_{\lambda\to 0}
+	\frac{\V{X}\qty(\V{x}_0+\lambda\,\V{e}_i)
+		-\V{X}\qty(\V{x}_0)}{\lambda} \in\Rm \comma
+\end{equation}
+它表示因变量 $\V{\V{X}}\in\Rm$ 作为一个\emphB{整体}，
+相对于自变量 $\V{x}\in\Rm$ 第 $i$ 个\emphB{分量} $x^i\in\realR$
+的“变化率”，即 $\V{\V{X}}$ 关于 $x^i$（在 $\V{x}_0$ 处）%
+的\emphA{偏导数}。由于我们没有定义向量的除法，
+因此自变量作为\emphB{整体}所引起因变量的变化，是没有意义的。
+利用偏导数的定义，可有
+\begin{align}
+	&\alspace\mqty[\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) & \cdots
+		& \JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_i) & \cdots
+		& \JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_m)] \notag \\
+	&=\mqty[\displaystyle \pdv{\V{X}}{x^1}\qty(\V{x}_0) & \cdots
+		& \displaystyle \pdv{\V{X}}{x^i}\qty(\V{x}_0) & \cdots
+		& \displaystyle \pdv{\V{X}}{x^m}\qty(\V{x}_0)]
+		\in\realR^{m \times m} \fullstop
+\end{align}
+
+现在我们来澄清偏导数的几何意义。

@@ -351,14 +351,16 @@
 %% 直至 p 阶偏导数连续的函数(Continuous Function)
 \newcommand{\cf}[3][p]{\symcal{C}^{#1}\qty(#2;\,#3)}
 %% 大 O 记号
-\newcommand{\bO}[1]{\symcal{O}\qty(#1)}
+\newcommand{\bO}[1]{\mathop{\symcal{O}}\qty(#1)}
 %% 小 O 记号
-\newcommand{\sO}[1]{\symcal{o}\qty(#1)}
+\newcommand{\sO}[1]{\mathop{\symcal{o}}\qty(#1)}
 %% 复合(Composite)
 \newcommand{\comp}{\circ}
 %% 定义等号(Definition Equal)
-%\newcommand{\defeq}{\coloneq}
 \newcommand{\defeq}{\triangleq}
+%\newcommand{\defeq}{\coloneq}
+%% 转置(Transpose)
+\newcommand{\trans}{^{\intercal}}
 
 %--------函数名称--------%
 %% 符号函数(Sign)
