@@ -8,12 +8,12 @@
 
 \begin{figure}[h]
 	\centering
-	\includegraphics{Images/Three_Maps.PNG}
+	\includegraphics{Images/Three_Mappings.PNG}
 	\caption{单射、满射与双射}
 	\label{fig:单射满射双射}
 \end{figure}
 
-设开集 $\domD{\V{X}},\,\domD{\V{x}}\in\Rm$，
+设开集 $\domD{\V{X}},\,\domD{\V{x}}\subset\Rm$，
 它们之间存在\emphB{双射}，即\emphB{一一对应}关系：
 \begin{equation}
 	\mmap{\V{X}(\V{x})}
@@ -35,7 +35,7 @@ $\domD{\V{x}}$ 则称为\emphA{参数域}。
 由于物理域通常较为复杂，因此我们常把参数域取为规整的形状，以便之后的处理。
 
 设物理量 $f(\V{X})$ 定义在物理域
-$\domD{\V{X}}\in\Rm$ 上\footnote{
+$\domD{\V{X}}\subset\Rm$ 上\footnote{
 	实际的物理事件当然只会发生在三维 Euclid 空间中（只就“空间”而言），
 	但在数学上也可以推广到 $m$ 维。
 }，则 $f$ 就定义了一个\emphA{场}：
@@ -131,7 +131,7 @@ $\pdv*{X^\alpha}{x^s}$ 却很容易，只需利用 \emphA{Jacobi 矩阵}：
 		\vdots & \ddots & \vdots \\[0.5ex]
 		\displaystyle\pdv{X^m}{\displaystyle x^1} & \cdots &
 			\displaystyle\pdv{X^m}{\displaystyle x^m}
-		] (\V{x}) \in\realR^{m \times m} \comma
+		]\, (\V{x}) \in\realR^{m \times m} \comma
 	\label{eq:参数域方程_Jacobi矩阵}
 \end{equation}
 它是一个方阵。
@@ -144,11 +144,11 @@ $\pdv*{X^\alpha}{x^s}$ 却很容易，只需利用 \emphA{Jacobi 矩阵}：
 \end{equation}
 并且其中的 $\V{X}(\V{x})$ 和 $\V{x}(\V{X})$ 均可微，可以得到
 \begin{equation}
-	\JacobiD{\V{X}}\qty\big(\V{x}(\V{X})) 
+	\JacobiD{\V{X}}\qty\big(\V{x}(\V{X}))
 	\cdotp \JacobiD{\V{x}}(\V{X})
-	=\Mat{I}_{m \times m} \comma
+	=\Mat{I}_m \comma
 \end{equation}
-其中的 $\Mat{I}_{m \times m}$ 是单位阵。因此
+其中的 $\Mat{I}_m$ 是单位阵。因此
 \begin{equation}
 	\JacobiD{\V{x}}(\V{X})
 	\defeq\mqty[
@@ -156,7 +156,7 @@ $\pdv*{X^\alpha}{x^s}$ 却很容易，只需利用 \emphA{Jacobi 矩阵}：
 			\displaystyle\pdv{x^1}{\displaystyle X^m} \\[1ex]
 		\vdots & \ddots & \vdots \\[0.5ex]
 		\displaystyle\pdv{x^m}{\displaystyle X^1} & \cdots &
-			\displaystyle\pdv{x^m}{\displaystyle X^m} ] (\V{X})
+			\displaystyle\pdv{x^m}{\displaystyle X^m} ]\, (\V{X})
 	=(\JacobiD{\V{X}})^{-1}(\V{x})
 	=\mqty[
 		\displaystyle\pdv{X^1}{\displaystyle x^1} & \cdots &
@@ -168,7 +168,7 @@ $\pdv*{X^\alpha}{x^s}$ 却很容易，只需利用 \emphA{Jacobi 矩阵}：
 \end{equation}
 用代数的方法总可以求出
 \begin{equation}
-	\pdv{x^s}{X^\alpha}(\V{X})\eqcolon\varphi^s_\alpha \comma
+	\varphi^s_\alpha\coloneq\pdv{x^s}{X^\alpha}(\V{X}) \comma
 	\label{eq:Jacobi矩阵的元素}
 \end{equation}
 它是通过求逆运算确定的函数，
@@ -220,7 +220,7 @@ $\pdv*{X^\alpha}{x^s}$ 却很容易，只需利用 \emphA{Jacobi 矩阵}：
 $\V{X}(\V{x})$ 所需满足的一些条件。这里再次罗列如下:
 
 \begin{myEnum}
-\item $\domD{\V{X}},\,\domD{\V{x}}\in\Rm$
+\item $\domD{\V{X}},\,\domD{\V{x}}\subset\Rm$
 均为\emphA{开集}\footnote{%
 	用形象化的语言来说，如果在区域中的任意一点都可以吹出一个球，
 	并能使球上的每个点都落在区域内，那么这个区域就是\emphA{开集}。
@@ -370,14 +370,10 @@ $\mqty[\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) & \cdots
 
 \blankline
 
-(Unfinished) 现在我们来澄清向量值映照偏导数的几何意义。
-
-\blankline
-
 下面给出 $\pdv*{\V{X}}{x^i}\qty(\V{x}_0)$ 的计算式。根据定义，有
 \begin{align}
 	\pdv{\V{X}}{x^i}\qty(\V{x}_0)
-	&\coloneq \lim\limits_{\lambda\to 0} 
+	&\coloneq \lim\limits_{\lambda\to 0}
 		\frac{\V{X}\qty(\V{x}_0+\lambda\,\V{e}_i)
 		-\V{X}\qty(\V{x}_0)}{\lambda} \in\Rm \notag \\
 	&=\lim\limits_{\lambda\to 0} \frac{1}{\lambda}\cdotp
@@ -434,3 +430,150 @@ $\mqty[\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) & \cdots
 \end{align}
 这与 \ref{subsec:参数域方程}~小节中
 \eqref{eq:参数域方程_Jacobi矩阵}~式给出的定义是完全一致的。
+
+\subsection{偏导数的几何意义} \label{subsec:偏导数的几何意义}
+这一小节中，我们要回过头来，澄清向量值映照偏导数的几何意义。
+
+如图~\ref{fig:偏导数的几何意义}，$\V{X}(\V{x})$ 是定义域空间
+$\domD{\V{x}}\subset\Rm$ 到值域空间 $\domD{\V{X}}\subset\Rm$
+的向量值映照。在定义域空间 $\domD{\V{x}}$ 中，
+过点 $\V{x}_0$ 作一条平行于 $x^i$ 轴的直线，称为 \emphB{$x^i$-线}。
+$x^i$ 轴定义了向量 $\V{e}_i$，因而 $x^i$-线上的任意一点均可表示为
+$\V{x}_0+\lambda\,\V{e}_i$，其中 $\lambda\in\realR$。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics{Images/Vector-Value_Mapping.PNG}
+	\caption{向量值映照偏导数的几何意义}
+	\label{fig:偏导数的几何意义}
+\end{figure}
+
+在 $\V{X}(\V{x})$ 的作用下，点 $\V{x}_0$ 被映照到 $\V{X}\qty(\V{x}_0)$，
+而 $\V{x}_0+\lambda\,\V{e}_i$ 则被映照到了
+$\V{X}\qty(\V{x}_0+\lambda\,\V{e}_i)$。这样一来，
+$x^i$-线也就被映照到了值域空间 $\domD{\V{X}}$ 中，成为一条曲线。
+
+根据前面的定义，当 $\lambda\to 0$ 时，
+\begin{equation}
+	\frac{\V{X}\qty(\V{x}_0+\lambda\,\V{e}_i) - \V{X}\qty(\V{x}_0)}
+	{\lambda} \to \pdv{\V{X}}{x^i}\qty(\V{x}_0) \fullstop
+\end{equation}
+对应到图~\ref{fig:偏导数的几何意义} 中，
+就是 $x^i$-线（值域空间中）在 $\V{X}\qty(\V{x}_0)$ 处的\emphA{切向量}。
+
+完全类似，在定义域空间 $\domD{\V{x}}$ 中，过点 $\V{x}_0$
+作出 \emphB{$x^j$-线}（自然是平行于 $x^j$ 轴），
+其上的点可以表示为 $\V{x}_0+\lambda\,\V{e}_j$。
+映射到值域空间 $\domD{\V{X}}$ 上，
+则成为 $\V{X}\qty(\V{x}_0+\lambda\,\V{e}_j)$。很显然，
+\begin{equation}
+	\pdv{\V{X}}{x^j}\qty(\V{x}_0)
+	=\frac{\V{X}\qty(\V{x}_0+\lambda\,\V{e}_j) - \V{X}\qty(\V{x}_0)}
+	{\lambda}
+\end{equation}
+就是 $x^j$-线在 $\V{X}\qty(\V{x}_0)$ 处的切向量。在定义域空间中，
+$x^i$-线作为直线共有 $m$ 条，它们之间互相垂直。作用到值域空间后，
+这样的 $x^i$-线尽管变为了曲线，但仍为 $m$ 条。相应的切向量，自然也有 $m$ 个。
+
+\section{局部基}
+这里的讨论基于曲线坐标系（即微分同胚）
+$\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
+
+我们已经知道，$\V{X}(\V{x})$ 的 Jacobi 矩阵可以表示为
+\begin{equation}
+	\JacobiD{\V{X}}(\V{x})
+	=\mqty[\displaystyle \pdv{\V{X}}{x^1},\,\cdots,\,
+		\displaystyle \pdv{\V{X}}{x^i},\,\cdots,\,
+		\displaystyle \pdv{\V{X}}{x^m}] (\V{x})
+		\in\realR^{m \times m} \comma
+\end{equation}
+式中的
+\begin{equation}
+	\pdv{\V{X}}{x^i} (\V{x})
+	=\lim\limits_{\lambda\to 0}
+		\frac{\V{X}\qty(\V{x}+\lambda\,\V{e}_i) - \V{X}(\V{x})}
+		{\lambda} \fullstop
+	\label{eq:局部基_偏导数}
+\end{equation}
+在参数域 $\domD{\V{x}}$ 中作出 $x^i$-线。映照到物理域后，它变成一条曲线，
+我们仍称之为 $x^i$-线。\ref{subsec:偏导数的几何意义}~小节已经说明，
+\eqref{eq:局部基_偏导数}~式表示物理域中 $x^i$-线的\emphB{切向量}。
+在张量分析中，我们通常把它记作 $\V{g}_i(\V{x})$。
+
+由于微分同胚要求是\emphB{双射}，因而 Jacobi 矩阵
+\begin{equation}
+	\JacobiD{\V{X}}(\V{x})
+	=\mqty[\V{g}_1,\,\cdots,\,\V{g}_i,\,\cdots,\,\V{g}_m](\V{x})
+	\in\realR^{m \times m}
+\end{equation}
+必须是\emphB{非奇异}的。这等价于
+\begin{equation}
+	\qty{\V{g}_i(\V{x})=\pdv{\V{X}}{x^i} (\V{x})}^m_{i=1}
+	\subset\Rm
+\end{equation}
+\emphB{线性无关}。由此，它们可以构成 $\Rm$ 上的一组\emphA{基}。
+
+用任意的 $\V{x}\in\domD{\V{x}}$ 均可构建一组基。但选取不同的 $\V{x}$，
+将会使所得基的取向有所不同。因而这种基称为\emphA{局部协变基}。
+和之前一样，我们用“协变”表示指标在下方。
+
+\blankline
+
+有了局部协变基 $\qty{\V{g}_i(\V{x})}^m_{i=1}$，根据
+\ref{subsec:对偶基}~小节中的讨论，必然唯一存在与之对应的\emphA{局部逆变基}
+$\qty{\V{g}^i(\V{x})}^m_{i=1}$，满足
+\begin{equation}
+	\mqty[\V{g}^1(\V{x}),\,\cdots,\,\V{g}^m(\V{x})]\trans
+		\mqty[\V{g}_1(\V{x}),\,\cdots,\,\V{g}_m(\V{x})]
+	=\mqty[\qty(\V{g}^1)\trans \\ \vdots \\ \qty(\V{g}^m)\trans]\,
+		(\V{x}) \cdotp \JacobiD{\V{X}}(\V{x})
+	=\Mat{I}_m \fullstop
+\end{equation}
+
+下面我们来寻找逆变基 $\qty{\V{g}^i(\V{x})}^m_{i=1}$ 的具体表示。考虑到
+\footnote{这里的几步推导在 \ref{subsec:参数域方程}~小节中也有所涉及。}
+\begin{equation}
+	\V{X}\qty\big(\V{x}(\V{X}))=\V{X}\in\Rm \comma
+\end{equation}
+并利用复合映照可微性定理，可知
+\begin{equation}
+	\JacobiD{\V{X}}\qty\big(\V{x}(\V{X}))
+	\cdotp \JacobiD{\V{x}}(\V{X})
+	=\Mat{I}_m \comma
+\end{equation}
+即有
+\begin{equation}
+	\JacobiD{\V{x}}(\V{X})
+	=(\JacobiD{\V{X}})^{-1}\qty\big(\V{x}(\V{X})) \fullstop
+\end{equation}
+于是
+\begin{equation}
+	\mqty[\qty(\V{g}^1)\trans \\ \vdots \\ \qty(\V{g}^m)\trans]\,
+		(\V{x})
+	=(\JacobiD{\V{X}})^{-1}(\V{x})
+	=\JacobiD{\V{x}}(\V{X})
+	=\mqty[
+		\displaystyle\pdv{x^1}{\displaystyle X^1} & \cdots &
+			\displaystyle\pdv{x^1}{\displaystyle X^m} \\[1ex]
+		\vdots & \ddots & \vdots \\[0.5ex]
+		\displaystyle\pdv{x^m}{\displaystyle X^1} & \cdots &
+			\displaystyle\pdv{x^m}{\displaystyle X^m} ]\,(\V{X}) \fullstop
+\end{equation}
+这样我们就得到了局部逆变基的具体表示（注意转置）：
+\begin{equation}
+	\V{g}^i(\V{x})
+	=\mqty[\displaystyle \pdv{x^i}{X^1} \\[1ex]
+		\vdots \\[0.5ex] \displaystyle \pdv{x^i}{X^m}]\,(\V{X})
+	=\sum_{\alpha=1}^{m} \pdv{x^i}{X^\alpha} (\V{X})\,\V{e}_\alpha
+	\fullstop
+\end{equation}
+定义标量场 $f(\V{x})$ 的\emphA{梯度}为
+\begin{equation}
+	\nabla f(\V{x}) \defeq
+	\sum_{\alpha=1}^{m} \pdv{f}{x^\alpha} (\V{x})\,\V{e}_\alpha \comma
+\end{equation}
+则局部逆变基又可以表示成
+\begin{equation}
+	\V{g}^i(\V{x})=\nabla x^i(\V{X}) \fullstop
+\end{equation}
+这里的梯度实际上就是我们熟知的三维情况在 $m$ 维下的推广。

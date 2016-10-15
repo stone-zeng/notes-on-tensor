@@ -1,64 +1,90 @@
 \section{对偶基，度量}
-\subsection{对偶基}
-$\Rm$ 空间中的基可分为两类：指标写在\emphB{下面}的基
-\begin{equation*}
-	\qty{\V{g}_i}^m_{i=1} \subset \Rm
-\end{equation*}
-称为\emphA{协变基}，指标写在\emphB{上面}的基
-\begin{equation*}
-	\qty{\V{g}^i}^m_{i=1} \subset \Rm
-\end{equation*}
-称为\emphA{逆变基}。
-它们满足\emphA{对偶关系}：
+\subsection{对偶基} \label{subsec:对偶基}
+设 $\qty{\V{g}_i}^m_{i=1}$ 是 $\Rm$ 空间中的一组\emphA{基}，
+即极大线性无关向量组。此时，$\Rm$ 中将\emphB{唯一}存在另一组基
+$\qty{\V{g}^i}^m_{i=1}$，二者满足\emphA{对偶关系}：
 \begin{equation}
-	\qty(\V{g}^i,\,\V{g}_j)_{\Rm}=\KroneckerDelta{i}{j}
+	\ipb{\V{g}_i}{\V{g}^j}=\KroneckerDelta{j}{i}
 	=\left\{\begin{aligned}
-		1,\quad i&=j \semicomma\\
-		0,\quad i&\neq j \fullstop
+		1,\quad j&=i \semicomma\\
+		0,\quad j&\neq i \fullstop
 	\end{aligned}\right.
 	\label{eq:对偶关系}
 \end{equation}
-这里的 $\KroneckerDelta{i}{j}$ 是 \emphA{Kronecker δ 函数}。
+式中，$\ipb{\V{g}_i}{\V{g}^j}$的 $\KroneckerDelta{j}{i}$ 是 
+\emphA{Kronecker δ 函数}。
+
+\begin{myProof}
+根据内积的定义，
+\begin{equation}
+	\ipb{\V{g}_i}{\V{g}^j}=\qty(\V{g}^j)\trans\V{g}_i
+	=\KroneckerDelta{j}{i} \comma
+\end{equation}
+其中的 $i$、$j$ 可取 $1,\,2,\,\cdots,\,m$。写成矩阵形式，为\footnote{
+	除非特殊说明，本文中的所有向量均取\emphB{列向量}。}
+\begin{equation}
+	\mqty[\qty(\V{g}^1)\trans \\ \vdots \\ \qty(\V{g}^m)\trans]
+	\mqty[\V{g}_1,\,\cdots,\,\V{g}_m] = \Mat{I}_m \fullstop
+\end{equation}
+左边的第一个矩阵拆分成了 $m$ 行，每行是一个 $m$ 维行向量；
+第二个矩阵则拆分成了 $m$ 列，每行是一个 $m$ 维列向量。
+根据分块矩阵的乘法，所得结果对角元为 $\KroneckerDelta{i}{i}$，
+非对角元则为 $\KroneckerDelta{i}{j}$（其中 $i\neq j$），即单位阵。
+
+把第一个矩阵的转置挪到外面，可有
+\begin{equation}
+	\mqty[\V{g}^1,\,\cdots,\,\V{g}^m]\trans
+	\mqty[\V{g}_1,\,\cdots,\,\V{g}_m] = \Mat{I}_m \fullstop
+\end{equation}
+$\qty{\V{g}_i}^m_{i=1}$ 作为基，必然满足
+$\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]$ 非奇异。因此
+\begin{equation}
+	\mqty[\V{g}^1,\,\cdots,\,\V{g}^m]\trans
+	=\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]^{-1} \comma
+\end{equation}
+即
+\begin{equation}
+	\mqty[\V{g}^1,\,\cdots,\,\V{g}^m]
+	=\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]\invTrans \fullstop
+	\label{eq:逆变基用协变基表示}
+\end{equation}
+逆矩阵（及其转置）是存在且唯一的，这就证明了对偶基的存在性和唯一性。
+\end{myProof}
+
+我们把指标写在\emphB{下面}的基 $\qty{\V{g}_i}^m_{i=1}$
+称为\emphA{协变基}；指标写在\emphB{上面}的基
+$\qty{\V{g}^i}^m_{i=1}$ 称为\emphA{逆变基}。
+式~\eqref{eq:逆变基用协变基表示} 明确指出了逆变基与协变基的关系。
 
 \subsection{度量}
 下面引入\emphA{度量}的概念。其定义为
 \begin{braceEq}
-	g_{ij} &\defeq \qty(\V{g}_i,\,\V{g}_j)_{\Rm} \comma 
+	g_{ij} &\defeq \ipb{\V{g}_i}{\V{g}_j} \comma 
 	\label{eq:度量的定义_协变} \\
-	g^{ij} &\defeq \qty(\V{g}^i,\,\V{g}^j)_{\Rm} \fullstop
+	g^{ij} &\defeq \ipb{\V{g}^i}{\V{g}^j} \fullstop
 	\label{eq:度量的定义_逆变}
 \end{braceEq}
-
-下面证明
+这两种度量满足
 \begin{equation}
 	g_{ik}\,g^{kj} = \KroneckerDelta{j}{i} \fullstop
 	\label{eq:度量之积}
 \end{equation}
-它也可以写成矩阵的形式：
+也可以写成矩阵的形式：
 \begin{equation}
 	\qty[g_{ik}]\qty[g^{kj}]
 	=\qty[\KroneckerDelta{j}{i}]=\Mat{I}_m \comma
 \end{equation}
-其中的 $\Mat{I}_m$ 是 $m$ 阶单位阵。
-\begin{myProof}
+其中的 $\Mat{I}_m$ 是 $m$ 阶单位阵。该式的证明将在稍后给出。
+
+由于内积具有交换律，因而度量的两个指标显然可以交换：
 \begin{equation}
-	g_{ik}\,g^{kj}
-	=\qty(\V{g}_i,\,\V{g}_k)_{\Rm} \, g^{kj}
-	=\qty(\V{g}_i,\,g^{kj}\V{g}_k)_{\Rm}
-\end{equation}
-后文将说明 $g^{kj}\V{g}_k=\V{g}^j$，因此可得
-\begin{equation}
-	g_{ik}\,g^{kj}=\qty(\V{g}_i,\,\V{g}^j)_{\Rm}
-	=\KroneckerDelta{j}{i} \fullstop
+	g_{ij}=g_{ji}, \quad g^{ij}=g^{ji} \fullstop
 \end{equation}
 
-要注意的是，这里的指标 $k$ 是\emphB{哑标}。
-根据\emphA{Einstein 求和约定}，
-重复指标并且一上一下时，就表示对它求和。后文除非特殊说明，也均是如此。
-\end{myProof}
-
-现在澄清\emphA{基向量转换关系}。第 $i$ 个协变基向量 $\V{g}_i$ 既然是向量，
-就必然可以用协变基或逆变基来表示。
+利用度量，可以获得\emphA{基向量转换关系}。
+第 $i$ 个协变基向量 $\V{g}_i$ 既然是向量，
+就必然可以用协变基或逆变基来表示\footnote{%
+	所谓用某组基来“表示”一个向量，就是把它朝各个基的方向做投影，然后再求和。}。
 根据对偶关系式~\eqref{eq:对偶关系} 和度量的定义
 式~\eqref{eq:度量的定义_协变}、\eqref{eq:度量的定义_逆变}，可知
 \begin{braceEq}
@@ -78,7 +104,36 @@ $\Rm$ 空间中的基可分为两类：指标写在\emphB{下面}的基
 \eqref{eq:基向量转换关系3} 是平凡的，
 而式~\eqref{eq:基向量转换关系1} 和 \eqref{eq:基向量转换关系4}
 则通过\emphB{度量}建立起了协变基与逆变基之间的关系。
-这就称为基向量转换关系，也可以叫做“指标升降游戏”。
+这就称为\emphB{基向量转换关系}，也可以叫做“指标升降游戏”。
+
+需要说明的是，根据\emphA{Einstein 求和约定}，
+重复指标（即\emphB{哑标}，这里是 $k$）且一上一下时，已经暗含了求和。
+后文除非特殊说明，也都是如此。
+
+\blankline
+
+现在我们来证明式~\eqref{eq:度量之积}：
+\begin{equation}
+	g_{ik}\,g^{kj} = \KroneckerDelta{j}{i} \fullstop
+\end{equation}
+
+\begin{myProof}
+\begin{equation}
+	g_{ik}\,g^{kj}
+	=\ipb{\V{g}_i}{\V{g}_k} \, g^{kj}
+	=\ipb{\V{g}_i}{g^{kj}\V{g}_k}
+\end{equation}
+根据式~\eqref{eq:基向量转换关系4}，有
+\begin{equation}
+	g^{kj}\V{g}_k=g^{jk}\V{g}_k=\V{g}^j
+\end{equation}
+因此可得
+\begin{equation}
+	g_{ik}\,g^{kj}=\ipb{\V{g}_i}{\V{g}^j}
+	=\KroneckerDelta{j}{i} \fullstop
+\end{equation}
+
+\end{myProof}
 
 \subsection{向量的分量}
 对于任意的向量 $\V{\xi} \in \Rm$，它可以用协变基表示：

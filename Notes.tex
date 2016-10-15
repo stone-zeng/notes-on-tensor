@@ -260,8 +260,8 @@
 \let\DOMAIN=\symfrak
 %% 符号 倾斜粗体
 \let\SYMBOL=\symbf
-%% 一般算子 无衬线倾斜粗体
-\let\OPERATOR=\symsf
+%% 一般算子 无衬线直立
+\let\OPERATOR=\symsfup
 %% 特殊算子 无衬线直立粗体
 \let\OPERATORX=\symbfsfup
 
@@ -358,9 +358,10 @@
 \newcommand{\comp}{\circ}
 %% 定义等号(Definition Equal)
 \newcommand{\defeq}{\triangleq}
-%\newcommand{\defeq}{\coloneq}
 %% 转置(Transpose)
-\newcommand{\trans}{^{\intercal}}
+\newcommand{\trans}{^{\mkern-1.5mu\mathsf{T}}}
+%% 取逆并转置(Inverse and Transpose)
+\newcommand{\invTrans}{^{-\mkern-1.5mu\mathsf{T}}}
 
 %--------函数名称--------%
 %% 符号函数(Sign)
@@ -403,12 +404,12 @@
 %%	\tableofcontents
 %	
 %	\mainmatter
-%	\chapter{张量的定义及表示}
-%		\input{Chapters/Chapter1}
-%	
-%	\chapter{张量的运算性质}
-%		\input{Chapters/Chapter2}
-%	
+	\chapter{张量的定义及表示}
+		\input{Chapters/Chapter1}
+	
+	\chapter{张量的运算性质}
+		\input{Chapters/Chapter2}
+	
 	\chapter{微分同胚}
 		\input{Chapters/Chapter3}
 %	\backmatter
