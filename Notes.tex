@@ -311,6 +311,8 @@
 %--------特殊量--------%
 %% Kronecker Delta
 \newcommand{\KroneckerDelta}[2]{\delta^{#1}_{#2}}
+%% Kronecker Delta (全下标形式)
+\WithSuffix\newcommand\KroneckerDelta*[1]{\delta_{#1}}
 %% Levi-Civita 记号
 \newcommand{\LeviCivita}[1]{\tensor{\epsilon}{#1}}
 
@@ -381,7 +383,7 @@
 \newcommand{\comma}{\text{，}}
 \newcommand{\fullstop}{\text{．}}
 \newcommand{\semicomma}{\text{；}}
-%\newcommand{\const}{\text{const.}}
+\newcommand{\const}{\text{const.}}
 %\renewcommand{\intertext}[1]{\shortintertext{\textit{#1}}}
 
 
@@ -404,13 +406,13 @@
 %%	\tableofcontents
 %	
 %	\mainmatter
-	\chapter{张量的定义及表示}
-		\input{Chapters/Chapter1}
+%	\chapter{张量的定义及表示}
+%		\input{Chapters/Chapter1}
+%	
+%	\chapter{张量的运算性质}
+%		\input{Chapters/Chapter2}
 	
-	\chapter{张量的运算性质}
-		\input{Chapters/Chapter2}
-	
-	\chapter{微分同胚}
+	\chapter{微分同胚（曲线坐标系）}
 		\input{Chapters/Chapter3}
 %	\backmatter
 %	{

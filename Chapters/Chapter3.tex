@@ -242,6 +242,9 @@ $\domD{\V{x}}$ 与 $\domD{\V{X}}$ 之间的 \emphA{$\DiffMorp$-微分同胚}，
 而要使得物理域中所满足的 PDE 能够转换到参数域上，
 就需要“过去”和“回来”都满足 $p$ 阶偏导数连续的条件（即\emphB{正则性}要求）。
 
+有了微分同胚，物理域中的位置就可用参数域中的位置等价地进行刻画。
+因此我们也把微分同胚称为\emphA{曲线坐标系}。
+
 \section{向量值映照的可微性}
 \subsection{可微性的定义}
 设 $\V{x}_0$ 是参数域 $\domD{\V{x}}$ 中的一个内点。
@@ -520,7 +523,8 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 \blankline
 
 有了局部协变基 $\qty{\V{g}_i(\V{x})}^m_{i=1}$，根据
-\ref{subsec:对偶基}~小节中的讨论，必然唯一存在与之对应的\emphA{局部逆变基}
+\myPROBLEM{交叉引用第一章（已注释掉）}%\ref{subsec:对偶基}
+~小节中的讨论，必然唯一存在与之对应的\emphA{局部逆变基}
 $\qty{\V{g}^i(\V{x})}^m_{i=1}$，满足
 \begin{equation}
 	\mqty[\V{g}^1(\V{x}),\,\cdots,\,\V{g}^m(\V{x})]\trans
@@ -540,6 +544,7 @@ $\qty{\V{g}^i(\V{x})}^m_{i=1}$，满足
 	\JacobiD{\V{X}}\qty\big(\V{x}(\V{X}))
 	\cdotp \JacobiD{\V{x}}(\V{X})
 	=\Mat{I}_m \comma
+	\label{eq:局部逆变基_两个Jacobi矩阵互逆}
 \end{equation}
 即有
 \begin{equation}
@@ -576,4 +581,73 @@ $\qty{\V{g}^i(\V{x})}^m_{i=1}$，满足
 \begin{equation}
 	\V{g}^i(\V{x})=\nabla x^i(\V{X}) \fullstop
 \end{equation}
-这里的梯度实际上就是我们熟知的三维情况在 $m$ 维下的推广。
+此处的梯度实际上就是我们熟知的三维情况在 $m$ 维下的推广。
+
+\blankline
+
+在 \ref{subsec:偏导数的几何意义}~小节中已经指出，局部协变基的几何意义是
+$x^i$-线的\emphB{切向量}。现在，我们来讨论局部逆变基的几何意义。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics{Images/Local_Basis.PNG}
+	\caption{局部逆变基的几何意义}
+	\label{fig:局部逆变基的几何意义}
+\end{figure}
+
+如图~\ref{fig:局部逆变基的几何意义} 所示，在参数空间域中，
+过点 $\V{x}$ 作垂直于 $x^i$ 轴的平面，记为 $x^i$-面。在 $x^i$-面上，
+自然有 $x^i=\const$ \ 映照到物理空间后，$x^i$-面变为一个曲面，其上仍有
+$x^i(\V{X})=\const$，即它是一个\emphB{等值面}。
+等值面的梯度方向显然与该曲面的\emphB{法向}相同。因此，局部逆变基
+$\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
+
+现在来验证一下\emphA{对偶关系}。
+\begin{align}
+	\ipb{\V{g}_i(\V{x})}{\V{g}^j(\V{x})}
+	&=\ipb{\pdv{\V{X}}{x^i} (\V{x})}{\nabla x^j(\V{X})} \notag \\
+	&=\ipb{\sum_{\alpha=1}^{m} \pdv{X^\alpha}{x^i} (\V{x})\,
+			\V{e}_\alpha}
+		{\sum_{\beta=1}^{m} \pdv{x^j}{X^\beta} (\V{X})\,
+			\V{e}_\beta} \notag
+	\intertext{利用内积的线性性，有}
+	&=\sum_{\alpha=1}^{m} \sum_{\beta=1}^{m}
+		\pdv{X^\alpha}{x^i} (\V{x}) \pdv{x^j}{X^\beta} (\V{X})
+		\cdotp \ipb{\V{e}_\alpha}{\V{e}_\beta} \notag \\
+	&=\sum_{\alpha=1}^{m} \sum_{\beta=1}^{m}
+		\pdv{X^\alpha}{x^i} (\V{x}) \pdv{x^j}{X^\beta} (\V{X})
+		\cdotp\KroneckerDelta*{\alpha\beta} \notag
+	\intertext{合并掉指标 $\beta$，可得}
+	&=\sum_{\alpha=1}^{m}
+		\pdv{X^\alpha}{x^i} (\V{x}) \pdv{x^j}{X^\alpha} (\V{X}) \notag \\
+	&=\sum_{\alpha=1}^{m}
+		\pdv{x^j}{X^\alpha} (\V{X}) \pdv{X^\alpha}{x^i} (\V{x}) \fullstop
+\end{align}
+最后一步求和号中的第一项位于 Jacobi 矩阵 $\JacobiD{\V{x}}(\V{X})$
+的第 $j$ 行第 $\alpha$ 列，而第二项位于 $\JacobiD{\V{X}}(\V{x})$
+的第 $\alpha$ 行第 $i$ 列，因此关于 $\alpha$ 的求和结果便是乘积矩阵的
+第 $j$ 行第 $i$ 列。根据式~\eqref{eq:局部逆变基_两个Jacobi矩阵互逆}，
+这两个 Jacobi 矩阵的乘积为单位阵，所以有
+\begin{equation}
+	\ipb{\V{g}_i(\V{x})}{\V{g}^j(\V{x})}
+	=\KroneckerDelta{j}{i} \fullstop
+\end{equation}
+
+\blankline
+
+总结一下我们得到的结果。对于体积形态的连续介质，存在着
+\begin{braceEq}
+	\text{局部协变基：}\quad \qty{\V{g}_i(\V{x})
+		\defeq \pdv{\V{X}}{x^i} (\V{x})}^m_{i=1} \comma \notag \\
+	\text{局部逆变基：}\quad \qty{\V{g}^i(\V{x})
+		\defeq \nabla x^i(\V{X})}^m_{i=1} \comma \notag
+\end{braceEq}
+它们满足\emphB{对偶关系}
+\begin{equation}
+	\ipb{\V{g}_i(\V{x})}{\V{g}^j(\V{x})}
+	=\KroneckerDelta{j}{i} \fullstop
+\end{equation}
+这样，在研究连续介质中的一个点时，我们就有三种基可以使用：
+局部协变基、局部逆变基，当然还有\emphB{典则基} $\qty{\V{e}_i}^m_{i=1}$。
+
+\section{标架运动方程}
