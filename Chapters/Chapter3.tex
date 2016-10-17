@@ -245,7 +245,7 @@ $\domD{\V{x}}$ 与 $\domD{\V{X}}$ 之间的 \emphA{$\DiffMorp$-微分同胚}，
 有了微分同胚，物理域中的位置就可用参数域中的位置等价地进行刻画。
 因此我们也把微分同胚称为\emphA{曲线坐标系}。
 
-\section{向量值映照的可微性}
+\section{向量值映照的可微性} \label{sec:向量值映照的可微性}
 \subsection{可微性的定义}
 设 $\V{x}_0$ 是参数域 $\domD{\V{x}}$ 中的一个内点。
 在映照 $\V{X}(\V{x})$ 的作用下，
@@ -646,8 +646,90 @@ $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 \begin{equation}
 	\ipb{\V{g}_i(\V{x})}{\V{g}^j(\V{x})}
 	=\KroneckerDelta{j}{i} \fullstop
+	\label{eq:局部基_对偶关系}
 \end{equation}
 这样，在研究连续介质中的一个点时，我们就有三种基可以使用：
 局部协变基、局部逆变基，当然还有\emphB{典则基} $\qty{\V{e}_i}^m_{i=1}$。
 
 \section{标架运动方程}
+对于 $\Rm$ 空间中的任意一个向量 $\V{b}$，它可以用\emphA{典则基}表示：
+\begin{equation}
+	\V{b}=\sum_{\alpha=1}^{m} b_\alpha \V{e}_\alpha
+	=b_\alpha \V{e}_\alpha \fullstop
+\end{equation}
+第二步省略掉了求和号，这是根据\emphA{Einstein 求和约定}：
+指标出现两次，则表示对它求和。\footnote{%
+	在 \myPROBLEM{交叉引用第一章（已注释掉）} %\ref{subsec:度量}
+	~小节中，还要求重复指标一上一下。
+	典则基不分协变、逆变，标号均在下方，可以视为一个特例。}
+根据之前一小节的结论，$\V{b}$ 还可以用局部协变基和局部逆变基来表示：
+\begin{align}
+	\V{b} = b^i\V{g}_i = b_j\V{g}^j \comma
+\end{align}
+式中，
+\begin{mySubEq}
+	\begin{align}
+		b^i&=\ipb{\V{b}}{\V{g}^i} \label{eq:活动标架_逆变分量表示}
+		\intertext{和}
+		b_j&=\ipb{\V{b}}{\V{g}_j} \label{eq:活动标架_协变分量表示}
+	\end{align}
+\end{mySubEq}
+分别称为向量 $b$ 的\emphA{逆变分量}和\emphA{协变分量}。
+注意，这里同样用到了 Einstein 求和约定。
+
+将 $\V{b}=b^i\V{g}_i$ 的两边分别与 $\V{g}^j$ 作内积，可有
+\begin{align}
+	\ipb{\V{b}}{\V{g}^j}
+	&=\ipb{b^i\V{g}_i}{\V{g}^j} \notag
+	\intertext{利用内积的线性性，提出系数：}
+	&=b^i\ipb{\V{g}_i}{\V{g}^j} \notag
+	\intertext{利用对偶关系 \eqref{eq:局部基_对偶关系}~式，可有}
+	&=b^i\KroneckerDelta{j}{i}=b^j \comma
+\end{align}
+这就得到了逆变分量的表示式~\eqref{eq:活动标架_逆变分量表示}。
+同理，将 $\V{b}=b_j\V{g}^j$ 的两边分别与 $\V{g}_i$ 作内积，就有
+\begin{equation}
+	\ipb{\V{b}}{\V{g}_i}
+	=\ipb{b_j\V{g}^j}{\V{g}_i}
+	=b_j\ipb{\V{g}^j}{\V{g}_i}
+	=b_j\KroneckerDelta{j}{i}=b_i \comma
+\end{equation}
+这便是协变分量的表示 \eqref{eq:活动标架_协变分量表示}~式。
+
+\blankline
+
+所谓局部基（或曰“活动标架”），顾名思义，它在不同的点上往往是不同的。
+根据之前的定义，我们有
+\begin{mySubEq}
+	\begin{align}
+	&\mmap{\V{g}_i(\V{x})}{\domD{\V{x}}\ni\V{x}}{\V{g}_i(\V{x})
+		=\mqty[\displaystyle \pdv{X^1}{x^i} \\[1ex] \vdots \\[0.7ex]
+			\displaystyle \pdv{X^m}{x^i}]\,(\V{x})\in\Rm} \comma \\
+	&\mmap{\V{g}^i(\V{x})}{\domD{\V{x}}\ni\V{x}}{\V{g}^i(\V{x})
+		=\mqty[\displaystyle \pdv{x^i}{X^1} \\[1ex] \vdots \\[0.5ex]
+			\displaystyle \pdv{x^i}{X^m}]\,\qty\big(\V{X}(\V{x}))\in\Rm}
+		\fullstop
+	\end{align}
+\end{mySubEq}
+从\emphB{映照}的角度来看，局部基定义了新的向量值映照，其定义域仍为参数域，
+而值域则为 $\Rm$ 空间。这样一来，我们在 \ref{sec:向量值映照的可微性}~节
+中所引入的操作均可完全类似地应用在局部基上。
+例如，我们可以来求局部基的 Jacobi 矩阵：
+\begin{braceEq}
+	\JacobiD{\V{g}_i}(\V{x})
+	&=\mqty[\displaystyle \pdv{\V{g}_i}{x^1},\,\cdots,\,
+		\pdv{\V{g}_i}{x^m}]\,(\V{x}) \in\realR^{m \times m} \comma \\
+	\JacobiD{\V{g}^i}(\V{x})
+	&=\mqty[\displaystyle \pdv{\V{g}^i}{x^1},\,\cdots,\,
+		\pdv{\V{g}^i}{x^m}]\,(\V{x}) \in\realR^{m \times m} \fullstop
+\end{braceEq}
+Jacobi 矩阵中的每一列都是局部基作为整体相对自变量第 $j$
+个分量的变化率，即\emphB{偏导数}：
+\begin{braceEq}
+	\pdv{\V{g}_i}{x^j} (\V{x}) &\defeq \lim\limits_{\lambda\to 0}
+		\frac{\V{g}_i\qty(\V{x}+\lambda\,\V{e}_j)-\V{g}_i(\V{x})}
+			{\lambda} \in\Rm \comma \\
+	\pdv{\V{g}^i}{x^j} (\V{x}) &\defeq \lim\limits_{\lambda\to 0}
+		\frac{\V{g}^i\qty(\V{x}+\lambda\,\V{e}_j)-\V{g}^i(\V{x})}
+			{\lambda} \in\Rm \fullstop
+\end{braceEq}
