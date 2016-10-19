@@ -482,6 +482,7 @@ $x^i$-线作为直线共有 $m$ 条，它们之间互相垂直。作用到值域
 这里的讨论基于曲线坐标系（即微分同胚）
 $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 
+\subsection{局部协变基}
 我们已经知道，$\V{X}(\V{x})$ 的 Jacobi 矩阵可以表示为
 \begin{equation}
 	\JacobiD{\V{X}}(\V{x})
@@ -520,8 +521,7 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 将会使所得基的取向有所不同。因而这种基称为\emphA{局部协变基}。
 和之前一样，我们用“协变”表示指标在下方。
 
-\blankline
-
+\subsection{局部逆变基；对偶关系}
 有了局部协变基 $\qty{\V{g}_i(\V{x})}^m_{i=1}$，根据
 \myPROBLEM{交叉引用第一章（已注释掉）}%\ref{subsec:对偶基}
 ~小节中的讨论，必然唯一存在与之对应的\emphA{局部逆变基}
@@ -595,7 +595,7 @@ $x^i$-线的\emphB{切向量}。现在，我们来讨论局部逆变基的几何
 	\label{fig:局部逆变基的几何意义}
 \end{figure}
 
-如图~\ref{fig:局部逆变基的几何意义} 所示，在参数空间域中，
+如图~\ref{fig:局部逆变基的几何意义} 所示，在参数空间中，
 过点 $\V{x}$ 作垂直于 $x^i$ 轴的平面，记为 $x^i$-面。在 $x^i$-面上，
 自然有 $x^i=\const$ \ 映照到物理空间后，$x^i$-面变为一个曲面，其上仍有
 $x^i(\V{X})=\const$，即它是一个\emphB{等值面}。
@@ -619,9 +619,11 @@ $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 		\cdotp\KroneckerDelta*{\alpha\beta} \notag
 	\intertext{合并掉指标 $\beta$，可得}
 	&=\sum_{\alpha=1}^{m}
-		\pdv{X^\alpha}{x^i} (\V{x}) \pdv{x^j}{X^\alpha} (\V{X}) \notag \\
+		\pdv{X^\alpha}{x^i} (\V{x})
+		\pdv{x^j}{X^\alpha} (\V{X}) \notag \\
 	&=\sum_{\alpha=1}^{m}
-		\pdv{x^j}{X^\alpha} (\V{X}) \pdv{X^\alpha}{x^i} (\V{x}) \fullstop
+		\pdv{x^j}{X^\alpha} (\V{X})
+		\pdv{X^\alpha}{x^i} (\V{x}) \fullstop
 \end{align}
 最后一步求和号中的第一项位于 Jacobi 矩阵 $\JacobiD{\V{x}}(\V{X})$
 的第 $j$ 行第 $\alpha$ 列，而第二项位于 $\JacobiD{\V{X}}(\V{x})$
@@ -652,6 +654,7 @@ $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 局部协变基、局部逆变基，当然还有\emphB{典则基} $\qty{\V{e}_i}^m_{i=1}$。
 
 \section{标架运动方程}
+\subsection{向量在局部基下的表示}
 对于 $\Rm$ 空间中的任意一个向量 $\V{b}$，它可以用\emphA{典则基}表示：
 \begin{equation}
 	\V{b}=\sum_{\alpha=1}^{m} b_\alpha \V{e}_\alpha
@@ -696,8 +699,7 @@ $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 \end{equation}
 这便是协变分量的表示 \eqref{eq:活动标架_协变分量表示}~式。
 
-\blankline
-
+\subsection{局部基的偏导数}
 所谓局部基（或曰“活动标架”），顾名思义，它在不同的点上往往是不同的。
 根据之前的定义，我们有
 \begin{mySubEq}
@@ -733,3 +735,49 @@ Jacobi 矩阵中的每一列都是局部基作为整体相对自变量第 $j$
 		\frac{\V{g}^i\qty(\V{x}+\lambda\,\V{e}_j)-\V{g}^i(\V{x})}
 			{\lambda} \in\Rm \fullstop
 \end{braceEq}
+
+下面澄清局部基偏导数的几何意义。
+如图~\ref{fig:局部基偏导数的几何意义} 所示，在参数空间中，过点 $\V{x}$
+作出 $x^j$-线，并在其上取点 $\V{x}+\lambda\,\V{e}_j$。
+分别过点 $\V{x}$ 和 $\V{x}+\lambda\,\V{e}_j$ 作出 $x^i$-线，于是
+$\pdv*{\V{g}_i}{x^j} (\V{x})$ 就表示 $\V{g}_i(\V{x})$
+（即 $x^i$-线的切向量）沿 $x^j$-线的变化率。
+同理，过点 $\V{x}$ 和 $\V{x}+\lambda\,\V{e}_j$ 作出 $x^i$-面，
+则 $\pdv*{\V{g}^i}{x^j} (\V{x})$ 就表示 $\V{g}^i(\V{x})$
+（即 $x^i$-面的法向量）沿 $x^j$-线的变化率。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics{Images/Local_Basis_PDV_1.PNG}
+	\includegraphics{Images/Local_Basis_PDV_2.PNG}
+	\caption{局部基偏导数的几何意义}
+	\label{fig:局部基偏导数的几何意义}
+\end{figure}
+
+\subsection{Christoffel 符号}
+考察 $\pdv*{\V{g}_i}{x^j} (\V{x})$，它是 $\Rm$ 空间中的一个向量。
+于是，它可以用（局部）协变基或逆变基来表示：
+\begin{equation}
+	\pdv{\V{g}_i}{x^j} (\V{x})
+	=\left\{\begin{aligned}
+		\ipb{\pdv{\V{g}_i}{x^j}}{\V{g}^k} \V{g}_k \comma \\
+		\ipb{\pdv{\V{g}_i}{x^j}}{\V{g}_k} \V{g}^k \fullstop
+	\end{aligned}\right.
+	\label{eq:协变基偏导数的协变与逆变表示}
+\end{equation}
+引入\emphA{第一类 Christoffel 符号}
+\begin{equation}
+	\ChristoffelA{j}{i}{k} \coloneq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}_k}
+\end{equation}
+和\emphA{第二类 Christoffel 符号}
+\begin{equation}
+	\ChristoffelB{j}{i}{k} \coloneq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}^k}
+\end{equation}
+则式~\eqref{eq:协变基偏导数的协变与逆变表示} 可以写成
+\begin{myCases}{\label{1}\pdv{\V{g}_i}{x^j} (\V{x})=}
+		\ChristoffelB{j}{i}{k}\, \V{g}_k \comma \label{2} \\
+		\ChristoffelA{j}{i}{k}\, \V{g}^k \fullstop \label{3}
+\end{myCases}
+引用1：式~\eqref{1}
+引用2：式~\eqref{2}
+引用3：式~\eqref{3}
