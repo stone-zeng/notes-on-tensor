@@ -109,7 +109,7 @@ $\V{x}$ 与 $\V{X}$ 是完全等价的，因而 $\tilde{f}$ 与 $f$ 也是完全
 	\V{X}(\V{x})&\in\cf{\domD{\V{x}}}{\Rm} \semicomma \\
 	\V{x}(\V{X})&\in\cf{\domD{\V{X}}}{\Rm} \fullstop
 \end{braceEq}
-这里的 $\DiffMorp$ 指\emphB{直至 $p$ 阶偏导数（存在且）连续}的映照全体；
+这里的 $\DiffMorp$ 指\emphB{直至 $p$ 阶偏导数存在且连续}的映照全体；
 $p=1$ 时，它就等价于可微。至于 $p$ 的具体取值，则由 PDE 的阶数所决定。
 
 通常情况下，已知条件所给定的往往都是
@@ -323,7 +323,7 @@ $\mqty[\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) & \cdots
 	\V{h}=\mqty[0,\,\cdots,\,\lambda,\,\cdots,\,0]\trans
 	=\lambda\,\V{e}_i\in\Rm \comma
 \end{equation}
-即除了 $\V{h}$ 的第 $i$ 各元素为 $\lambda$ 外，其余元素均为 0
+即除了 $\V{h}$ 的第 $i$ 个元素为 $\lambda$ 外，其余元素均为 0
 （$\lambda \neq 0$）。因而有 $\norm{\V{h}}=\lambda$。
 代入可微性的定义 \eqref{eq:向量值映照可微性的定义}~式，可得
 \begin{align}
@@ -706,11 +706,13 @@ $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 	\begin{align}
 	&\mmap{\V{g}_i(\V{x})}{\domD{\V{x}}\ni\V{x}}{\V{g}_i(\V{x})
 		=\mqty[\displaystyle \pdv{X^1}{x^i} \\[1ex] \vdots \\[0.7ex]
-			\displaystyle \pdv{X^m}{x^i}]\,(\V{x})\in\Rm} \comma \\
+			\displaystyle \pdv{X^m}{x^i}]\,(\V{x})\in\Rm} \comma
+		\label{eq:局部协变基定义} \\
 	&\mmap{\V{g}^i(\V{x})}{\domD{\V{x}}\ni\V{x}}{\V{g}^i(\V{x})
 		=\mqty[\displaystyle \pdv{x^i}{X^1} \\[1ex] \vdots \\[0.5ex]
 			\displaystyle \pdv{x^i}{X^m}]\,\qty\big(\V{X}(\V{x}))\in\Rm}
 		\fullstop
+		\label{eq:局部逆变基定义}
 	\end{align}
 \end{mySubEq}
 从\emphB{映照}的角度来看，局部基定义了新的向量值映照，其定义域仍为参数域，
@@ -755,29 +757,91 @@ $\pdv*{\V{g}_i}{x^j} (\V{x})$ 就表示 $\V{g}_i(\V{x})$
 \end{figure}
 
 \subsection{Christoffel 符号}
-考察 $\pdv*{\V{g}_i}{x^j} (\V{x})$，它是 $\Rm$ 空间中的一个向量。
-于是，它可以用（局部）协变基或逆变基来表示：
-\begin{equation}
-	\pdv{\V{g}_i}{x^j} (\V{x})
-	=\left\{\begin{aligned}
-		\ipb{\pdv{\V{g}_i}{x^j}}{\V{g}^k} \V{g}_k \comma \\
-		\ipb{\pdv{\V{g}_i}{x^j}}{\V{g}_k} \V{g}^k \fullstop
-	\end{aligned}\right.
-	\label{eq:协变基偏导数的协变与逆变表示}
-\end{equation}
+考察 $\pdv*{\V{g}_i}{x^j} (\V{x})$，即\emphB{协变基}的偏导数\footnote{
+	以下在不引起歧义之处，将省略局部协变基、局部逆变基的“局部”二字。为了方便，
+	$\V{g}_i(\V{x})$ 和 $\V{g}^i(\V{x})$ 中的“$(\V{x})$”有时也会省略。
+}。它是 $\Rm$ 空间中的一个向量，因而可以用协变基或逆变基来表示：
+\begin{braceEq*}
+	{\label{eq:协变基偏导数的协变与逆变表示} \pdv{\V{g}_i}{x^j} (\V{x})=}
+	&\ipb{\pdv{\V{g}_i}{x^j}}{\V{g}^k} \V{g}_k \comma \\
+	&\ipb{\pdv{\V{g}_i}{x^j}}{\V{g}_k} \V{g}^k \fullstop
+\end{braceEq*}
 引入\emphA{第一类 Christoffel 符号}
 \begin{equation}
 	\ChristoffelA{j}{i}{k} \coloneq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}_k}
+	\label{eq:第一类Christoffel符号定义}
 \end{equation}
 和\emphA{第二类 Christoffel 符号}
 \begin{equation}
 	\ChristoffelB{j}{i}{k} \coloneq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}^k}
+	\label{eq:第二类Christoffel符号定义}
 \end{equation}
 则式~\eqref{eq:协变基偏导数的协变与逆变表示} 可以写成
-\begin{myCases}{\label{1}\pdv{\V{g}_i}{x^j} (\V{x})=}
-		\ChristoffelB{j}{i}{k}\, \V{g}_k \comma \label{2} \\
-		\ChristoffelA{j}{i}{k}\, \V{g}^k \fullstop \label{3}
-\end{myCases}
-引用1：式~\eqref{1}
-引用2：式~\eqref{2}
-引用3：式~\eqref{3}
+\begin{braceEq*}
+	{\pdv{\V{g}_i}{x^j} (\V{x})=}
+	&\ChristoffelB{j}{i}{k}\, \V{g}_k \comma \label{2} \\
+	&\ChristoffelA{j}{i}{k}\, \V{g}^k \fullstop \label{3}
+\end{braceEq*}
+
+下面我们来探讨 Christoffel 符号的基本性质——指标 $i$、$j$ 可以交换：
+\begin{braceEq}
+	&\ChristoffelB{j}{i}{k}=\ChristoffelB{i}{j}{k} \comma \\
+	&\ChristoffelA{j}{i}{k}=\ChristoffelA{i}{j}{k} \fullstop
+\end{braceEq}
+
+\begin{myProof}
+根据定义 \eqref{eq:第一类Christoffel符号定义} 和
+\eqref{eq:第二类Christoffel符号定义}~式，指标 $i$、$j$ 来源于协变基的
+偏导数 $\pdv*{\V{g}_i}{x^j} (\V{x})$。只要偏导数中的 $i$、$j$ 可以交换，
+Christoffel 符号中的指标 $i$、$j$ 自然也可以。回顾协变基的定义
+\eqref{eq:局部协变基定义}~式：
+\begin{equation}
+	\V{g}_i (\V{x})
+	\defeq\mqty[\displaystyle\pdv{X^1}{x^i} \\[1ex]
+		\vdots \\[0.7ex] \displaystyle\pdv{X^m}{x^i}]\,(\V{x})
+	\fullstop
+\end{equation}
+其偏导数为
+\begin{equation}
+	\pdv{\V{g}_i}{x^j} (\V{x})
+	=\mqty[\displaystyle\pdv{X^1}{x^j}{x^i} \\[1ex]
+		\vdots \\[0.7ex] \displaystyle\pdv{X^m}{x^j}{x^i}]\,(\V{x})
+	=\mqty[\displaystyle\pdv{X^1}{x^i}{x^j} \\[1ex]
+		\vdots \\[0.7ex] \displaystyle\pdv{X^m}{x^i}{x^j}]\,(\V{x})
+	=\pdv{\V{g}_j}{x^i} (\V{x}) \fullstop
+\end{equation}
+注意第二个等号处交换了偏导数的次序，其条件是\emphB{二阶}偏导数均存在且连续。
+只要微分同胚达到了 $\DiffMorp[2]$，就可以满足该要求，
+在一般的物理情境这都是成立的。于是我们便完成了证明。
+\end{myProof}
+
+现在再来看\emphB{逆变基}的偏导数 $\pdv*{\V{g}^i}{x^j} (\V{x})$。
+它也是 $\Rm$ 空间中的向量，因此
+\begin{braceEq*}
+	{\label{eq:逆变基偏导数的协变与逆变表示} \pdv{\V{g}^i}{x^j} (\V{x})=}
+	&\ipb{\pdv{\V{g}^i}{x^j}}{\V{g}^k} \V{g}_k \comma \\
+	&\ipb{\pdv{\V{g}^i}{x^j}}{\V{g}_k} \V{g}^k \fullstop
+\end{braceEq*}
+利用 Christoffel 符号，可以表示出 $\ipb{\pdv*{\V{g}^i}{x^j}}{\V{g}_k}$。
+根据对偶关系，
+\begin{equation}
+	\ipb{\V{g}^i}{\V{g}_k} (\V{x})=\KroneckerDelta{i}{k} \fullstop
+\end{equation}
+两边对 $x^j$ 求偏导，用一下内积的求导公式，同时注意到
+$\KroneckerDelta{i}{k}$ 是与 $\V{x}$ 无关的常数，因而
+\begin{equation}
+	\pdv{x^j} \ipb{\V{g}^i}{\V{g}_k}
+	=\ipb{\pdv{\V{g}^i}{x^j}}{\V{g}_k}
+		+\ipb{\V{g}^i}{\pdv{\V{g}_k}{x^j}}
+	=\pdv{\KroneckerDelta{i}{k}}{x^j}=0 \fullstop
+\end{equation}
+所以
+\begin{equation}
+	\ipb{\pdv{\V{g}^i}{x^j}}{\V{g}_k}
+	=-\ipb{\V{g}^i}{\pdv{\V{g}_k}{x^j}}
+	=-\ipb{\pdv{\V{g}_k}{x^j}}{\V{g}^i}
+	=-\ChristoffelB{j}{k}{i} \fullstop
+\end{equation}
+
+至于 $\ipb{\pdv*{\V{g}^i}{x^j}}{\V{g}^k}$，将在以后讨论。
+\myPROBLEM{你想在什么时候？}

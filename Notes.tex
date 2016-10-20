@@ -228,50 +228,16 @@
 \newenvironment{braceEq}[1][align]
 	{\mySubEq%
 		\setkeys{EmphEqEnv}{#1}%
-		\setkeys{EmphEqOpt}{left = \empheqlbrace}%
+		\setkeys{EmphEqOpt}{left=\empheqlbrace}%
 		\EmphEqMainEnv}%
 	{\endEmphEqMainEnv \endmySubEq}
-%% 分情况讨论(子编号)
-%% From `cases.sty'
-\makeatletter
-\newenvironment{myCases}[1]
-{\[\numc@opts \setbox\z@\hbox
-	{\advance\c@equation\@ne\def\@currentlabel{\p@equation\theequation}% local
-		$\displaystyle {#1\null}\m@th$}%
-	%% Begin Revise
-	%% Change the numbering style to x.xx-a
-	\subequations
-	\renewcommand{\theequation}{\theparentequation-\alph{equation}}
-	%% End Revise
-	\setbox\tw@\vbox\bgroup
-	\stepcounter{equation}\def\@currentlabel{\p@equation\theequation}% 
-	\global\@eqnswtrue\m@th \everycr{}\tabskip\numc@left\let\\\@eqncr
-	\halign to\dimen@ii \bgroup \kern\wd\z@ \kern14\p@ % assume width of brace
-	\tabskip\z@skip \global\@eqcnt\@ne $\displaystyle{##}$\hfil 
-	&\global\@eqcnt\tw@ \skip@10\p@ \advance\skip@\tw@\arraycolsep \hskip\skip@
-	##\unskip\hfil\tabskip\@centering% \unskip removes space if no explanations
-	&\global\@eqcnt\thr@@\hbox to\z@\bgroup\hss##\egroup\tabskip\z@skip\cr
-}{\@@eqncr \egroup % end \halign, which does not contain first column or brace
-\global\advance\c@equation\m@ne 
-%Measure the natural width of the alignment
-\unskip\unpenalty\unskip\unpenalty \setbox\z@\lastbox % grab last line
-\nointerlineskip \copy\z@ % then put it back
-\global\dimen@i\wd\z@ 
-\setbox\z@\hbox{\hskip-\numc@left\unhbox\z@}% Measure its natural width
-\ifdim \wd\z@<\dimen@i \global\dimen@i\wd\z@ \fi
-\egroup% end \vbox (box\tw@, box\z@ is restored to LHS)
-\hbox to\dimen@ii{\m@th % assemble the whole equation
-	\hskip\numc@left 
-	\hbox to\dimen@i{$\displaystyle \box\z@ % parameter #1
-		\dimen@\ht\tw@ \advance\dimen@\dp\tw@ % get size of brace
-		\left\{\vcenter to\dimen@{\vfil}\right.\n@space % make brace
-		$\hfil}\hskip\@centering % finished first part (filled whole line)
-	\kern-\dimen@ii % backspace the full width
-	$\vcenter{\box\tw@}$% overlay the alignment
-}% end the \hbox to\dimen@ii
-\endsubequations
-\]\global\@ignoretrue}
-\makeatother
+%% 大括号公式2(分情况讨论)
+\newenvironment{braceEq*}[2][align]
+	{\mySubEq%
+		\setkeys{EmphEqEnv}{#1}%
+		\setkeys{EmphEqOpt}{left={{\displaystyle #2}\empheqlbrace}}%
+		\EmphEqMainEnv}%
+	{\endEmphEqMainEnv \endmySubEq}
 
 %TODO——命令
 %% 空行
