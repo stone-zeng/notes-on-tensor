@@ -1,9 +1,11 @@
 \section{微分同胚}
 \subsection{双射}
 设 $f$ 是集合 $A$ 到 $B$ 的映照。
-如果 $A$ 中不同的元素有不同的像，则称 $f$ 为\emphA{单射}（也叫“一对一”）；
+如果 $A$ 中不同的元素有不同的像，
+则称 $f$ 为\emphA{单射}（也叫“一对一”）；
 如果 $B$ 中每个元素都是 $A$ 中元素的像，则称 $f$ 为\emphA{满射}；
-如果 $f$ 既是单射又是满射，则称 $f$ 为\emphA{双射}（也叫“一一对应”）。
+如果 $f$ 既是单射又是满射，
+则称 $f$ 为\emphA{双射}（也叫“一一对应”）。
 三种情况的示意见图~\ref{fig:单射满射双射}。
 
 \begin{figure}[h]
@@ -30,14 +32,15 @@
 			\in\domD{\V{x}}} \fullstop
 \end{equation}
 
-我们把 $\domD{\V{X}}$ 称为\emphA{物理域}，它是实际物理事件发生的区域；
-$\domD{\V{x}}$ 则称为\emphA{参数域}。
-由于物理域通常较为复杂，因此我们常把参数域取为规整的形状，以便之后的处理。
+我们把 $\domD{\V{X}}$ 称为\emphA{物理域}，它是实际物理事件
+发生的区域；$\domD{\V{x}}$ 则称为\emphA{参数域}。
+由于物理域通常较为复杂，因此我们常把参数域取为规整的形状，
+以便之后的处理。
 
 设物理量 $f(\V{X})$ 定义在物理域
 $\domD{\V{X}}\subset\Rm$ 上\footnote{
-	实际的物理事件当然只会发生在三维 Euclid 空间中（只就“空间”而言），
-	但在数学上也可以推广到 $m$ 维。
+	实际的物理事件当然只会发生在三维 Euclid 空间中
+	（只就“空间”而言），但在数学上也可以推广到 $m$ 维。
 }，则 $f$ 就定义了一个\emphA{场}：
 \begin{equation}
 	\mmap{f}
@@ -45,8 +48,9 @@ $\domD{\V{X}}\subset\Rm$ 上\footnote{
 		{f(\V{X})} \fullstop
 \end{equation}
 所谓的“场”，就是自变量用\emphB{位置}刻画的映照。
-它可以是\emphA{标量场}，如温度、压强、密度等，此时 $f(\V{X})\in\realR$；
-也可以是\emphA{向量场}，如速度、加速度、力等，此时 $f(\V{X})\in\Rm$；
+它可以是\emphA{标量场}，如温度、压强、密度等，
+此时 $f(\V{X})\in\realR$；也可以是\emphA{向量场}，
+如速度、加速度、力等，此时 $f(\V{X})\in\Rm$；
 对于更深入的物理、力学研究，往往还需引入\emphA{张量场}，
 此时 $f(\V{X})\in\Tensors{r}$。
 
@@ -63,16 +67,17 @@ $\V{x}$ 与 $\V{X}$ 相对应，
 		{\tilde{f}(\V{x})=f\comp\V{X}(\V{x})
 			=f\qty\big(\V{X}(\V{x}))} \fullstop
 \end{equation}
-$\V{x}$ 与 $\V{X}$ 是完全等价的，因而 $\tilde{f}$ 与 $f$ 也是完全等价的，
-所以同样有
+$\V{x}$ 与 $\V{X}$ 是完全等价的，
+因而 $\tilde{f}$ 与 $f$ 也是完全等价的，所以同样有
 \begin{equation}
 	f(\V{X})=\tilde{f}\qty\big(\V{x}(\V{X})) \fullstop
 \end{equation}
 
-物理域中的场要满足\emphB{守恒定律}，如质量守恒、动量守恒、能量守恒等。
-从数学上看，这些守恒定律就是 $f(\V{X})$ 需要满足的一系列\emphB{偏微分方程}。
-将场变换到参数域后，它仍要满足这些方程。
-但我们已经设法将参数域取得较为规整，故在其上进行数值求解就会相当方便。
+物理域中的场要满足\emphB{守恒定律}，如质量守恒、动量守恒、
+能量守恒等。从数学上看，这些守恒定律就是 $f(\V{X})$
+需要满足的一系列\emphB{偏微分方程}。将场变换到参数域后，
+它仍要满足这些方程。但我们已经设法将参数域取得较为规整，
+故在其上进行数值求解就会相当方便。
 
 \subsection{参数域方程} \label{subsec:参数域方程}
 上文已经提到，物理域中的场 $f(\V{X})$ 需满足守恒定律，
@@ -102,15 +107,17 @@ $\V{x}$ 与 $\V{X}$ 是完全等价的，因而 $\tilde{f}$ 与 $f$ 也是完全
 	\label{eq:参数域方程_一阶偏导项}
 \end{equation}
 这里用到的链式法则，由\emphB{复合映照可微性定理}驱动，
-它要求 $\tilde{f}$ 关于 $\V{x}$ 可微，同时 $\V{x}$ 关于 $\V{X}$ 可微。
+它要求 $\tilde{f}$ 关于 $\V{x}$ 可微，同时 $\V{x}$ 关于
+$\V{X}$ 可微。
 
 \myPROBLEM{对于更高阶的项，往往需要更强的条件。}一般地，我们要求
 \begin{braceEq}
 	\V{X}(\V{x})&\in\cf{\domD{\V{x}}}{\Rm} \semicomma \\
 	\V{x}(\V{X})&\in\cf{\domD{\V{X}}}{\Rm} \fullstop
 \end{braceEq}
-这里的 $\DiffMorp$ 指\emphB{直至 $p$ 阶偏导数存在且连续}的映照全体；
-$p=1$ 时，它就等价于可微。至于 $p$ 的具体取值，则由 PDE 的阶数所决定。
+这里的 $\DiffMorp$ 指\emphB{直至 $p$ 阶偏导数存在且连续}的
+映照全体；$p=1$ 时，它就等价于可微。至于 $p$ 的具体取值，
+则由 PDE 的阶数所决定。
 
 通常情况下，已知条件所给定的往往都是
 $\domD{\V{x}}$ 到 $\domD{\V{X}}$ 的映照
@@ -136,8 +143,8 @@ $\pdv*{X^\alpha}{x^s}$ 却很容易，只需利用 \emphA{Jacobi 矩阵}：
 \end{equation}
 它是一个方阵。
 
-有了 Jacobi 矩阵，施加一些手法就可以得到所需要的 $\pdv*{x^s}{X^\alpha}$ 项。
-考虑到
+有了 Jacobi 矩阵，施加一些手法就可以得到所需要的
+$\pdv*{x^s}{X^\alpha}$ 项。考虑到
 \begin{equation}
 	\forall\,\V{X}\in\domD{\V{X}},\quad
 	\V{X}\qty\big(\V{x}(\V{X}))=\V{X} \comma
@@ -235,12 +242,13 @@ $\V{X}(\V{x})$，即存在\emphA{一一对应}关系；
 
 \myPROBLEM{对第3点要稍作说明。}
 
-如果满足这三点，则称 $\V{X}(\V{x})$ 为
-$\domD{\V{x}}$ 与 $\domD{\V{X}}$ 之间的 \emphA{$\DiffMorp$-微分同胚}，
+如果满足这三点，则称 $\V{X}(\V{x})$ 为 $\domD{\V{x}}$ 与
+$\domD{\V{X}}$ 之间的 \emphA{$\DiffMorp$-微分同胚}，
 记为 $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
-把物理域中的一个部分对应到参数域上的一个部分，需要的仅仅是\emphB{双射}这一条件；
-而要使得物理域中所满足的 PDE 能够转换到参数域上，
-就需要“过去”和“回来”都满足 $p$ 阶偏导数连续的条件（即\emphB{正则性}要求）。
+把物理域中的一个部分对应到参数域上的一个部分，
+需要的仅仅是\emphB{双射}这一条件；而要使得物理域中所满足的
+PDE 能够转换到参数域上，就需要“过去”和“回来”
+都满足 $p$ 阶偏导数连续的条件（即\emphB{正则性}要求）。
 
 有了微分同胚，物理域中的位置就可用参数域中的位置等价地进行刻画。
 因此我们也把微分同胚称为\emphA{曲线坐标系}。
@@ -250,17 +258,18 @@ $\domD{\V{x}}$ 与 $\domD{\V{X}}$ 之间的 \emphA{$\DiffMorp$-微分同胚}，
 设 $\V{x}_0$ 是参数域 $\domD{\V{x}}$ 中的一个内点。
 在映照 $\V{X}(\V{x})$ 的作用下，
 它对应到物理域 $\domD{\V{X}}$ 中的点 $\V{X}\qty(\V{x}_0)$。
-参数域是一个\emphB{开集}。根据开集的定义，必然存在一个实数 $\lambda>0$，
-使得以 $\V{x}_0$ 为球心、$\lambda$ 为半径的球%
-能够完全落在定义域 $\domD{\V{x}}$ 内，即
+参数域是一个\emphB{开集}。根据开集的定义，
+必然存在一个实数 $\lambda>0$，使得以 $\V{x}_0$ 为球心、
+$\lambda$ 为半径的球能够完全落在定义域 $\domD{\V{x}}$ 内，即
 \begin{equation}
 	\domB{\lambda}{\V{x}_0}\subset\domD{\V{x}} \comma
 \end{equation}
 其中的 $\domB{\lambda}{\V{x}_0}$ 表示 $\V{x}_0$ 的 $\lambda$ 邻域。
 
 如果 $\exists\,\JacobiD{\V{X}}\qty(\V{x}_0)\in\LinearT{\Rm}{\Rm}$
-\footnote{正如之前已经定义的，$\JacobiD{\V{X}}$ 已经用来表示 Jacobi 矩阵。
-	这里还是请先暂时将它视为一种记号，其具体形式将在下一小节给出。}，满足
+\footnote{正如之前已经定义的，$\JacobiD{\V{X}}$
+	已经用来表示 Jacobi 矩阵。这里还是请先暂时将它视为一种记号，
+	其具体形式将在下一小节给出。}，满足
 \begin{equation}
 	\forall\,\V{x}_0+\V{h}\in\domB{\lambda}{\V{x}_0},\quad
 	\V{X}\qty(\V{x}_0+\V{h})-\V{X}\qty(\V{x}_0)
@@ -269,7 +278,8 @@ $\domD{\V{x}}$ 与 $\domD{\V{X}}$ 之间的 \emphA{$\DiffMorp$-微分同胚}，
 	\label{eq:向量值映照可微性的定义}
 \end{equation}
 则称向量值映照 $\V{X}(\V{x})$ 在 $\V{x}_0$ 点\emphA{可微}。
-其中，$\LinearT{\Rm}{\Rm}$ 表示从 $\Rm$ 到 $\Rm$ 的\emphA{线性变换}全体。
+其中，$\LinearT{\Rm}{\Rm}$ 表示从 $\Rm$ 到 $\Rm$
+的\emphA{线性变换}全体。
 
 根据这个定义，所谓\emphB{可微性}，指由自变量变化所引起的因变量变化，
 可以用一个\emphB{线性变换}近似，而误差为\emphB{一阶}无穷小量。
@@ -338,20 +348,21 @@ $\mqty[\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) & \cdots
 	&=\lambda\cdotp\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_i)
 		+\sO{\lambda} \fullstop
 \end{align}
-由于 $\lambda$ 是非零实数，故可以在等式两边同时除以 $\lambda$ 并取极限：
+由于 $\lambda$ 是非零实数，故可以在等式两边同时除以
+$\lambda$ 并取极限：
 \begin{equation}
-	\lim\limits_{\lambda\to 0}
+	\lim_{\lambda\to 0}
 	\frac{\V{X}\qty(\V{x}_0+\lambda\,\V{e}_i)
 		-\V{X}\qty(\V{x}_0)}{\lambda}
 	=\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_i) \comma
 \end{equation}
 这里的 $\sO{\lambda}$ 根据其定义自然趋于 0。
-该式左侧极限中的分子部分，是自变量 $\V{x}$ 第 $i$ 个分量的变化%
+该式左侧极限中的分子部分，是自变量 $\V{x}$ 第 $i$ 个分量的变化
 所引起因变量的变化；而分母，则是自变量第 $i$ 个分量的变化大小。
 我们引入下面的记号：
 \begin{equation}
 	\pdv{\V{X}}{x^i}\qty(\V{x}_0)
-	\coloneq \lim\limits_{\lambda\to 0}
+	\coloneq \lim_{\lambda\to 0}
 	\frac{\V{X}\qty(\V{x}_0+\lambda\,\V{e}_i)
 		-\V{X}\qty(\V{x}_0)}{\lambda} \in\Rm \comma
 \end{equation}
@@ -376,15 +387,15 @@ $\mqty[\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) & \cdots
 下面给出 $\pdv*{\V{X}}{x^i}\qty(\V{x}_0)$ 的计算式。根据定义，有
 \begin{align}
 	\pdv{\V{X}}{x^i}\qty(\V{x}_0)
-	&\coloneq \lim\limits_{\lambda\to 0}
+	&\coloneq \lim_{\lambda\to 0}
 		\frac{\V{X}\qty(\V{x}_0+\lambda\,\V{e}_i)
 		-\V{X}\qty(\V{x}_0)}{\lambda} \in\Rm \notag \\
-	&=\lim\limits_{\lambda\to 0} \frac{1}{\lambda}\cdotp
+	&=\lim_{\lambda\to 0} \frac{1}{\lambda}\cdotp
 		\left(\vphantom{\mqty{0\\[0.8ex]0}}\right.\!
 			\mqty[X^1 \\ \vdots \\ X^m] \qty(\V{x}_0+\lambda\,\V{e}_i)
 			-\mqty[X^1 \\ \vdots \\ X^m] \qty(\V{x}_0)
 		\!\!\left.\vphantom{\mqty{0\\[0.8ex]0}}\right) \notag \\
-	&=\lim\limits_{\lambda\to 0}\,
+	&=\lim_{\lambda\to 0}\,
 		\mqty[
 			\dfrac{X^1\qty(\V{x}_0+\lambda\,\V{e}_i)-X^1\qty(\V{x}_0)}
 				{\lambda} \\[1ex] \vdots \\[0.5ex]
@@ -394,7 +405,7 @@ $\mqty[\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) & \cdots
 向量极限存在的\emphB{充要条件}是各分量极限均存在，即存在
 \begin{equation}
 	\pdv{X^\alpha}{x^i}\qty(\V{x}_0) \coloneq
-	\lim\limits_{\lambda\to 0}
+	\lim_{\lambda\to 0}
 	\frac{X^\alpha\qty(\V{x}_0+\lambda\,\V{e}_i)-X^\alpha\qty(\V{x}_0)}
 		{\lambda\vphantom{X^1\qty(\V{x}_0)}}\in\realR \comma
 \end{equation}
@@ -451,8 +462,8 @@ $\V{x}_0+\lambda\,\V{e}_i$，其中 $\lambda\in\realR$。
 	\label{fig:偏导数的几何意义}
 \end{figure}
 
-在 $\V{X}(\V{x})$ 的作用下，点 $\V{x}_0$ 被映照到 $\V{X}\qty(\V{x}_0)$，
-而 $\V{x}_0+\lambda\,\V{e}_i$ 则被映照到了
+在 $\V{X}(\V{x})$ 的作用下，点 $\V{x}_0$ 被映照到
+$\V{X}\qty(\V{x}_0)$，而 $\V{x}_0+\lambda\,\V{e}_i$ 则被映照到了
 $\V{X}\qty(\V{x}_0+\lambda\,\V{e}_i)$。这样一来，
 $x^i$-线也就被映照到了值域空间 $\domD{\V{X}}$ 中，成为一条曲线。
 
@@ -461,8 +472,8 @@ $x^i$-线也就被映照到了值域空间 $\domD{\V{X}}$ 中，成为一条曲�
 	\frac{\V{X}\qty(\V{x}_0+\lambda\,\V{e}_i) - \V{X}\qty(\V{x}_0)}
 	{\lambda} \to \pdv{\V{X}}{x^i}\qty(\V{x}_0) \fullstop
 \end{equation}
-对应到图~\ref{fig:偏导数的几何意义} 中，
-就是 $x^i$-线（值域空间中）在 $\V{X}\qty(\V{x}_0)$ 处的\emphA{切向量}。
+对应到图~\ref{fig:偏导数的几何意义} 中，就是 $x^i$-线
+（值域空间中）在 $\V{X}\qty(\V{x}_0)$ 处的\emphA{切向量}。
 
 完全类似，在定义域空间 $\domD{\V{x}}$ 中，过点 $\V{x}_0$
 作出 \emphB{$x^j$-线}（自然是平行于 $x^j$ 轴），
@@ -476,13 +487,14 @@ $x^i$-线也就被映照到了值域空间 $\domD{\V{X}}$ 中，成为一条曲�
 \end{equation}
 就是 $x^j$-线在 $\V{X}\qty(\V{x}_0)$ 处的切向量。在定义域空间中，
 $x^i$-线作为直线共有 $m$ 条，它们之间互相垂直。作用到值域空间后，
-这样的 $x^i$-线尽管变为了曲线，但仍为 $m$ 条。相应的切向量，自然也有 $m$ 个。
+这样的 $x^i$-线尽管变为了曲线，但仍为 $m$ 条。相应的切向量，
+自然也有 $m$ 个。
 
 \section{局部基}
 这里的讨论基于曲线坐标系（即微分同胚）
 $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 
-\subsection{局部协变基}
+\subsection{局部协变基} \label{subsec:局部协变基}
 我们已经知道，$\V{X}(\V{x})$ 的 Jacobi 矩阵可以表示为
 \begin{equation}
 	\JacobiD{\V{X}}(\V{x})
@@ -494,13 +506,14 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 式中的
 \begin{equation}
 	\pdv{\V{X}}{x^i} (\V{x})
-	=\lim\limits_{\lambda\to 0}
+	=\lim_{\lambda\to 0}
 		\frac{\V{X}\qty(\V{x}+\lambda\,\V{e}_i) - \V{X}(\V{x})}
 		{\lambda} \fullstop
 	\label{eq:局部基_偏导数}
 \end{equation}
-在参数域 $\domD{\V{x}}$ 中作出 $x^i$-线。映照到物理域后，它变成一条曲线，
-我们仍称之为 $x^i$-线。\ref{subsec:偏导数的几何意义}~小节已经说明，
+在参数域 $\domD{\V{x}}$ 中作出 $x^i$-线。映照到物理域后，
+它变成一条曲线，我们仍称之为 $x^i$-线。
+\ref{subsec:偏导数的几何意义}~小节已经说明，
 \eqref{eq:局部基_偏导数}~式表示物理域中 $x^i$-线的\emphB{切向量}。
 在张量分析中，我们通常把它记作 $\V{g}_i(\V{x})$。
 
@@ -517,9 +530,10 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 \end{equation}
 \emphB{线性无关}。由此，它们可以构成 $\Rm$ 上的一组\emphA{基}。
 
-用任意的 $\V{x}\in\domD{\V{x}}$ 均可构建一组基。但选取不同的 $\V{x}$，
-将会使所得基的取向有所不同。因而这种基称为\emphA{局部协变基}。
-和之前一样，我们用“协变”表示指标在下方。
+用任意的 $\V{x}\in\domD{\V{x}}$ 均可构建一组基。
+但选取不同的 $\V{x}$，将会使所得基的取向有所不同。
+因而这种基称为\emphA{局部协变基}。和之前一样，
+我们用“协变”表示指标在下方。
 
 \subsection{局部逆变基；对偶关系}
 有了局部协变基 $\qty{\V{g}_i(\V{x})}^m_{i=1}$，根据
@@ -534,8 +548,9 @@ $\qty{\V{g}^i(\V{x})}^m_{i=1}$，满足
 	=\Mat{I}_m \fullstop
 \end{equation}
 
-下面我们来寻找逆变基 $\qty{\V{g}^i(\V{x})}^m_{i=1}$ 的具体表示。考虑到
-\footnote{这里的几步推导在 \ref{subsec:参数域方程}~小节中也有所涉及。}
+下面我们来寻找逆变基 $\qty{\V{g}^i(\V{x})}^m_{i=1}$ 的具体表示。
+考虑到\footnote{%
+	这里的几步推导在 \ref{subsec:参数域方程}~小节中也有所涉及。}
 \begin{equation}
 	\V{X}\qty\big(\V{x}(\V{X}))=\V{X}\in\Rm \comma
 \end{equation}
@@ -585,8 +600,9 @@ $\qty{\V{g}^i(\V{x})}^m_{i=1}$，满足
 
 \blankline
 
-在 \ref{subsec:偏导数的几何意义}~小节中已经指出，局部协变基的几何意义是
-$x^i$-线的\emphB{切向量}。现在，我们来讨论局部逆变基的几何意义。
+在 \ref{subsec:偏导数的几何意义}~小节中已经指出，
+局部协变基的几何意义是 $x^i$-线的\emphB{切向量}。
+现在，我们来讨论局部逆变基的几何意义。
 
 \begin{figure}[h]
 	\centering
@@ -596,9 +612,10 @@ $x^i$-线的\emphB{切向量}。现在，我们来讨论局部逆变基的几何
 \end{figure}
 
 如图~\ref{fig:局部逆变基的几何意义} 所示，在参数空间中，
-过点 $\V{x}$ 作垂直于 $x^i$ 轴的平面，记为 $x^i$-面。在 $x^i$-面上，
-自然有 $x^i=\const$ \ 映照到物理空间后，$x^i$-面变为一个曲面，其上仍有
-$x^i(\V{X})=\const$，即它是一个\emphB{等值面}。
+过点 $\V{x}$ 作垂直于 $x^i$ 轴的平面，记为 $x^i$-面。
+在 $x^i$-面上，自然有 $x^i=\const$ \ 映照到物理空间后，
+$x^i$-面变为一个曲面，其上仍有 $x^i(\V{X})=\const$，
+即它是一个\emphB{等值面}。
 等值面的梯度方向显然与该曲面的\emphB{法向}相同。因此，局部逆变基
 $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 
@@ -627,8 +644,9 @@ $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 \end{align}
 最后一步求和号中的第一项位于 Jacobi 矩阵 $\JacobiD{\V{x}}(\V{X})$
 的第 $j$ 行第 $\alpha$ 列，而第二项位于 $\JacobiD{\V{X}}(\V{x})$
-的第 $\alpha$ 行第 $i$ 列，因此关于 $\alpha$ 的求和结果便是乘积矩阵的
-第 $j$ 行第 $i$ 列。根据式~\eqref{eq:局部逆变基_两个Jacobi矩阵互逆}，
+的第 $\alpha$ 行第 $i$ 列，因此关于 $\alpha$
+的求和结果便是乘积矩阵的第 $j$ 行第 $i$ 列。
+根据式~\eqref{eq:局部逆变基_两个Jacobi矩阵互逆}，
 这两个 Jacobi 矩阵的乘积为单位阵，所以有
 \begin{equation}
 	\ipb{\V{g}_i(\V{x})}{\V{g}^j(\V{x})}
@@ -651,11 +669,13 @@ $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 	\label{eq:局部基_对偶关系}
 \end{equation}
 这样，在研究连续介质中的一个点时，我们就有三种基可以使用：
-局部协变基、局部逆变基，当然还有\emphB{典则基} $\qty{\V{e}_i}^m_{i=1}$。
+局部协变基、局部逆变基，
+当然还有\emphB{典则基} $\qty{\V{e}_i}^m_{i=1}$。
 
 \section{标架运动方程}
 \subsection{向量在局部基下的表示}
-对于 $\Rm$ 空间中的任意一个向量 $\V{b}$，它可以用\emphA{典则基}表示：
+对于 $\Rm$ 空间中的任意一个向量 $\V{b}$，
+它可以用\emphA{典则基}表示：
 \begin{equation}
 	\V{b}=\sum_{\alpha=1}^{m} b_\alpha \V{e}_\alpha
 	=b_\alpha \V{e}_\alpha \fullstop
@@ -667,34 +687,36 @@ $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 	典则基不分协变、逆变，标号均在下方，可以视为一个特例。}
 根据之前一小节的结论，$\V{b}$ 还可以用局部协变基和局部逆变基来表示：
 \begin{align}
-	\V{b} = b^i\V{g}_i = b_j\V{g}^j \comma
+	\V{b} = b^i\V{g}_i(\V{x}) = b_j\V{g}^j(\V{x}) \comma
 \end{align}
 式中，
 \begin{mySubEq}
 	\begin{align}
-		b^i&=\ipb{\V{b}}{\V{g}^i} \label{eq:活动标架_逆变分量表示}
+		b^i&=\ipb{\V{b}}{\V{g}^i(\V{x})} \label{eq:活动标架_逆变分量表示}
 		\intertext{和}
-		b_j&=\ipb{\V{b}}{\V{g}_j} \label{eq:活动标架_协变分量表示}
+		b_j&=\ipb{\V{b}}{\V{g}_j(\V{x})} \label{eq:活动标架_协变分量表示}
 	\end{align}
 \end{mySubEq}
 分别称为向量 $b$ 的\emphA{逆变分量}和\emphA{协变分量}。
 注意，这里同样用到了 Einstein 求和约定。
 
-将 $\V{b}=b^i\V{g}_i$ 的两边分别与 $\V{g}^j$ 作内积，可有
+将 $\V{b}=b^i\V{g}_i(\V{x})$ 的两边分别与
+$\V{g}^j(\V{x})$ 作内积，可有
 \begin{align}
-	\ipb{\V{b}}{\V{g}^j}
-	&=\ipb{b^i\V{g}_i}{\V{g}^j} \notag
+	\ipb{\V{b}}{\V{g}^j(\V{x})}
+	&=\ipb{b^i\V{g}_i(\V{x})}{\V{g}^j(\V{x})} \notag
 	\intertext{利用内积的线性性，提出系数：}
-	&=b^i\ipb{\V{g}_i}{\V{g}^j} \notag
+	&=b^i\ipb{\V{g}_i(\V{x})}{\V{g}^j(\V{x})} \notag
 	\intertext{利用对偶关系 \eqref{eq:局部基_对偶关系}~式，可有}
 	&=b^i\KroneckerDelta{j}{i}=b^j \comma
 \end{align}
 这就得到了逆变分量的表示式~\eqref{eq:活动标架_逆变分量表示}。
-同理，将 $\V{b}=b_j\V{g}^j$ 的两边分别与 $\V{g}_i$ 作内积，就有
+同理，将 $\V{b}=b_j\V{g}^j(\V{x})$ 的两边分别与
+$\V{g}_i(\V{x})$ 作内积，就有
 \begin{equation}
-	\ipb{\V{b}}{\V{g}_i}
-	=\ipb{b_j\V{g}^j}{\V{g}_i}
-	=b_j\ipb{\V{g}^j}{\V{g}_i}
+	\ipb{\V{b}}{\V{g}_i(\V{x})}
+	=\ipb{b_j\V{g}^j(\V{x})}{\V{g}_i(\V{x})}
+	=b_j\ipb{\V{g}^j(\V{x})}{\V{g}_i(\V{x})}
 	=b_j\KroneckerDelta{j}{i}=b_i \comma
 \end{equation}
 这便是协变分量的表示 \eqref{eq:活动标架_协变分量表示}~式。
@@ -715,10 +737,10 @@ $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 		\label{eq:局部逆变基定义}
 	\end{align}
 \end{mySubEq}
-从\emphB{映照}的角度来看，局部基定义了新的向量值映照，其定义域仍为参数域，
-而值域则为 $\Rm$ 空间。这样一来，我们在 \ref{sec:向量值映照的可微性}~节
-中所引入的操作均可完全类似地应用在局部基上。
-例如，我们可以来求局部基的 Jacobi 矩阵：
+从\emphB{映照}的角度来看，局部基定义了新的向量值映照，
+其定义域仍为参数域，而值域则为 $\Rm$ 空间。这样一来，
+我们在 \ref{sec:向量值映照的可微性}~节中所引入的操作均可完全
+类似地应用在局部基上。例如，我们可以来求局部基的 Jacobi 矩阵：
 \begin{braceEq}
 	\JacobiD{\V{g}_i}(\V{x})
 	&=\mqty[\displaystyle \pdv{\V{g}_i}{x^1},\,\cdots,\,
@@ -730,17 +752,17 @@ $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 Jacobi 矩阵中的每一列都是局部基作为整体相对自变量第 $j$
 个分量的变化率，即\emphB{偏导数}：
 \begin{braceEq}
-	\pdv{\V{g}_i}{x^j} (\V{x}) &\defeq \lim\limits_{\lambda\to 0}
+	\pdv{\V{g}_i}{x^j} (\V{x}) &\defeq \lim_{\lambda\to 0}
 		\frac{\V{g}_i\qty(\V{x}+\lambda\,\V{e}_j)-\V{g}_i(\V{x})}
 			{\lambda} \in\Rm \comma \\
-	\pdv{\V{g}^i}{x^j} (\V{x}) &\defeq \lim\limits_{\lambda\to 0}
+	\pdv{\V{g}^i}{x^j} (\V{x}) &\defeq \lim_{\lambda\to 0}
 		\frac{\V{g}^i\qty(\V{x}+\lambda\,\V{e}_j)-\V{g}^i(\V{x})}
 			{\lambda} \in\Rm \fullstop
 \end{braceEq}
 
 下面澄清局部基偏导数的几何意义。
-如图~\ref{fig:局部基偏导数的几何意义} 所示，在参数空间中，过点 $\V{x}$
-作出 $x^j$-线，并在其上取点 $\V{x}+\lambda\,\V{e}_j$。
+如图~\ref{fig:局部基偏导数的几何意义} 所示，在参数空间中，
+过点 $\V{x}$ 作出 $x^j$-线，并在其上取点 $\V{x}+\lambda\,\V{e}_j$。
 分别过点 $\V{x}$ 和 $\V{x}+\lambda\,\V{e}_j$ 作出 $x^i$-线，于是
 $\pdv*{\V{g}_i}{x^j} (\V{x})$ 就表示 $\V{g}_i(\V{x})$
 （即 $x^i$-线的切向量）沿 $x^j$-线的变化率。
@@ -757,9 +779,11 @@ $\pdv*{\V{g}_i}{x^j} (\V{x})$ 就表示 $\V{g}_i(\V{x})$
 \end{figure}
 
 \subsection{Christoffel 符号}
-考察 $\pdv*{\V{g}_i}{x^j} (\V{x})$，即\emphB{协变基}的偏导数\footnote{
-	以下在不引起歧义之处，将省略局部协变基、局部逆变基的“局部”二字。为了方便，
-	$\V{g}_i(\V{x})$ 和 $\V{g}^i(\V{x})$ 中的“$(\V{x})$”有时也会省略。
+考察 $\pdv*{\V{g}_i}{x^j} (\V{x})$，
+即\emphB{协变基}的偏导数\footnote{
+	以下在不引起歧义之处，将省略局部协变基、
+	局部逆变基的“局部”二字。为了方便，$\V{g}_i(\V{x})$ 和
+	$\V{g}^i(\V{x})$ 中的“$(\V{x})$”有时也会省略。
 }。它是 $\Rm$ 空间中的一个向量，因而可以用协变基或逆变基来表示：
 \begin{braceEq*}
 	{\label{eq:协变基偏导数的协变与逆变表示} \pdv{\V{g}_i}{x^j} (\V{x})=}
@@ -768,33 +792,36 @@ $\pdv*{\V{g}_i}{x^j} (\V{x})$ 就表示 $\V{g}_i(\V{x})$
 \end{braceEq*}
 引入\emphA{第一类 Christoffel 符号}
 \begin{equation}
-	\ChristoffelA{j}{i}{k} \coloneq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}_k}
+	\ChristoffelA{j}{i}{k} \defeq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}_k}
 	\label{eq:第一类Christoffel符号定义}
 \end{equation}
 和\emphA{第二类 Christoffel 符号}
 \begin{equation}
-	\ChristoffelB{j}{i}{k} \coloneq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}^k}
+	\ChristoffelB{j}{i}{k} \defeq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}^k}
 	\label{eq:第二类Christoffel符号定义}
 \end{equation}
 则式~\eqref{eq:协变基偏导数的协变与逆变表示} 可以写成
 \begin{braceEq*}
 	{\pdv{\V{g}_i}{x^j} (\V{x})=}
-	&\ChristoffelB{j}{i}{k}\, \V{g}_k \comma \label{2} \\
-	&\ChristoffelA{j}{i}{k}\, \V{g}^k \fullstop \label{3}
+	&\ChristoffelB{j}{i}{k}\, \V{g}_k \comma \\
+	&\ChristoffelA{j}{i}{k}\, \V{g}^k \fullstop
 \end{braceEq*}
 
-下面我们来探讨 Christoffel 符号的基本性质——指标 $i$、$j$ 可以交换：
+下面我们来探讨 Christoffel 符号的基本性质——指标 $i$、
+$j$ 可以交换：
 \begin{braceEq}
-	&\ChristoffelB{j}{i}{k}=\ChristoffelB{i}{j}{k} \comma \\
+	&\ChristoffelB{j}{i}{k}=\ChristoffelB{i}{j}{k} \comma
+	\label{eq:第二类Christoffel符号指标交换} \\
 	&\ChristoffelA{j}{i}{k}=\ChristoffelA{i}{j}{k} \fullstop
+	\label{eq:第一类Christoffel符号指标交换}
 \end{braceEq}
 
 \begin{myProof}
 根据定义 \eqref{eq:第一类Christoffel符号定义} 和
-\eqref{eq:第二类Christoffel符号定义}~式，指标 $i$、$j$ 来源于协变基的
-偏导数 $\pdv*{\V{g}_i}{x^j} (\V{x})$。只要偏导数中的 $i$、$j$ 可以交换，
-Christoffel 符号中的指标 $i$、$j$ 自然也可以。回顾协变基的定义
-\eqref{eq:局部协变基定义}~式：
+\eqref{eq:第二类Christoffel符号定义}~式，指标 $i$、$j$
+来源于协变基的偏导数 $\pdv*{\V{g}_i}{x^j} (\V{x})$。
+只要偏导数中的 $i$、$j$ 可以交换，Christoffel 符号中的指标 $i$、
+$j$ 自然也可以。回顾协变基的定义\eqref{eq:局部协变基定义}~式：
 \begin{equation}
 	\V{g}_i (\V{x})
 	\defeq\mqty[\displaystyle\pdv{X^1}{x^i} \\[1ex]
@@ -810,7 +837,8 @@ Christoffel 符号中的指标 $i$、$j$ 自然也可以。回顾协变基的定
 		\vdots \\[0.7ex] \displaystyle\pdv{X^m}{x^i}{x^j}]\,(\V{x})
 	=\pdv{\V{g}_j}{x^i} (\V{x}) \fullstop
 \end{equation}
-注意第二个等号处交换了偏导数的次序，其条件是\emphB{二阶}偏导数均存在且连续。
+注意第二个等号处交换了偏导数的次序，
+其条件是\emphB{二阶}偏导数均存在且连续。
 只要微分同胚达到了 $\DiffMorp[2]$，就可以满足该要求，
 在一般的物理情境这都是成立的。于是我们便完成了证明。
 \end{myProof}
@@ -822,8 +850,8 @@ Christoffel 符号中的指标 $i$、$j$ 自然也可以。回顾协变基的定
 	&\ipb{\pdv{\V{g}^i}{x^j}}{\V{g}^k} \V{g}_k \comma \\
 	&\ipb{\pdv{\V{g}^i}{x^j}}{\V{g}_k} \V{g}^k \fullstop
 \end{braceEq*}
-利用 Christoffel 符号，可以表示出 $\ipb{\pdv*{\V{g}^i}{x^j}}{\V{g}_k}$。
-根据对偶关系，
+利用 Christoffel 符号，可以表示出
+$\ipb{\pdv*{\V{g}^i}{x^j}}{\V{g}_k}$。根据对偶关系，
 \begin{equation}
 	\ipb{\V{g}^i}{\V{g}_k} (\V{x})=\KroneckerDelta{i}{k} \fullstop
 \end{equation}
@@ -845,3 +873,157 @@ $\KroneckerDelta{i}{k}$ 是与 $\V{x}$ 无关的常数，因而
 
 至于 $\ipb{\pdv*{\V{g}^i}{x^j}}{\V{g}^k}$，将在以后讨论。
 \myPROBLEM{你想在什么时候？}
+
+\subsection{指标升降}
+首先引入\emphA{度量}：
+\begin{braceEq}
+	g_{ij} (\V{x})
+		&\defeq \ipb{\V{g}_i}{\V{g}_j} (\V{x}) \comma \\
+	g^{ij} (\V{x})
+		&\defeq \ipb{\V{g}^i}{\V{g}^j} (\V{x}) \fullstop
+\end{braceEq}
+由此可以获得\emphB{基向量}的指标升降
+\begin{braceEq}
+	\V{g}_i (\V{x}) &= g_{ij}(\V{x}) \, \V{g}^j(\V{x}) \comma \\
+	\V{g}^i (\V{x}) &= g^{ij}(\V{x}) \, \V{g}_j(\V{x}) \fullstop
+\end{braceEq}
+
+如前所述，对于任意的 $\V{b}\in\Rm$，它可以表示成
+\begin{equation}
+	\V{b} = b^i\V{g}_i(\V{x}) = b_j\V{g}^j(\V{x}) \fullstop
+\end{equation}
+利用度量，同样可以获得\emphB{向量分量}的指标升降
+\begin{braceEq}
+	b^i&=\ipb{\V{b}}{\V{g}^i}
+		=\ipb{\V{b}}{g^{ik}\,\V{g}_k}
+		=g^{ik} \, \ipb{\V{b}}{\V{g}_k}
+		=g^{ik} b_k \comma \\
+	b_j&=\ipb{\V{b}}{\V{g}_j}
+		=\ipb{\V{b}}{g_{jk}\,\V{g}^k}
+		=g_{jk} \, \ipb{\V{b}}{\V{g}^k}
+		=g_{jk} b^k \fullstop
+\end{braceEq}
+
+关于度量，再多说一句。由于内积的交换律，显然有
+\begin{equation}
+	g_{ij}(\V{x})=g_{ji}(\V{x}), \quad g^{ij}=g^{ji} \fullstop
+\end{equation}
+
+\subsection{度量的性质；Christoffel 符号的计算}
+首先，我们来考察度量的两条性质。
+\begin{myEnum}
+\item 矩阵 $\mqty[g_{ik}]$ 与 $\mqty[g^{kj}]$ 互逆，即
+\begin{equation}
+	g_{ik}\,g^{kj} = \KroneckerDelta{j}{i} \fullstop
+\end{equation}
+证明见 \myPROBLEM{交叉引用第一章} %\ref{subsec:度量}
+~小节（尽管省略了“$(\V{x})$”，
+但请不要忘记这里的基是\emphB{局部基}）。
+
+\blankline
+
+\item 第一类 Christoffel 符号满足
+\begin{equation}
+	\ChristoffelA{i}{j}{k}=\frac{1}{2}
+		\qty(\pdv{g_{jk}}{x^i}+\pdv{g_{ik}}{x^j}-\pdv{g_{ij}}{x^k})
+		(\V{x}) \fullstop
+		\label{eq:第一类Christoffel符号与度量的关系}
+\end{equation}
+
+\begin{myProof}
+根据式~\eqref{eq:第一类Christoffel符号定义}，
+第一类 Christoffel 符号的定义为
+\begin{equation}
+	\ChristoffelA{i}{j}{k} \defeq \ipb{\pdv{\V{g}_j}{x^i}}{\V{g}_k}
+	\fullstop
+\end{equation}
+考虑度量的定义
+\begin{equation}
+	g_{ij}(\V{x})\defeq\ipb{\V{g}_i}{\V{g}_j} (\V{x}) \fullstop
+\end{equation}
+两边对 $x^k$ 求偏导，可得
+\begin{align}
+	\pdv{g_{ij}}{x^k} (\V{x})
+	&=\ipb{\pdv{\V{g}_i}{x^k}}{\V{g}_j} (\V{x})
+	+\ipb{\V{g}_i}{\pdv{\V{g}_j}{x^k}} (\V{x}) \notag
+	\intertext{利用上面 Christoffel 符号的定义，有}
+	&=\ChristoffelA{k}{i}{j}+\ChristoffelA{k}{j}{i} \fullstop
+\end{align}
+这样就获得了度量偏导数用 Christoffel 符号的表示。
+但我们需要的却是 Christoffel 符号用度量偏导数的表示。
+下面的工作就是完成这一“调转”。
+
+利用指标轮换
+\begin{equation*}
+	i \to j, \quad j \to k, \quad k \to i \comma
+\end{equation*}
+可有
+\begin{equation}
+	\pdv{g_{jk}}{x^i} (\V{x})
+	=\ChristoffelA{i}{j}{k}+\ChristoffelA{i}{k}{j} \fullstop
+\end{equation}
+再进行一次指标轮换：
+\begin{equation}
+	\pdv{g_{ki}}{x^j} (\V{x})
+	=\ChristoffelA{j}{k}{i}+\ChristoffelA{j}{i}{k} \fullstop
+\end{equation}
+以上三式联立，就有
+\begin{align}
+	&\alspace\frac{1}{2}\qty(
+		\pdv{g_{jk}}{x^i}+\pdv{g_{ki}}{x^j}-\pdv{g_{ij}}{x^k})
+		(\V{x}) \notag \\
+	&=\frac{1}{2}\qty\Big[
+		\qty(\ChristoffelA{i}{j}{k}+\ChristoffelA{i}{k}{j})
+		+\qty(\ChristoffelA{j}{k}{i}+\ChristoffelA{j}{i}{k})
+		-\qty(\ChristoffelA{k}{i}{j}+\ChristoffelA{k}{j}{i})] \notag
+	\intertext{利用 \eqref{eq:第一类Christoffel符号指标交换}~式
+		所指出的 Christoffel 符号的指标交换性：}
+	&=\frac{1}{2}\qty\Big[
+		\qty(\ChristoffelA{i}{j}{k}+\hl{\ChristoffelA{k}{i}{j}})
+		+\qty(\hl[pink]{\ChristoffelA{j}{k}{i}}
+			+\ChristoffelA{i}{j}{k})
+		-\qty(\hl{\ChristoffelA{k}{i}{j}}
+			+\hl[pink]{\ChristoffelA{j}{k}{i}})] \notag
+	\intertext{高亮部分相互抵消，于是可得}
+	&=\ChristoffelA{i}{j}{k} \fullstop
+\end{align}
+\end{myProof}
+\end{myEnum}
+
+\blankline
+
+有了这两条性质，我们就能够很容易地获取 Christoffel 符号的计算方法。
+
+第一步从度量开始。根据 \ref{subsec:局部协变基}~小节，
+在曲线坐标系（即微分同胚）
+$\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
+Jacobi 矩阵可以用\emphB{协变基}表示为
+\begin{equation}
+	\JacobiD{\V{X}}(\V{x})
+	=\mqty[\V{g}_1,\,\cdots,\,\V{g}_i,\,\cdots,\,\V{g}_m]
+	(\V{x}) \fullstop
+\end{equation}
+因此协变形式的度量（矩阵形式）就可以写成
+\begin{equation}
+	\mqty[g_{ij}] \defeq \mqty[\ipb{\V{g}_i}{\V{g}_j}]
+	=\JacobiD{\V{X}}\trans(\V{x}) \cdotp
+		\JacobiD{\V{X}}(\V{x}) \fullstop
+\end{equation}
+两种形式的度量是互逆的，于是 $g_{ij}$ 实际上也已经算出来了。
+
+第二步，将求得的度量代入
+式~\eqref{eq:第一类Christoffel符号与度量的关系}
+\begin{equation}
+	\ChristoffelA{i}{j}{k}=\frac{1}{2}
+		\qty(\pdv{g_{jk}}{x^i}+\pdv{g_{ik}}{x^j}-\pdv{g_{ij}}{x^k})
+		(\V{x}) \comma
+\end{equation}
+就得到了第一类 Christoffel 符号。
+至于第二类 Christoffel 符号，它可以表示成
+\begin{equation}
+	\ChristoffelB{i}{j}{k} \defeq \ipb{\pdv{\V{g}_j}{x^i}}{\V{g}^k}
+	=\ipb{\pdv{\V{g}_j}{x^i}}{g^{kl}\,\V{g}_l}
+	=g^{kl}\,\ipb{\pdv{\V{g}_j}{x^i}}{\V{g}_l}
+	=g^{kl}\,\ChristoffelA{i}{j}{l} \fullstop
+\end{equation}
+这样一来，它的表示也就澄清了。
