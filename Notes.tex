@@ -73,14 +73,14 @@
 
 %% AMS 数学支持
 \usepackage{amsmath}
+	% 允许多行公式中间分页
 	\allowdisplaybreaks
+	% 调整多行公式间距
+	\setlength{\jot}{6pt}
 \usepackage{amssymb}
 
 %% 数学工具(Must before `unicode-math')
 \usepackage{mathtools}
-
-%% 分情况讨论(大括号)
-\usepackage{cases}
 
 %% Pi 符号
 \usepackage{pifont}
@@ -102,8 +102,8 @@
 %	]{latinmodern-math.otf}
 %	]{MinionMath-Regular.otf}
 %	]{Asana-math.otf}
-%加粗使用 \symbf{}
-%直立希腊字母：\uppi 等
+% 加粗使用 \symbf{}
+% 直立希腊字母：\uppi 等
 
 %% 中文文字处理
 \usepackage[UTF8, heading = true]{ctex}
@@ -140,9 +140,9 @@
 
 %% 脚注增强版
 \usepackage[stable, perpage, bottom]{footmisc}
-	%需要调用 pifont 宏包
-	%衬线加圈阳文数字：\ding{172}~\ding{181} (1~10)
-	%无衬线加圈阳文数字：\ding{192}~\ding{201} (1~10)
+	% 需要调用 pifont 宏包
+	% 衬线加圈阳文数字：\ding{172}~\ding{181} (1~10)
+	% 无衬线加圈阳文数字：\ding{192}~\ding{201} (1~10)
 	\renewcommand{\thefootnote}{\ding{\numexpr191+\value{footnote} } }
 	%TODO：20160705 脚注不用上标
 	%HACK：20160709 见 http://tex.stackexchange.com/q/19844
@@ -188,9 +188,9 @@
 
 %% 定制列表环境
 \usepackage{enumitem}
-	%定义带缩进的左对齐格式
-	%前一个参数 2.1 em 确定标签的位置
-	%后一个参数 1.2 em 确定标签与文字的距离
+	% 定义带缩进的左对齐格式
+	% 前一个参数 2.1 em 确定标签的位置
+	% 后一个参数 1.2 em 确定标签与文字的距离
 	%HACK：20160924 与字体、字号、标签内容有关
 	\SetLabelAlign{leftalignwithindent}%
 		{\hspace{2.1 em} \makebox[0.55 em][l]{#1}}
@@ -241,7 +241,8 @@
 
 %TODO——命令
 %% 空行
-\newcommand{\blankline}{\mbox{}\par\mbox{}}
+%\newcommand{\blankline}{\mbox{}\par\mbox{}}
+\newcommand{\blankline}{\mbox{}}
 %% 强调
 \newcommand{\emphA}[1]{{\bfseries #1}}
 \newcommand{\emphB}[1]{{\itshape #1}}
@@ -329,6 +330,8 @@
 \newcommand{\ChristoffelA}[3]{\Gamma_{#1#2,\,#3}}
 %% 第二类 Christoffel 符号
 \newcommand{\ChristoffelB}[3]{\tensor{\Gamma}{^#3_{#1#2}}}
+%% Eddington 张量
+\newcommand{\EddT}{\epsilon}
 
 %--------算子--------%
 %% 置换算子(Permutation Operator)
@@ -421,11 +424,11 @@
 %%	\tableofcontents
 %	
 %	\mainmatter
-%	\chapter{张量的定义及表示}
-%		\input{Chapters/Chapter1}
-%	
-%	\chapter{张量的运算性质}
-%		\input{Chapters/Chapter2}
+	\chapter{张量的定义及表示}
+		\input{Chapters/Chapter1}
+	
+	\chapter{张量的运算性质}
+		\input{Chapters/Chapter2}
 	
 	\chapter{微分同胚（曲线坐标系）}
 		\input{Chapters/Chapter3}

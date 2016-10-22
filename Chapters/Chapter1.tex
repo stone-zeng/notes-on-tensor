@@ -20,7 +20,8 @@ $\qty{\V{g}^i}^m_{i=1}$，二者满足\emphA{对偶关系}：
 	\ipb{\V{g}_i}{\V{g}^j}=\qty(\V{g}^j)\trans\V{g}_i
 	=\KroneckerDelta{j}{i} \comma
 \end{equation}
-其中的 $i$、$j$ 可取 $1,\,2,\,\cdots,\,m$。写成矩阵形式，为\footnote{
+其中的 $i$、$j$ 可取 $1,\,2,\,\cdots,\,m$。
+写成矩阵形式，为\footnote{
 	除非特殊说明，本文中的所有向量均取\emphB{列向量}。}
 \begin{equation}
 	\mqty[\qty(\V{g}^1)\trans \\ \vdots \\ \qty(\V{g}^m)\trans]
@@ -334,8 +335,9 @@ $\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
 对于一个 $r$ 阶张量，显然共有 $2^r$ 种分量表示，
 其中协变分量与逆变分量各一种，混合分量 $2^r-2$ 种。
 
-\subsection{张量分量之间的关系}
-我们已经知道，对于任意一个向量 $\V{\xi}\in\Rm$，它可以用协变基或逆变基表示：
+\subsection{张量分量之间的关系} \label{subsec:张量分量之间的关系}
+我们已经知道，对于任意一个向量 $\V{\xi}\in\Rm$，
+它可以用协变基或逆变基表示：
 \begin{equation}
 	\V{\xi}=\left\{\begin{aligned}
 		\xi^i\V{g}_i \comma \\
@@ -389,7 +391,8 @@ $\Rm$ 空间中，除了 $\qty{\V{g}_i}^m_{i=1}$ 和相应的
 下面我们来探讨这两个张量的关系。
 
 首先来建立基之间的关系。带括号的第 $i$ 个基向量
-$\V{g}_{(i)}$，作为 $\Rm$ 空间中的一个向量，自然可以用另一组基来表示：
+$\V{g}_{(i)}$，作为 $\Rm$ 空间中的一个向量，
+自然可以用另一组基来表示：
 \begin{equation}
 	\V{g}_{(i)}=\left\{\begin{aligned}
 		\ipb{\V{g}_{(i)}}{\V{g}_k}\,\V{g}^k \comma \\
