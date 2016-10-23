@@ -1066,21 +1066,22 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 \subsection{Eddington 张量的定义}
 接下来引入 \emphA{Eddington 张量}
 \begin{equation}
-	\T{\EddT}=\EddT_{ijk}\,\V{g}^i\tp\V{g}^j\tp\V{g}^k
+	\EdTensor=\LeviCivita{_{ijk}}\,\V{g}^i\tp\V{g}^j\tp\V{g}^k
 	\in\Tensors{3} \comma
 \end{equation}
-式中的$\EddT_{ijk}=\det[\V{g}_i,\,\V{g}_j,\,\V{g}_k]$。
+式中的$\LeviCivita{_{ijk}}=\det[\V{g}_i,\,\V{g}_j,\,\V{g}_k]$。
 和之前一样，仍是利用指标升降来获得等价定义：
 \begin{align}
-	\T{\EddT}&=\EddT_{ijk}\,\V{g}^i\tp\V{g}^j\tp\V{g}^k \notag \\
-	&=\EddT_{ijk}\,\V{g}^i\tp\qty(g^{jl}\,\V{g}_l)
+	\EdTensor
+	&=\LeviCivita{_{ijk}}\,\V{g}^i\tp\V{g}^j\tp\V{g}^k \notag \\
+	&=\LeviCivita{_{ijk}}\,\V{g}^i\tp\qty(g^{jl}\,\V{g}_l)
 		\tp\V{g}^k \notag \\
-	&=\EddT_{ijk}\,g^{jl}\, \V{g}^i\tp\V{g}_l\tp\V{g}^k \notag
+	&=\LeviCivita{_{ijk}}\,g^{jl}\, \V{g}^i\tp\V{g}_l\tp\V{g}^k \notag
 	\intertext{根据张量分量之间的关系
 		（回顾 \ref{subsec:张量分量之间的关系}~小节），我们有}
-	&=\tensor{\EddT}{_i^l_k}\,\V{g}^i\tp\V{g}_l\tp\V{g}^k \fullstop
+	&=\LeviCivita{_i^l_k}\,\V{g}^i\tp\V{g}_l\tp\V{g}^k \fullstop
 \end{align}
-当然，这里的 $\tensor{\EddT}{_i^l_k}$ 只是一个形式。
+当然，这里的 $\LeviCivita{_i^l_k}$ 只是一个形式。
 要将它显式地表达出来，需要利用行列式的线性性：
 \begin{align}
 	\forall\, \V{\xi},\,\hat{\V{\eta}},\,\tilde{\V{\eta}},\,\V{\zeta}
@@ -1094,8 +1095,8 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 \end{align}
 由此可知
 \begin{align}
-	\tensor{\EddT}{_i^l_k}
-	&=\EddT_{ijk}\,g^{jl} \notag \\
+	\LeviCivita{_i^l_k}
+	&=\LeviCivita{_{ijk}}\,g^{jl} \notag \\
 	&=g^{jl}\,\det\mqty[\V{g}_i,\,\V{g}_j,\,\V{g}_k] \notag \\
 	&=\det\mqty[\V{g}_i,\,g^{jl}\,\V{g}_j,\,\V{g}_k] \notag \\
 	&=\det\mqty[\V{g}_i,\,\V{g}^l,\,\V{g}_k] \fullstop
@@ -1104,3 +1105,93 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 一般来说，张量在定义时，只需给出其分量的一种形式。
 而其他的形式，则都可以通过\emphB{度量}来获得。
 说得直白一些，这其实就是一套“指标升降游戏”。
+
+\subsection{两种度量的关系}
+两个 Eddington 张量的分量之积可以用
+一个由度量张量分量所组成的行列式来表示：
+\begin{equation}
+	\LeviCivita{^i_j^k}\,\LeviCivita{_{pq}^r}
+	=\mqty|
+		\KroneckerDelta{i}{p} & \KroneckerDelta{i}{q} & g^{ir} \\
+		g_{jp} & g_{jq} & \KroneckerDelta{r}{j} \\[0.8ex]
+		\KroneckerDelta{k}{p} & \KroneckerDelta{k}{q} & g^{kr}
+	| \fullstop
+\end{equation}
+类似矩阵乘法，行列式中第 $m$ 行 $n$ 列的元素，
+由第一个 Eddington 张量的第 $m$ 个指标与
+第二个 Eddington 张量的第 $n$ 个指标组合而成。
+两个指标均在上面，则获得度量张量的\emphB{逆变分量}；
+两个指标均在下面，则获得\emphB{协变分量}；
+若是一上一下，则将得到\emphB{混合分量}（即 Kronecker δ）。
+
+这里的 $i$、$j$、$k$ 和 $p$、$q$、$r$ 都不是\emphB{哑标}，
+无需考虑求和的限制，可以任意选取。
+至于它们的上下位置，同样是由实际问题来确定的。
+
+\begin{myProof}
+证明思路就是化为矩阵乘法。根据定义，
+\begin{align}
+	\LeviCivita{^i_j^k}\,\LeviCivita{_{pq}^r}
+	&=\det\mqty[\V{g}^i,\,\V{g}_j,\,\V{g}^k] \,
+		\det\mqty[\V{g}_p,\,\V{g}_q,\,\V{g}^r] \notag
+	\intertext{考虑行列式的性质
+		$\det(\Mat{A}\Mat{B})=\det(\Mat{A})\det(\Mat{B})$ 和
+		$\det(\Mat{A}\trans)=\det(\Mat{A})$，则有}
+	&=\det \qty\Bigg(
+		\mqty[\qty(\V{g}^i)\trans \\ \qty(\V{g}_j)\trans \\
+			\qty(\V{g}^k)\trans]
+		\mqty[\V{g}_p,\,\V{g}_q,\,\V{g}^r] ) \fullstop
+\end{align}
+这个矩阵可以直接算出。
+\end{myProof}
+
+如果 Eddington 张量中存在\emphB{哑标}，情况就会有所不同：
+\begin{equation}
+	\LeviCivita{^i_j^s}\,\LeviCivita{^p_{qs}}
+	=\sum_{s=1}^{3} \mqty|
+		g^{ip} & \KroneckerDelta{i}{q} & \KroneckerDelta{i}{s} \\
+		\KroneckerDelta{p}{j} & g_{jq} & g_{js} \\[0.6ex]
+		g^{sp} & \KroneckerDelta{s}{q} & \KroneckerDelta{s}{s}
+	| \fullstop
+\end{equation}
+由于式中的 $k$ 是哑标，因此需要对它求和。
+行列式按第一行展开，可得（下面仍将根据 Einstein 约定省略求和号）
+\begin{align}
+	&\alspace\LeviCivita{^i_j^s}\,\LeviCivita{^p_{qs}} \notag \\
+	&=g^{ip} \qty(g_{jq}\,\KroneckerDelta{s}{s}
+			-g_{js}\,\KroneckerDelta{s}{q} )
+		-\KroneckerDelta{i}{q} \, \qty(
+			\KroneckerDelta{p}{j}\,\KroneckerDelta{s}{s}
+			-g_{js}\,g^{sp} )
+		+\KroneckerDelta{i}{s} \, \qty(
+			\KroneckerDelta{p}{j}\,\KroneckerDelta{s}{q}
+			-g_{jq}\,g^{sp} ) \notag \\
+	&=g^{ip} \qty(3 g_{jq} - g_{jq})
+		-\KroneckerDelta{i}{q} \,
+			\qty(3 \KroneckerDelta{p}{j} - \KroneckerDelta{p}{j})
+		+\qty(\KroneckerDelta{p}{j}\,\KroneckerDelta{i}{q}
+			-g_{jq}\,g^{ip}) \notag \\
+	&=g^{ip}\,g_{jq}-\KroneckerDelta{p}{j}\,\KroneckerDelta{i}{q}
+	\fullstop
+\end{align}
+这一串稍显复杂的表达式，可以用口诀
+“\emphB{前前后后，内内外外}”来记忆。
+具体操作如图~\ref{fig:Eddington张量乘积口诀} 所示。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm]{Images/Eddington_Tensors_Product.PNG}
+	\caption{Eddington 张量乘积口诀“前前后后，内内外外”的示意图}
+	\label{fig:Eddington张量乘积口诀}
+\end{figure}
+
+下面再举两个例子来说明：
+\begin{align}
+	\LeviCivita{^{ij}_s}\,\LeviCivita{_{pq}^s}
+	&=\KroneckerDelta{i}{p}\,\KroneckerDelta{j}{q}
+		-\KroneckerDelta{j}{p}\,\KroneckerDelta{i}{q} \semicomma \\
+	\LeviCivita{^{ij}_s}\,\LeviCivita{^p_q^s}
+	&=g^{ip}\,\KroneckerDelta{j}{q}
+		-g^{jp}\,\KroneckerDelta{i}{q} \fullstop
+\end{align}
+以后将会看到，这是一个相当重要的基本结构。
