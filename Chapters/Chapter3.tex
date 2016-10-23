@@ -1087,24 +1087,54 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 	\forall\, \V{\xi},\,\hat{\V{\eta}},\,\tilde{\V{\eta}},\,\V{\zeta}
 		\in\realR^3 \text{\ 以及\ }
 		\alpha,\,\beta \in\realR,
-	&\alspace \det\mqty[\V{\xi},\,\alpha\,\hat{\V{\eta}}
+	&\alspace \det\!\mqty[\V{\xi},\,\alpha\,\hat{\V{\eta}}
 		+\beta\,\tilde{\V{\eta}},\,\V{\zeta}] \notag \\
-	&=\alpha\det\mqty[\V{\xi},\,\hat{\V{\eta}},\,\V{\zeta}]
-		+\beta\det\mqty[\V{\xi},\,\tilde{\V{\eta}},\,\V{\zeta}]
+	&=\alpha\det\!\mqty[\V{\xi},\,\hat{\V{\eta}},\,\V{\zeta}]
+		+\beta\det\!\mqty[\V{\xi},\,\tilde{\V{\eta}},\,\V{\zeta}]
 	\fullstop
 \end{align}
 由此可知
 \begin{align}
 	\LeviCivita{_i^l_k}
 	&=\LeviCivita{_{ijk}}\,g^{jl} \notag \\
-	&=g^{jl}\,\det\mqty[\V{g}_i,\,\V{g}_j,\,\V{g}_k] \notag \\
-	&=\det\mqty[\V{g}_i,\,g^{jl}\,\V{g}_j,\,\V{g}_k] \notag \\
-	&=\det\mqty[\V{g}_i,\,\V{g}^l,\,\V{g}_k] \fullstop
+	&=g^{jl}\,\det\!\mqty[\V{g}_i,\,\V{g}_j,\,\V{g}_k] \notag \\
+	&=\det\!\mqty[\V{g}_i,\,g^{jl}\,\V{g}_j,\,\V{g}_k] \notag \\
+	&=\det\!\mqty[\V{g}_i,\,\V{g}^l,\,\V{g}_k] \fullstop
 \end{align}
 
 一般来说，张量在定义时，只需给出其分量的一种形式。
 而其他的形式，则都可以通过\emphB{度量}来获得。
 说得直白一些，这其实就是一套“指标升降游戏”。
+
+\blankline
+
+顺带一说，在 Descartes 坐标系下，$\realR^3$
+空间中的叉乘可以用 Eddington 张量表示为
+\begin{braceEq*}{\V{g}_i\cp\V{g}^j=}
+	\LeviCivita{_i^{jk}}\,\V{g}_k \comma \\
+	\LeviCivita{_i^j_k}\,\V{g}^k \fullstop
+\end{braceEq*}
+
+\begin{myProof}
+利用对偶关系可以很容易地获得这一结果。$\V{g}_i\cp\V{g}^j$
+仍然得到一个$\realR^3$ 空间中的向量，它自然可以用协变基来表示：
+\begin{align}
+	\V{g}_i\cp\V{g}^j
+	&=\ipb{\V{g}_i\cp\V{g}^j}{\V{g}^k}\,\V{g}_k \notag
+	\intertext{这里的内积也就是点积。根据向量三重积的知识，可以把
+		$\V{A}\cp\V{B}\cdotp\V{C}$ 表示成\emphB{行列式}：}
+	&=\det\!\mqty[\V{g}_i,\,\V{g}^j,\,\V{g}^k]\,\V{g}_k \notag
+	\intertext{根据 Eddington 张量的定义即得到}
+	&=\LeviCivita{_i^{jk}}\,\V{g}_k \fullstop
+\end{align}
+同理，若用逆变基表示，则为
+\begin{align}
+	\V{g}_i\cp\V{g}^j
+	&=\ipb{\V{g}_i\cp\V{g}^j}{\V{g}_k}\,\V{g}^k \notag \\
+	&=\det\!\mqty[\V{g}_i,\,\V{g}^j,\,\V{g}_k]\,\V{g}^k \notag \\
+	&=\LeviCivita{_i^j_k}\,\V{g}^k \fullstop
+\end{align}
+\end{myProof}
 
 \subsection{两种度量的关系}
 两个 Eddington 张量的分量之积可以用
@@ -1132,12 +1162,12 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 证明思路就是化为矩阵乘法。根据定义，
 \begin{align}
 	\LeviCivita{^i_j^k}\,\LeviCivita{_{pq}^r}
-	&=\det\mqty[\V{g}^i,\,\V{g}_j,\,\V{g}^k] \,
-		\det\mqty[\V{g}_p,\,\V{g}_q,\,\V{g}^r] \notag
+	&=\det\!\mqty[\V{g}^i,\,\V{g}_j,\,\V{g}^k] \,
+		\det\!\mqty[\V{g}_p,\,\V{g}_q,\,\V{g}^r] \notag
 	\intertext{考虑行列式的性质
 		$\det(\Mat{A}\Mat{B})=\det(\Mat{A})\det(\Mat{B})$ 和
 		$\det(\Mat{A}\trans)=\det(\Mat{A})$，则有}
-	&=\det \qty\Bigg(
+	&=\det\! \qty\Bigg(
 		\mqty[\qty(\V{g}^i)\trans \\ \qty(\V{g}_j)\trans \\
 			\qty(\V{g}^k)\trans]
 		\mqty[\V{g}_p,\,\V{g}_q,\,\V{g}^r] ) \fullstop
@@ -1157,7 +1187,7 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 由于式中的 $k$ 是哑标，因此需要对它求和。
 行列式按第一行展开，可得（下面仍将根据 Einstein 约定省略求和号）
 \begin{align}
-	&\alspace\LeviCivita{^i_j^s}\,\LeviCivita{^p_{qs}} \notag \\
+	\alspace\LeviCivita{^i_j^s}\,\LeviCivita{^p_{qs}}
 	&=g^{ip} \qty(g_{jq}\,\KroneckerDelta{s}{s}
 			-g_{js}\,\KroneckerDelta{s}{q} )
 		-\KroneckerDelta{i}{q} \, \qty(
