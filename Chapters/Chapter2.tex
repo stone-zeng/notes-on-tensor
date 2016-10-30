@@ -44,7 +44,7 @@
 	\intertext{把高亮的部分做内积，得到\emphB{度量}：}
 	&\defeq\Phi^{i_1 \cdots i_{p-e} i_{p-e+1} \cdots i_p} \,
 		\Psi^{j_1 \cdots j_e j_{e+1} \cdots j_q} \notag \\
-	&\alspace\quad\cdotp
+	&\alspace\quad\cdot
 		g_{i_{p-e+1} j_1} \cdots g_{i_p j_e} \,
 		\qty(\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_{p-e}})
 		\tp\qty(\V{g}_{j_{e+1}}\tp\cdots\tp\V{g}_{j_q}) \notag
@@ -293,8 +293,8 @@
 经过 $q+p$ 次两两交换也一定可以复原。因此，复合置换的符号
 \begin{equation}
 	\sgn\qty(\Perm{\tau}\comp\Perm{\sigma})
-	=(-1)^{q+p}=(-1)^q \cdotp (-1)^p
-	=\sgn\Perm{\tau}\cdotp\sgn\Perm{\sigma} \fullstop
+	=(-1)^{q+p}=(-1)^q \cdot (-1)^p
+	=\sgn\Perm{\tau}\cdot\sgn\Perm{\sigma} \fullstop
 	\label{eq:置换复合的符号}
 \end{equation}
 
@@ -360,7 +360,7 @@ $\Mat{A}\Mat{A}^{-1}=\Mat{I}$。对于置换也是如此，
 \end{equation}
 故有
 \begin{equation}
-	\sgn\Perm{\sigma} \cdotp \sgn\Perm{\sigma}^{-1} = 1 \fullstop
+	\sgn\Perm{\sigma} \cdot \sgn\Perm{\sigma}^{-1} = 1 \fullstop
 \end{equation}
 由此，可以推知
 \begin{equation}
@@ -773,7 +773,7 @@ $\qty{\Perm{\sigma}(k_1),\,\Perm{\sigma}(k_2),\,
 则称 $\T{\Phi}$ 为\emphB{对称张量}，
 即 $\T{\Phi}\in\Sym \text{\ 或\ } \SymTensors{r}$；如果
 \begin{equation}
-	\opPerm(\T{\Phi})=\sgn\Perm{\sigma}\cdotp\T{\Phi} \comma
+	\opPerm(\T{\Phi})=\sgn\Perm{\sigma}\cdot\T{\Phi} \comma
 	\label{eq:反对称张量的定义}
 \end{equation}
 则称 $\T{\Phi}$ 为\emphB{反对称张量}，
@@ -785,9 +785,9 @@ $\qty{\Perm{\sigma}(k_1),\,\Perm{\sigma}(k_2),\,
 		\opPerm(\T{\Phi})=\T{\Phi} &\iff
 			\Phi_{\Perm{\sigma}(i_1)\cdots\Perm{\sigma}(i_p)}
 				=\Phi_{i_1 \cdots i_p} \comma\\
-		\opPerm(\T{\Phi})=\sgn\Perm{\sigma}\cdotp\T{\Phi} &\iff
+		\opPerm(\T{\Phi})=\sgn\Perm{\sigma}\cdot\T{\Phi} &\iff
 			\Phi_{\Perm{\sigma}(i_1)\cdots\Perm{\sigma}(i_p)}
-				=\sgn\Perm{\sigma}\cdotp\Phi_{i_1 \cdots i_p}
+				=\sgn\Perm{\sigma}\cdot\Phi_{i_1 \cdots i_p}
 				\fullstop
 	\end{align}
 \end{mySubEq}
@@ -817,7 +817,7 @@ $\qty{\Perm{\sigma}(k_1),\,\Perm{\sigma}(k_2),\,
 	&=\T{\Phi}\qty(u^{i_1}_{\Perm{\sigma}(i_1)}\,\V{g}_{i_1},\,
 		\cdots,\,u^{i_r}_{\Perm{\sigma}(i_r)}\,\V{g}_{i_r}) \notag
 	\intertext{根据张量的线性性，提出系数：}
-	&=\T{\Phi}\qty(\V{g}_{i_1},\,\cdots,\,\V{g}_{i_r}) \cdotp
+	&=\T{\Phi}\qty(\V{g}_{i_1},\,\cdots,\,\V{g}_{i_r}) \cdot
 		\qty(u^{i_1}_{\Perm{\sigma}(i_1)} \cdots
 			u^{i_r}_{\Perm{\sigma}(i_r)}) \notag
 	\intertext{前半部分可以用张量分量表示；
@@ -964,7 +964,7 @@ $i_k$ 换成 $\Perm{\sigma}(i_k)$：
 	\intertext{和}
 	\opSkw(\T{\Phi})
 		&\defeq \frac{1}{r!} \sum_{\Perm{\sigma}\in\Permutations{r}}
-			\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi}) \comma
+			\sgn\Perm{\sigma}\cdot\opPerm(\T{\Phi}) \comma
 \end{align}
 式中，$\T{\Phi}\in\Tensors{r}$。
 根据置换算子的线性性，很容易知道对称化算子与反对称化算子也具有线性性。
@@ -1008,34 +1008,34 @@ $\opSym(\T{\Phi})\in\Sym$。
 	\opPerm[\Perm{\tau}]\qty\big[\opSkw(\T{\Phi})]
 	&=\opPerm[\Perm{\tau}]\qty[\frac{1}{r!}
 			\sum_{\Perm{\sigma}\in\Permutations{r}}
-			\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi})] \notag \\
+			\sgn\Perm{\sigma}\cdot\opPerm(\T{\Phi})] \notag \\
 	&=\frac{1}{r!} \sum_{\Perm{\sigma}\in\Permutations{r}}
-		\sgn\Perm{\sigma}\cdotp
+		\sgn\Perm{\sigma}\cdot
 		\qty\bigg[\opPerm[\Perm{\tau}]\comp\opPerm(\T{\Phi})]
 		\notag \\
 	&=\frac{1}{r!} \sum_{\Perm{\sigma}\in\Permutations{r}}
-		\sgn\Perm{\sigma}\cdotp
+		\sgn\Perm{\sigma}\cdot
 		\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi}) \notag
 	\intertext{根据式~\eqref{eq:置换复合的符号}，
-		$\sgn\Perm{\tau}\cdotp\sgn\Perm{\sigma}
+		$\sgn\Perm{\tau}\cdot\sgn\Perm{\sigma}
 		=\sgn(\Perm{\tau}\comp\Perm{\sigma})$，于是}
 	&=\frac{1}{r!} \sum_{\Perm{\sigma}\in\Permutations{r}}
 		\frac{\sgn(\Perm{\tau}\comp\Perm{\sigma})}{\sgn\Perm{\tau}}
-		\cdotp\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi}) \notag
+		\cdot\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi}) \notag
 	\intertext{注意到始终成立
-		$\sgn\Perm{\tau}\cdotp\sgn\Perm{\tau}=1$
+		$\sgn\Perm{\tau}\cdot\sgn\Perm{\tau}=1$
 		（因为 $\sgn\Perm{\tau}=\pm 1$），又有}
 	&=\frac{\sgn\Perm{\tau}}{r!}
 		\sum_{\Perm{\sigma}\in\Permutations{r}}
 		\sgn(\Perm{\tau}\comp\Perm{\sigma})
-		\cdotp\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi}) \notag
+		\cdot\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi}) \notag
 	\intertext{利用置换的穷尽，
 		$\Perm{\tau}\comp\Perm{\sigma}$ 与 $\Perm{\sigma}$ 相比，
 		结果将保持不变：}
-	&=\sgn\tau\cdotp\qty[\frac{1}{r!}
+	&=\sgn\tau\cdot\qty[\frac{1}{r!}
 		\sum_{\Perm{\sigma}\in\Permutations{r}}
-		\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi})]
-	=\sgn\tau\cdotp\opSkw(\T{\Phi}) \fullstop
+		\sgn\Perm{\sigma}\cdot\opPerm(\T{\Phi})]
+	=\sgn\tau\cdot\opSkw(\T{\Phi}) \fullstop
 \end{align}
 与反对称张量的定义 \eqref{eq:反对称张量的定义}~式相比，可见的确有
 $\opSym(\T{\Phi})\in\Skw$。
@@ -1050,7 +1050,7 @@ $\opSym(\T{\Phi})\in\Skw$。
 	\forall\,\T{\Phi}\in\Tensors{r},\quad
 	\opSkw(\T{\Phi})\defeq
 	\frac{1}{r!} \sum_{\Perm{\sigma}\in\Permutations{r}}
-	\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi})
+	\sgn\Perm{\sigma}\cdot\opPerm(\T{\Phi})
 	\in\Skw \text{\ 或\ } \SkwTensors{r} \fullstop
 \end{equation}
 即任意一个 $r$ 阶张量，作用反对称化算子后就变成了 $r$ 阶反对称张量。
@@ -1075,37 +1075,37 @@ $r$ 阶反对称张量也称为 \emphA{$r$-form} （\emphA{$r$-形式}）。
 	\opSkw^2 &= \opSkw\qty\big[\opSkw(\T{\Phi})] \notag \\
 	&\defeq \opSkw\qty[\frac{1}{r!}
 		\sum_{\Perm{\sigma}\in\Permutations{r}}
-		\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi})] \notag \\
+		\sgn\Perm{\sigma}\cdot\opPerm(\T{\Phi})] \notag \\
 	&\defeq \frac{1}{r!}
 		\sum_{\Perm{\tau}\in\Permutations{r}}
-		\sgn\Perm{\tau}\cdotp\opPerm[\Perm{\tau}]\qty[\frac{1}{r!}
+		\sgn\Perm{\tau}\cdot\opPerm[\Perm{\tau}]\qty[\frac{1}{r!}
 			\sum_{\Perm{\sigma}\in\Permutations{r}}
-			\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi})] \notag
+			\sgn\Perm{\sigma}\cdot\opPerm(\T{\Phi})] \notag
 	\intertext{根据线性性，可有}
 	&=\frac{1}{(r!)^2} \sum_{\Perm{\tau}\in\Permutations{r}}
 		\sum_{\Perm{\sigma}\in\Permutations{r}}
 		\sgn\Perm{\tau}\sgn\Perm{\sigma}
-		\cdotp\opPerm[\Perm{\tau}]\comp\opPerm(\T{\Phi}) \notag
+		\cdot\opPerm[\Perm{\tau}]\comp\opPerm(\T{\Phi}) \notag
 	\intertext{根据式~\eqref{eq:置换复合的符号}
 		和式~\eqref{eq:置换算子的复合}，有}
 	&=\frac{1}{(r!)^2} \sum_{\Perm{\tau}\in\Permutations{r}}
 		\sum_{\Perm{\sigma}\in\Permutations{r}}
-		\sgn\qty(\Perm{\tau}\comp\Perm{\sigma}) \cdotp
+		\sgn\qty(\Perm{\tau}\comp\Perm{\sigma}) \cdot
 		\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi}) \notag \\
 	&=\frac{1}{(r!)^2} \sum_{\Perm{\tau}\in\Permutations{r}}
 		\qty[\sum_{\Perm{\sigma}\in\Permutations{r}}
-			\sgn\qty(\Perm{\tau}\comp\Perm{\sigma}) \cdotp
+			\sgn\qty(\Perm{\tau}\comp\Perm{\sigma}) \cdot
 			\opPerm[\Perm{\tau}\comp\Perm{\sigma}](\T{\Phi})] \notag
 	\intertext{注意到方括号中的部分穷尽了置换 $\Perm{\sigma}$，
 		因此可以用 $\Perm{\sigma}$ 取代“指标”
 		$\Perm{\tau}\comp\Perm{\sigma}$：}
 	&=\frac{1}{(r!)^2} \sum_{\Perm{\tau}\in\Permutations{r}}
 		\qty[\sum_{\Perm{\sigma}\in\Permutations{r}}
-			\sgn\Perm{\sigma}\cdotp\opPerm(\T{\Phi})] \notag
+			\sgn\Perm{\sigma}\cdot\opPerm(\T{\Phi})] \notag
 	\intertext{回到定义，有}
 	&=\frac{1}{r!} \sum_{\Perm{\tau}\in\Permutations{r}}
 		\opSkw(\T{\Phi})
-	=\frac{1}{r!} \cdotp r! \opSkw(\T{\Phi})
+	=\frac{1}{r!} \cdot r! \opSkw(\T{\Phi})
 	=\opSkw(\T{\Phi}) \fullstop
 \end{align}
 \end{myProof}
@@ -1135,22 +1135,22 @@ $\T{\Psi}\in\Tensors{q}$ 的并施加反对称化算子，可以得到如下结�
 	&=\opSkw\,\qty[\T{\Phi}\tp
 		\qty\Bigg(\frac{1}{q!}
 			\sum_{\Perm{\tau}\in\Permutations{q}}\sgn\Perm{\tau}
-			\cdotp\opPerm[\Perm{\tau}] (\T{\Psi}) ) ] \notag
+			\cdot\opPerm[\Perm{\tau}] (\T{\Psi}) ) ] \notag
 	\intertext{根据张量积的线性性提出系数：}
 	&=\opSkw\,\qty[\frac{1}{q!}
 		\sum_{\Perm{\tau}\in\Permutations{q}} \sgn\Perm{\tau}
-		\cdotp\T{\Phi}\tp\opPerm[\Perm{\tau}](\T{\Psi})] \notag
+		\cdot\T{\Phi}\tp\opPerm[\Perm{\tau}](\T{\Psi})] \notag
 	\intertext{利用置换的穷尽，
 		可以把 $\Perm{\tau}$ 换作 $\Perm{\tau}^{-1}$：}
 	&=\opSkw\,\qty[\frac{1}{q!}
 		\sum_{\Perm{\tau}\in\Permutations{q}}
-		\sgn\Perm{\tau}^{-1} \cdotp\T{\Phi}\tp
+		\sgn\Perm{\tau}^{-1} \cdot\T{\Phi}\tp
 		\opPerm[\Perm{\tau}^{-1}](\T{\Psi})] \notag
 	\intertext{注意到
 		$\sgn\Perm{\tau}=\sgn\Perm{\tau}^{-1}$，于是}
 	&=\opSkw\,\qty[\frac{1}{q!}
 		\sum_{\Perm{\tau}\in\Permutations{q}}
-		\sgn\Perm{\tau} \cdotp\T{\Phi}\tp
+		\sgn\Perm{\tau} \cdot\T{\Phi}\tp
 		\opPerm[\Perm{\tau}^{-1}](\T{\Psi})] \comma
 	\label{eq:对张量并施加反对称化算子_证明_Part1}
 \end{align}
@@ -1213,16 +1213,16 @@ $\Perm{\hat{\tau}}\in\Permutations{p+q}$，其定义为
 	\opSkw\qty\big[\T{\Phi}\tp\opSkw(\T{\Psi})]
 	&=\opSkw\,\qty[\frac{1}{q!}
 		\sum_{\Perm{\tau}\in\Permutations{q}}
-		\sgn\Perm{\tau} \cdotp\T{\Phi}\tp
+		\sgn\Perm{\tau} \cdot\T{\Phi}\tp
 		\opPerm[\Perm{\tau}^{-1}](\T{\Psi})] \notag \\
 	&=\opSkw\,\qty[\frac{1}{q!}
 		\sum_{\Perm{\tau}\in\Permutations{q}}
-		\sgn\Perm{\hat{\tau}} \cdotp
+		\sgn\Perm{\hat{\tau}} \cdot
 		\opPerm[\Perm{\hat{\tau}}^{-1}]
 		\qty\big(\T{\Phi}\tp\T{\Psi}) ] \notag
 	\intertext{再用一次线性性，可得}
 	&=\frac{1}{q!} \sum_{\Perm{\tau}\in\Permutations{q}}
-		\sgn\Perm{\hat{\tau}} \cdotp
+		\sgn\Perm{\hat{\tau}} \cdot
 		\opSkw\qty\Big[\opPerm[\Perm{\hat{\tau}}^{-1}]
 			\qty\big(\T{\Phi}\tp\T{\Psi})] \fullstop
 	\label{eq:对张量并施加反对称化算子_证明_Part2}
@@ -1236,13 +1236,13 @@ $\T{\Phi}\tp\T{\Psi}$ 是一个 $p+q$ 阶张量，
 		\qty\big(\T{\Phi}\tp\T{\Psi})]
 	&=\frac{1}{(p+q)!}
 		\sum_{\Perm{\hat{\sigma}}\in\Permutations{p+q}}
-		\sgn\Perm{\hat{\sigma}} \cdotp
+		\sgn\Perm{\hat{\sigma}} \cdot
 		\qty\Big[\opPerm[\Perm{\hat{\sigma}}]
 			\comp \opPerm[\Perm{\hat{\tau}}^{-1}]
 			\qty\big(\T{\Phi}\tp\T{\Psi})] \notag \\
 	&=\frac{1}{(p+q)!}
 		\sum_{\Perm{\hat{\sigma}}\in\Permutations{p+q}}
-		\sgn\Perm{\hat{\sigma}} \cdotp
+		\sgn\Perm{\hat{\sigma}} \cdot
 		\qty\Big[\opPerm[\Perm{\hat{\sigma}}
 				\comp\Perm{\hat{\tau}}^{-1}]
 			\qty\big(\T{\Phi}\tp\T{\Psi})] \comma
@@ -1270,14 +1270,14 @@ $\sgn\Perm{\hat{\sigma}}$ 可以写成
 \begin{align}
 	\opSkw\qty\big[\T{\Phi}\tp\opSkw(\T{\Psi})]
 	&=\frac{1}{q!} \sum_{\Perm{\tau}\in\Permutations{q}}
-		\sgn\Perm{\hat{\tau}} \cdotp
+		\sgn\Perm{\hat{\tau}} \cdot
 		\opSkw\qty\Big[\opPerm[\Perm{\hat{\tau}}^{-1}]
 			\qty\big(\T{\Phi}\tp\T{\Psi})] \notag \\
 	&=\frac{1}{q!} \sum_{\Perm{\tau}\in\Permutations{q}}
-		\sgn\Perm{\hat{\tau}} \cdotp
+		\sgn\Perm{\hat{\tau}} \cdot
 		\qty[\frac{1}{(p+q)!}
 			\sum_{\Perm{\hat{\sigma}}\in\Permutations{p+q}}
-			\sgn\Perm{\hat{\sigma}} \cdotp
+			\sgn\Perm{\hat{\sigma}} \cdot
 			\qty\Big(\opPerm[\Perm{\hat{\sigma}}
 					\comp\Perm{\hat{\tau}}^{-1}]
 				\qty\big(\T{\Phi}\tp\T{\Psi}))] \notag
@@ -1288,7 +1288,7 @@ $\sgn\Perm{\hat{\sigma}}$ 可以写成
 		\frac{1}{(p+q)!}
 		\sum_{\Perm{\hat{\sigma}}\in\Permutations{p+q}}
 		\sgn\qty(\Perm{\hat{\sigma}}\comp\Perm{\hat{\tau}}^{-1})
-		\cdotp\qty\Big[\opPerm[\Perm{\hat{\sigma}}
+		\cdot\qty\Big[\opPerm[\Perm{\hat{\sigma}}
 				\comp\Perm{\hat{\tau}}^{-1}]
 				\qty\big(\T{\Phi}\tp\T{\Psi})] \notag
 	\intertext{再次利用置换穷尽的性质改变“哑标”置换：}
@@ -1296,12 +1296,12 @@ $\sgn\Perm{\hat{\sigma}}$ 可以写成
 		\frac{1}{(p+q)!}
 		\sum_{\Perm{\hat{\sigma}}\in\Permutations{p+q}}
 		\sgn\Perm{\hat{\sigma}}
-		\cdotp\qty\Big[\opPerm[\Perm{\hat{\sigma}}]
+		\cdot\qty\Big[\opPerm[\Perm{\hat{\sigma}}]
 				\qty\big(\T{\Phi}\tp\T{\Psi})] \notag
 	\intertext{终于拨开云雾见青天，看到了似曾相识的定义：}
 	&=\frac{1}{q!} \sum_{\Perm{\tau}\in\Permutations{q}}
 		\opSkw\qty\big(\T{\Phi}\tp\T{\Psi}) \notag \\
-	&=\frac{1}{q!} \cdotp q!
+	&=\frac{1}{q!} \cdot q!
 		\opSkw\qty\big(\T{\Phi}\tp\T{\Psi})
 	=\opSkw\qty\big(\T{\Phi}\tp\T{\Psi}) \fullstop
 \end{align}
@@ -1313,7 +1313,7 @@ $\sgn\Perm{\hat{\sigma}}$ 可以写成
 \begin{equation}
 	\forall\,\T{\Phi}\in\Tensors{p},\,\T{\Psi}\in\Tensors{q},\quad
 	\opSkw\qty\big(\T{\Phi}\tp\T{\Psi})
-	=(-1)^{pq}\cdotp\opSkw\qty\big(\T{\Psi}\tp\T{\Phi}) \fullstop
+	=(-1)^{pq}\cdot\opSkw\qty\big(\T{\Psi}\tp\T{\Phi}) \fullstop
 \end{equation}
 
 \begin{myProof}
@@ -1321,30 +1321,30 @@ $\sgn\Perm{\hat{\sigma}}$ 可以写成
 $\Perm{\sigma}\in\Permutations{p+q}$：
 \begin{align}
 	\opSkw&=\frac{1}{(p+q)!} \sum_{\Perm{\sigma}\in\Permutations{p+q}}
-		\sgn\Perm{\sigma}\cdotp\opPerm \notag \\
+		\sgn\Perm{\sigma}\cdot\opPerm \notag \\
 	&=\frac{1}{(p+q)!} \sum_{\Perm{\sigma}\in\Permutations{p+q}}
 		\sgn\qty(\Perm{\sigma}\comp\Perm{\tau}^{-1})
-		\cdotp\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}] \fullstop
+		\cdot\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}] \fullstop
 \end{align}
 第二的等号与之前一样，利用了置换的穷尽。
 这里的 $\Perm{\tau}$ 是 $\Permutations{p+q}$ 中一个任意的置换。
 利用置换符号的性质，有
 \begin{equation}
 	\sgn\qty(\Perm{\sigma}\comp\Perm{\tau}^{-1})
-	=\sgn\Perm{\sigma} \cdotp \sgn\Perm{\tau}^{-1}
-	=\sgn\Perm{\sigma} \cdotp \sgn\Perm{\tau} \fullstop
+	=\sgn\Perm{\sigma} \cdot \sgn\Perm{\tau}^{-1}
+	=\sgn\Perm{\sigma} \cdot \sgn\Perm{\tau} \fullstop
 \end{equation}
 因此
 \begin{align}
 	\opSkw\qty\big(\T{\Phi}\tp\T{\Psi})
 	&=\frac{1}{(p+q)!} \sum_{\Perm{\sigma}\in\Permutations{p+q}}
 		\sgn\qty(\Perm{\sigma}\comp\Perm{\tau}^{-1})
-		\cdotp\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}]
+		\cdot\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}]
 			\qty\big(\T{\Phi}\tp\T{\Psi}) \notag \\
 	&=\frac{\sgn\Perm{\tau}}{(p+q)!}
 		\sum_{\Perm{\sigma}\in\Permutations{p+q}}
 		\sgn\Perm{\sigma}
-		\cdotp\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}]
+		\cdot\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}]
 			\qty\big(\T{\Phi}\tp\T{\Psi}) \fullstop
 	\label{eq:反对称化算子的反导性_证明_Part1}
 \end{align}
@@ -1403,7 +1403,7 @@ $\Perm{\sigma}\in\Permutations{p+q}$：
 下面再考虑一下 $\Perm{\tau}$ 的符号：$j_1$ 先和 $i_p$ 交换，
 再和 $i_{p-1}$ 交换，以此类推，直到移动至 $i_1$ 的位置，一共交换了 $p$ 次。
 而 $j_2,\,\cdots,\,j_q$ 也是同理，各需进行 $p$ 次交换。
-所以总共是 $p \cdotp q$ 次两两交换。因此，
+所以总共是 $p \cdot q$ 次两两交换。因此，
 \begin{equation}
 	\sgn\Perm{\tau}=(-1)^{pq} \fullstop
 \end{equation}
@@ -1414,13 +1414,13 @@ $\Perm{\sigma}\in\Permutations{p+q}$：
 	&=\frac{\sgn\Perm{\tau}}{(p+q)!}
 		\sum_{\Perm{\sigma}\in\Permutations{p+q}}
 		\sgn\Perm{\sigma}
-		\cdotp\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}]
+		\cdot\opPerm[\Perm{\sigma}\comp\Perm{\tau}^{-1}]
 			\qty\big(\T{\Phi}\tp\T{\Psi}) \notag \\
 	&=\frac{(-1)^{pq}}{(p+q)!}
 		\sum_{\Perm{\sigma}\in\Permutations{p+q}}
 		\sgn\Perm{\sigma}
-		\cdotp\opPerm\qty\big(\T{\Psi}\tp\T{\Phi}) \notag \\
-	&=(-1)^{pq}\cdotp\opSkw\qty\big(\T{\Psi}\tp\T{\Phi}) \fullstop
+		\cdot\opPerm\qty\big(\T{\Psi}\tp\T{\Phi}) \notag \\
+	&=(-1)^{pq}\cdot\opSkw\qty\big(\T{\Psi}\tp\T{\Phi}) \fullstop
 \end{align}
 \end{myProof}
 

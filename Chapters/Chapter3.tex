@@ -102,7 +102,7 @@ $\V{x}$ 与 $\V{X}$ 是完全等价的，
 \begin{equation}
 	\pdv{f}{X^\alpha} (\V{X})
 	=\sum_{s=1}^{m} \pdv{\tilde{f}}{\displaystyle x^s}
-		\qty\big(\V{x}(\V{X})) \cdotp
+		\qty\big(\V{x}(\V{X})) \cdot
 		\pdv{x^s}{X^\alpha} (\V{X}) \fullstop
 	\label{eq:参数域方程_一阶偏导项}
 \end{equation}
@@ -152,7 +152,7 @@ $\pdv*{x^s}{X^\alpha}$ 项。考虑到
 并且其中的 $\V{X}(\V{x})$ 和 $\V{x}(\V{X})$ 均可微，可以得到
 \begin{equation}
 	\JacobiD{\V{X}}\qty\big(\V{x}(\V{X}))
-	\cdotp \JacobiD{\V{x}}(\V{X})
+	\cdot \JacobiD{\V{x}}(\V{X})
 	=\Mat{I}_m \comma
 \end{equation}
 其中的 $\Mat{I}_m$ 是单位阵。因此
@@ -183,7 +183,7 @@ $\pdv*{x^s}{X^\alpha}$ 项。考虑到
 \begin{equation}
 	\pdv{f}{X^\alpha} (\V{X})
 	=\sum_{s=1}^{m} \pdv{\tilde{f}}{\displaystyle x^s}
-		\qty\big(\V{x}(\V{X})) \cdotp
+		\qty\big(\V{x}(\V{X})) \cdot
 		\varphi^s_\alpha \qty\big(\V{x}(\V{X})) \fullstop
 \end{equation}
 
@@ -192,27 +192,27 @@ $\pdv*{x^s}{X^\alpha}$ 项。考虑到
 	\pdv{f}{X^\beta}{X^\alpha} (\V{X})
 	&=\sum_{s=1}^{m} \Bigg[ \qty\Bigg(\sum_{k=1}^{m}
 			\pdv{\tilde{f}}{\displaystyle x^k}{\displaystyle x^s}
-			\qty\big(\V{x}(\V{X})) \cdotp \pdv{x^s}{X^\beta} (\V{X}) )
-		\cdotp \varphi^s_\alpha \qty\big(\V{x}(\V{X})) \notag \\
+			\qty\big(\V{x}(\V{X})) \cdot \pdv{x^s}{X^\beta} (\V{X}) )
+		\cdot \varphi^s_\alpha \qty\big(\V{x}(\V{X})) \notag \\
 	&\alspace\phantom{\sum_{s=1}^{m} \Bigg[ }+
 		\pdv{\tilde{f}}{\displaystyle x^s}
-		\qty\big(\V{x}(\V{X})) \cdotp \qty\Bigg(\sum_{k=1}^{m}
+		\qty\big(\V{x}(\V{X})) \cdot \qty\Bigg(\sum_{k=1}^{m}
 			\pdv{\displaystyle \varphi^s_\alpha}{\displaystyle x^k}
 			\qty\big(\V{x}(\V{X}))
-			\cdotp \pdv{\displaystyle x^k}{X^\beta} (\V{X}) )
+			\cdot \pdv{\displaystyle x^k}{X^\beta} (\V{X}) )
 		\Bigg] \notag
 	\intertext{继续利用式~\eqref{eq:Jacobi矩阵的元素}，有}
 	&=\sum_{s=1}^{m} \Bigg[ \qty\Bigg(\sum_{k=1}^{m}
 			\pdv{\tilde{f}}{\displaystyle x^k}{\displaystyle x^s}
-			\qty\big(\V{x}(\V{X})) \cdotp
+			\qty\big(\V{x}(\V{X})) \cdot
 			\varphi^s_\beta \qty\big(\V{x}(\V{X})) )
-		\cdotp \varphi^s_\alpha \qty\big(\V{x}(\V{X})) \notag \\
+		\cdot \varphi^s_\alpha \qty\big(\V{x}(\V{X})) \notag \\
 	&\alspace\phantom{\sum_{s=1}^{m} \Bigg[ }+
 		\pdv{\tilde{f}}{\displaystyle x^s}
-		\qty\big(\V{x}(\V{X})) \cdotp \qty\Bigg(\sum_{k=1}^{m}
+		\qty\big(\V{x}(\V{X})) \cdot \qty\Bigg(\sum_{k=1}^{m}
 			\pdv{\displaystyle \varphi^s_\alpha}{\displaystyle x^k}
 			\qty\big(\V{x}(\V{X}))
-			\cdotp \varphi^k_\beta \qty\big(\V{x}(\V{X})) )
+			\cdot \varphi^k_\beta \qty\big(\V{x}(\V{X})) )
 		\Bigg] \fullstop
 \end{align}
 这样，就把一阶和二阶偏导数项全部用关于 $\V{x}$ 的函数\footnote{%
@@ -345,7 +345,7 @@ $\mqty[\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_1) & \cdots
 			\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_m)]
 		\mqty[0,\,\cdots,\,\lambda,\,\cdots,\,0]\trans
 		+\sO{\lambda} \notag \\
-	&=\lambda\cdotp\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_i)
+	&=\lambda\cdot\JacobiD{\V{X}}\qty(\V{x}_0)\qty(\V{e}_i)
 		+\sO{\lambda} \fullstop
 \end{align}
 由于 $\lambda$ 是非零实数，故可以在等式两边同时除以
@@ -390,7 +390,7 @@ $\lambda$ 并取极限：
 	&\coloneq \lim_{\lambda\to 0}
 		\frac{\V{X}\qty(\V{x}_0+\lambda\,\V{e}_i)
 		-\V{X}\qty(\V{x}_0)}{\lambda} \in\Rm \notag \\
-	&=\lim_{\lambda\to 0} \frac{1}{\lambda}\cdotp
+	&=\lim_{\lambda\to 0} \frac{1}{\lambda}\cdot
 		\left(\vphantom{\mqty{0\\[0.8ex]0}}\right.\!
 			\mqty[X^1 \\ \vdots \\ X^m] \qty(\V{x}_0+\lambda\,\V{e}_i)
 			-\mqty[X^1 \\ \vdots \\ X^m] \qty(\V{x}_0)
@@ -439,7 +439,7 @@ $\lambda$ 并取极限：
 		\vdots & \ddots & \vdots \\[0.5ex]
 		\displaystyle\pdv{X^m}{\displaystyle x^1} & \cdots &
 			\displaystyle\pdv{X^m}{\displaystyle x^m}
-		]\, \qty(\V{x}_0) \cdotp
+		]\, \qty(\V{x}_0) \cdot
 		\mqty[h^1 \\ \vdots \\ h^m] \fullstop
 \end{align}
 这与 \ref{subsec:参数域方程}~小节中
@@ -544,7 +544,7 @@ $\qty{\V{g}^i(\V{x})}^m_{i=1}$，满足
 	\mqty[\V{g}^1(\V{x}),\,\cdots,\,\V{g}^m(\V{x})]\trans
 		\mqty[\V{g}_1(\V{x}),\,\cdots,\,\V{g}_m(\V{x})]
 	=\mqty[\qty(\V{g}^1)\trans \\ \vdots \\ \qty(\V{g}^m)\trans]\,
-		(\V{x}) \cdotp \JacobiD{\V{X}}(\V{x})
+		(\V{x}) \cdot \JacobiD{\V{X}}(\V{x})
 	=\Mat{I}_m \fullstop
 \end{equation}
 
@@ -557,7 +557,7 @@ $\qty{\V{g}^i(\V{x})}^m_{i=1}$，满足
 并利用复合映照可微性定理，可知
 \begin{equation}
 	\JacobiD{\V{X}}\qty\big(\V{x}(\V{X}))
-	\cdotp \JacobiD{\V{x}}(\V{X})
+	\cdot \JacobiD{\V{x}}(\V{X})
 	=\Mat{I}_m \comma
 	\label{eq:局部逆变基_两个Jacobi矩阵互逆}
 \end{equation}
@@ -630,10 +630,10 @@ $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 	\intertext{利用内积的线性性，有}
 	&=\sum_{\alpha=1}^{m} \sum_{\beta=1}^{m}
 		\pdv{X^\alpha}{x^i} (\V{x}) \pdv{x^j}{X^\beta} (\V{X})
-		\cdotp \ipb{\V{e}_\alpha}{\V{e}_\beta} \notag \\
+		\cdot \ipb{\V{e}_\alpha}{\V{e}_\beta} \notag \\
 	&=\sum_{\alpha=1}^{m} \sum_{\beta=1}^{m}
 		\pdv{X^\alpha}{x^i} (\V{x}) \pdv{x^j}{X^\beta} (\V{X})
-		\cdotp\KroneckerDelta*{\alpha\beta} \notag
+		\cdot\KroneckerDelta*{\alpha\beta} \notag
 	\intertext{合并掉指标 $\beta$，可得}
 	&=\sum_{\alpha=1}^{m}
 		\pdv{X^\alpha}{x^i} (\V{x})
@@ -797,6 +797,7 @@ $\pdv*{\V{g}_i}{x^j} (\V{x})$ 就表示 $\V{g}_i(\V{x})$
 和\emphA{第二类 Christoffel 符号}
 \begin{equation}
 	\ChristoffelB{j}{i}{k} \defeq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}^k}
+	\comma
 	\label{eq:第二类Christoffel符号定义}
 \end{equation}
 则式~\eqref{eq:协变基偏导数的协变与逆变表示} 可以写成
@@ -1005,7 +1006,7 @@ Jacobi 矩阵可以用\emphB{协变基}表示为
 因此协变形式的度量（矩阵形式）就可以写成
 \begin{equation}
 	\mqty[g_{ij}] \defeq \mqty[\ipb{\V{g}_i}{\V{g}_j}]
-	=\JacobiD{\V{X}}\trans(\V{x}) \cdotp
+	=\JacobiD{\V{X}}\trans(\V{x}) \cdot
 		\JacobiD{\V{X}}(\V{x}) \fullstop
 \end{equation}
 两种形式的度量是互逆的，于是 $g^{ij}$ 实际上也已经算出来了。
@@ -1122,7 +1123,7 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 	\V{g}_i\cp\V{g}^j
 	&=\ipb{\V{g}_i\cp\V{g}^j}{\V{g}^k}\,\V{g}_k \notag
 	\intertext{这里的内积也就是点积。根据向量三重积的知识，可以把
-		$\V{A}\cp\V{B}\cdotp\V{C}$ 表示成\emphB{行列式}：}
+		$\V{A}\cp\V{B}\cdot\V{C}$ 表示成\emphB{行列式}：}
 	&=\det\!\mqty[\V{g}_i,\,\V{g}^j,\,\V{g}^k]\,\V{g}_k \notag
 	\intertext{根据 Eddington 张量的定义即得到}
 	&=\LeviCivita{_i^{jk}}\,\V{g}_k \fullstop
@@ -1225,3 +1226,19 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 		-g^{jp}\,\KroneckerDelta{i}{q} \fullstop
 \end{align}
 以后将会看到，这是一个相当重要的基本结构。
+
+\section{张量的范数}
+\subsection{赋范线性空间}
+对于一个\emphA{线性空间} $\SPACE{V}$，它总是定义了\emphA{线性结构}：
+\begin{equation}
+	\forall\, \V{x},\,\V{y}\in\SPACE{V}
+	\text{\ 和\ } \forall\, \alpha,\,\beta\in\realR,\quad
+	\alpha\,\V{x}+\beta\,\V{y} \in \SPACE{V} \fullstop
+\end{equation}
+为了进一步研究的需要，我们还要引入\emphA{范数}的概念。
+所谓“范数”，就是对线性空间中任意元素\emphB{大小}的一种刻画。
+举个我们熟悉的例子， $m$ 维 Euclid 空间 $\Rm$ 中某个向量的范数，
+就定义为它在 Descartes 坐标下各分量的平方和再开方。
+
+一般而言，线性空间 $\SPACE{V}$ 中的范数
+$\norm[\SPACE{V}]{\cdotord}$ 需满足以下三个条件：

@@ -265,7 +265,7 @@
 \let\SET=\symbb
 %% 空间 花体
 \let\SPACE=\symcal
-%% 特殊空间 无衬线体
+%% 特殊空间 无衬线直立
 \let\SPACEX=\symsfup
 %% 域(领域，定义域) 哥特体
 \let\DOMAIN=\symfrak
@@ -360,9 +360,13 @@
 %% 张量积(Tensor Product)
 \newcommand{\tp}{\otimes}
 %% e-点积(e Dot Product)
-\newcommand{\edp}[1][e]{\mathbin{\dbinom{#1}{\cdotp}}}
+\newcommand{\edp}[1][e]{\mathbin{\dbinom{#1}{\mathord{\cdot}}}}
 %% 全点积(Full Dot Product)
 \newcommand{\fdp}{\odot}
+%% 点乘(Dot Product)
+%% 使用 \cdot
+%% \cdotp 作为 ordinary 符号
+\newcommand{\cdotord}{\mathord{\cdotp}}
 %% 叉乘(Cross Product)(has been defined in `physics' package)
 \renewcommand{\cp}{\vectimes}
 %% C^p 微分同胚(Diffeomorphism)
