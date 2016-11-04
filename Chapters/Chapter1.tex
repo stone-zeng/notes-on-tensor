@@ -57,6 +57,64 @@ $\qty[\V{g}_1,\,\cdots,\,\V{g}_m]$ 非奇异。因此
 $\qty{\V{g}^i}^m_{i=1}$ 称为\emphA{逆变基}。
 式~\eqref{eq:逆变基用协变基表示} 明确指出了逆变基与协变基的关系。
 
+\blankline
+
+下面我们引入\emphA{单位正交基}（或\emphA{标准正交基}），
+它是指模长为一且两两正交的一组基。
+
+如果矩阵 $\Mat{A}$ 满足
+\begin{equation}
+	\Mat{A}\trans\Mat{A}=\Mat{A}\Mat{A}\trans=\Mat{I} \comma
+\end{equation}
+即
+\begin{equation}
+	\Mat{A}\trans=\Mat{A}^{-1} \text{\ 或\ }
+	\Mat{A}=\Mat{A}\invTrans \comma
+\end{equation}
+则称 $\Mat{A}$ 为\emphA{正交矩阵}。正交矩阵的全体记作 $\Orth$。
+由线性代数中的结论可知，正交矩阵 $\Mat{A}$
+的每一行和每一列均是单位正交基；
+反之，若矩阵 $\Mat{A}$ 的每一行和每一列均是单位正交基，
+则 $\Mat{A}$ 也是正交矩阵。
+
+设 $\Rm$ 空间中的协变基 $\qty{\V{g}_i}^m_{i=1}$
+是一组单位正交基，则由它构成的矩阵
+\begin{equation}
+	\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]\in\Orth \comma
+\end{equation}
+因此
+\begin{equation}
+	\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]
+	=\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]\invTrans \fullstop
+\end{equation}
+另一方面，根据对偶关系的矩阵表示 \eqref{eq:逆变基用协变基表示}~式，
+我们有
+\begin{equation}
+	\mqty[\V{g}^1,\,\cdots,\,\V{g}^m]
+	=\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]\invTrans \comma
+\end{equation}
+于是
+\begin{equation}
+	\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]
+	=\mqty[\V{g}^1,\,\cdots,\,\V{g}^m] \comma
+\end{equation}
+即协变基与逆变基\emphB{完全相同}。
+反之，如果协变基与逆变基相同，那么有
+\begin{equation}
+	\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]\trans
+	=\mqty[\V{g}^1,\,\cdots,\,\V{g}^m]\trans
+	=\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]^{-1} \comma
+\end{equation}
+因而
+\begin{equation}
+	\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]\in\Orth \fullstop
+\end{equation}
+
+这样，我们便获得了一个重要结论：
+当 $\qty{\V{g}_i}^m_{i=1}\subset\Rm$ 是单位正交基，
+即 $\ipb{\V{g}_i}{\V{g}_j}=\KroneckerDelta*{ij}$ 时，
+可有 $\V{g}^i=\V{g}_i$。反之亦然。
+
 \subsection{度量} \label{subsec:度量}
 下面引入\emphA{度量}的概念。其定义为
 \begin{braceEq}
@@ -277,18 +335,17 @@ $\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
 	这里只考虑把 $\V{u}$、$\V{v}$、$\V{w}$%
 	和 $\V{g}^i$、$\V{g}_j$、$\V{g}^k$ 分别放在一起的情况。}表示方法：
 \begin{mySubEq}
-	\begin{gather}
-		\V{g}^i\tp\V{g}_j\tp\V{g}^k
+	\begin{align}
+		&\V{g}^i\tp\V{g}_j\tp\V{g}^k
 		\qty(\V{u},\,\V{v},\,\V{w})
 		\intertext{或者}
-		\V{u}\tp\V{v}\tp\V{w}
+		&\V{u}\tp\V{v}\tp\V{w}
 		\qty(\V{g}^i,\,\V{g}_j,\,\V{g}^k) \comma
-	\end{gather}
+	\end{align}
 \end{mySubEq}
 我们这里取上面一种。代入式~\eqref{eq:张量的表示1}，得
 \begin{align}
-	&\alspace
-		\T{\Phi}\qty(\V{u},\,\V{v},\,\V{w}) \notag\\
+	\T{\Phi}\qty(\V{u},\,\V{v},\,\V{w})
 	&=\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)
 		\cdot\V{g}^i\tp\V{g}_j\tp\V{g}^k
 		\qty(\V{u},\,\V{v},\,\V{w}) \notag
@@ -380,14 +437,15 @@ $\tensor{\Phi}{^i_j^k}=g_{jp}g^{kq}\tensor{\Phi}{^i^p_k}$
 这样的关系式。
 
 \subsection{相对不同基的张量分量之间的关系}
+\label{subsec:相对不同基的张量分量之间的关系}
 $\Rm$ 空间中，除了 $\qty{\V{g}_i}^m_{i=1}$ 和相应的
 对偶基 $\qty{\V{g}^i}^m_{i=1}$ 之外，当然还可以有其他的基，
 比如带括号的 $\qty{\V{g}_{(i)}}^m_{i=1}$ 以及对应的
 对偶基 $\qty{\V{g}^{(i)}}^m_{i=1}$。
 前者对应形如 $\tensor{\Phi}{^i_j^k}
 	\coloneq \T{\Phi}\qty(\V{g}^i,\,\V{g}_j,\,\V{g}^k)$ 的张量，
-后者则对应带括号的张量，如 $\tensor{\Phi}{^{(p)}_{(q)}^{(r)}} \coloneq
-	\T{\Phi}\qty(\V{g}^{(p)},\,\V{g}_{(q)},\,\V{g}^{(r)})$。
+后者则对应带括号的张量，如 $\tensor{\Phi}{^{(p)}_{(q)}^{(r)}}
+	\coloneq \T{\Phi}\qty(\V{g}^{(p)},\,\V{g}_{(q)},\,\V{g}^{(r)})$。
 下面我们来探讨这两个张量的关系。
 
 首先来建立基之间的关系。带括号的第 $i$ 个基向量

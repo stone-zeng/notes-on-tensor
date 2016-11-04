@@ -297,6 +297,8 @@
 \newcommand{\LinearT}[2]{\SPACE{L}\qty(#1,\,#2)}
 
 %--------特殊空间--------%
+%% 正交矩阵全体(Orthogonal Matrices)
+\newcommand{\Orth}{\SPACEX{Orth}}
 %% 对称张量全体(Symmetric Tensors)
 \newcommand{\Sym}{\SPACEX{Sym}}
 %% 反对称张量全体(Anti-symmetric Tensors)
@@ -352,6 +354,24 @@
 \newcommand{\mmap}[3]{{#1}:\,{#2}\mapsto{#3}}
 %% 带描述集合
 \DeclarePairedDelimiterX\set[2]{\{}{\}}{#1 \;\delimsize\vert\; #2}
+%% 中标
+%\makeatletter
+%\protected\def\xvcenter{%
+%	\hbox\bgroup$\everyvbox{\everyvbox{}\aftergroup%
+%	\m@th\aftergroup$\aftergroup\egroup}%
+%	\vcenter%
+%}
+%\newcommand{\mid@script}[2]{\vcenter{\hbox{$\m@th#1#2$}}}
+%\DeclareRobustCommand{\midscript}[1]{\mathchoice%
+%	{\mid@script\scriptstyle{#1}}%
+%	{\mid@script\scriptstyle{#1}}%
+%	{\mid@script\scriptscriptstyle{#1}}%
+%	{\mid@script\scriptscriptstyle{#1}}%
+%}
+%\makeatother
+\newcommand\midscript[1]{{\scriptstyle #1}}
+%% 单位正交基指标(Orthonormal Index)
+\newcommand{\orthIdx}[1]{\langle{#1}\rangle}
 %% 范数
 \let\PHYSICSNORM=\norm
 \renewcommand{\norm}[2][\Rm]{\PHYSICSNORM{#2}_{#1}}

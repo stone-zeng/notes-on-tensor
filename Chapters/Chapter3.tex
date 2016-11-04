@@ -1238,7 +1238,188 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 为了进一步研究的需要，我们还要引入\emphA{范数}的概念。
 所谓“范数”，就是对线性空间中任意元素\emphB{大小}的一种刻画。
 举个我们熟悉的例子， $m$ 维 Euclid 空间 $\Rm$ 中某个向量的范数，
-就定义为它在 Descartes 坐标下各分量的平方和再开方。
+就定义为该向量在 Descartes 坐标下各分量的平方和的平方根。
 
 一般而言，线性空间 $\SPACE{V}$ 中的范数
-$\norm[\SPACE{V}]{\cdotord}$ 需满足以下三个条件：
+$\norm[\SPACE{V}]{\cdotord}$ 是从 $\SPACE{V}$ 到 $\realR$
+的一个映照，并且需要满足以下三个条件：
+
+\begin{myEnum}
+\item \emphA{非负性}
+\begin{equation}
+	\forall\,\V{x}\in\SPACE{V},\quad
+	\norm[\SPACE{V}]{\V{x}} \geqslant 0
+\end{equation}
+以及\emphA{非退化性}
+\begin{equation}
+	\forall\,\V{x}\in\SPACE{V},\quad
+	\norm[\SPACE{V}]{\V{x}}=0
+	\iff \V{x}=\V{0}\in\SPACE{V} \comma
+\end{equation}
+这里的 $\V{0}$ 是线性空间 $\SPACE{V}$ 中的\emphA{零元素}，
+它是唯一存在的。
+
+\blankline
+
+\item 由于零元是唯一的，因此线性空间中的元素 $\V{x}$
+就与从 $\V{0}$ 指向它的向量一一对应。
+因此，线性空间中的元素也常被称为“向量”。
+
+考虑线性空间中的数乘运算。从几何上看， $\V{x}$ 乘上 $\lambda$，
+就是将 $\V{x}$ 沿着原来的指向进行伸缩。显然有
+\begin{equation}
+	\forall\,\V{x}\in\SPACE{V}
+	\text{\ 和\ } \forall\,\lambda\in\realR,\quad
+	\norm[\SPACE{V}]{\lambda\,\V{x}}
+	=\abs{\lambda}\cdot\norm[\SPACE{V}]{\V{x}} \comma
+\end{equation}
+这称为\emphA{正齐次性}。
+
+\myPROBLEM{想要图吗？}
+
+\item 线性空间中的加法满足\emphB{平行四边形法则}。直观地看，就有
+\begin{equation}
+	\forall\, \V{x},\,\V{y}\in\SPACE{V},\quad
+	\norm[\SPACE{V}]{\V{x}+\V{y}} \leqslant
+	\norm[\SPACE{V}]{\V{x}}+\norm[\SPACE{V}]{\V{y}} \comma
+\end{equation}
+这称为\emphA{三角不等式}。
+\end{myEnum}
+
+定义了范数的线性空间称为\emphA{赋范线性空间}。
+
+\subsection{张量范数的定义}
+考虑 $p$ 阶张量 $\T{\Phi}\in\Tensors{p}$，
+它可以用\emphB{逆变分量}或\emphB{协变分量}来表示：
+\begin{braceEq*}{\T{\Phi}=}
+	\Phi^{i_1 \cdots i_p}\,
+		\V{g}_{i_1}\tp\cdots\tp\V{g}_{i_p} \comma \\
+	\Phi_{i_1 \cdots i_p}\,
+		\V{g}^{i_1}\tp\cdots\tp\V{g}^{i_p} \comma
+\end{braceEq*}
+其中
+\begin{braceEq}
+	\Phi^{i_1 \cdots i_p}&=
+		\T{\Phi}\qty(\V{g}^{i_1},\,\cdots,\,\V{g}^{i_p}) \fullstop \\
+	\Phi_{i_1 \cdots i_p}&=
+		\T{\Phi}\qty\big(\V{g}_{i_1},\,\cdots,\,\V{g}_{i_p}) \comma
+\end{braceEq}
+张量的\emphA{范数}定义为
+\begin{equation}
+	\norm[\Tensors{p}]{\T{\Phi}}\defeq
+	\sqrt{\Phi^{i_1 \cdots i_p} \, \Phi_{i_1 \cdots i_p}}
+	\in\realR \fullstop
+\end{equation}
+$i_1 \cdots i_p$ 可独立取值，每个又有 $m$ 种取法，
+所以根号下共有 $m^p$ 项。
+注意 $\Phi^{i_1 \cdots i_p}$ 与 $\Phi_{i_1 \cdots i_p}$
+未必相等，因而根号下的部分未必是平方和，
+这与 Euclid 空间中向量的模是不同的。
+
+复习一下 \ref{subsec:相对不同基的张量分量之间的关系}~小节，
+我们可以用另一组（带括号的）基表示张量 $\T{\Phi}$：
+\begin{braceEq}
+	\Phi^{i_1 \cdots i_p} &=
+		c^{i_1}_{(\xi_1)} \cdots c^{i_p}_{(\xi_p)} \,
+		\Phi^{(\xi_1)\cdots(\xi_p)} \comma \\
+	\Phi_{i_1 \cdots i_p} &=
+		c^{(\eta_1)}_{i_1} \cdots c^{(\eta_p)}_{i_p} \,
+		\Phi_{(\eta_1)\cdots(\eta_p)} \comma
+\end{braceEq}
+其中的 $c^i_{(\xi)}=\ipb{\V{g}_{(\xi)}}{\V{g}^i}$，
+$c^{(\eta)}_i=\ipb{\V{g}^{(\eta)}}{\V{g}_i}$，它们满足
+\begin{equation}
+	c^i_{(\xi)}\,c^{(\eta)}_i
+	=\KroneckerDelta{(\eta)}{(\xi)} \fullstop
+\end{equation}
+于是
+\begin{align}
+	&\alspace\Phi^{i_1 \cdots i_p} \, \Phi_{i_1 \cdots i_p} \notag \\
+	&=\qty(c^{i_1}_{(\xi_1)} \cdots c^{i_p}_{(\xi_p)} \,
+			\Phi^{(\xi_1)\cdots(\xi_p)})
+		\qty(c^{(\eta_1)}_{i_1} \cdots c^{(\eta_p)}_{i_p} \,
+			\Phi_{(\eta_1)\cdots(\eta_p)}) \notag \\
+	&=\qty(c^{i_1}_{(\xi_1)} c^{(\eta_1)}_{i_1}) \cdots
+		\qty(c^{i_p}_{(\xi_p)} c^{(\eta_p)}_{i_p}) \,
+		\Phi^{(\xi_1)\cdots(\xi_p)} \Phi_{(\eta_1)\cdots(\eta_p)}
+		\notag \\
+	&=\KroneckerDelta{(\eta_1)}{(\xi_1)} \cdots
+		\KroneckerDelta{(\eta_p)}{(\xi_p)} \,
+		\Phi^{(\xi_1)\cdots(\xi_p)} \Phi_{(\eta_1)\cdots(\eta_p)}
+		\notag \\
+	&=\Phi^{(\xi_1)\cdots(\xi_p)} \Phi_{(\xi_1)\cdots(\xi_p)}
+	\fullstop
+\end{align}
+它是 $\T{\Phi}$ 在另一组基下的逆变分量与协变分量乘积之和。
+
+以上结果说明，张量的范数不依赖于基的选取，
+这就好比用不同的秤来称同一个人的体重，都将获得相同的结果。
+既然如此，不妨采用\emphB{单位正交基}来表示张量的范数：
+\begin{align}
+	\norm[\Tensors{p}]{\T{\Phi}}
+	&\defeq\sqrt{\Phi^{i_1 \cdots i_p} \, \Phi_{i_1 \cdots i_p}}
+	\notag \\
+	&=\sqrt{\Phi^{\orthIdx{i_1}\cdots\orthIdx{i_p}} \,
+		\Phi_{\orthIdx{i_1}\cdots\orthIdx{i_p}}} \notag \\
+	&\eqcolon\sqrt{\sum\nolimits_{i_1,\,\cdots,\,i_p=1}^{m}
+		\qty\big(\Phi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}})^2}
+	\fullstop
+\end{align}
+这里的 $\Phi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}}$
+表示张量 $\T{\Phi}$ 在单位正交基下的分量，它的指标不区分上下。
+
+有了这样的表示，很容易就可以验证张量范数符合之前的三个要求。
+一组数的平方和开根号，必然是\emphB{非负}的。
+至于\emphB{非退化性}，若范数为零，则所有分量均为零，自然成为零张量；
+反之，对于零张量，所有分量为零，范数也为零。
+将 $\T{\Phi}$ 乘上 $\lambda$，则有
+\begin{align}
+	\norm[\Tensors{p}]{\lambda\,\T{\Phi}}
+	&=\sqrt{\sum\nolimits_{i_1,\,\cdots,\,i_p=1}^{m}
+		\qty\big(\lambda\,
+			\Phi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}})^2} \notag \\
+	&=\sqrt{\lambda^2 \sum\nolimits_{i_1,\,\cdots,\,i_p=1}^{m}
+			\qty\big(\Phi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}})^2}
+		\notag \\
+	&=\abs{\lambda} \sqrt{\sum\nolimits_{i_1,\,\cdots,\,i_p=1}^{m}
+			\qty\big(\Phi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}})^2}
+		\notag \\
+	&=\abs{\lambda}\cdot\norm[\Tensors{p}]{\T{\Phi}} \comma
+\end{align}
+于是\emphB{正齐次性}也得以验证。
+最后，利用 Cauchy--Schwarz 不等式，可有
+\begin{align}
+	&\alspace\norm[\Tensors{p}]{\T{\Phi}+\T{\Psi}}^2 \notag \\
+	&=\sum \qty\Big(\Phi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}}
+			+\Psi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}})^2 \notag \\
+	&=\sum \qty[
+			\qty\big(\Phi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}})^2
+			+2\, \Phi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}} \,
+				\Psi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}}
+			+\qty\big(\Psi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}})^2]
+		\notag \\
+	&=\sum \qty\big(\Phi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}})^2
+		+2\sum \Phi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}} \,
+			\Psi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}}
+		+\sum \qty\big(\Psi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}})^2
+		\notag \\
+	&\leqslant\norm[\Tensors{p}]{\T{\Phi}}^2
+		+2 \sqrt{\sum \qty\big(
+				\Phi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}})^2}
+			\sqrt{\sum \qty\big(
+				\Psi\midscript{\orthIdx{i_1,\,\cdots,\,i_p}})^2}
+		+\norm[\Tensors{p}]{\T{\Phi}}^2 \notag \\
+	&=\norm[\Tensors{p}]{\T{\Phi}}^2
+		+2\norm[\Tensors{p}]{\T{\Phi}}\cdot\norm[\Tensors{p}]{\T{\Psi}}
+		+\norm[\Tensors{p}]{\T{\Phi}}^2 \notag \\
+	&=\qty\Big(\norm[\Tensors{p}]{\T{\Phi}}
+		+\norm[\Tensors{p}]{\T{\Phi}})^2 \fullstop
+\end{align}
+两边开方，即为\emphB{三角不等式}。
+
+\blankline
+
+由此，我们就完整地给出了张量大小的刻画手段。
+可以看出，它实际上就是 Euclid 空间中向量模的直接推广。
+
+\subsection{简单张量的范数}
