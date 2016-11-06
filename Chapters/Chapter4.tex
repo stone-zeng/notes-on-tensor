@@ -194,3 +194,110 @@ $c^{(\eta)}_i=\ipb{\V{g}^{(\eta)}}{\V{g}_i}$，它们满足
 可以看出，它实际上就是 Euclid 空间中向量模的直接推广。
 
 \subsection{简单张量的范数}
+根据 \ref{subsec:张量的表示与简单张量}~小节中的定义，
+简单张量是形如 $\V{\xi}\tp\V{\eta}\tp\V{\zeta}$ 的张量，
+其中的 $\V{\xi},\,\V{\eta},\,\V{\zeta}\in\Rm$，
+它是三个向量的张量积。
+简单张量的范数为
+\begin{equation}
+	\norm[\Tensors{3}]{\V{\xi}\tp\V{\eta}\tp\V{\zeta}}
+	=\norm{\V{\xi}}\cdot\norm{\V{\eta}}\cdot\norm{\V{\zeta}}
+	\fullstop \label{eq:简单张量的范数}
+\end{equation}
+
+\begin{myProof}
+$\V{\xi}\tp\V{\eta}\tp\V{\zeta}$ 的逆变分量为
+\begin{equation}
+	\qty(\V{\xi}\tp\V{\eta}\tp\V{\zeta})^{ijk}
+	\defeq \V{\xi}\tp\V{\eta}\tp\V{\zeta}
+		\qty(\V{g}^i,\,\V{g}^j,\,\V{g}^k)
+	=\xi^i \eta^j \zeta^k \fullstop
+\end{equation}
+同理，它的协变分量为
+\begin{equation}
+	\qty(\V{\xi}\tp\V{\eta}\tp\V{\zeta})_{ijk}
+	\defeq \V{\xi}\tp\V{\eta}\tp\V{\zeta}
+		\qty(\V{g}_i,\,\V{g}_j,\,\V{g}_k)
+	=\xi_i \eta_j \zeta_k \fullstop
+\end{equation}
+二者相乘，有
+\begin{align}
+	&\alspace\qty(\V{\xi}\tp\V{\eta}\tp\V{\zeta})^{ijk}
+		\cdot \qty(\V{\xi}\tp\V{\eta}\tp\V{\zeta})_{ijk} \notag \\
+	&=\qty(\xi^i \eta^j \zeta^k)
+		\cdot \qty(\xi_i \eta_j \zeta_k) \notag \\
+	&=\qty(\xi^i \xi_i) \cdot \qty(\eta^j \eta_j)
+		\cdot \qty(\zeta^k \zeta_k) \fullstop
+\end{align}
+注意到
+\begin{align}
+	\norm{\xi}^2
+	&=\ipb{\xi}{\xi} \notag
+	\intertext{分别把二者用协变和逆变分量表示：}
+	&=\ipb{\xi^i\,\V{g}_i}{\xi_j\,\V{g}^j} \notag \\
+	&=\xi^i \xi_j \ipb{\V{g}_i}{\V{g}^j} \notag \\
+	&=\xi^i \xi_j \KroneckerDelta{j}{i}
+	=\xi^i \xi_i \comma
+\end{align}
+于是
+\begin{equation}
+	\qty(\V{\xi}\tp\V{\eta}\tp\V{\zeta})^{ijk}
+		\cdot \qty(\V{\xi}\tp\V{\eta}\tp\V{\zeta})_{ijk}
+	=\norm{\xi}^2 \cdot \norm{\V{\eta}}^2 \cdot \norm{\V{\zeta}}^2
+	\fullstop
+\end{equation}
+两边开方，即得 \eqref{eq:简单张量的范数}~式。
+\end{myProof}
+
+\section{张量场沿坐标曲线的变化率}
+在区域 $\domD{\V{x}}\subset\Rm$ 上，
+若存在一个自变量用\emphB{位置}刻画的映照
+\begin{equation}
+	\mmap{\T{\Phi}}{\domD{\V{x}}\ni\V{x}}
+		{\T{\Phi}(\V{x})\in\Tensors{r}} \comma
+\end{equation}
+则称张量 $\T{\Phi}(\V{x})$ \footnote{%
+	类似“$\T{\Phi}(\V{x})$”的记号在前文也表示张量 $\T{\Phi}$
+	\emphB{作用}在向量 $\V{x}$ 上（“吃掉”了 $\V{x}$），此时有
+	$\T{\Phi}(\V{x})\in\realR$，注意不要混淆。
+	符号有限，难免如此，还望诸位体谅。}是定义在 $\domD{\V{x}}$
+上的一个\emphA{张量场}。
+
+下面我们以三阶张量为例。设在物理域 $\domD{\V{X}}\subset\Rm$
+和参数域 $\domD{\V{x}}\subset\Rm$ 之间已经建立了微分同胚
+$\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
+在 $\V{X}(\V{x})$ 处，张量场 $\T{\Phi}(\V{x})$
+可以用分量形式表示为
+\begin{equation}
+	\T{\Phi}(\V{x})=\tensor{\Phi(\V{x})}{^i_j^k}\,
+		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
+	\in\Tensors{3} \comma
+\end{equation}
+其中的 $\V{g}_i(\V{x}),\,\V{g}^j(\V{x}),\,\V{g}_k(\V{x})$
+都是\emphB{局部}基，而张量分量则定义为\footnote{%
+	请注意，下式 $\T{\Phi}$ 之后的第一个圆括号表示\emphB{位于}
+	$\V{x}$ 处；而后面的方括号则表示\emphB{作用在}这几个向量上。}
+\begin{equation}
+	\tensor{\Phi(\V{x})}{^i_j^k}
+	\defeq \T{\Phi}(\V{x})
+		\qty[\V{g}_i(\V{x}),\,\V{g}^j(\V{x}),\,\V{g}_k(\V{x})]
+	\in\realR \fullstop
+\end{equation}
+类似地，当点沿着 $x^\mu$-线运动到
+$\V{X}\qty(\V{x}+\lambda\,\V{e}_\mu)$ 处时，有
+\begin{equation}
+	\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)
+	=\tensor{\Phi\qty(\V{x}+\lambda\,\V{e}_\mu)}{^i_j^k}\,
+		\V{g}_i \qty(\V{x}+\lambda\,\V{e}_\mu)
+		\tp\V{g}^j \qty(\V{x}+\lambda\,\V{e}_\mu)
+		\tp\V{g}_k \qty(\V{x}+\lambda\,\V{e}_\mu) \fullstop
+\end{equation}
+
+现在研究 $\lambda\to 0 \in\realR$ 时的极限
+\begin{equation}
+	\lim_{\lambda\to 0}
+	\frac{\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)-\T{\Phi}(\V{x})}
+		{\lambda}
+	\eqcolon \pdv{\T{\Phi}}{x^\mu} (\V{x})
+	\in\Tensors{3} \fullstop
+\end{equation}

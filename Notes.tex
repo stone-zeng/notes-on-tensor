@@ -376,7 +376,8 @@
 \let\PHYSICSNORM=\norm
 \renewcommand{\norm}[2][\Rm]{\PHYSICSNORM{#2}_{#1}}
 %% 内积(括号形式)(Inner Product Braket)
-\newcommand{\ipb}[3][\Rm]{\qty(#2,\,#3)_{#1}}
+%\newcommand{\ipb}[3][\Rm]{\qty(#2,\,#3)_{#1}}
+\newcommand{\ipb}[3][\Rm]{\left\langle#2,\,#3\right\rangle_{#1}}
 %% 张量积(Tensor Product)
 \newcommand{\tp}{\otimes}
 %% e-点积(e Dot Product)
