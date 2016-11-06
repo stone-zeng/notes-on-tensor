@@ -395,9 +395,17 @@
 %% 直至 p 阶偏导数连续的函数(Continuous Function)
 \newcommand{\cf}[3][p]{\symcal{C}^{#1}\qty(#2;\,#3)}
 %% 大 O 记号
-\newcommand{\bO}[1]{\mathop{\symcal{O}}\qty(#1)}
+\newcommand{\bO}[1]{\mathop{\mscrO}\qty(#1)}
 %% 小 O 记号
-\newcommand{\sO}[1]{\mathop{\symcal{o}}\qty(#1)}
+\newcommand{\sO}[1]{\mathop{\mscro}\qty(#1)}
+%% 小 O 记号(带上下标)
+\WithSuffix\newcommand\sO*[2]{\mathop{
+	\tensor{\mscro}{#1}}\qty(#2)}
+%% 向量形式小 O 记号
+\newcommand{\sOv}[1]{\mathop{\mbfscro}\qty(#1)}
+%% 向量形式小 O 记号(带上下标)
+\WithSuffix\newcommand\sOv*[2]{\mathop{
+		\tensor{\mbfscro}{#1}}\qty(#2)}
 %% 复合(Composite)
 \newcommand{\comp}{\circ}
 %% 定义等号(Definition Equal)
@@ -426,6 +434,7 @@
 \newcommand{\fullstop}{\text{．}}
 \newcommand{\semicomma}{\text{；}}
 \newcommand{\const}{\text{const.}}
+\newcommand{\res}{\text{res.}}
 %\renewcommand{\intertext}[1]{\shortintertext{\textit{#1}}}
 
 

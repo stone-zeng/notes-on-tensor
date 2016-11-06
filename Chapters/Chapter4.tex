@@ -32,8 +32,8 @@ $\norm[\SPACE{V}]{\cdotord}$ 是从 $\SPACE{V}$ 到 $\realR$
 
 \blankline
 
-\item 由于零元是唯一的，因此线性空间中的元素 $\V{x}$
-就与从 $\V{0}$ 指向它的向量一一对应。
+\item 零元是唯一的，线性空间中的元素 $\V{x}$
+与从 $\V{0}$ 指向它的向量一一对应。
 因此，线性空间中的元素也常被称为“向量”。
 
 考虑线性空间中的数乘运算。从几何上看， $\V{x}$ 乘上 $\lambda$，
@@ -269,7 +269,7 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 在 $\V{X}(\V{x})$ 处，张量场 $\T{\Phi}(\V{x})$
 可以用分量形式表示为
 \begin{equation}
-	\T{\Phi}(\V{x})=\tensor{\Phi(\V{x})}{^i_j^k}\,
+	\T{\Phi}(\V{x})=\tensor{\Phi}{^i_j^k}(\V{x})\,\,
 		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
 	\in\Tensors{3} \comma
 \end{equation}
@@ -278,7 +278,7 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 	请注意，下式 $\T{\Phi}$ 之后的第一个圆括号表示\emphB{位于}
 	$\V{x}$ 处；而后面的方括号则表示\emphB{作用在}这几个向量上。}
 \begin{equation}
-	\tensor{\Phi(\V{x})}{^i_j^k}
+	\tensor{\Phi}{^i_j^k}(\V{x})
 	\defeq \T{\Phi}(\V{x})
 		\qty[\V{g}_i(\V{x}),\,\V{g}^j(\V{x}),\,\V{g}_k(\V{x})]
 	\in\realR \fullstop
@@ -287,17 +287,166 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 $\V{X}\qty(\V{x}+\lambda\,\V{e}_\mu)$ 处时，有
 \begin{equation}
 	\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)
-	=\tensor{\Phi\qty(\V{x}+\lambda\,\V{e}_\mu)}{^i_j^k}\,
+	=\tensor{\Phi}{^i_j^k}\qty(\V{x}+\lambda\,\V{e}_\mu)\,\,
 		\V{g}_i \qty(\V{x}+\lambda\,\V{e}_\mu)
 		\tp\V{g}^j \qty(\V{x}+\lambda\,\V{e}_\mu)
 		\tp\V{g}_k \qty(\V{x}+\lambda\,\V{e}_\mu) \fullstop
+	\label{eq:x+lambda_e_mu处的张量场}
 \end{equation}
 
 现在研究 $\lambda\to 0 \in\realR$ 时的极限
 \begin{equation}
-	\lim_{\lambda\to 0}
-	\frac{\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)-\T{\Phi}(\V{x})}
-		{\lambda}
+	\lim_{\lambda\to 0} \frac{\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)
+		-\T{\Phi}(\V{x})} {\lambda}
 	\eqcolon \pdv{\T{\Phi}}{x^\mu} (\V{x})
 	\in\Tensors{3} \fullstop
+	\label{eq:张量场偏导数极限定义}
 \end{equation}
+与之前的向量值映照类似，该极限表示张量场 $\T{\Phi}(\V{x})$
+作为一个\emphB{整体}，相对于自变量第 $\mu$ 个分量的变化率。
+式中，$\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)$
+已由 \eqref{eq:x+lambda_e_mu处的张量场}~式给出。
+注意到张量分量实际上就是一个\emphB{多元函数}，于是
+\begin{equation}
+	\tensor{\Phi}{^i_j^k}\qty(\V{x}+\lambda\,\V{e}_\mu)
+	=\tensor{\Phi}{^i_j^k}(\V{x})
+	+\pdv{\tensor{\Phi}{^i_j^k}}{x^\mu} (\V{x}) \cdot\lambda
+	+\sO*{^i_j^k}{\lambda} \in\realR \fullstop
+\end{equation}
+另外，三个基向量作为\emphB{向量值映照}，同样可以展开：
+\begin{braceEq}
+	\V{g}_i\qty(\V{x}+\lambda\,\V{e}_\mu)
+	&=\V{g}_i(\V{x})+\pdv{\V{g}_i}{x^\mu} (\V{x}) \cdot\lambda
+		+\sOv*{_i}{\lambda} \in\Rm \comma \\
+	\V{g}^j\qty(\V{x}+\lambda\,\V{e}_\mu)
+	&=\V{g}^j(\V{x})+\pdv{\V{g}^j}{x^\mu} (\V{x}) \cdot\lambda
+		+\sOv*{^j}{\lambda} \in\Rm \comma \\
+	\V{g}_k\qty(\V{x}+\lambda\,\V{e}_\mu)
+	&=\V{g}_k(\V{x})+\pdv{\V{g}_k}{x^\mu} (\V{x}) \cdot\lambda
+		+\sOv*{_k}{\lambda} \in\Rm \fullstop
+\end{braceEq}
+如果直接展开，一共有 81 项，显然过于繁杂，不便操作。
+我们将按 $\lambda$ 的次数逐次展开。首先看 $\lambda$ 的零次项:
+\begin{equation}
+	\tensor{\Phi}{^i_j^k}(\V{x})\,\,
+	\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \comma
+\end{equation}
+这就是 $\T{\Phi}(\V{x})$。然后是 $\lambda$ 的一次项：
+\begin{align}
+	\lambda &\cdot\left[\pdv{\tensor{\Phi}{^i_j^k}}{x^\mu} (\V{x})
+		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
+	+\tensor{\Phi}{^i_j^k} (\V{x})\,\,
+		\pdv{\V{g}_i}{x^\mu} (\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
+	\right. \notag \\
+	&\phantom{M}\left.\phantom{}+\tensor{\Phi}{^i_j^k} (\V{x})\,\,
+		\V{g}_i(\V{x})\tp\pdv{\V{g}^j}{x^\mu} (\V{x})\tp\V{g}_k(\V{x})
+	+\tensor{\Phi}{^i_j^k} (\V{x})\,\,
+		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\pdv{\V{g}_k}{x^\mu} (\V{x})
+	\vphantom{\pdv{\tensor{\Phi}{^i_j^k}}{x^\mu}} \right] \fullstop
+\end{align}
+剩下的至少是 $\lambda$ 的两次项，
+我们将其统一写作“$\res$”（即余项）。
+
+现在回头看之前的极限 \eqref{eq:张量场偏导数极限定义}~式。
+$\lambda$ 的零次项与 $\T{\Phi}(\V{x})$ 相互抵消，
+而一次项就只剩下了系数部分。至于余项 $\res$，则要证明它趋于零。以
+\begin{equation}
+	\tensor{\Phi}{^i_j^k} (\V{x})\,\,
+	\sOv*{_i}{\lambda}\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
+\end{equation}
+为例，我们需要证明它等于 $\sOv{\lambda}\in\Tensors{3}$，即
+\begin{equation}
+	\lim_{\lambda\to 0}
+	\frac{\norm[\Tensors{3}]{\tensor{\Phi}{^i_j^k} (\V{x})\,\,
+			\sOv*{_i}{\lambda}\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})}}
+		{\lambda}=0\in\realR \fullstop
+\end{equation}
+
+\begin{myProof}
+这里为了叙述方便，我们将暂时不使用 Einstein 求和约定，
+而是把求和号显式地写出来。于是分子部分可以写成
+\begin{align}
+	&\alspace\norm[\Tensors{3}]{\sum_{i,\,j,\,k=1}^{m}
+		\tensor{\Phi}{^i_j^k} (\V{x})\,\,
+		\sOv*{_i}{\lambda}\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})} \notag
+	\intertext{根据范数的\emphB{三角不等式}，有}
+	&\leqslant\sum_{i,\,j,\,k=1}^{m}
+		\norm[\Tensors{3}]{\tensor{\Phi}{^i_j^k} (\V{x})\,\,
+			\sOv*{_i}{\lambda}\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})} \notag
+	\intertext{再利用\emphB{正齐次性}，可得}
+	&=\sum_{i,\,j,\,k=1}^{m} \abs{\tensor{\Phi}{^i_j^k} (\V{x})}
+		\cdot \norm[\Tensors{3}]
+			{\sOv*{_i}{\V{x}}\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})} \notag
+	\intertext{代入简单张量的范数，便有}
+	&=\sum_{i,\,j,\,k=1}^{m} \abs{\tensor{\Phi}{^i_j^k} (\V{x})}
+		\cdot \norm{\sOv*{_i}{\lambda}}
+		\cdot \norm{\V{g}^j(\V{x})}
+		\cdot \norm{\V{g}_k(\V{x})} \fullstop
+\end{align}
+这几项中只有 $\norm[\Tensors{3}]{\sOv*{_i}{\lambda}}$ 与
+$\lambda$ 有关。于是
+\begin{align}
+	&\alspace\lim_{\lambda\to 0}
+	\frac{\norm[\Tensors{3}]{\tensor{\Phi}{^i_j^k} (\V{x})\,\,
+			\sOv*{_i}{\lambda}\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})}}
+		{\lambda} \notag \\
+	&=\sum_{i,\,j,\,k=1}^{m} \abs{\tensor{\Phi}{^i_j^k} (\V{x})}
+		\cdot \norm{\V{g}^j(\V{x})}
+		\cdot \norm{\V{g}_k(\V{x})}
+		\cdot \lim_{\lambda\to 0}
+		\frac{\norm{\sOv*{_i}{\lambda}}}{\lambda} \notag
+	\intertext{根据定义，最后的极限为零，因此}
+	&=0 \fullstop
+\end{align}
+\end{myProof}
+
+类似地，其他七十多项也都是 $\lambda$ 的一阶无穷小量。
+而有限个无穷小量之和仍为无穷小量，于是 $\res\to 0$。
+
+\blankline
+
+综上，我们有
+\begin{align}
+	&\alspace \pdv{\T{\Phi}}{x^\mu}  \coloneq
+	\lim_{\lambda\to 0} \frac{\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)
+		-\T{\Phi}} {\lambda} \notag \\
+	&=\qty(\pdv{\tensor{\Phi}{^i_j^k}}{x^\mu}
+		\V{g}_i\tp\V{g}^j\tp\V{g}_k
+	+\tensor{\Phi}{^i_j^k} \,\,
+		\pdv{\V{g}_i}{x^\mu} \tp\V{g}^j\tp\V{g}_k
+	+\tensor{\Phi}{^i_j^k} \,\,
+		\V{g}_i\tp\pdv{\V{g}^j}{x^\mu} \tp\V{g}_k
+	+\tensor{\Phi}{^i_j^k} \,\,
+		\V{g}_i\tp\V{g}^j\tp\pdv{\V{g}_k}{x^\mu}) (\V{x})
+	\fullstop
+\end{align}
+式中，$\pdv*{\V{g}_i}{x^\mu} (\V{x})$ 可以用 Christoffel 符号表示：
+\begin{equation}
+	\pdv{\V{g}_i}{x^\mu} (\V{x})
+	=\ChristoffelB{\mu}{i}{s} \V{g}_s \fullstop
+\end{equation}
+因此
+\begin{align}
+	&\alspace\tensor{\Phi}{^i_j^k} \,\,
+		\pdv{\V{g}_i}{x^\mu} \tp\V{g}^j\tp\V{g}_k \notag \\
+	&=\ChristoffelB{\mu}{i}{s} \tensor{\Phi}{^i_j^k}
+		\V{g}_s\tp\V{g}^j\tp\V{g}_k \notag
+	\intertext{$i$ 和 $s$ 都是哑标，不妨进行一下交换：}
+	&=\ChristoffelB{\mu}{s}{i} \tensor{\Phi}{^s_j^k}
+		\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
+\end{align}
+同样，后面的两项也可进行类似的处理。这样便有
+\begin{align}
+	&\alspace \pdv{\T{\Phi}}{x^\mu}  \coloneq
+	\lim_{\lambda\to 0} \frac{\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)
+		-\T{\Phi}} {\lambda} \notag \\
+	&=\qty(\pdv{\tensor{\Phi}{^i_j^k}}{x^\mu}
+		+\ChristoffelB{\mu}{s}{i} \tensor{\Phi}{^s_j^k}
+		-\ChristoffelB{\mu}{j}{s} \tensor{\Phi}{^i_s^k}
+		+\ChristoffelB{\mu}{s}{k} \tensor{\Phi}{^i_j^s})
+		\V{g}_i\tp\V{g}^j\tp\V{g}_k \notag \\
+	&\eqcolon \nabla_\mu \tensor{\Phi}{^i_j^k}
+		\V{g}_i\tp\V{g}^j\tp\V{g}_k \comma
+\end{align}
+式中，我们称 $\nabla_\mu \tensor{\Phi}{^i_j^k}\in\realR$ 为张量分量
+$\tensor{\Phi}{^i_j^k}$ 相当于 $x^\mu$ 的\emphA{协变导数}。
