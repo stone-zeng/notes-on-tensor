@@ -337,14 +337,14 @@ $\V{X}\qty(\V{x}+\lambda\,\V{e}_\mu)$ 处时，有
 		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
 	+\tc{\Phi}{^i_j^k} (\V{x})\,\,
 		\pdv{\V{g}_i}{x^\mu} (\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
-	\right. \notag \\
+	\right. \notag \\*
 	&\phantom{M}\left.\phantom{}+\tc{\Phi}{^i_j^k} (\V{x})\,\,
 		\V{g}_i(\V{x})\tp\pdv{\V{g}^j}{x^\mu} (\V{x})\tp\V{g}_k(\V{x})
 	+\tc{\Phi}{^i_j^k} (\V{x})\,\,
 		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\pdv{\V{g}_k}{x^\mu} (\V{x})
 	\vphantom{\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}} \right] \fullstop
 \end{align}
-剩下的至少是 $\lambda$ 的两次项，
+剩下的至少是 $\lambda$ 的二次项，
 我们将其统一写作“$\res$”（即余项）。
 
 现在回头看之前的极限 \eqref{eq:张量场偏导数的极限定义}~式。
@@ -360,6 +360,7 @@ $\lambda$ 的零次项与 $\T{\Phi}(\V{x})$ 相互抵消，
 	\frac{\norm[\Tensors{3}]{\tc{\Phi}{^i_j^k} (\V{x})\,\,
 			\sOv*{_i}{\lambda}\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})}}
 		{\lambda}=0\in\realR \fullstop
+	\label{eq:余项证明举例}
 \end{equation}
 
 \begin{myProof}
@@ -460,3 +461,215 @@ $\lambda$ 有关。于是
 	+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s}(\V{x})
 	\fullstop
 \end{equation}
+
+\section{张量场的梯度}
+我们在参数域中的内点 $\V{x}_0$ 处取一个半径为 $\delta$ 的邻域
+$\domB{\delta}{\V{x}_0}$。若使自变量变化到 $\V{x}_0+\V{h}$，
+则在物理域中，对应的点就将从 $\V{X}\qty(\V{x}_0)$ 变化到
+$\V{X}\qty(\V{x}_0+\V{h})$。考察定义在参数域 $\domD{x}$ 上的张量场
+$\T{\Phi}(\V{x})$，它的变化为
+\begin{align}
+	&\alspace\T{\Phi}\qty(\V{x}_0+\V{h})-\T{\Phi}\qty(\V{x}_0)
+		\notag \\
+	&=\tc{\Phi}{^i_j^k}\qty(\V{x}_0+\V{h}) \,\,
+		\V{g}_i \qty(\V{x}_0+\V{h})
+		\tp\V{g}^j \qty(\V{x}_0+\V{h})
+		\tp\V{g}_k \qty(\V{x}_0+\V{h}) \notag \\
+	&\alspace\phantom{}
+		-\tc{\Phi}{^i_j^k}\qty(\V{x}_0) \,\,
+		\V{g}_i \qty(\V{x}_0)
+		\tp\V{g}^j \qty(\V{x}_0)
+		\tp\V{g}_k \qty(\V{x}_0) \fullstop
+	\label{eq:张量场沿任意方向的变化_1}
+\end{align}
+与之前一样将第一部分逐项展开，有
+\begin{braceEq}
+	&\tc{\Phi}{^i_j^k}\qty(\V{x}_0+\V{h})
+	=\tc{\Phi}{^i_j^k}\qty(\V{x}_0)
+	+\pdv{\tc{\Phi}{^i_j^k}}{x^\mu} \qty(\V{x}_0) \cdot h^\mu
+	+\sO*{^i_j^k}{\norm{\V{h}}} \in\realR \comma \\
+	&\V{g}_i \qty(\V{x}_0+\V{h})
+	=\V{g}_i \qty(\V{x}_0)
+		+\pdv{\V{g}_i}{x^\mu} \qty(\V{x}_0) \cdot h^\mu
+		+\sOv*{_i}{\norm{\V{h}}} \in\Rm \comma \\
+	&\V{g}^j \qty(\V{x}_0+\V{h})
+	=\V{g}^j \qty(\V{x}_0)
+		+\pdv{\V{g}^j}{x^\mu} \qty(\V{x}_0) \cdot h^\mu
+		+\sOv*{^j}{\norm{\V{h}}} \in\Rm \comma \\
+	&\V{g}_k \qty(\V{x}_0+\V{h})
+	=\V{g}_k \qty(\V{x}_0)
+		+\pdv{\V{g}_k}{x^\mu} \qty(\V{x}_0) \cdot h^\mu
+		+\sOv*{_k}{\norm{\V{h}}} \in\Rm \fullstop
+\end{braceEq}
+不要忘记对哑标 $\mu$ 进行求和。
+
+不显含 $\V{h}$ 的只有每行的第一项；它们组合起来，
+与式~\eqref{eq:张量场沿任意方向的变化_1} 的第二部分相互抵消。
+再看 $\V{h}$ 的一次项 ：\footnote{%
+	实际是 $h^\mu$ 的一次项。别忘了求和。}
+\begin{equation}
+	\qty[
+		\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}\,\,
+		\V{g}_i \tp \V{g}^j \tp \V{g}_k
+	+\tc{\Phi}{^i_j^k} \qty(
+		\pdv{\V{g}_i}{x^\mu}\tp\V{g}^j\tp\V{g}_k
+		+\V{g}_i\tp\pdv{\V{g}^j}{x^\mu}\tp\V{g}_k
+		+\V{g}_i\tp\V{g}^j\tp\pdv{\V{g}_k}{x^\mu} )]
+	\qty(\V{x}_0) \cdot h^\mu \fullstop
+\end{equation}
+利用 Christoffel 符号又可以把它写成
+\begin{align}
+	&\alspace \left[\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}\,\,
+			\V{g}_i \tp \V{g}^j \tp \V{g}_k
+		+\tc{\Phi}{^i_j^k}\,\, \qty\Big(\ChristoffelB{\mu}{i}{s}\V{g}_s)
+			\tp\V{g}^j\tp\V{g}_k \right.
+		\notag \\*
+	&\phantom{MM} \left.\phantom{}-\tc{\Phi}{^i_j^k} \,\,
+			\V{g}_i\tp\qty\Big(\ChristoffelB{\mu}{s}{j}\V{g}^s)\tp\V{g}_k
+		+\tc{\Phi}{^i_j^k} \,\,
+			\V{g}_i\tp\V{g}^j\tp\qty\Big(\ChristoffelB{\mu}{k}{s}\V{g}_s)
+		\vphantom{\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}} \right]
+		\qty(\V{x}_0) \cdot h^\mu \notag \\
+	%%
+	&=\left(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}\,\,
+			\V{g}_i \tp \V{g}^j \tp \V{g}_k
+		+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k} \,\,
+			\V{g}_i\tp\V{g}^j\tp\V{g}_k \right.
+		\notag \\*
+	&\phantom{MM} \left.\phantom{}
+		-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k} \,\,
+			\V{g}_i\tp\V{g}^j\tp\V{g}_k
+		+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s} \,\,
+			\V{g}_i\tp\V{g}^j\tp\V{g}_k
+		\vphantom{\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}} \right)
+		\qty(\V{x}_0) \cdot h^\mu \notag \\
+	%%
+	&=\qty[\qty\Bigg(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}
+		+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
+		-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
+		+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s}) \,
+		\V{g}_i\tp\V{g}^j\tp\V{g}_k] \qty(\V{x}_0)
+		\cdot h^\mu \fullstop
+\end{align}
+至于高阶项，它们都等于 $\sOv{\norm{\V{h}}}\in\Tensors{3}$，并且满足
+\begin{equation}
+	\lim_{\V{h}\to\V{0}\,\in\,\Rm}
+		\frac{\norm[\Tensors{3}]{\sOv{\norm{\V{h}}}}}{\norm{\V{h}}}
+	=0 \in\realR \fullstop
+\end{equation}
+证明与 \eqref{eq:余项证明举例}~式类似。
+
+整理一下，我们有
+\begin{align}
+	&\alspace\T{\Phi}\qty(\V{x}_0+\V{h})-\T{\Phi}\qty(\V{x}_0)
+		\notag \\
+	&=\qty[\qty\Bigg(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}
+			+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
+			-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
+			+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s}) \,
+			\V{g}_i\tp\V{g}^j\tp\V{g}_k] \qty(\V{x}_0) \cdot h^\mu
+		+\sOv{\norm{\V{h}}} \notag
+	\intertext{利用协变导数，有}
+	&\eqcolon \qty[\vphantom{\frac{0^0}{0^0}}
+		\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,\,
+		\V{g}_i \qty(\V{x}_0)
+		\tp\V{g}^j \qty(\V{x}_0)
+		\tp\V{g}_k \qty(\V{x}_0)] h^\mu
+		+\sOv{\norm{\V{h}}} \fullstop
+	\label{eq:张量场沿任意方向的变化_2}
+\end{align}
+至此，从微分学的角度来看，任务已经完成。
+但对于张量分析而言，我们还需要再做一点微小的工作。
+简单张量部分再并上一个 $\V{g}^\mu$，从而使张量升一阶；
+后面则改成 $h^\nu\,\V{g}_\nu\qty(\V{x}_0)$，并利用点乘保持总阶数不变：
+\begin{align}
+	&\alspace\qty[\vphantom{\frac{0^0}{0^0}}
+		\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,\,
+		\V{g}_i \qty(\V{x}_0) \tp \V{g}^j \qty(\V{x}_0)
+		\tp\V{g}_k \qty(\V{x}_0)] h^\mu \notag \\
+	&=\qty[\vphantom{\frac{0^0}{0^0}}
+			\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,\,
+			\V{g}_i \qty(\V{x}_0) \tp \V{g}^j \qty(\V{x}_0)
+			\tp\V{g}_k \qty(\V{x}_0) \tp \V{g}^\mu \qty(\V{x}_0)]
+		\cdot \qty[\vphantom{\frac{0}{0}} h^\nu\V{g}_\nu\qty(\V{x}_0)]
+	\fullstop
+\end{align}
+这里的“点乘”，其实就是 \emphB{$e$ 点积}在 $e=1$ 时的情况。
+实际上，
+\begin{equation}
+	\V{g}^\mu\qty(\V{x}_0) \cdot
+		\qty[\vphantom{\frac{0}{0}} h^\nu\V{g}_\nu\qty(\V{x}_0)]
+	=h^\nu\,\KroneckerDelta{\mu}{\nu}
+	=h^\mu \fullstop
+\end{equation}
+这里用到了局部基的\emphB{对偶关系} \eqref{eq:局部基_对偶关系}~式。
+
+此时， 我们获得了一个四阶张量与
+$h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
+参数域中 $\V{x}_0$ 发生 $\V{h}=h^i\,\V{e}_i$ 的变化时，
+根据向量值映照 $\V{X}(\V{x})$ 的\emphB{可微性}，
+对应物理域中的变化为
+\begin{align}
+	\V{X}\qty(\V{x}_0+\V{h})-\V{X}\qty(\V{x}_0)
+	&=\JacobiD{\V{X}}\qty(\V{x}_0)(\V{h})
+		+\sOv{\norm{\V{h}}} \notag \\
+	&\eqcolon\pdv{\V{X}}{x^\nu} \qty(\V{x}_0) \, h^\nu
+		+\sOv{\norm{\V{h}}} \notag
+	\intertext{代入 \ref{subsec:局部协变基}~小节中%
+		\emphB{局部协变基}的定义，可有}
+	&\eqcolon h^\nu\V{g}_\nu\qty(\V{x}_0)
+		+\sOv{\norm{\V{h}}} \fullstop
+\end{align}
+代入式~\eqref{eq:张量场沿任意方向的变化_2}，有
+\begin{align}
+	&\alspace\T{\Phi}\qty(\V{x}_0+\V{h})-\T{\Phi}\qty(\V{x}_0)
+		\notag \\
+	&=\qty[\vphantom{\frac{0^0}{0^0}}
+			\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,\,
+			\V{g}_i \qty(\V{x}_0) \tp \V{g}^j \qty(\V{x}_0)
+			\tp\V{g}_k \qty(\V{x}_0) \tp \V{g}^\mu \qty(\V{x}_0)]
+		\notag \\*
+	&\alspace\phantom{} \cdot \qty[\vphantom{\frac{0}{0}}
+			\V{X}\qty(\V{x}_0+\V{h})-\V{X}\qty(\V{x}_0)
+			+\sOv{\norm{\V{h}}}]+\sOv{\norm{\V{h}}} \notag
+	\intertext{合并掉一阶无穷小量\footnotemark{}，可得}
+	&=\qty[\vphantom{\frac{0^0}{0^0}}
+			\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,\,
+			\V{g}_i \qty(\V{x}_0) \tp \V{g}^j \qty(\V{x}_0)
+			\tp\V{g}_k \qty(\V{x}_0) \tp \V{g}^\mu \qty(\V{x}_0)]
+		\notag \\*
+	&\alspace\phantom{} \cdot \qty[\vphantom{\frac{0}{0}}
+			\V{X}\qty(\V{x}_0+\V{h})-\V{X}\qty(\V{x}_0)]
+		+\sOv{\norm{\V{h}}} \notag \\
+	&=\qty[\pdv{\T{\Phi}}{x^\mu} \qty(\V{x}_0)
+		\tp \V{g}^\mu\qty(\V{x}_0)]
+		\cdot \qty[\vphantom{\frac{0}{0}}
+			\V{X}\qty(\V{x}_0+\V{h})-\V{X}\qty(\V{x}_0)]
+		+\sOv{\norm{\V{h}}} \in\Tensors{3} \fullstop
+\end{align}
+\footnotetext{式中的两个 $\sOv{\norm{\V{h}}}$ 是不同的，
+	前者属于 $\Rm$，后者属于 $\Tensors{3}$。}%
+引入记号
+\begin{equation}
+	\T{\Phi}\tp\qty[\V{g}^\mu \pdv{x^\mu} \qty(\V{x}_0)]
+	\coloneq \pdv{\T{\Phi}}{x^\mu} \qty(\V{x}_0)
+		\tp \V{g}^\mu\qty(\V{x}_0) \comma
+\end{equation}
+再引入\emphA{梯度算子}
+\begin{equation}
+	\T{\nabla} \coloneq
+	\V{g}^\mu \pdv{x^\mu} \qty(\V{x}_0) \comma
+\end{equation}
+我们得到的结论就可以表述为
+\begin{equation}
+	\T{\Phi}\qty(\V{x}_0+\V{h})-\T{\Phi}\qty(\V{x}_0)
+	=\qty\big(\T{\Phi}\tp\T{\nabla}) (\V{x}_0)
+	\cdot \qty[\vphantom{\frac{0}{0}}
+		\V{X}\qty(\V{x}_0+\V{h})-\V{X}\qty(\V{x}_0)]
+	+\sOv{\norm{\V{h}}} \in\Tensors{3} \comma
+\end{equation}
+式中的“$\cdot$”表示点乘。以上结果称之为张量场的\emphA{可微性}，
+它表明，由一点处的位置移动所引起张量场的变化，
+可以用该点处张量场的\emphB{梯度}点乘物理空间中的位置差别来近似，
+误差为一阶无穷小量。以上分析基于三阶张量。但显然，对于 $p$ 阶张量，
+将会有完全一致的结果。

@@ -190,30 +190,32 @@ $\pdv*{x^s}{X^\alpha}$ 项。考虑到
 接下来处理二阶偏导数。由上式，
 \begin{align}
 	\pdv{f}{X^\beta}{X^\alpha} (\V{X})
-	&=\sum_{s=1}^{m} \Bigg[ \qty\Bigg(\sum_{k=1}^{m}
+	&=\sum_{s=1}^{m} \left[\qty\Bigg(\sum_{k=1}^{m}
 			\pdv{\tilde{f}}{\displaystyle x^k}{\displaystyle x^s}
 			\qty\big(\V{x}(\V{X})) \cdot \pdv{x^s}{X^\beta} (\V{X}) )
-		\cdot \varphi^s_\alpha \qty\big(\V{x}(\V{X})) \notag \\
-	&\alspace\phantom{\sum_{s=1}^{m} \Bigg[ }+
+		\cdot \varphi^s_\alpha \qty\big(\V{x}(\V{X}))
+		\right. \notag \\*
+	&\alspace\left. \phantom{\sum_{s=1}^{m}}+
 		\pdv{\tilde{f}}{\displaystyle x^s}
 		\qty\big(\V{x}(\V{X})) \cdot \qty\Bigg(\sum_{k=1}^{m}
 			\pdv{\displaystyle \varphi^s_\alpha}{\displaystyle x^k}
 			\qty\big(\V{x}(\V{X}))
 			\cdot \pdv{\displaystyle x^k}{X^\beta} (\V{X}) )
-		\Bigg] \notag
+		\right] \notag
 	\intertext{继续利用式~\eqref{eq:Jacobi矩阵的元素}，有}
-	&=\sum_{s=1}^{m} \Bigg[ \qty\Bigg(\sum_{k=1}^{m}
+	&=\sum_{s=1}^{m} \left[\qty\Bigg(\sum_{k=1}^{m}
 			\pdv{\tilde{f}}{\displaystyle x^k}{\displaystyle x^s}
 			\qty\big(\V{x}(\V{X})) \cdot
 			\varphi^s_\beta \qty\big(\V{x}(\V{X})) )
-		\cdot \varphi^s_\alpha \qty\big(\V{x}(\V{X})) \notag \\
-	&\alspace\phantom{\sum_{s=1}^{m} \Bigg[ }+
+		\cdot \varphi^s_\alpha \qty\big(\V{x}(\V{X}))
+		\right. \notag \\*
+	&\alspace\left. \phantom{\sum_{s=1}^{m}}+
 		\pdv{\tilde{f}}{\displaystyle x^s}
 		\qty\big(\V{x}(\V{X})) \cdot \qty\Bigg(\sum_{k=1}^{m}
 			\pdv{\displaystyle \varphi^s_\alpha}{\displaystyle x^k}
 			\qty\big(\V{x}(\V{X}))
 			\cdot \varphi^k_\beta \qty\big(\V{x}(\V{X})) )
-		\Bigg] \fullstop
+		\right] \fullstop
 \end{align}
 这样，就把一阶和二阶偏导数项全部用关于 $\V{x}$ 的函数\footnote{%
 	当然它仍然是 $\V{X}$ 的\emphB{隐}函数：
