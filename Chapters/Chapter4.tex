@@ -300,7 +300,7 @@ $\V{X}\qty(\V{x}+\lambda\,\V{e}_\mu)$ 处时，有
 		-\T{\Phi}(\V{x})} {\lambda}
 	\eqcolon \pdv{\T{\Phi}}{x^\mu} (\V{x})
 	\in\Tensors{3} \fullstop
-	\label{eq:张量场偏导数极限定义}
+	\label{eq:张量场偏导数的极限定义}
 \end{equation}
 与之前的向量值映照类似，该极限表示张量场 $\T{\Phi}(\V{x})$
 作为一个\emphB{整体}，相对于自变量第 $\mu$ 个分量的变化率。
@@ -333,7 +333,7 @@ $\V{X}\qty(\V{x}+\lambda\,\V{e}_\mu)$ 处时，有
 \end{equation}
 这就是 $\T{\Phi}(\V{x})$。然后是 $\lambda$ 的一次项：
 \begin{align}
-	\lambda &\cdot\left[\pdv{\tensor{\Phi}{^i_j^k}}{x^\mu} (\V{x})
+	\lambda &\cdot\left[\pdv{\tensor{\Phi}{^i_j^k}}{x^\mu} (\V{x})\,\,
 		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
 	+\tensor{\Phi}{^i_j^k} (\V{x})\,\,
 		\pdv{\V{g}_i}{x^\mu} (\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
@@ -347,7 +347,7 @@ $\V{X}\qty(\V{x}+\lambda\,\V{e}_\mu)$ 处时，有
 剩下的至少是 $\lambda$ 的两次项，
 我们将其统一写作“$\res$”（即余项）。
 
-现在回头看之前的极限 \eqref{eq:张量场偏导数极限定义}~式。
+现在回头看之前的极限 \eqref{eq:张量场偏导数的极限定义}~式。
 $\lambda$ 的零次项与 $\T{\Phi}(\V{x})$ 相互抵消，
 而一次项就只剩下了系数部分。至于余项 $\res$，则要证明它趋于零。以
 \begin{equation}
@@ -407,46 +407,57 @@ $\lambda$ 有关。于是
 
 综上，我们有
 \begin{align}
-	&\alspace \pdv{\T{\Phi}}{x^\mu}  \coloneq
+	&\alspace \pdv{\T{\Phi}}{x^\mu} (\V{x})  \coloneq
 	\lim_{\lambda\to 0} \frac{\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)
-		-\T{\Phi}} {\lambda} \notag \\
-	&=\qty(\pdv{\tensor{\Phi}{^i_j^k}}{x^\mu}
+		-\T{\Phi}(\V{x})} {\lambda} \notag \\
+	&=\qty(\pdv{\tensor{\Phi}{^i_j^k}}{x^\mu} \,\,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k
 	+\tensor{\Phi}{^i_j^k} \,\,
 		\pdv{\V{g}_i}{x^\mu} \tp\V{g}^j\tp\V{g}_k
 	+\tensor{\Phi}{^i_j^k} \,\,
 		\V{g}_i\tp\pdv{\V{g}^j}{x^\mu} \tp\V{g}_k
 	+\tensor{\Phi}{^i_j^k} \,\,
-		\V{g}_i\tp\V{g}^j\tp\pdv{\V{g}_k}{x^\mu}) (\V{x})
-	\fullstop
+		\V{g}_i\tp\V{g}^j\tp\pdv{\V{g}_k}{x^\mu}) \, (\V{x})
+	\fullstop \label{eq:张量场偏导数展开式}
 \end{align}
 式中，$\pdv*{\V{g}_i}{x^\mu} (\V{x})$ 可以用 Christoffel 符号表示：
 \begin{equation}
 	\pdv{\V{g}_i}{x^\mu} (\V{x})
-	=\ChristoffelB{\mu}{i}{s} \V{g}_s \fullstop
+	=\ChristoffelB{\mu}{i}{s} \V{g}_s (\V{x}) \fullstop
 \end{equation}
-因此
+因此 \eqref{eq:张量场偏导数展开式}~式的第二项
 \begin{align}
-	&\alspace\tensor{\Phi}{^i_j^k} \,\,
-		\pdv{\V{g}_i}{x^\mu} \tp\V{g}^j\tp\V{g}_k \notag \\
-	&=\ChristoffelB{\mu}{i}{s} \tensor{\Phi}{^i_j^k}
-		\V{g}_s\tp\V{g}^j\tp\V{g}_k \notag
+	&\alspace\tensor{\Phi}{^i_j^k} (\V{x}) \,\,
+		\pdv{\V{g}_i}{x^\mu} (\V{x})
+		\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \notag \\
+	&=\ChristoffelB{\mu}{i}{s} \tensor{\Phi}{^i_j^k}(\V{x}) \,\,
+		\V{g}_s(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \notag
 	\intertext{$i$ 和 $s$ 都是哑标，不妨进行一下交换：}
-	&=\ChristoffelB{\mu}{s}{i} \tensor{\Phi}{^s_j^k}
-		\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
+	&=\ChristoffelB{\mu}{s}{i} \tensor{\Phi}{^s_j^k}(\V{x}) \,\,
+		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \fullstop
 \end{align}
 同样，后面的两项也可进行类似的处理。这样便有
 \begin{align}
-	&\alspace \pdv{\T{\Phi}}{x^\mu}  \coloneq
+	&\alspace \pdv{\T{\Phi}}{x^\mu} (\V{x}) \coloneq
 	\lim_{\lambda\to 0} \frac{\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)
-		-\T{\Phi}} {\lambda} \notag \\
-	&=\qty(\pdv{\tensor{\Phi}{^i_j^k}}{x^\mu}
+		-\T{\Phi}(\V{x})} {\lambda} \notag \\
+	&=\qty[\qty\Bigg(\pdv{\tensor{\Phi}{^i_j^k}}{x^\mu}
 		+\ChristoffelB{\mu}{s}{i} \tensor{\Phi}{^s_j^k}
 		-\ChristoffelB{\mu}{j}{s} \tensor{\Phi}{^i_s^k}
-		+\ChristoffelB{\mu}{s}{k} \tensor{\Phi}{^i_j^s})
-		\V{g}_i\tp\V{g}^j\tp\V{g}_k \notag \\
-	&\eqcolon \nabla_\mu \tensor{\Phi}{^i_j^k}
-		\V{g}_i\tp\V{g}^j\tp\V{g}_k \comma
+		+\ChristoffelB{\mu}{s}{k} \tensor{\Phi}{^i_j^s}) \,
+		\V{g}_i\tp\V{g}^j\tp\V{g}_k] (\V{x}) \notag \\
+	&\eqcolon \nabla_\mu \tensor{\Phi}{^i_j^k} (\V{x}) \,\,
+		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \comma
 \end{align}
-式中，我们称 $\nabla_\mu \tensor{\Phi}{^i_j^k}\in\realR$ 为张量分量
-$\tensor{\Phi}{^i_j^k}$ 相当于 $x^\mu$ 的\emphA{协变导数}。
+式中，我们称 $\nabla_\mu \tensor{\Phi}{^i_j^k}(\V{x})\in\realR$
+为张量分量 $\tensor{\Phi}{^i_j^k}(\V{x})$ 相对于 $x^\mu$
+的\emphA{协变导数}，其定义为：
+\begin{equation}
+	\nabla_\mu \tensor{\Phi}{^i_j^k} (\V{x}) \defeq
+	\pdv{\tensor{\Phi}{^i_j^k}}{x^\mu} (\V{x})
+	+\ChristoffelB{\mu}{s}{i} \tensor{\Phi}{^s_j^k}(\V{x})
+	-\ChristoffelB{\mu}{j}{s} \tensor{\Phi}{^i_s^k}(\V{x})
+	+\ChristoffelB{\mu}{s}{k} \tensor{\Phi}{^i_j^s}(\V{x})
+	\fullstop
+\end{equation}
+
