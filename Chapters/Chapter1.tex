@@ -364,12 +364,12 @@ $\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
 	\T{\Phi}
 	=\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \,
 		\V{g}^i\tp\V{g}_j\tp\V{g}^k
-	\eqcolon \tensor{\Phi}{_i^j_k} \,
+	\eqcolon \tc{\Phi}{_i^j_k} \,
 		\V{g}^i\tp\V{g}_j\tp\V{g}^k \comma
 \end{equation}
 即
 \begin{equation}
-	\tensor{\Phi}{_i^j_k}
+	\tc{\Phi}{_i^j_k}
 	\coloneq \T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \comma
 \end{equation}
 这称为张量的\emphA{分量}。
@@ -380,12 +380,12 @@ $\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
 实际上，对于这里的三阶张量，指标的上下一共有 8 种可能。
 指标全部在下面的，称为\emphA{协变分量}：
 \begin{equation}
-	\tensor{\Phi}{_i_j_k} \coloneq
+	\tc{\Phi}{_i_j_k} \coloneq
 	\T{\Phi}\qty(\V{g}_i,\,\V{g}_j,\,\V{g}_k) \semicomma
 \end{equation}
 指标全部在上面的，称为\emphA{逆变分量}：
 \begin{equation}
-	\tensor{\Phi}{^i^j^k} \coloneq
+	\tc{\Phi}{^i^j^k} \coloneq
 	\T{\Phi}\qty(\V{g}^i,\,\V{g}^j,\,\V{g}^k) \semicomma
 \end{equation}
 其余 6 种，称为\emphA{混合分量}。
@@ -415,25 +415,25 @@ $\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
 每一式的第二个等号都用到了\emphB{基向量转换关系}，
 见式~\eqref{eq:基向量转换关系1} 和 \eqref{eq:基向量转换关系4}。
 
-现在再来考虑张量的分量。仍以上文中的张量 $\tensor{\Phi}{_i^j_k}
+现在再来考虑张量的分量。仍以上文中的张量 $\tc{\Phi}{_i^j_k}
 	\coloneq \T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k)$ 为例，
-我们想要知道它与张量 $\tensor{\Phi}{^p_q^r} \coloneq
+我们想要知道它与张量 $\tc{\Phi}{^p_q^r} \coloneq
 	\T{\Phi}\qty(\V{g}^p,\,\V{g}_q,\,\V{g}^r)$ 之间的关系。
 利用基向量转换关系，可有
 \begin{align}
-	\tensor{\Phi}{_i^j_k}
+	\tc{\Phi}{_i^j_k}
 	&\coloneq\T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \notag \\
 	&=\T{\Phi}
 		\qty(g_{ip}\V{g}^p,\,g^{jq}\V{g}_q,\,g_{kr}\V{g}^r) \notag
 	\intertext{又利用张量的线性性，得}
 	&=g_{ip}g^{jq}g_{kr}
 		\T{\Phi}\qty(\V{g}^p,\,\V{g}_q,\,\V{g}^r) \notag \\
-	&=g_{ip}g^{jq}g_{kr} \tensor{\Phi}{^p_q^r} \fullstop
+	&=g_{ip}g^{jq}g_{kr} \tc{\Phi}{^p_q^r} \fullstop
 \end{align}
 可见，张量的分量与向量的分量类似，其指标升降可通过\emphB{度量}来实现。
 用同样的手法，还可以得到诸如
-$\tensor{\Phi}{^i^j^k}=g^{jp}\tensor{\Phi}{^i_p^k}$、
-$\tensor{\Phi}{^i_j^k}=g_{jp}g^{kq}\tensor{\Phi}{^i^p_k}$
+$\tc{\Phi}{^i^j^k}=g^{jp}\tc{\Phi}{^i_p^k}$、
+$\tc{\Phi}{^i_j^k}=g_{jp}g^{kq}\tc{\Phi}{^i^p_k}$
 这样的关系式。
 
 \subsection{相对不同基的张量分量之间的关系}
@@ -442,9 +442,9 @@ $\Rm$ 空间中，除了 $\qty{\V{g}_i}^m_{i=1}$ 和相应的
 对偶基 $\qty{\V{g}^i}^m_{i=1}$ 之外，当然还可以有其他的基，
 比如带括号的 $\qty{\V{g}_{(i)}}^m_{i=1}$ 以及对应的
 对偶基 $\qty{\V{g}^{(i)}}^m_{i=1}$。
-前者对应形如 $\tensor{\Phi}{^i_j^k}
+前者对应形如 $\tc{\Phi}{^i_j^k}
 	\coloneq \T{\Phi}\qty(\V{g}^i,\,\V{g}_j,\,\V{g}^k)$ 的张量，
-后者则对应带括号的张量，如 $\tensor{\Phi}{^{(p)}_{(q)}^{(r)}}
+后者则对应带括号的张量，如 $\tc{\Phi}{^{(p)}_{(q)}^{(r)}}
 	\coloneq \T{\Phi}\qty(\V{g}^{(p)},\,\V{g}_{(q)},\,\V{g}^{(r)})$。
 下面我们来探讨这两个张量的关系。
 
@@ -505,7 +505,7 @@ $\V{g}_{(i)}$，作为 $\Rm$ 空间中的一个向量，
 
 现在我们回到张量。根据张量分量的定义，
 \begin{align}
-	\tensor{\Phi}{^i_j^k}
+	\tc{\Phi}{^i_j^k}
 	&\coloneq \T{\Phi}\qty(\V{g}^i,\,\V{g}_j,\,\V{g}^k) \notag
 	\intertext{利用之前推导的不同基向量之间的转换关系，得}
 	&=\T{\Phi}\qty(
@@ -515,12 +515,12 @@ $\V{g}_{(i)}$，作为 $\Rm$ 空间中的一个向量，
 	&=c^i_{(p)} c^{(q)}_j c^k_{(r)} \,
 		\T{\Phi}\qty(\V{g}^{(p)},\,\V{g}_{(q)},\V{g}^{(r)}) \notag\\
 	&=c^i_{(p)} c^{(q)}_j c^k_{(r)} \,
-		\tensor{\Phi}{^{(p)}_{(q)}^{(r)}} \fullstop
+		\tc{\Phi}{^{(p)}_{(q)}^{(r)}} \fullstop
 \end{align}
 完全类似，还可以有
 \begin{equation}
-	\tensor{\Phi}{^{(i)}_{(j)}^{(k)}}
-	=c^{(i)}_p c^g_{(j)} c^{(k)}_r \tensor{\Phi}{^p_q^r} \fullstop
+	\tc{\Phi}{^{(i)}_{(j)}^{(k)}}
+	=c^{(i)}_p c^g_{(j)} c^{(k)}_r \tc{\Phi}{^p_q^r} \fullstop
 \end{equation}
 
 \blankline

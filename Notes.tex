@@ -316,6 +316,8 @@
 \newcommand{\V}[1]{\SYMBOL{#1}}
 %% 张量(Tensor)
 \renewcommand{\T}[1]{\SYMBOL{#1}}
+%% 张量分量(Tensor Components)
+\let\tc=\tensor
 %% 矩阵(Matrix)
 \newcommand{\Mat}[1]{\SYMBOL{#1}}
 %% 置换(Permutation)
@@ -327,13 +329,13 @@
 %% Kronecker Delta (全下标形式)
 \WithSuffix\newcommand\KroneckerDelta*[1]{\delta_{#1}}
 %% Levi-Civita 记号
-\newcommand{\LeviCivita}[1]{\tensor{\epsilon}{#1}}
+\newcommand{\LeviCivita}[1]{\tc{\epsilon}{#1}}
 %% Eddington 张量
 \newcommand{\EdTensor}{\T{\epsilon}}
 %% 第一类 Christoffel 符号
 \newcommand{\ChristoffelA}[3]{\Gamma_{#1#2,\,#3}}
 %% 第二类 Christoffel 符号
-\newcommand{\ChristoffelB}[3]{\tensor{\Gamma}{^#3_{#1#2}}}
+\newcommand{\ChristoffelB}[3]{\tc{\Gamma}{^#3_{#1#2}}}
 
 %--------算子--------%
 %% 置换算子(Permutation Operator)
@@ -400,12 +402,12 @@
 \newcommand{\sO}[1]{\mathop{\mscro}\qty(#1)}
 %% 小 O 记号(带上下标)
 \WithSuffix\newcommand\sO*[2]{\mathop{
-	\tensor{\mscro}{#1}}\qty(#2)}
+	\tc{\mscro}{#1}}\qty(#2)}
 %% 向量形式小 O 记号
 \newcommand{\sOv}[1]{\mathop{\mbfscro}\qty(#1)}
 %% 向量形式小 O 记号(带上下标)
 \WithSuffix\newcommand\sOv*[2]{\mathop{
-		\tensor{\mbfscro}{#1}}\qty(#2)}
+		\tc{\mbfscro}{#1}}\qty(#2)}
 %% 复合(Composite)
 \newcommand{\comp}{\circ}
 %% 定义等号(Definition Equal)
