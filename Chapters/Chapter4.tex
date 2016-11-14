@@ -249,7 +249,7 @@ $\V{\xi}\tp\V{\eta}\tp\V{\zeta}$ 的逆变分量为
 两边开方，即得 \eqref{eq:简单张量的范数}~式。
 \end{myProof}
 
-\section{张量场沿坐标曲线的变化率}
+\section{张量场的偏导数；协变导数}
 在区域 $\domD{\V{x}}\subset\Rm$ 上，
 若存在一个自变量用\emphB{位置}刻画的映照
 \begin{equation}
@@ -303,7 +303,8 @@ $\V{X}\qty(\V{x}+\lambda\,\V{e}_\mu)$ 处时，有
 	\label{eq:张量场偏导数的极限定义}
 \end{equation}
 与之前的向量值映照类似，该极限表示张量场 $\T{\Phi}(\V{x})$
-作为一个\emphB{整体}，相对于自变量第 $\mu$ 个分量的变化率。
+作为一个\emphB{整体}，相对于自变量第 $\mu$ 个分量的变化率，
+即 $\T{\Phi}$ 关于 $x^\mu$（在 $\V{x}$ 处）的\emphA{偏导数}。
 式中，$\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)$
 已由 \eqref{eq:x+lambda_e_mu处的张量场}~式给出。
 注意到张量分量实际上就是一个\emphB{多元函数}，于是
@@ -345,7 +346,7 @@ $\V{X}\qty(\V{x}+\lambda\,\V{e}_\mu)$ 处时，有
 	\vphantom{\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}} \right] \fullstop
 \end{align}
 剩下的至少是 $\lambda$ 的二次项，
-我们将其统一写作“$\res$”（即余项）。
+我们将其统一写作“$\res$”（余项）。
 
 现在回头看之前的极限 \eqref{eq:张量场偏导数的极限定义}~式。
 $\lambda$ 的零次项与 $\T{\Phi}(\V{x})$ 相互抵消，
@@ -463,6 +464,7 @@ $\lambda$ 有关。于是
 \end{equation}
 
 \section{张量场的梯度}
+\subsection{梯度；可微性}
 我们在参数域中的内点 $\V{x}_0$ 处取一个半径为 $\delta$ 的邻域
 $\domB{\delta}{\V{x}_0}$。若使自变量变化到 $\V{x}_0+\V{h}$，
 则在物理域中，对应的点就将从 $\V{X}\qty(\V{x}_0)$ 变化到
@@ -594,8 +596,7 @@ $\T{\Phi}(\V{x})$，它的变化为
 		\cdot \qty[\vphantom{\frac{0}{0}} h^\nu\V{g}_\nu\qty(\V{x}_0)]
 	\fullstop
 \end{align}
-这里的“点乘”，其实就是 \emphB{$e$ 点积}在 $e=1$ 时的情况。
-实际上，
+所谓“点乘”，其实就是 \emphB{$e$ 点积}在 $e=1$ 时的情况。实际上，
 \begin{equation}
 	\V{g}^\mu\qty(\V{x}_0) \cdot
 		\qty[\vphantom{\frac{0}{0}} h^\nu\V{g}_\nu\qty(\V{x}_0)]
@@ -651,7 +652,8 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 	前者属于 $\Rm$，后者属于 $\Tensors{3}$。}%
 引入记号
 \begin{equation}
-	\T{\Phi}\tp\qty[\V{g}^\mu \pdv{x^\mu} \qty(\V{x}_0)]
+	\T{\Phi} \qty(\V{x}_0)
+	\tp\qty[\V{g}^\mu \pdv{x^\mu} \qty(\V{x}_0)]
 	\coloneq \pdv{\T{\Phi}}{x^\mu} \qty(\V{x}_0)
 		\tp \V{g}^\mu\qty(\V{x}_0) \comma
 \end{equation}
@@ -663,13 +665,80 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 我们得到的结论就可以表述为
 \begin{equation}
 	\T{\Phi}\qty(\V{x}_0+\V{h})-\T{\Phi}\qty(\V{x}_0)
-	=\qty\big(\T{\Phi}\tp\T{\nabla}) (\V{x}_0)
+	=\qty\big(\T{\Phi}\tp\T{\nabla}) \qty(\V{x}_0)
 	\cdot \qty[\vphantom{\frac{0}{0}}
 		\V{X}\qty(\V{x}_0+\V{h})-\V{X}\qty(\V{x}_0)]
 	+\sOv{\norm{\V{h}}} \in\Tensors{3} \comma
 \end{equation}
 式中的“$\cdot$”表示点乘。以上结果称之为张量场的\emphA{可微性}，
 它表明，由一点处的位置移动所引起张量场的变化，
-可以用该点处张量场的\emphB{梯度}点乘物理空间中的位置差别来近似，
-误差为一阶无穷小量。以上分析基于三阶张量。但显然，对于 $p$ 阶张量，
+可以用该点处张量场的\emphA{梯度}（即 $\T{\Phi}\tp\T{\nabla}$）
+点乘物理空间中的位置差别来近似，误差为一阶无穷小量。
+以上分析基于三阶张量。但显然，对于 $p$ 阶张量，
 将会有完全一致的结果。
+
+\subsection{方向导数}
+现在来研究张量场沿 $\V{e}$ 方向的变化率（设 $\norm{\V{e}}=1$）。
+取一个与 $\V{e}$ 平行的向量 $\lambda\,\V{e}$。
+注意到 $\lambda\,\V{e}$ 其实就是物理空间中的位置变化，
+于是根据张量场的可微性，我们有
+\begin{equation}
+	\T{\Phi}\qty(\V{x}_0+\lambda\,\V{e})-\T{\Phi}\qty(\V{x}_0)
+	=\qty\big(\T{\Phi}\tp\T{\nabla}) \qty(\V{x}_0)
+	\cdot \qty\big(\lambda\,\V{e}) + \sOv{\lambda} \comma
+\end{equation}
+该式等价于
+\begin{equation}
+	\lim_{\lambda\to 0} \frac{\T{\Phi}\qty(\V{x}_0+\lambda\,\V{e})
+		-\T{\Phi}\qty(\V{x}_0)}{\lambda}
+	=\qty\big(\T{\Phi}\tp\T{\nabla}) \qty(\V{x}_0) 
+		\cdot \V{e} \fullstop
+\end{equation}
+我们把它定义为张量场 $\T{\Phi}(\V{x})$ 沿 $\V{e}$ 方向
+的\emphA{方向导数}：
+\begin{equation}
+	\pdv{\T{\Phi}}{\V{e}} (\V{x}_0)
+	\defeq \qty\big(\T{\Phi}\tp\T{\nabla}) \qty(\V{x}_0) 
+		\cdot \V{e} \fullstop
+\end{equation}
+
+\subsection{左梯度与右梯度}
+我们已经知道，利用梯度算子
+\begin{equation}
+	\T{\nabla} \coloneq
+	\V{g}^\mu \pdv{x^\mu} \qty(\V{x}_0) \comma
+\end{equation}
+可以把张量场的梯度表示为
+\begin{equation}
+	\qty\big(\T{\Phi}\tp\T{\nabla}) \qty(\V{x}_0)
+	=\T{\Phi}\qty(\V{x}_0)
+		\tp\qty[\V{g}^\mu \pdv{x^\mu} \qty(\V{x}_0)]
+	\coloneq \pdv{\T{\Phi}}{x^\mu} \qty(\V{x}_0)
+		\tp \V{g}^\mu \qty(\V{x}_0) \fullstop
+\end{equation}
+“$\T{\nabla}$”在右边，故称之为\emphA{右梯度}（简称\emphA{梯度}）。
+相应地，自然会有\emphA{左梯度}：
+\begin{equation}
+	\qty\big(\T{\nabla}\tp\T{\Phi}) \qty(\V{x}_0)
+	=\qty[\V{g}^\mu \pdv{x^\mu} \qty(\V{x}_0)]
+		\tp \T{\Phi}\qty(\V{x}_0)
+	\coloneq \V{g}^\mu \qty(\V{x}_0)
+		\tp \pdv{\T{\Phi}}{x^\mu} \qty(\V{x}_0) \fullstop
+\end{equation}
+张量积不存在交换律，因而这两者是不同的。
+
+张量场的可微性可以用\emphB{左梯度}来等价表述：
+\begin{equation}
+	\T{\Phi}\qty(\V{x}_0+\V{h})-\T{\Phi}\qty(\V{x}_0)
+	=\qty[\vphantom{\frac{0}{0}}
+		\V{X}\qty(\V{x}_0+\V{h})-\V{X}\qty(\V{x}_0)]
+	\cdot \qty\big(\T{\nabla}\tp\T{\Phi}) \qty(\V{x}_0)
+	+\sOv{\norm{\V{h}}} \fullstop
+\end{equation}
+类似地，还有方向导数：
+\begin{equation}
+	\pdv{\T{\Phi}}{\V{e}} (\V{x}_0)
+	\defeq \qty\big(\T{\Phi}\tp\T{\nabla}) \qty(\V{x}_0) \cdot \V{e}
+	=\V{e} \cdot \qty\big(\T{\nabla}\tp\T{\Phi}) \qty(\V{x}_0)
+	\fullstop
+\end{equation}
