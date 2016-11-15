@@ -269,7 +269,7 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 在 $\V{X}(\V{x})$ 处，张量场 $\T{\Phi}(\V{x})$
 可以用分量形式表示为
 \begin{equation}
-	\T{\Phi}(\V{x})=\tc{\Phi}{^i_j^k}(\V{x})\,\,
+	\T{\Phi}(\V{x})=\tc{\Phi}{^i_j^k}(\V{x})\,
 		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
 	\in\Tensors{3} \comma
 \end{equation}
@@ -287,7 +287,7 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 $\V{X}\qty(\V{x}+\lambda\,\V{e}_\mu)$ 处时，有
 \begin{equation}
 	\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)
-	=\tc{\Phi}{^i_j^k}\qty(\V{x}+\lambda\,\V{e}_\mu)\,\,
+	=\tc{\Phi}{^i_j^k}\qty(\V{x}+\lambda\,\V{e}_\mu)\,
 		\V{g}_i \qty(\V{x}+\lambda\,\V{e}_\mu)
 		\tp\V{g}^j \qty(\V{x}+\lambda\,\V{e}_\mu)
 		\tp\V{g}_k \qty(\V{x}+\lambda\,\V{e}_\mu) \fullstop
@@ -329,19 +329,19 @@ $\V{X}\qty(\V{x}+\lambda\,\V{e}_\mu)$ 处时，有
 如果直接展开，一共有 81 项，显然过于繁杂，不便操作。
 我们将按 $\lambda$ 的次数逐次展开。首先看 $\lambda$ 的零次项:
 \begin{equation}
-	\tc{\Phi}{^i_j^k}(\V{x})\,\,
+	\tc{\Phi}{^i_j^k}(\V{x})\,
 	\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \comma
 \end{equation}
 这就是 $\T{\Phi}(\V{x})$。然后是 $\lambda$ 的一次项：
 \begin{align}
-	\lambda &\cdot\left[\pdv{\tc{\Phi}{^i_j^k}}{x^\mu} (\V{x})\,\,
+	\lambda &\cdot\left[\pdv{\tc{\Phi}{^i_j^k}}{x^\mu} (\V{x})\,
 		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
-	+\tc{\Phi}{^i_j^k} (\V{x})\,\,
+	+\tc{\Phi}{^i_j^k} (\V{x})\,
 		\pdv{\V{g}_i}{x^\mu} (\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
 	\right. \notag \\*
-	&\phantom{M}\left.\phantom{}+\tc{\Phi}{^i_j^k} (\V{x})\,\,
+	&\phantom{M}\left.\phantom{}+\tc{\Phi}{^i_j^k} (\V{x})\,
 		\V{g}_i(\V{x})\tp\pdv{\V{g}^j}{x^\mu} (\V{x})\tp\V{g}_k(\V{x})
-	+\tc{\Phi}{^i_j^k} (\V{x})\,\,
+	+\tc{\Phi}{^i_j^k} (\V{x})\,
 		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\pdv{\V{g}_k}{x^\mu} (\V{x})
 	\vphantom{\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}} \right] \fullstop
 \end{align}
@@ -352,13 +352,13 @@ $\V{X}\qty(\V{x}+\lambda\,\V{e}_\mu)$ 处时，有
 $\lambda$ 的零次项与 $\T{\Phi}(\V{x})$ 相互抵消，
 而一次项就只剩下了系数部分。至于余项 $\res$，则要证明它趋于零。以
 \begin{equation}
-	\tc{\Phi}{^i_j^k} (\V{x})\,\,
+	\tc{\Phi}{^i_j^k} (\V{x})\,
 	\sOv*{_i}{\lambda}\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})
 \end{equation}
 为例，我们需要证明它等于 $\sOv{\lambda}\in\Tensors{3}$，即
 \begin{equation}
 	\lim_{\lambda\to 0}
-	\frac{\norm[\Tensors{3}]{\tc{\Phi}{^i_j^k} (\V{x})\,\,
+	\frac{\norm[\Tensors{3}]{\tc{\Phi}{^i_j^k} (\V{x})\,
 			\sOv*{_i}{\lambda}\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})}}
 		{\lambda}=0\in\realR \fullstop
 	\label{eq:余项证明举例}
@@ -369,11 +369,11 @@ $\lambda$ 的零次项与 $\T{\Phi}(\V{x})$ 相互抵消，
 而是把求和号显式地写出来。于是分子部分可以写成
 \begin{align}
 	&\alspace\norm[\Tensors{3}]{\sum_{i,\,j,\,k=1}^{m}
-		\tc{\Phi}{^i_j^k} (\V{x})\,\,
+		\tc{\Phi}{^i_j^k} (\V{x})\,
 		\sOv*{_i}{\lambda}\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})} \notag
 	\intertext{根据范数的\emphB{三角不等式}，有}
 	&\leqslant\sum_{i,\,j,\,k=1}^{m}
-		\norm[\Tensors{3}]{\tc{\Phi}{^i_j^k} (\V{x})\,\,
+		\norm[\Tensors{3}]{\tc{\Phi}{^i_j^k} (\V{x})\,
 			\sOv*{_i}{\lambda}\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})} \notag
 	\intertext{再利用\emphB{正齐次性}，可得}
 	&=\sum_{i,\,j,\,k=1}^{m} \abs{\tc{\Phi}{^i_j^k} (\V{x})}
@@ -389,7 +389,7 @@ $\lambda$ 的零次项与 $\T{\Phi}(\V{x})$ 相互抵消，
 $\lambda$ 有关。于是
 \begin{align}
 	&\alspace\lim_{\lambda\to 0}
-	\frac{\norm[\Tensors{3}]{\tc{\Phi}{^i_j^k} (\V{x})\,\,
+	\frac{\norm[\Tensors{3}]{\tc{\Phi}{^i_j^k} (\V{x})\,
 			\sOv*{_i}{\lambda}\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x})}}
 		{\lambda} \notag \\
 	&=\sum_{i,\,j,\,k=1}^{m} \abs{\tc{\Phi}{^i_j^k} (\V{x})}
@@ -412,13 +412,13 @@ $\lambda$ 有关。于是
 	&\alspace \pdv{\T{\Phi}}{x^\mu} (\V{x})  \coloneq
 	\lim_{\lambda\to 0} \frac{\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)
 		-\T{\Phi}(\V{x})} {\lambda} \notag \\
-	&=\qty(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu} \,\,
+	&=\qty(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu} \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k
-	+\tc{\Phi}{^i_j^k} \,\,
+	+\tc{\Phi}{^i_j^k} \,
 		\pdv{\V{g}_i}{x^\mu} \tp\V{g}^j\tp\V{g}_k
-	+\tc{\Phi}{^i_j^k} \,\,
+	+\tc{\Phi}{^i_j^k} \,
 		\V{g}_i\tp\pdv{\V{g}^j}{x^\mu} \tp\V{g}_k
-	+\tc{\Phi}{^i_j^k} \,\,
+	+\tc{\Phi}{^i_j^k} \,
 		\V{g}_i\tp\V{g}^j\tp\pdv{\V{g}_k}{x^\mu}) \, (\V{x})
 	\fullstop \label{eq:张量场偏导数展开式}
 \end{align}
@@ -429,13 +429,13 @@ $\lambda$ 有关。于是
 \end{equation}
 因此 \eqref{eq:张量场偏导数展开式}~式的第二项
 \begin{align}
-	&\alspace\tc{\Phi}{^i_j^k} (\V{x}) \,\,
+	&\alspace\tc{\Phi}{^i_j^k} (\V{x}) \,
 		\pdv{\V{g}_i}{x^\mu} (\V{x})
 		\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \notag \\
-	&=\ChristoffelB{\mu}{i}{s} \tc{\Phi}{^i_j^k}(\V{x}) \,\,
+	&=\ChristoffelB{\mu}{i}{s} \tc{\Phi}{^i_j^k}(\V{x}) \,
 		\V{g}_s(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \notag
 	\intertext{$i$ 和 $s$ 都是哑标，不妨进行一下交换：}
-	&=\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}(\V{x}) \,\,
+	&=\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}(\V{x}) \,
 		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \fullstop
 \end{align}
 同样，后面的两项也可进行类似的处理。这样便有
@@ -448,7 +448,7 @@ $\lambda$ 有关。于是
 		-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
 		+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s}) \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k] (\V{x}) \notag \\
-	&\eqcolon \nabla_\mu \tc{\Phi}{^i_j^k} (\V{x}) \,\,
+	&\eqcolon \nabla_\mu \tc{\Phi}{^i_j^k} (\V{x}) \,
 		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \comma
 \end{align}
 式中，我们称 $\nabla_\mu \tc{\Phi}{^i_j^k}(\V{x})\in\realR$
@@ -473,12 +473,12 @@ $\T{\Phi}(\V{x})$，它的变化为
 \begin{align}
 	&\alspace\T{\Phi}\qty(\V{x}_0+\V{h})-\T{\Phi}\qty(\V{x}_0)
 		\notag \\
-	&=\tc{\Phi}{^i_j^k}\qty(\V{x}_0+\V{h}) \,\,
+	&=\tc{\Phi}{^i_j^k}\qty(\V{x}_0+\V{h}) \,
 		\V{g}_i \qty(\V{x}_0+\V{h})
 		\tp\V{g}^j \qty(\V{x}_0+\V{h})
 		\tp\V{g}_k \qty(\V{x}_0+\V{h}) \notag \\
 	&\alspace\phantom{}
-		-\tc{\Phi}{^i_j^k}\qty(\V{x}_0) \,\,
+		-\tc{\Phi}{^i_j^k}\qty(\V{x}_0) \,
 		\V{g}_i \qty(\V{x}_0)
 		\tp\V{g}^j \qty(\V{x}_0)
 		\tp\V{g}_k \qty(\V{x}_0) \fullstop
@@ -511,7 +511,7 @@ $\T{\Phi}(\V{x})$，它的变化为
 	实际是 $h^\mu$ 的一次项。别忘了求和。}
 \begin{equation}
 	\qty[
-		\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}\,\,
+		\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}\,
 		\V{g}_i \tp \V{g}^j \tp \V{g}_k
 	+\tc{\Phi}{^i_j^k} \qty(
 		\pdv{\V{g}_i}{x^\mu}\tp\V{g}^j\tp\V{g}_k
@@ -521,27 +521,27 @@ $\T{\Phi}(\V{x})$，它的变化为
 \end{equation}
 利用 Christoffel 符号又可以把它写成
 \begin{align}
-	&\alspace \left[\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}\,\,
+	&\alspace \left[\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}\,
 			\V{g}_i \tp \V{g}^j \tp \V{g}_k
-		+\tc{\Phi}{^i_j^k}\,\, \qty\Big(\ChristoffelB{\mu}{i}{s}\V{g}_s)
+		+\tc{\Phi}{^i_j^k}\, \qty\Big(\ChristoffelB{\mu}{i}{s}\V{g}_s)
 			\tp\V{g}^j\tp\V{g}_k \right.
 		\notag \\*
-	&\phantom{MM} \left.\phantom{}-\tc{\Phi}{^i_j^k} \,\,
+	&\phantom{MM} \left.\phantom{}-\tc{\Phi}{^i_j^k} \,
 			\V{g}_i\tp\qty\Big(\ChristoffelB{\mu}{s}{j}\V{g}^s)\tp\V{g}_k
-		+\tc{\Phi}{^i_j^k} \,\,
+		+\tc{\Phi}{^i_j^k} \,
 			\V{g}_i\tp\V{g}^j\tp\qty\Big(\ChristoffelB{\mu}{k}{s}\V{g}_s)
 		\vphantom{\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}} \right]
 		\qty(\V{x}_0) \cdot h^\mu \notag \\
 	%%
-	&=\left(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}\,\,
+	&=\left(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}\,
 			\V{g}_i \tp \V{g}^j \tp \V{g}_k
-		+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k} \,\,
+		+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k} \,
 			\V{g}_i\tp\V{g}^j\tp\V{g}_k \right.
 		\notag \\*
 	&\phantom{MM} \left.\phantom{}
-		-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k} \,\,
+		-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k} \,
 			\V{g}_i\tp\V{g}^j\tp\V{g}_k
-		+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s} \,\,
+		+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s} \,
 			\V{g}_i\tp\V{g}^j\tp\V{g}_k
 		\vphantom{\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}} \right)
 		\qty(\V{x}_0) \cdot h^\mu \notag \\
@@ -573,7 +573,7 @@ $\T{\Phi}(\V{x})$，它的变化为
 		+\sOv{\norm{\V{h}}} \notag
 	\intertext{利用协变导数，有}
 	&\eqcolon \qty[\vphantom{\frac{0^0}{0^0}}
-		\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,\,
+		\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,
 		\V{g}_i \qty(\V{x}_0)
 		\tp\V{g}^j \qty(\V{x}_0)
 		\tp\V{g}_k \qty(\V{x}_0)] h^\mu
@@ -586,11 +586,11 @@ $\T{\Phi}(\V{x})$，它的变化为
 后面则改成 $h^\nu\,\V{g}_\nu\qty(\V{x}_0)$，并利用点乘保持总阶数不变：
 \begin{align}
 	&\alspace\qty[\vphantom{\frac{0^0}{0^0}}
-		\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,\,
+		\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,
 		\V{g}_i \qty(\V{x}_0) \tp \V{g}^j \qty(\V{x}_0)
 		\tp\V{g}_k \qty(\V{x}_0)] h^\mu \notag \\
 	&=\qty[\vphantom{\frac{0^0}{0^0}}
-			\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,\,
+			\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,
 			\V{g}_i \qty(\V{x}_0) \tp \V{g}^j \qty(\V{x}_0)
 			\tp\V{g}_k \qty(\V{x}_0) \tp \V{g}^\mu \qty(\V{x}_0)]
 		\cdot \qty[\vphantom{\frac{0}{0}} h^\nu\V{g}_\nu\qty(\V{x}_0)]
@@ -626,7 +626,7 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 	&\alspace\T{\Phi}\qty(\V{x}_0+\V{h})-\T{\Phi}\qty(\V{x}_0)
 		\notag \\
 	&=\qty[\vphantom{\frac{0^0}{0^0}}
-			\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,\,
+			\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,
 			\V{g}_i \qty(\V{x}_0) \tp \V{g}^j \qty(\V{x}_0)
 			\tp\V{g}_k \qty(\V{x}_0) \tp \V{g}^\mu \qty(\V{x}_0)]
 		\notag \\*
@@ -635,7 +635,7 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 			+\sOv{\norm{\V{h}}}]+\sOv{\norm{\V{h}}} \notag
 	\intertext{合并掉一阶无穷小量\footnotemark{}，可得}
 	&=\qty[\vphantom{\frac{0^0}{0^0}}
-			\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,\,
+			\nabla_\mu \tc{\Phi}{^i_j^k} \qty(\V{x}_0) \,
 			\V{g}_i \qty(\V{x}_0) \tp \V{g}^j \qty(\V{x}_0)
 			\tp\V{g}_k \qty(\V{x}_0) \tp \V{g}^\mu \qty(\V{x}_0)]
 		\notag \\*
@@ -742,3 +742,155 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 	=\V{e} \cdot \qty\big(\T{\nabla}\tp\T{\Phi}) \qty(\V{x}_0)
 	\fullstop
 \end{equation}
+
+\section{场论恒等式}
+\subsection{Ricci 引理}
+首先来证明两个结论：
+\begin{braceEq}
+	\pdv{\T{G}}{x^\mu} (\V{x})
+		&=\T{0}\in\Tensors{2} \comma \\
+	\pdv{\EdTensor}{x^\mu} (\V{x})
+		&=\T{0}\in\Tensors[\realR^3]{3} \comma
+\end{braceEq}
+其中的 $\T{G}$ 和 $\EdTensor$ 分别是度量张量和 Eddington 张量。
+
+\begin{myProof}
+为方便起见，证明中我们将省去“$(\V{x})$”。
+
+先考察度量张量的偏导数：
+\begin{align}
+	\pdv{\T{G}}{x^\mu}
+	&=\pdv{x^\mu} \qty(g_{ij}\,\V{g}^i\tp\V{g}^j) \notag \\
+	&=\nabla_\mu g_{ij}\,\V{g}^i\tp\V{g}^j \comma
+\end{align}
+式中，协变导数定义为
+\begin{equation}
+	\nabla_\mu g_{ij} \defeq \pdv{g_{ij}}{x^\mu}
+		-\ChristoffelB{\mu}{i}{s} g_{sj}
+		-\ChristoffelB{\mu}{j}{s} g_{is} \fullstop
+\end{equation}
+以下有两种方法证明 $\nabla_\mu g_{ij}=0$。
+
+方法一利用度量的定义：
+\begin{align}
+	\pdv{g_{ij}}{x^\mu}
+	&\defeq \pdv{x^\mu} \ipb{\V{g}_i}{\V{g}_j} \notag \\
+	&=\ipb{\pdv{\V{g}_i}{x^\mu}}{\V{g}_j}
+		+\ipb{\V{g}_i}{\pdv{\V{g}_j}{x^\mu}} \notag
+	\intertext{根据 Christoffel 符号的定义
+		（见 \ref{subsec:Christoffel符号}~小节），有}
+	&=\ChristoffelA{\mu}{i}{j}+\ChristoffelA{\mu}{j}{i} \fullstop
+\end{align}
+另一方面，回忆 \eqref{eq:第二类Christoffel符号用第一类表示}~式：
+\begin{equation}
+	\ChristoffelB{i}{j}{k}=\ChristoffelA{i}{j}{l} g^{kl}\ \comma
+\end{equation}
+可有
+\begin{braceEq}
+	\ChristoffelB{\mu}{i}{s} g_{sj}
+		&=\ChristoffelA{\mu}{i}{k} g^{sk} g_{sj}
+		=\ChristoffelA{\mu}{i}{k} \KroneckerDelta{k}{j}
+		=\ChristoffelA{\mu}{i}{j} \comma \\
+	\ChristoffelB{\mu}{j}{s} g_{is}
+		&=\ChristoffelA{\mu}{j}{k} g^{sk} g_{is}
+		=\ChristoffelA{\mu}{j}{k} \KroneckerDelta{k}{i}
+		=\ChristoffelA{\mu}{j}{i} \fullstop
+\end{braceEq}
+于是
+\begin{equation}
+	\nabla_\mu g_{ij}
+	=\ChristoffelA{\mu}{i}{j}+\ChristoffelA{\mu}{j}{i}
+	-\ChristoffelA{\mu}{i}{j}-\ChristoffelA{\mu}{j}{i}
+	=0 \fullstop
+\end{equation}
+
+方法二则利用第一类 Christoffel 符号的性质
+\eqref{eq:第一类Christoffel符号与度量的关系}~式：
+\begin{equation}
+	\ChristoffelA{i}{j}{k}=\frac{1}{2}\, \qty(
+		\pdv{g_{jk}}{x^i}+\pdv{g_{ik}}{x^j}-\pdv{g_{ij}}{x^k})
+	\fullstop
+\end{equation}
+因而
+\begin{align}
+	&\alspace \ChristoffelB{\mu}{i}{s} g_{sj}
+		+\ChristoffelB{\mu}{j}{s} g_{is} \notag \\
+	&=\ChristoffelA{\mu}{i}{j}+\ChristoffelA{\mu}{j}{i} \notag \\
+	&=\frac{1}{2}\, \qty(\pdv{g_{ij}}{x^\mu}
+			+\pdv{g_{\mu j}}{x^i}-\pdv{g_{\mu i}}{x^j})
+		+\frac{1}{2}\, \qty(\pdv{g_{ji}}{x^\mu}
+			+\pdv{g_{\mu i}}{x^j}-\pdv{g_{\mu j}}{x^i}) \notag \\
+	&=\frac{1}{2}\, \qty(\pdv{g_{ij}}{x^\mu}+\pdv{g_{ji}}{x^\mu})
+	=\pdv{g_{ij}}{x^\mu} \fullstop
+\end{align}
+显然，立刻就有
+\begin{equation}
+	\nabla_\mu g_{ij}
+	=\pdv{g_{ij}}{x^\mu}-\pdv{g_{ij}}{x^\mu} = 0 \fullstop
+\end{equation}
+
+综上，因为 $\nabla_\mu g_{ij}=0\in\realR$，所以
+\begin{equation}
+	\pdv{\T{G}}{x^\mu} (\V{x})=\T{0}\in\Tensors{2} \fullstop
+\end{equation}
+如果用其他形式的分量来表述这一结果，我们便有
+\begin{equation}
+	\nabla_\mu g_{ij} = \nabla_\mu g^{ij}
+	=\nabla_\mu \KroneckerDelta{i}{j} = 0 \fullstop
+\end{equation}
+此结论称为\emphA{Ricci引理}。
+
+\blankline
+
+再来看 Eddington 张量的偏导数：
+\begin{align}
+	\pdv{\EdTensor}{x^\mu}
+	&=\pdv{x^\mu} \qty(\LeviCivita{^i_j^k}\,
+		\V{g}_i\tp\V{g}^j\tp\V{g}_k) \notag \\
+	&=\nabla_\mu \LeviCivita{^i_j^k}\,
+		\V{g}_i\tp\V{g}^j\tp\V{g}_k \comma
+\end{align}
+式中，
+\begin{align}
+	\nabla_\mu \LeviCivita{^i_j^k}
+	\defeq \pdv{\LeviCivita{^i_j^k}}{x^\mu}
+		+\ChristoffelB{\mu}{s}{i} \LeviCivita{^s_j^k}
+		-\ChristoffelB{\mu}{j}{s} \LeviCivita{^i_s^k}
+		+\ChristoffelB{\mu}{s}{k} \LeviCivita{^i_j^s} \fullstop
+	\label{eq:Eddington张量偏导数推导}
+\end{align}
+根据定义，$\LeviCivita{^i_j^k}=\det[\V{g}^i,\,\V{g}_j,\,\V{g}^k]$。
+因此
+\begin{align}
+	\pdv{\LeviCivita{^i_j^k}}{x^\mu}
+	&=\pdv{x^\mu} \qty\bigg(
+		\det[\V{g}^i,\,\V{g}_j,\,\V{g}^k]) \notag \\
+	&=\det[\pdv{\V{g}^i}{x^\mu},\,\V{g}_j,\,\V{g}^k]
+		+\det[\V{g}^i,\,\pdv{\V{g}_j}{x^\mu},\,\V{g}^k]
+		+\det[\V{g}^i,\,\V{g}_j,\,\pdv{\V{g}^k}{x^\mu}] \notag
+	\intertext{利用标架运动方程，有}
+	&=\det[-\ChristoffelB{\mu}{s}{i}\V{g}^s,\,\V{g}_j,\,\V{g}^k]
+		+\det[\V{g}^i,\,\ChristoffelB{\mu}{j}{s}\V{g}_s,\,\V{g}^k]
+		+\det[\V{g}^i,\,\V{g}_j,\,-\ChristoffelB{\mu}{s}{k}\V{g}^s]
+		\notag
+	\intertext{再利用行列式的线性性，提出系数：}
+	&=-\ChristoffelB{\mu}{s}{i}\det[\V{g}^s,\,\V{g}_j,\,\V{g}^k]
+		+\ChristoffelB{\mu}{j}{s}\det[\V{g}^i,\,\V{g}_s,\,\V{g}^k]
+		-\ChristoffelB{\mu}{s}{k}\det[\V{g}^i,\,\V{g}_j,\,\V{g}^s]
+		\notag
+	\intertext{代回 Eddington 张量的定义，可得}
+	&=-\ChristoffelB{\mu}{s}{i} \LeviCivita{^s_j^k}
+		+\ChristoffelB{\mu}{j}{s} \LeviCivita{^i_s^k}
+		-\ChristoffelB{\mu}{s}{k} \LeviCivita{^i_j^s} \fullstop
+\end{align}
+这与式~\eqref{eq:Eddington张量偏导数推导} 的后三项恰好抵消。
+于是便有 $\nabla_\mu \LeviCivita{^i_j^k}=0$。进而
+\begin{equation}
+	\pdv{\EdTensor}{x^\mu} (\V{x})=\T{0}\in\Tensors[\realR^3]{3}
+	\fullstop
+\end{equation}
+
+和之前的 Ricci 引理类似，Eddington 张量其他形式分量的偏导数，
+如 $\nabla_\mu\LeviCivita{_{ijk}}$、
+$\nabla_\mu\LeviCivita{^{ijk}}$ 等，也都等于零。
+\end{myProof}

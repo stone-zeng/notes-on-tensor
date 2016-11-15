@@ -780,6 +780,7 @@ $\pdv*{\V{g}_i}{x^j} (\V{x})$ 就表示 $\V{g}_i(\V{x})$
 \end{figure}
 
 \subsection{Christoffel 符号}
+\label{subsec:Christoffel符号}
 考察 $\pdv*{\V{g}_i}{x^j} (\V{x})$，
 即\emphB{协变基}的偏导数\footnote{
 	以下在不引起歧义之处，将省略局部协变基、
@@ -1027,6 +1028,7 @@ Jacobi 矩阵可以用\emphB{协变基}表示为
 	=\ipb{\pdv{\V{g}_j}{x^i}}{g^{kl}\,\V{g}_l}
 	=g^{kl}\,\ipb{\pdv{\V{g}_j}{x^i}}{\V{g}_l}
 	=g^{kl}\,\ChristoffelA{i}{j}{l} \fullstop
+	\label{eq:第二类Christoffel符号用第一类表示}
 \end{equation}
 这样一来，它的表示也就明确了。
 
@@ -1036,11 +1038,11 @@ Jacobi 矩阵可以用\emphB{协变基}表示为
 $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 可以引入\emphA{度量张量}
 \begin{equation}
-	\T{I}=g_{ij}\,\V{g}^i\tp\V{g}^j \in\Tensors{2} \fullstop
+	\T{G}=g_{ij}\,\V{g}^i\tp\V{g}^j \in\Tensors{2} \fullstop
 \end{equation}
 这是用协变形式表达的。当然也可以切换成其他形式：
 \begin{align}
-	\T{I}&=g_{ij}\,\V{g}^i\tp\V{g}^j \notag
+	\T{G}&=g_{ij}\,\V{g}^i\tp\V{g}^j \notag
 	\intertext{利用指标升降，有}
 	&=g_{ij}\,\qty(g^{ik}\,\V{g}_k)\tp\V{g}^j \notag
 	\intertext{再根据线性性提出系数：}
@@ -1049,7 +1051,7 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 \end{align}
 类似地，还可以得到
 \begin{align}
-	\T{I}&=\KroneckerDelta{k}{j}\,\V{g}_k\tp\V{g}^j \notag \\
+	\T{G}&=\KroneckerDelta{k}{j}\,\V{g}_k\tp\V{g}^j \notag \\
 	&=\KroneckerDelta{k}{j}\,
 		\V{g}_k\tp\qty(g^{jl}\,\V{g}_l) \notag \\
 	&=\KroneckerDelta{k}{j}\,g^{jl}\,\V{g}_k\tp\V{g}_l \notag \\
@@ -1057,7 +1059,7 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 \end{align}
 
 综上，度量张量有三种表示：
-\begin{braceEq*}{\T{I}=}
+\begin{braceEq*}{\T{G}=}
 	&g_{ij}\,\V{g}^i\tp\V{g}^j \comma \\
 	&g^{ij}\,\V{g}_i\tp\V{g}_j \comma \\
 	&\KroneckerDelta{i}{j}\,\V{g}_i\tp\V{g}^j \comma
@@ -1070,9 +1072,9 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$ 中，
 接下来引入 \emphA{Eddington 张量}
 \begin{equation}
 	\EdTensor=\LeviCivita{_{ijk}}\,\V{g}^i\tp\V{g}^j\tp\V{g}^k
-	\in\Tensors{3} \comma
+	\in\Tensors[\realR^3]{3} \comma
 \end{equation}
-式中的$\LeviCivita{_{ijk}}=\det[\V{g}_i,\,\V{g}_j,\,\V{g}_k]$。
+式中的 $\LeviCivita{_{ijk}}=\det[\V{g}_i,\,\V{g}_j,\,\V{g}_k]$。
 和之前一样，仍是利用指标升降来获得等价定义：
 \begin{align}
 	\EdTensor
