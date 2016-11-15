@@ -345,6 +345,8 @@
 \newcommand{\opSkw}{\symcal{A}}
 %% Jacobi 矩阵(Differential Operator)
 \DeclareMathOperator{\JacobiD}{\OPERATOR{D}\!}
+%% 梯度算子(Gradient Operator)
+\newcommand{\opGrad}{\T{\nabla}}
 
 %--------特殊算子--------%
 %% 恒等映照(Identity)
@@ -391,6 +393,8 @@
 \newcommand{\cdotord}{\mathord{\cdotp}}
 %% 叉乘(Cross Product)(has been defined in `physics' package)
 \renewcommand{\cp}{\vectimes}
+%% 协变导数(Covariant Derivative)
+\newcommand{\covD}[2]{\nabla_{\! #1}\,{#2}}
 %% C^p 微分同胚(Diffeomorphism)
 \newcommand{\DiffMorp}[1][p]{\symcal{C}^{#1}}
 %% 直至 p 阶偏导数连续的函数(Continuous Function)
