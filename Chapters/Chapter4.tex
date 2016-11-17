@@ -702,7 +702,7 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 		\cdot \V{e} \fullstop
 \end{equation}
 
-\subsection{左梯度与右梯度}
+\subsection{左梯度与右梯度} \label{subsec:左梯度与右梯度}
 我们已经知道，利用梯度算子
 \begin{equation}
 	\opGrad \coloneq
@@ -726,6 +726,7 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 		\tp \pdv{\T{\Phi}}{x^\mu} \qty(\V{x}_0) \fullstop
 \end{equation}
 张量积不存在交换律，因而这两者是不同的。
+注意，梯度运算将使张量的阶数增加一阶。
 
 张量场的可微性可以用\emphB{左梯度}来等价表述：
 \begin{equation}
@@ -743,7 +744,9 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 	\fullstop
 \end{equation}
 
-\section{场论恒等式}
+\section{场论恒等式（一）}
+为了给下一节做好铺垫，本节将证明几个重要引理。
+
 \subsection{Ricci 引理}
 首先来证明两个结论：
 \begin{braceEq}
@@ -904,7 +907,7 @@ $\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 	+\tc{\Phi}{^i_j^k}\,\qty\Big(\covD{\mu}{\tc{\Psi}{_p^q}})
 	\fullstop
 \end{equation}
-式中，张量的形式可以是任意的。
+式中，张量分量的形式可以是任意的。
 
 \begin{myProof}
 显然，$\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_p^q}\in\Tensors{5}$。不妨令
@@ -1021,7 +1024,8 @@ $\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 	\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}}
 	=\covD{\mu}{\covD{\nu}{\tc{\Phi}{^i_j^k}}} \fullstop
 \end{equation}
-需注意，该定理只在\myPROBLEM{体积上张量场场论}成立。
+不必多说，张量分量依然可以任意选取。
+只是需要注意，该定理只在\myPROBLEM{体积上张量场场论}成立。
 
 \begin{myProof}
 首先计算张量场\emphB{整体}的一阶偏导数：
@@ -1106,5 +1110,157 @@ $\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 \begin{equation}
 	\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}}
 	=\covD{\mu}{\covD{\nu}{\tc{\Phi}{^i_j^k}}} \fullstop
+\end{equation}
+\end{myProof}
+
+\section{场论恒等式（二）}
+本节将给出微分形式张量场场论中的若干恒等式，以及它们的推演过程。
+
+\subsection{微分算子}
+在 \ref{subsec:左梯度与右梯度}~小节中，
+我们已经定义了\emphA{左梯度}
+\begin{mySubEq}
+	\begin{align}
+		\qty\big(\opGrad\tp\T{\Phi}) (\V{x})
+			&\defeq \qty[\V{g}^\mu\pdv{x^\mu} (\V{x})]\tp\T{\Phi}(\V{x})
+			\coloneq \V{g}^\mu(\V{x})\tp\pdv{\T{\Phi}}{x^\mu} (\V{x})
+		\intertext{和\emphA{（右）梯度}}
+		\qty\big(\T{\Phi}\tp\opGrad) (\V{x})
+			&\defeq \T{\Phi}(\V{x})\tp\qty[\V{g}^\mu\pdv{x^\mu} (\V{x})]
+			\coloneq \pdv{\T{\Phi}}{x^\mu} (\V{x})\tp\V{g}^\mu(\V{x})
+			\fullstop
+	\end{align}
+\end{mySubEq}
+如果 $\T{\Phi}(\V{x})$ 是 $r$ 阶张量，则左右梯度都是 $r+1$ 阶张量。
+%
+%\blankline
+
+类似地，我们还可以定义\emphA{左散度}
+\begin{mySubEq}
+	\begin{align}
+		\qty\big(\opGrad\cdot\T{\Phi}) (\V{x})
+			&\defeq \qty[\V{g}^\mu\pdv{x^\mu} (\V{x})]\cdot\T{\Phi}(\V{x})
+			\coloneq \V{g}^\mu(\V{x})\cdot\pdv{\T{\Phi}}{x^\mu} (\V{x})
+		\intertext{和\emphA{右散度}}
+		\qty\big(\T{\Phi}\cdot\opGrad) (\V{x})
+			&\defeq \T{\Phi}(\V{x})\cdot\qty[\V{g}^\mu\pdv{x^\mu} (\V{x})]
+			\coloneq \pdv{\T{\Phi}}{x^\mu} (\V{x})\cdot\V{g}^\mu(\V{x})
+			\fullstop
+	\end{align}
+\end{mySubEq}
+如果 $\T{\Phi}(\V{x})$ 是 $r$ 阶张量，则左右散度都是 $r-1$ 阶张量。
+%
+%\blankline
+
+当然，如果底空间是 $\realR^3$，
+即 $\T{\Phi}(\V{x})\in\Tensors[\realR^3]{r}$，
+还不能忘了定义\emphA{左旋度}
+\begin{mySubEq}
+	\begin{align}
+		\qty\big(\opGrad\cp\T{\Phi}) (\V{x})
+			&\defeq \qty[\V{g}^\mu\pdv{x^\mu} (\V{x})]\cp\T{\Phi}(\V{x})
+			\coloneq \V{g}^\mu(\V{x})\cp\pdv{\T{\Phi}}{x^\mu} (\V{x})
+		\intertext{和\emphA{右旋度}}
+		\qty\big(\T{\Phi}\cp\opGrad) (\V{x})
+			&\defeq \T{\Phi}(\V{x})\cp\qty[\V{g}^\mu\pdv{x^\mu} (\V{x})]
+			\coloneq \pdv{\T{\Phi}}{x^\mu} (\V{x})\cp\V{g}^\mu(\V{x})
+			\fullstop
+	\end{align}
+\end{mySubEq}
+旋度不改变张量的阶数，即左右旋度仍属于 $\Tensors[\realR^3]{r}$。
+
+\blankline
+
+左右梯度、散度和梯度都是张量场中常用的微分算子。
+向量微积分中的梯度、散度和梯度，其实就是一阶张量的特殊情况。
+
+\subsection{推演举例}
+首先是为人熟知的“梯度场无旋，旋度场无源”：
+\begin{braceEq*}
+	{\forall\,\T{\Phi}\in\Tensors[\realR^3]{r},\quad\text{有\ }}
+	&\opGrad \cp \qty\big(\opGrad\tp\T{\Phi})=\T{0}
+		\in\Tensors[\realR^3]{r+1} \comma \\
+	&\opGrad \cdot \qty\big(\opGrad\cp\T{\Phi})=\T{0}
+		\in\Tensors[\realR^3]{r-1} \fullstop
+\end{braceEq*}
+
+\begin{myProof}
+不失一般性，我们设 $\T{\Phi}$ 是一个三阶张量。
+代入上一小节中梯度和旋度的定义，可有
+\begin{align}
+	\opGrad \cp \qty\big(\opGrad\tp\T{\Phi})
+	&=\qty(\V{g}^\nu\pdv{x^\nu})
+		\cp \qty(\V{g}^\mu\tp\pdv{\T{\Phi}}{x^\mu}) \notag \\
+	&=\qty(\V{g}^\nu\pdv{x^\nu})
+		\cp \qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}}
+			\V{g}^\mu\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k) \notag \\
+	&=\V{g}^\nu\cp\pdv{x^\nu}
+		\qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}}
+			\V{g}^\mu\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k) \notag
+	\intertext{与 \eqref{eq:混合协变导数推导}~式不同，第二个括号中的 
+		$\mu$、$i$、$j$、$k$ 都是\emphB{哑标}，
+		所以偏导数可以直接用协变导数表示，而不会出现多余的
+		Christoffel 符号：}
+	&=\V{g}^\nu\cp \qty[ \vphantom{\frac{0}{0}}
+			\qty(\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+			\V{g}^\mu\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k] \notag
+	\intertext{按照叉乘的定义（见 \ref{sec:叉乘}~节），
+		$\V{g}^\nu$ 将与构成简单张量的第一个基向量相乘，即}
+	&=\qty(\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}})
+		\qty(\V{g}^\nu\cp\V{g}^\mu)
+		\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k \notag
+	\intertext{利用 Levi-Civita 记号展开叉乘项，有}
+	&=\LeviCivita{^{\mu\nu s}}
+		\qty(\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+		\V{g}_s\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
+\end{align}
+考虑交换哑标 $\mu$、$\nu$，结果必然保持不变。
+但是 Eddington 张量关于指标 $\mu\nu$ 反对称\footnote{
+	根据式~\eqref{eq:Levi-Civita记号的定义}，
+	Levi-Civita 记号由行列式定义，而行列式交换两列将改变符号。}，
+即 $\LeviCivita{^{\mu\nu s}}=-\LeviCivita{^{\nu\mu s}}$；
+另一方面，混合协变导数却又满足
+$\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}}
+=\covD{\mu}{\covD{\nu}{\tc{\Phi}{^i_j^k}}}$，
+因此总的结果将变为其相反数。这样，结果只可能为零，即
+\begin{equation}
+	\opGrad \cp \qty\big(\opGrad\tp\T{\Phi})=\T{0} \fullstop
+\end{equation}
+
+同理，也可证明“旋度场无源”：
+\begin{align}
+	\opGrad \cdot \qty\big(\opGrad\cp\T{\Phi})
+	&=\qty(\V{g}^\nu\pdv{x^\nu})
+		\cdot \qty(\V{g}^\mu\cp\pdv{\T{\Phi}}{x^\mu}) \notag \\
+	&=\qty(\V{g}^\nu\pdv{x^\nu})
+		\cdot \qty[ \vphantom{\frac{0}{0}}
+			\V{g}^\mu\cp \qty(\covD{\mu}{\tc{\Phi}{^i_j^k}} \,
+				\V{g}_i\tp\V{g}^j\tp\V{g}_k)] \notag \\
+	&=\V{g}^\nu \cdot \pdv{x^\nu} \qty[ \vphantom{\frac{0}{0}}
+			\V{g}^\mu\cp \qty(\covD{\mu}{\tc{\Phi}{^i_j^k}} \,
+				\V{g}_i\tp\V{g}^j\tp\V{g}_k)] \notag \\
+	&=\V{g}^\nu \cdot \pdv{x^\nu} \qty[ \vphantom{\frac{0}{0}}
+			\covD{\mu}{\tc{\Phi}{^i_j^k}} \,
+			\qty(\V{g}^\mu\cp\V{g}_i)\tp\V{g}^j\tp\V{g}_k] \notag \\
+	&=\V{g}^\nu \cdot \pdv{x^\nu} \qty( \vphantom{\frac{0}{0}}
+			\covD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}} \,
+			\V{g}_s\tp\V{g}^j\tp\V{g}_k) \notag
+	\intertext{$\mu$、$s$、$i$、$j$、$k$ 全部是哑标，因此}
+	&=\V{g}^\nu \cdot \qty[ \vphantom{\frac{0}{0}}
+		\qty(\covD{\nu}{
+			\covD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}}}) \,
+		\V{g}_s\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k] \notag
+	\intertext{点乘出来 Kronecker δ：}
+	&=\qty(\covD{\nu}{
+			\covD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}}}) \,
+		\KroneckerDelta{\nu}{s} \,
+		\V{g}_i\tp\V{g}^j\tp\V{g}_k \notag \\
+	&=\LeviCivita{^\mu_i^\nu} \qty(\covD{\nu}{
+			\covD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+		\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
+\end{align}
+交换哑标 $\mu$、$\nu$，仿上，便有
+\begin{equation}
+	\opGrad \cdot \qty\big(\opGrad\cp\T{\Phi})=\T{0} \fullstop
 \end{equation}
 \end{myProof}
