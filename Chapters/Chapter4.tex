@@ -448,14 +448,14 @@ $\lambda$ 有关。于是
 		-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
 		+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s}) \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k] (\V{x}) \notag \\
-	&\eqcolon \covD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \,
+	&\eqcolon \coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \,
 		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \comma
 \end{align}
-式中，我们称 $\covD{\mu}{\tc{\Phi}{^i_j^k}(\V{x})}\in\realR$
+式中，我们称 $\coD{\mu}{\tc{\Phi}{^i_j^k}(\V{x})}\in\realR$
 为张量分量 $\tc{\Phi}{^i_j^k}(\V{x})$ 相对于 $x^\mu$
 的\emphA{协变导数}，其定义为：
 \begin{equation}
-	\covD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \defeq
+	\coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \defeq
 	\pdv{\tc{\Phi}{^i_j^k}}{x^\mu} (\V{x})
 	+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}(\V{x})
 	-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}(\V{x})
@@ -573,7 +573,7 @@ $\T{\Phi}(\V{x})$，它的变化为
 		+\sOv{\norm{\V{h}}} \notag
 	\intertext{利用协变导数，有}
 	&\eqcolon \qty[\vphantom{\frac{0^0}{0^0}}
-		\covD{\mu}{\tc{\Phi}{^i_j^k} \qty(\V{x}_0)} \,
+		\coD{\mu}{\tc{\Phi}{^i_j^k} \qty(\V{x}_0)} \,
 		\V{g}_i \qty(\V{x}_0)
 		\tp\V{g}^j \qty(\V{x}_0)
 		\tp\V{g}_k \qty(\V{x}_0)] h^\mu
@@ -586,11 +586,11 @@ $\T{\Phi}(\V{x})$，它的变化为
 后面则改成 $h^\nu\,\V{g}_\nu\qty(\V{x}_0)$，并利用点乘保持总阶数不变：
 \begin{align}
 	&\alspace\qty[\vphantom{\frac{0^0}{0^0}}
-		\covD{\mu}{\tc{\Phi}{^i_j^k} \qty(\V{x}_0)} \,
+		\coD{\mu}{\tc{\Phi}{^i_j^k} \qty(\V{x}_0)} \,
 		\V{g}_i \qty(\V{x}_0) \tp \V{g}^j \qty(\V{x}_0)
 		\tp\V{g}_k \qty(\V{x}_0)] h^\mu \notag \\
 	&=\qty[\vphantom{\frac{0^0}{0^0}}
-			\covD{\mu}{\tc{\Phi}{^i_j^k} \qty(\V{x}_0)} \,
+			\coD{\mu}{\tc{\Phi}{^i_j^k} \qty(\V{x}_0)} \,
 			\V{g}_i \qty(\V{x}_0) \tp \V{g}^j \qty(\V{x}_0)
 			\tp\V{g}_k \qty(\V{x}_0) \tp \V{g}^\mu \qty(\V{x}_0)]
 		\cdot \qty[\vphantom{\frac{0}{0}} h^\nu\V{g}_\nu\qty(\V{x}_0)]
@@ -626,7 +626,7 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 	&\alspace\T{\Phi}\qty(\V{x}_0+\V{h})-\T{\Phi}\qty(\V{x}_0)
 		\notag \\
 	&=\qty[\vphantom{\frac{0^0}{0^0}}
-			\covD{\mu}{\tc{\Phi}{^i_j^k} \qty(\V{x}_0)} \,
+			\coD{\mu}{\tc{\Phi}{^i_j^k} \qty(\V{x}_0)} \,
 			\V{g}_i \qty(\V{x}_0) \tp \V{g}^j \qty(\V{x}_0)
 			\tp\V{g}_k \qty(\V{x}_0) \tp \V{g}^\mu \qty(\V{x}_0)]
 		\notag \\*
@@ -635,7 +635,7 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 			+\sOv{\norm{\V{h}}}]+\sOv{\norm{\V{h}}} \notag
 	\intertext{合并掉一阶无穷小量\footnotemark{}，可得}
 	&=\qty[\vphantom{\frac{0^0}{0^0}}
-			\covD{\mu}{\tc{\Phi}{^i_j^k} \qty(\V{x}_0)} \,
+			\coD{\mu}{\tc{\Phi}{^i_j^k} \qty(\V{x}_0)} \,
 			\V{g}_i \qty(\V{x}_0) \tp \V{g}^j \qty(\V{x}_0)
 			\tp\V{g}_k \qty(\V{x}_0) \tp \V{g}^\mu \qty(\V{x}_0)]
 		\notag \\*
@@ -764,15 +764,15 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 \begin{align}
 	\pdv{\T{G}}{x^\mu}
 	&=\pdv{x^\mu} \qty(g_{ij}\,\V{g}^i\tp\V{g}^j) \notag \\
-	&=\covD{\mu}{g_{ij}} \, \V{g}^i\tp\V{g}^j \comma
+	&=\coD{\mu}{g_{ij}} \, \V{g}^i\tp\V{g}^j \comma
 \end{align}
 式中，协变导数定义为
 \begin{equation}
-	\covD{\mu}{g_{ij}} \defeq \pdv{g_{ij}}{x^\mu}
+	\coD{\mu}{g_{ij}} \defeq \pdv{g_{ij}}{x^\mu}
 		-\ChristoffelB{\mu}{i}{s} g_{sj}
 		-\ChristoffelB{\mu}{j}{s} g_{is} \fullstop
 \end{equation}
-以下有两种方法证明 $\covD{\mu}{g_{ij}}=0$。
+以下有两种方法证明 $\coD{\mu}{g_{ij}}=0$。
 
 方法一利用度量的定义：
 \begin{align}
@@ -801,7 +801,7 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 \end{braceEq}
 于是
 \begin{equation}
-	\covD{\mu}{g_{ij}}
+	\coD{\mu}{g_{ij}}
 	=\ChristoffelA{\mu}{i}{j}+\ChristoffelA{\mu}{j}{i}
 	-\ChristoffelA{\mu}{i}{j}-\ChristoffelA{\mu}{j}{i}
 	=0 \fullstop
@@ -828,18 +828,18 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 \end{align}
 显然，立刻就有
 \begin{equation}
-	\covD{\mu}{g_{ij}}
+	\coD{\mu}{g_{ij}}
 	=\pdv{g_{ij}}{x^\mu}-\pdv{g_{ij}}{x^\mu} = 0 \fullstop
 \end{equation}
 
-综上，因为 $\covD{\mu} g_{ij}=0\in\realR$，所以
+综上，因为 $\coD{\mu} g_{ij}=0\in\realR$，所以
 \begin{equation}
 	\pdv{\T{G}}{x^\mu} (\V{x})=\T{0}\in\Tensors{2} \fullstop
 \end{equation}
 如果用其他形式的分量来表述这一结果，我们便有
 \begin{equation}
-	\covD{\mu}{g_{ij}} = \covD{\mu}{g^{ij}}
-	=\covD{\mu}{\KroneckerDelta{i}{j}} = 0 \fullstop
+	\coD{\mu}{g_{ij}} = \coD{\mu}{g^{ij}}
+	=\coD{\mu}{\KroneckerDelta{i}{j}} = 0 \fullstop
 \end{equation}
 此结论称为\emphA{Ricci引理}。
 
@@ -850,12 +850,12 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 	\pdv{\EdTensor}{x^\mu}
 	&=\pdv{x^\mu} \qty(\LeviCivita{^i_j^k}\,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k) \notag \\
-	&=\covD{\mu}{\LeviCivita{^i_j^k}}\,
+	&=\coD{\mu}{\LeviCivita{^i_j^k}}\,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k \comma
 \end{align}
 式中，
 \begin{align}
-	\covD{\mu}{\LeviCivita{^i_j^k}}
+	\coD{\mu}{\LeviCivita{^i_j^k}}
 	\defeq \pdv{\LeviCivita{^i_j^k}}{x^\mu}
 		+\ChristoffelB{\mu}{s}{i} \LeviCivita{^s_j^k}
 		-\ChristoffelB{\mu}{j}{s} \LeviCivita{^i_s^k}
@@ -887,24 +887,24 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 		-\ChristoffelB{\mu}{s}{k} \LeviCivita{^i_j^s} \fullstop
 \end{align}
 这与式~\eqref{eq:Eddington张量偏导数推导} 的后三项恰好抵消。
-于是便有 $\covD{\mu}{\LeviCivita{^i_j^k}}=0$。进而
+于是便有 $\coD{\mu}{\LeviCivita{^i_j^k}}=0$。进而
 \begin{equation}
 	\pdv{\EdTensor}{x^\mu} (\V{x})=\T{0}\in\Tensors[\realR^3]{3}
 	\fullstop
 \end{equation}
 
 和度量张量类似，Eddington 张量其他分量的偏导数，
-如 $\covD{\mu}{\LeviCivita{_{ijk}}}$、
-$\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
+如 $\coD{\mu}{\LeviCivita{_{ijk}}}$、
+$\coD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 此结论同样称为\emphA{Ricci 引理}。
 \end{myProof}
 
 \subsection{Leibniz 法则}
 协变导数满足\emphA{Leibniz 法则}：
 \begin{equation}
-	\covD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_p^q})}
-	=\qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}})\,\tc{\Psi}{_p^q}
-	+\tc{\Phi}{^i_j^k}\,\qty\Big(\covD{\mu}{\tc{\Psi}{_p^q}})
+	\coD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_p^q})}
+	=\qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}})\,\tc{\Psi}{_p^q}
+	+\tc{\Phi}{^i_j^k}\,\qty\Big(\coD{\mu}{\tc{\Psi}{_p^q}})
 	\fullstop
 \end{equation}
 式中，张量分量的形式可以是任意的。
@@ -917,8 +917,8 @@ $\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 \end{equation}
 则
 \begin{align}
-	&\alspace \covD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_p^q})}
-	=\covD{\mu}{\tc{\Omega}{^i_j^k_p^q}} \notag \\
+	&\alspace \coD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_p^q})}
+	=\coD{\mu}{\tc{\Omega}{^i_j^k_p^q}} \notag \\
 	&\defeq \pdv{\tc{\Omega}{^i_j^k_p^q}}{x^\mu}
 		+\ChristoffelB{\mu}{s}{i} \tc{\Omega}{^s_j^k_p^q}
 		-\ChristoffelB{\mu}{j}{s} \tc{\Omega}{^i_s^k_p^q}
@@ -941,7 +941,7 @@ $\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 \end{equation}
 代回前一式，即有
 \begin{align}
-	\covD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_p^q})}
+	\coD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_p^q})}
 	&=\qty\Bigg(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}
 			+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
 			-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
@@ -949,18 +949,18 @@ $\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 		+\tc{\Phi}{^i_j^k}\,\qty\Bigg(\pdv{\tc{\Psi}{_p^q}}{x^\mu}
 			-\ChristoffelB{\mu}{p}{s} \tc{\Psi}{_s^q}
 			+\ChristoffelB{\mu}{s}{q} \tc{\Psi}{_p^s}) \notag \\
-	&\defeq \qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}})\,\tc{\Psi}{_p^q}
-		+\tc{\Phi}{^i_j^k}\,\qty\Big(\covD{\mu}{\tc{\Psi}{_p^q}})
+	&\defeq \qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}})\,\tc{\Psi}{_p^q}
+		+\tc{\Phi}{^i_j^k}\,\qty\Big(\coD{\mu}{\tc{\Psi}{_p^q}})
 		\fullstop
 \end{align}
 \end{myProof}
 
-现在来考虑 $\covD{\mu}{\qty(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_k^q})}$，
+现在来考虑 $\coD{\mu}{\qty(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_k^q})}$，
 注意其中的 $k$ 是哑标。若按照 Leibniz 法则，似乎有
 \begin{align}
-	\covD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_k^q})}
-	&=\qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}})\,\tc{\Psi}{_k^q}
-		+\tc{\Phi}{^i_j^k}\,\qty\Big(\covD{\mu}{\tc{\Psi}{_k^q}})
+	\coD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_k^q})}
+	&=\qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}})\,\tc{\Psi}{_k^q}
+		+\tc{\Phi}{^i_j^k}\,\qty\Big(\coD{\mu}{\tc{\Psi}{_k^q}})
 		\notag \\
 	&=\qty\Bigg(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}
 			+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
@@ -981,7 +981,7 @@ $\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 \end{align}
 而根据定义，则
 \begin{equation}
-	\covD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_k^q})}
+	\coD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_k^q})}
 	\defeq \pdv{x^\mu} \qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_k^q})
 		+\qty\Big(\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
 			-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k})\,\tc{\Psi}{_k^q}
@@ -1007,22 +1007,22 @@ $\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 
 把 Ricci 引理和 Leibniz 法则联合起来，便有
 \begin{braceEq}
-	\covD{\mu}{\qty\Big(g_{ij}\,\tc{\Psi}{^p_q})}
-	&=\qty\Big(\covD{\mu}{g_{ij}})\,\tc{\Psi}{^p_q}
-		+g_{ij} \qty\Big(\covD{\mu}{\tc{\Psi}{^p_q}})
-	=g_{ij}\,\covD{\mu}{\tc{\Psi}{^p_q}} \comma \\
-	\covD{\mu}{\qty\Big(\LeviCivita{^i_j^k}\,\tc{\Psi}{^p_q})}
-	&=\qty\Big(\covD{\mu}{\LeviCivita{^i_j^k}})\,\tc{\Psi}{^p_q}
-		+\LeviCivita{^i_j^k} \qty\Big(\covD{\mu}{\tc{\Psi}{^p_q}})
-	=\LeviCivita{^i_j^k}\,\covD{\mu}{\tc{\Psi}{^p_q}} \fullstop
+	\coD{\mu}{\qty\Big(g_{ij}\,\tc{\Psi}{^p_q})}
+	&=\qty\Big(\coD{\mu}{g_{ij}})\,\tc{\Psi}{^p_q}
+		+g_{ij} \qty\Big(\coD{\mu}{\tc{\Psi}{^p_q}})
+	=g_{ij}\,\coD{\mu}{\tc{\Psi}{^p_q}} \comma \\
+	\coD{\mu}{\qty\Big(\LeviCivita{^i_j^k}\,\tc{\Psi}{^p_q})}
+	&=\qty\Big(\coD{\mu}{\LeviCivita{^i_j^k}})\,\tc{\Psi}{^p_q}
+		+\LeviCivita{^i_j^k} \qty\Big(\coD{\mu}{\tc{\Psi}{^p_q}})
+	=\LeviCivita{^i_j^k}\,\coD{\mu}{\tc{\Psi}{^p_q}} \fullstop
 \end{braceEq}
 这说明度量张量和 Eddington 张量类似常数，可以提到协变导数的外面。
 
 \subsection{混合协变导数}
 与混合偏导数定理类似，协变导数满足
 \begin{equation}
-	\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}}
-	=\covD{\mu}{\covD{\nu}{\tc{\Phi}{^i_j^k}}} \fullstop
+	\coD{\nu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}
+	=\coD{\mu}{\coD{\nu}{\tc{\Phi}{^i_j^k}}} \fullstop
 \end{equation}
 不必多说，张量分量依然可以任意选取。
 只是需要注意，该定理只在\myPROBLEM{体积上张量场场论}成立。
@@ -1033,65 +1033,65 @@ $\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 	\pdv{\T{\Phi}}{x^\mu}
 	=\pdv{x^\mu} \qty\Big(
 		\tc{\Phi}{^i_j^k} \V{g}_i\tp\V{g}^j\tp\V{g}_k)
-	=\covD{\mu}{\tc{\Phi}{^i_j^k}} \, \V{g}_i\tp\V{g}^j\tp\V{g}_k
+	=\coD{\mu}{\tc{\Phi}{^i_j^k}} \, \V{g}_i\tp\V{g}^j\tp\V{g}_k
 	\in\Tensors{3} \fullstop
 \end{equation}
 再求一次偏导数，可有
 \begin{align}
 	\pdv{\T{\Phi}}{x^\nu}{x^\mu}
 	\coloneq \pdv{x^\nu} \qty(\pdv{\T{\Phi}}{x^\mu})
-	=\pdv{x^\nu} \qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}} \,
+	=\pdv{x^\nu} \qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k) \fullstop
 \end{align}
 请注意，括号里的张量带有一个\emphB{独立指标} $\mu$。
 按照极限分析，有
 \begin{align}
-	&\alspace \pdv{x^\nu} \qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}} \,
+	&\alspace \pdv{x^\nu} \qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k) \notag \\
-	&=\pdv{x^\nu}\qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}}) \,
+	&=\pdv{x^\nu}\qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}}) \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k
-		+\covD{\mu}{\tc{\Phi}{^i_j^k}} \qty(
+		+\coD{\mu}{\tc{\Phi}{^i_j^k}} \qty(
 			\pdv{\V{g}_i}{x^\nu} \tp\V{g}^j\tp\V{g}_k
 			+\V{g}_i\tp\pdv{\V{g}^j}{x^\nu} \tp\V{g}_k
 			+\V{g}_i\tp\V{g}^j\tp\pdv{\V{g}_k}{x^\nu}) \notag \\
-	&=\pdv{x^\nu}\qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}}) \,
+	&=\pdv{x^\nu}\qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}}) \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k
-		+\covD{\mu}{\tc{\Phi}{^i_j^k}} \qty\Big(
+		+\coD{\mu}{\tc{\Phi}{^i_j^k}} \qty\Big(
 			\ChristoffelB{\nu}{i}{s} \V{g}_s\tp\V{g}^j\tp\V{g}_k
 			-\ChristoffelB{\nu}{s}{j} \V{g}_i\tp\V{g}^s\tp\V{g}_k
 			+\ChristoffelB{\nu}{k}{s} \V{g}_i\tp\V{g}^j\tp\V{g}_s)
 		\notag \\
-	&=\qty[\pdv{x^\nu} \qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}})
-			+\ChristoffelB{\nu}{s}{i} \covD{\mu}{\tc{\Phi}{^s_j^k}}
-			-\ChristoffelB{\nu}{j}{s} \covD{\mu}{\tc{\Phi}{^i_s^k}}
-			+\ChristoffelB{\nu}{s}{k} \covD{\mu}{\tc{\Phi}{^i_j^s}}] \,
+	&=\qty[\pdv{x^\nu} \qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}})
+			+\ChristoffelB{\nu}{s}{i} \coD{\mu}{\tc{\Phi}{^s_j^k}}
+			-\ChristoffelB{\nu}{j}{s} \coD{\mu}{\tc{\Phi}{^i_s^k}}
+			+\ChristoffelB{\nu}{s}{k} \coD{\mu}{\tc{\Phi}{^i_j^s}}] \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
 	\label{eq:混合协变导数推导}
 \end{align}
-但是 $\covD{\mu}{\tc{\Phi}{^i_j^k}}$ 本身带有 4 个指标，因而
+但是 $\coD{\mu}{\tc{\Phi}{^i_j^k}}$ 本身带有 4 个指标，因而
 \begin{equation}
-	\covD{\nu}{\qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}})}
-	\defeq \pdv{x^\nu} \qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}})
-		+\ChristoffelB{\nu}{s}{i} \covD{\mu}{\tc{\Phi}{^s_j^k}}
-		-\ChristoffelB{\nu}{j}{s} \covD{\mu}{\tc{\Phi}{^i_s^k}}
-		+\ChristoffelB{\nu}{s}{k} \covD{\mu}{\tc{\Phi}{^i_j^s}}
-		-\ChristoffelB{\nu}{\mu}{s} \covD{s}{\tc{\Phi}{^i_j^k}}
+	\coD{\nu}{\qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}})}
+	\defeq \pdv{x^\nu} \qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}})
+		+\ChristoffelB{\nu}{s}{i} \coD{\mu}{\tc{\Phi}{^s_j^k}}
+		-\ChristoffelB{\nu}{j}{s} \coD{\mu}{\tc{\Phi}{^i_s^k}}
+		+\ChristoffelB{\nu}{s}{k} \coD{\mu}{\tc{\Phi}{^i_j^s}}
+		-\ChristoffelB{\nu}{\mu}{s} \coD{s}{\tc{\Phi}{^i_j^k}}
 	\fullstop
 \end{equation}
 代入 \eqref{eq:混合协变导数推导}~式，可得
 \begin{equation}
 	\pdv{\T{\Phi}}{x^\nu}{x^\mu}
-	=\pdv{x^\nu} \qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}} \,
+	=\pdv{x^\nu} \qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k)
-	=\qty\Big(\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}}
-		+\ChristoffelB{\nu}{\mu}{s} \covD{s}{\tc{\Phi}{^i_j^k}}) \,
+	=\qty\Big(\coD{\nu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}
+		+\ChristoffelB{\nu}{\mu}{s} \coD{s}{\tc{\Phi}{^i_j^k}}) \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
 \end{equation}
 同理，
 \begin{equation}
 	\pdv{\T{\Phi}}{x^\mu}{x^\nu}
-	=\qty\Big(\covD{\mu}{\covD{\nu}{\tc{\Phi}{^i_j^k}}}
-		+\ChristoffelB{\mu}{\nu}{s} \covD{s}{\tc{\Phi}{^i_j^k}}) \,
+	=\qty\Big(\coD{\mu}{\coD{\nu}{\tc{\Phi}{^i_j^k}}}
+		+\ChristoffelB{\mu}{\nu}{s} \coD{s}{\tc{\Phi}{^i_j^k}}) \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
 \end{equation}
 
@@ -1108,8 +1108,8 @@ $\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 \end{equation}
 这样就可得到
 \begin{equation}
-	\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}}
-	=\covD{\mu}{\covD{\nu}{\tc{\Phi}{^i_j^k}}} \fullstop
+	\coD{\nu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}
+	=\coD{\mu}{\coD{\nu}{\tc{\Phi}{^i_j^k}}} \fullstop
 \end{equation}
 \end{myProof}
 
@@ -1192,26 +1192,26 @@ $\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 	&=\qty(\V{g}^\nu\pdv{x^\nu})
 		\cp \qty(\V{g}^\mu\tp\pdv{\T{\Phi}}{x^\mu}) \notag \\
 	&=\qty(\V{g}^\nu\pdv{x^\nu})
-		\cp \qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}}
+		\cp \qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}}
 			\V{g}^\mu\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k) \notag \\
 	&=\V{g}^\nu\cp\pdv{x^\nu}
-		\qty\Big(\covD{\mu}{\tc{\Phi}{^i_j^k}}
+		\qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}}
 			\V{g}^\mu\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k) \notag
 	\intertext{与 \eqref{eq:混合协变导数推导}~式不同，第二个括号中的 
 		$\mu$、$i$、$j$、$k$ 都是\emphB{哑标}，
 		所以偏导数可以直接用协变导数表示，而不会出现多余的
 		Christoffel 符号：}
 	&=\V{g}^\nu\cp \qty[ \vphantom{\frac{0}{0}}
-			\qty(\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+			\qty(\coD{\nu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
 			\V{g}^\mu\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k] \notag
 	\intertext{按照叉乘的定义（见 \ref{sec:叉乘}~节），
 		$\V{g}^\nu$ 将与构成简单张量的第一个基向量相乘，即}
-	&=\qty(\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}})
+	&=\qty(\coD{\nu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}})
 		\qty(\V{g}^\nu\cp\V{g}^\mu)
 		\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k \notag
 	\intertext{利用 Levi-Civita 记号展开叉乘项，有}
 	&=\LeviCivita{^{\mu\nu s}}
-		\qty(\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+		\qty(\coD{\nu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
 		\V{g}_s\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
 \end{align}
 考虑交换哑标 $\mu$、$\nu$，结果必然保持不变。
@@ -1220,8 +1220,8 @@ $\covD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 	Levi-Civita 记号由行列式定义，而行列式交换两列将改变符号。}，
 即 $\LeviCivita{^{\mu\nu s}}=-\LeviCivita{^{\nu\mu s}}$；
 另一方面，混合协变导数却又满足
-$\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}}
-=\covD{\mu}{\covD{\nu}{\tc{\Phi}{^i_j^k}}}$，
+$\coD{\nu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}
+=\coD{\mu}{\coD{\nu}{\tc{\Phi}{^i_j^k}}}$，
 因此总的结果将变为其相反数。这样，结果只可能为零，即
 \begin{equation}
 	\opGrad \cp \qty\big(\opGrad\tp\T{\Phi})=\T{0} \fullstop
@@ -1234,33 +1234,117 @@ $\covD{\nu}{\covD{\mu}{\tc{\Phi}{^i_j^k}}}
 		\cdot \qty(\V{g}^\mu\cp\pdv{\T{\Phi}}{x^\mu}) \notag \\
 	&=\qty(\V{g}^\nu\pdv{x^\nu})
 		\cdot \qty[ \vphantom{\frac{0}{0}}
-			\V{g}^\mu\cp \qty(\covD{\mu}{\tc{\Phi}{^i_j^k}} \,
+			\V{g}^\mu\cp \qty(\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
 				\V{g}_i\tp\V{g}^j\tp\V{g}_k)] \notag \\
 	&=\V{g}^\nu \cdot \pdv{x^\nu} \qty[ \vphantom{\frac{0}{0}}
-			\V{g}^\mu\cp \qty(\covD{\mu}{\tc{\Phi}{^i_j^k}} \,
+			\V{g}^\mu\cp \qty(\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
 				\V{g}_i\tp\V{g}^j\tp\V{g}_k)] \notag \\
 	&=\V{g}^\nu \cdot \pdv{x^\nu} \qty[ \vphantom{\frac{0}{0}}
-			\covD{\mu}{\tc{\Phi}{^i_j^k}} \,
+			\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
 			\qty(\V{g}^\mu\cp\V{g}_i)\tp\V{g}^j\tp\V{g}_k] \notag \\
 	&=\V{g}^\nu \cdot \pdv{x^\nu} \qty( \vphantom{\frac{0}{0}}
-			\covD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}} \,
+			\coD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}} \,
 			\V{g}_s\tp\V{g}^j\tp\V{g}_k) \notag
 	\intertext{$\mu$、$s$、$i$、$j$、$k$ 全部是哑标，因此}
 	&=\V{g}^\nu \cdot \qty[ \vphantom{\frac{0}{0}}
-		\qty(\covD{\nu}{
-			\covD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}}}) \,
-		\V{g}_s\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k] \notag
-	\intertext{点乘出来 Kronecker δ：}
-	&=\qty(\covD{\nu}{
-			\covD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}}}) \,
-		\KroneckerDelta{\nu}{s} \,
-		\V{g}_i\tp\V{g}^j\tp\V{g}_k \notag \\
-	&=\LeviCivita{^\mu_i^\nu} \qty(\covD{\nu}{
-			\covD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
-		\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
+		\qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}}}) \,
+		\V{g}_s\tp\V{g}^j\tp\V{g}_k] \notag
+	\intertext{点乘之后出来 Kronecker δ：}
+	&=\qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}}}) \,
+		\KroneckerDelta{\nu}{s} \, \V{g}^j\tp\V{g}_k \notag \\
+	&=\LeviCivita{^\mu_i^\nu} \qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+		\V{g}^j\tp\V{g}_k \fullstop
 \end{align}
 交换哑标 $\mu$、$\nu$，仿上，便有
 \begin{equation}
 	\opGrad \cdot \qty\big(\opGrad\cp\T{\Phi})=\T{0} \fullstop
 \end{equation}
+\end{myProof}
+
+\blankline
+
+接下来回忆一下\emphB{向量场}旋度的复合
+\begin{equation}
+	\forall\,\V{A}\in\realR^3,\quad
+	\opGrad\cp \qty(\opGrad\cp\V{A})
+	=\opGrad\qty\big(\opGrad\cdot\V{A})-\opLap\V{A}
+	\in\realR^3 \comma
+\end{equation}
+式中，$\opLap$ 称为\emphA{Laplace 算子}，其定义为
+\begin{equation}
+	\opLap\V{A} \defeq
+	\opGrad\cdot\qty\big(\opGrad\tp\V{A}) \fullstop
+\end{equation}
+推广到张量场上，我们有如下两式：
+\begin{braceEq*}
+	{\forall\,\T{\Phi}\in\Tensors[\realR^3]{r},\quad}
+	\opGrad\cp\qty\big(\opGrad\cp\T{\Phi})
+	&=\opGrad\tp\qty\big(\opGrad\cdot\T{\Phi})
+		-\opLap\T{\Phi} \comma \\
+	\qty\big(\T{\Phi}\cp\opGrad)\cp\opGrad
+	&=\qty\big(\T{\Phi}\cdot\opGrad)\tp\opGrad
+		-\T{\Phi}\opLap \comma
+\end{braceEq*}
+其中，Laplace 算子的定义为
+\begin{braceEq}
+	\opLap\T{\Phi} &\defeq
+		\opGrad\cdot\qty\big(\opGrad\tp\T{\Phi}) \comma \\
+	\T{\Phi}\opLap &\defeq
+		\qty\big(\T{\Phi}\tp\opGrad)\cdot\opGrad \fullstop
+\end{braceEq}
+
+\begin{myProof}
+同样，我们以三阶张量为例进行计算。
+代入旋度的定义，有
+\begin{align}
+	\opGrad \cp \qty\big(\opGrad\cp\T{\Phi})
+	&=\qty(\V{g}^\nu\pdv{x^\nu})
+		\cp \qty(\V{g}^\mu\cp\pdv{\T{\Phi}}{x^\mu}) \notag \\
+%	&=\qty(\V{g}^\nu\pdv{x^\nu})
+%		\cp \qty[ \vphantom{\frac{0}{0}}
+%			\V{g}^\mu\cp \qty(\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
+%				\V{g}_i\tp\V{g}^j\tp\V{g}_k)] \notag \\
+	&=\V{g}^\nu \cp \pdv{x^\nu} \qty[ \vphantom{\frac{0}{0}}
+			\V{g}^\mu\cp \qty(\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
+				\V{g}_i\tp\V{g}^j\tp\V{g}_k)] \notag \\
+%	&=\V{g}^\nu \cp \pdv{x^\nu} \qty[ \vphantom{\frac{0}{0}}
+%			\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
+%			\qty(\V{g}^\mu\cp\V{g}_i)\tp\V{g}^j\tp\V{g}_k] \notag \\
+	&=\V{g}^\nu \cp \pdv{x^\nu} \qty( \vphantom{\frac{0}{0}}
+			\coD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}} \,
+			\V{g}_s\tp\V{g}^j\tp\V{g}_k) \notag \\
+%	\intertext{$\mu$、$s$、$i$、$j$、$k$ 全部是哑标，因此}
+	&=\V{g}^\nu \cp \qty[ \vphantom{\frac{0}{0}}
+		\qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}}}) \,
+		\V{g}_s\tp\V{g}^j\tp\V{g}_k] \notag \\
+%	\intertext{点乘之后出来 Kronecker δ：}
+%	&=\qty(\coD{\nu}{
+%			\coD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}}}) \,
+%		\KroneckerDelta{\nu}{s} \, \V{g}^j\tp\V{g}_k \notag \\
+	&=\LeviCivita{^\mu_i^s}\LeviCivita{^\nu_s^t} \qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+		\V{g}_t\tp\V{g}^j\tp\V{g}_k \notag
+	\intertext{为了使用“\emphB{前前后后，里里外外}”之法则
+		（见 \ref{subsec:两种度量的关系}~小节），
+		需要交换第二个 Eddington 张量的指标 $s$ 挪到最后，
+		不要忘了添上负号：}
+	&=-\LeviCivita{^\mu_i^s}\LeviCivita{^\nu^t_s} \qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+		\V{g}_t\tp\V{g}^j\tp\V{g}_k \notag
+	\intertext{这样就可以顺利用上口诀：}
+	&=-\qty(g^{\mu\nu}\KroneckerDelta{t}{i}
+			-\KroneckerDelta{\nu}{i}g^{\mu t})
+		\qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+		\V{g}_t\tp\V{g}^j\tp\V{g}_k \notag \fullstop
+\end{align}
+接下来，形式上引入\emphA{逆变导数}
+\begin{equation}
+	\ctrD{\mu}{} \coloneq g^{\mu\nu}\coD{\nu}{} \comma
+\end{equation}
+则上式可化为
 \end{myProof}
