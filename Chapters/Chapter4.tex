@@ -1023,6 +1023,7 @@ $\coD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 \begin{equation}
 	\coD{\nu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}
 	=\coD{\mu}{\coD{\nu}{\tc{\Phi}{^i_j^k}}} \fullstop
+	\label{eq:混合协变导数定理}
 \end{equation}
 不必多说，张量分量依然可以任意选取。
 只是需要注意，该定理只在\myPROBLEM{体积上张量场场论}成立。
@@ -1283,10 +1284,10 @@ $\coD{\nu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}
 	{\forall\,\T{\Phi}\in\Tensors[\realR^3]{r},\quad}
 	\opGrad\cp\qty\big(\opGrad\cp\T{\Phi})
 	&=\opGrad\tp\qty\big(\opGrad\cdot\T{\Phi})
-		-\opLap\T{\Phi} \comma \\
+		-\opLap\T{\Phi} \comma \label{eq:张量场旋度复合_1} \\
 	\qty\big(\T{\Phi}\cp\opGrad)\cp\opGrad
 	&=\qty\big(\T{\Phi}\cdot\opGrad)\tp\opGrad
-		-\T{\Phi}\opLap \comma
+		-\T{\Phi}\opLap \comma \label{eq:张量场旋度复合_2}
 \end{braceEq*}
 其中，Laplace 算子的定义为
 \begin{braceEq}
@@ -1303,28 +1304,16 @@ $\coD{\nu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}
 	\opGrad \cp \qty\big(\opGrad\cp\T{\Phi})
 	&=\qty(\V{g}^\nu\pdv{x^\nu})
 		\cp \qty(\V{g}^\mu\cp\pdv{\T{\Phi}}{x^\mu}) \notag \\
-%	&=\qty(\V{g}^\nu\pdv{x^\nu})
-%		\cp \qty[ \vphantom{\frac{0}{0}}
-%			\V{g}^\mu\cp \qty(\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
-%				\V{g}_i\tp\V{g}^j\tp\V{g}_k)] \notag \\
 	&=\V{g}^\nu \cp \pdv{x^\nu} \qty[ \vphantom{\frac{0}{0}}
 			\V{g}^\mu\cp \qty(\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
 				\V{g}_i\tp\V{g}^j\tp\V{g}_k)] \notag \\
-%	&=\V{g}^\nu \cp \pdv{x^\nu} \qty[ \vphantom{\frac{0}{0}}
-%			\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
-%			\qty(\V{g}^\mu\cp\V{g}_i)\tp\V{g}^j\tp\V{g}_k] \notag \\
 	&=\V{g}^\nu \cp \pdv{x^\nu} \qty( \vphantom{\frac{0}{0}}
 			\coD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}} \,
 			\V{g}_s\tp\V{g}^j\tp\V{g}_k) \notag \\
-%	\intertext{$\mu$、$s$、$i$、$j$、$k$ 全部是哑标，因此}
 	&=\V{g}^\nu \cp \qty[ \vphantom{\frac{0}{0}}
 		\qty(\coD{\nu}{
 			\coD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}}}) \,
 		\V{g}_s\tp\V{g}^j\tp\V{g}_k] \notag \\
-%	\intertext{点乘之后出来 Kronecker δ：}
-%	&=\qty(\coD{\nu}{
-%			\coD{\mu}{\tc{\Phi}{^i_j^k} \LeviCivita{^\mu_i^s}}}) \,
-%		\KroneckerDelta{\nu}{s} \, \V{g}^j\tp\V{g}_k \notag \\
 	&=\LeviCivita{^\mu_i^s}\LeviCivita{^\nu_s^t} \qty(\coD{\nu}{
 			\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
 		\V{g}_t\tp\V{g}^j\tp\V{g}_k \notag
@@ -1340,11 +1329,81 @@ $\coD{\nu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}
 			-\KroneckerDelta{\nu}{i}g^{\mu t})
 		\qty(\coD{\nu}{
 			\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
-		\V{g}_t\tp\V{g}^j\tp\V{g}_k \notag \fullstop
+		\V{g}_t\tp\V{g}^j\tp\V{g}_k \fullstop
 \end{align}
 接下来，形式上引入\emphA{逆变导数}
 \begin{equation}
 	\ctrD{\mu}{} \coloneq g^{\mu\nu}\coD{\nu}{} \comma
 \end{equation}
 则上式可化为
+\begin{align}
+	\opGrad \cp \qty\big(\opGrad\cp\T{\Phi})
+	&=\KroneckerDelta{\nu}{i}g^{\mu t} \qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+		\V{g}_t\tp\V{g}^j\tp\V{g}_k
+		-g^{\mu\nu}\KroneckerDelta{t}{i} \qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+		\V{g}_t\tp\V{g}^j\tp\V{g}_k \notag \\
+	&=\qty(\coD{i}{\ctrD{t}{\tc{\Phi}{^i_j^k}}}) \,
+			\V{g}_t\tp\V{g}^j\tp\V{g}_k
+		-\qty(\ctrD{\mu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+			\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
+	\label{eq:张量场旋度复合推导}
+\end{align}
+等式右边的第一项为
+\begin{align}
+	\opGrad \tp \qty\big(\opGrad\cdot\T{\Phi})
+	&=\qty(\V{g}^\nu\pdv{x^\nu})
+		\tp \qty(\V{g}^\mu\cdot\pdv{\T{\Phi}}{x^\mu}) \notag \\
+	&=\V{g}^\nu \tp \pdv{x^\nu} \qty[ \vphantom{\frac{0}{0}}
+			\V{g}^\mu \cdot \qty(\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
+				\V{g}_i\tp\V{g}^j\tp\V{g}_k)] \notag \\
+	&=\V{g}^\nu \tp \pdv{x^\nu} \qty( \vphantom{\frac{0}{0}}
+			\coD{\mu}{\tc{\Phi}{^i_j^k} \KroneckerDelta{\mu}{i}} \,
+			\V{g}^j\tp\V{g}_k) \notag \\
+	&=\V{g}^\nu \tp \qty[ \vphantom{\frac{0}{0}}
+		\qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k} \KroneckerDelta{\mu}{i}}}) \,
+		\V{g}^j\tp\V{g}_k] \notag \\
+	&=\KroneckerDelta{\mu}{i} g^{\nu t} \qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+		\V{g}_t\tp\V{g}^j\tp\V{g}_k \notag \\
+	&=\qty(\ctrD{t}{\coD{i}{\tc{\Phi}{^i_j^k}}}) \,
+			\V{g}_t\tp\V{g}^j\tp\V{g}_k \notag
+	\intertext{根据式~\eqref{eq:混合协变导数定理}，
+		协变导数可以交换顺序；而逆变导数无非就是利用度量玩了下
+		“指标升降游戏”，理应可以交换：}
+	&=\qty(\coD{i}{\ctrD{t}{\tc{\Phi}{^i_j^k}}}) \,
+		\V{g}_t\tp\V{g}^j\tp\V{g}_k \comma
+\end{align}
+而第二项为
+\begin{align}
+	\opLap\T{\Phi}
+	\defeq \opGrad \cdot \qty\big(\opGrad\tp\T{\Phi})
+	&=\qty(\V{g}^\nu\pdv{x^\nu})
+		\cdot \qty(\V{g}^\mu\tp\pdv{\T{\Phi}}{x^\mu}) \notag \\
+	&=\V{g}^\nu \cdot \pdv{x^\nu} \qty[ \vphantom{\frac{0}{0}}
+			\V{g}^\mu \tp \qty(\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
+				\V{g}_i\tp\V{g}^j\tp\V{g}_k)] \notag \\
+	&=\V{g}^\nu \cdot \pdv{x^\nu} \qty( \vphantom{\frac{0}{0}}
+			\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
+			\V{g}^\mu\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k) \notag \\
+	&=\V{g}^\nu \cdot \qty[ \vphantom{\frac{0}{0}}
+		\qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+		\V{g}^\mu\tp\V{g}_i\tp\V{g}^j\tp\V{g}_k] \notag \\
+	&=g^{\mu\nu} \qty(\coD{\nu}{
+			\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+		\V{g}_i\tp\V{g}^j\tp\V{g}_k \notag \\
+	&=\qty(\ctrD{\mu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}) \,
+			\V{g}_u\tp\V{g}^j\tp\V{g}_k \fullstop
+\end{align}
+将它们与 \eqref{eq:张量场旋度复合推导}~式比较，可得
+\begin{equation}
+	\opGrad\cp\qty\big(\opGrad\cp\T{\Phi})
+	=\opGrad\tp\qty\big(\opGrad\cdot\T{\Phi}) 
+		-\opLap\T{\Phi} \fullstop
+\end{equation}
+
+式~\eqref{eq:张量场旋度复合_2} 可以完全类似地证明，此处不再赘述。
 \end{myProof}
