@@ -1,0 +1,35 @@
+\section{Frenet 标架}
+$\Rm$ 空间中的\emphA{曲线}，就是一个\emphB{单参数}的向量值映照：
+\begin{equation}
+	\mmap{\V{X}(\lambda)}{[\alpha,\,\beta]\ni\lambda}
+		{\V{X}(\lambda)=\mqty[X^1(\lambda) \\ \vdots \\
+			X^m(\lambda)]\in\Rm}
+	\fullstop
+\end{equation}
+
+下面我们来研究
+\begin{equation}
+	\dv{\V{X}}{\lambda} (\lambda)
+	=\lim_{\incr\lambda\to 0}
+		\frac{\V{X}(\lambda+\incr\lambda)-\V{X}(\lambda)}{\incr\lambda}
+	\eqcolon \mqty[\dot{X}^1(\lambda) \\ \vdots \\
+		\dot{X}^m(\lambda)] \fullstop
+\end{equation}
+若该极限存在，则称 $\V{X}(\lambda)\in\Rm$ 在点 $\lambda$
+处\emphA{可微}。此时，$\dv*{\V{X}}{\lambda}$ 称为曲线
+$\V{X}(\lambda)$ 的\emphA{切向量}。
+
+上述极限可以等价地表述为
+\begin{equation}
+	\V{X}(\lambda+\incr\lambda)
+	=\V{X}(\lambda)+\dv{\V{X}}{\lambda} (\lambda) \cdot\incr\lambda
+		+\sOv{\incr\lambda} \fullstop
+\end{equation}
+在 $\lambda_0$ 处，则可以写成
+\begin{equation}
+	\V{X}(\lambda)
+	=\V{X}\qty(\lambda_0)+\dv{\V{X}}{\lambda} \qty(\lambda_0)
+		\cdot\qty(\lambda-\lambda_0)+\sOv{\lambda-\lambda_0} \fullstop
+\end{equation}
+该方程表示一条直线，称为曲线 $\V{X}(\lambda)$
+在 $\lambda_0$ 处的\emphA{切线}。
