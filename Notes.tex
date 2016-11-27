@@ -381,6 +381,8 @@
 %% 范数
 \let\PHYSICSNORM=\norm
 \renewcommand{\norm}[2][\Rm]{\PHYSICSNORM{#2}_{#1}}
+%% 线性分式
+\WithSuffix\newcommand\frac*[2]{\left.#1\middle/#2\right.}
 %% 内积(括号形式)(Inner Product Braket)
 %\newcommand{\ipb}[3][\Rm]{\qty(#2,\,#3)_{#1}}
 \newcommand{\ipb}[3][\Rm]{\left\langle#2,\,#3\right\rangle_{#1}}

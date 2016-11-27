@@ -1,35 +1,96 @@
 \section{Frenet 标架}
 $\Rm$ 空间中的\emphA{曲线}，就是一个\emphB{单参数}的向量值映照：
 \begin{equation}
-	\mmap{\V{X}(\lambda)}{[\alpha,\,\beta]\ni\lambda}
-		{\V{X}(\lambda)=\mqty[X^1(\lambda) \\ \vdots \\
-			X^m(\lambda)]\in\Rm}
+	\mmap{\V{X}(t)}{[\alpha,\,\beta]\ni t}
+		{\V{X}(t)=\mqty[X^1(t) \\ \vdots \\ X^m(t)]\in\Rm} \fullstop
+\end{equation}
+考虑该向量值映照关于参数 $t$ 的变化率
+\begin{equation}
+	\dot{\V{X}}(t)\coloneq\dv{\V{X}}{t} (t)
+	=\lim_{\incr t\to 0} \frac{\V{X}(t+\incr t)-\V{X}(t)}{\incr t}
+	\eqcolon \mqty[\dot{X}^1(t) \\ \vdots \\ \dot{X}^m(t)] \fullstop
+\end{equation}
+若该极限存在，则称 $\V{X}(t)\in\Rm$ 在点 $t$
+处\emphA{可微}。此时，$\dot{\V{X}}(t)$ 称为曲线
+$\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
+\begin{equation}
+	\V{X}(t+\incr t) = \V{X}(t)+\dv{\V{X}}{t} (t) \cdot\incr t
+		+\sOv{\incr t} \fullstop
+\end{equation}
+在 $t_0$ 处，则可以写成
+\begin{equation}
+	\V{X}(t) =\V{X}\qty(t_0)+\dv{\V{X}}{t} \qty(t_0)
+		\cdot\qty(t-t_0)+\sOv{t-t_0} \fullstop
+\end{equation}
+该方程表示一条直线，称为曲线 $\V{X}(t)$
+在 $t_0$ 处的\emphA{切线}。
+
+在物理域中，\emphA{弧长} $s$ 可以表示为
+\begin{equation}
+	s=\int_\alpha^\beta \norm{\dv{\V{X}}{t} (t)} \dd{t} \comma
+\end{equation}
+两边对 $t$ 求导，可有
+\begin{equation}
+	\dv{s}{t} (t) = \norm{\dv{\V{X}}{t} (t)} \fullstop
+\end{equation}
+为了研究问题的方便，我们以后将用弧长作为曲线的参数，即
+\begin{equation}
+	\mmap{\V{r}(s)}{[0,\,L]\ni s}{\V{r}(s)\in\Rm} \fullstop
+\end{equation}
+对应的切向量为
+\begin{equation}
+	\dot{\V{r}}(s)\coloneq\dv{\V{r}}{s} (s)
+	=\lim_{\incr s\to 0} \frac{\V{r}(s+\incr s)-\V{r}(s)}{\incr s}
 	\fullstop
 \end{equation}
+根据链式法则，
+\begin{equation}
+	\dv{\V{r}}{s} (s)
+	=\dv{\V{r}}{t} (t) \cdot \dv{t}{s} (s)
+	=\frac*{\dv{\V{r}}{t} (t)}{\dv{s}{t} (t)}
+	=\frac*{\dv{\V{r}}{t} (t)}{\norm{\dv{\V{r}}{t} (t)}} \comma
+\end{equation}
+因而 $\dot{\V{r}}(s)$ 是一个单位向量，即
+\begin{equation}
+	\norm{\dot{\V{r}}(s)}=1 \fullstop
+\end{equation}
+接下来继续对 $\dot{\V{r}}(s)$ 求导：
+\begin{equation}
+	\ddot{\V{r}}(s)\coloneq\dv{\dot{\V{r}}}{s} (s) \fullstop
+\end{equation}
+由于 $\norm{\dot{\V{r}}(s)}=1$，因此
+\begin{equation}
+	1=\norm{\dot{\V{r}}(s)}^2
+	=\ipb{\vphantom{0^0} \dot{\V{r}}(s)}{\dot{\V{r}}(s)} \comma
+\end{equation}
+两边求导，则有
+\begin{equation}
+	0=\ipb{\vphantom{0^0} \ddot{\V{r}}(s)}{\dot{\V{r}}(s)}
+		+\ipb{\vphantom{0^0} \dot{\V{r}}(s)}{\ddot{\V{r}}(s)}
+	=2\cdot\ipb{\vphantom{0^0} \ddot{\V{r}}(s)}{\dot{\V{r}}(s)}
+	\fullstop
+\end{equation}
+内积为零，就意味着正交：
+\begin{equation}
+	\ddot{\V{r}}(s) \perp \dot{\V{r}}(s) \fullstop
+\end{equation}
 
-下面我们来研究
+现在我们把目光限定在 $\realR^3$ 空间中。将 $\dot{\V{r}}(s)$
+和 $\ddot{\V{r}}(s)$ 分别记为 $\V{\tau}(s)$ 和 $\V{k}(s)$。
+如前所述，$\V{\tau}(s)$ 已经是单位向量；
+而 $\V{k}(s)$ 仍需作单位化处理，其结果记作 $\V{n}(s)$，即
 \begin{equation}
-	\dv{\V{X}}{\lambda} (\lambda)
-	=\lim_{\incr\lambda\to 0}
-		\frac{\V{X}(\lambda+\incr\lambda)-\V{X}(\lambda)}{\incr\lambda}
-	\eqcolon \mqty[\dot{X}^1(\lambda) \\ \vdots \\
-		\dot{X}^m(\lambda)] \fullstop
+	\V{n}(s)\coloneq\frac{\V{k}(s)}{\norm[\realR^3]{\V{k}(s)}}
+	=\frac{\ddot{\V{r}}(s)}{\norm[\realR^3]{\ddot{\V{r}}(s)}}
+	\fullstop
 \end{equation}
-若该极限存在，则称 $\V{X}(\lambda)\in\Rm$ 在点 $\lambda$
-处\emphA{可微}。此时，$\dv*{\V{X}}{\lambda}$ 称为曲线
-$\V{X}(\lambda)$ 的\emphA{切向量}。
-
-上述极限可以等价地表述为
+最后，只要再令
 \begin{equation}
-	\V{X}(\lambda+\incr\lambda)
-	=\V{X}(\lambda)+\dv{\V{X}}{\lambda} (\lambda) \cdot\incr\lambda
-		+\sOv{\incr\lambda} \fullstop
+	\V{b}(s)\coloneq\V{\tau}(s)\cp\V{n}(s) \comma
 \end{equation}
-在 $\lambda_0$ 处，则可以写成
+我们便有了 $\realR^3$ 空间中的一组\emphB{单位正交基}：
 \begin{equation}
-	\V{X}(\lambda)
-	=\V{X}\qty(\lambda_0)+\dv{\V{X}}{\lambda} \qty(\lambda_0)
-		\cdot\qty(\lambda-\lambda_0)+\sOv{\lambda-\lambda_0} \fullstop
+	\qty\big{\V{\tau}(s),\,\V{n}(s),\,\V{b}(s)}
+	\subset\realR^3 \comma
 \end{equation}
-该方程表示一条直线，称为曲线 $\V{X}(\lambda)$
-在 $\lambda_0$ 处的\emphA{切线}。
+它们称作\emphA{Frenet 标架}。
