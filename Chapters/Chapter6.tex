@@ -1,4 +1,8 @@
 \section{Frenet 标架}
+%CODE 20161130 TeX Studio bug 无法换行
+% #1898 Freeze while typing \texorpdfstring
+% https://sourceforge.net/p/texstudio/bugs/1898/
+\subsection{\texorpdfstring{$\Rm$}{R\^{}m} 空间中曲线的表示}
 $\Rm$ 空间中的\emphA{曲线}，就是一个\emphB{单参数}的向量值映照：
 \begin{equation}
 	\mmap{\V{X}(t)}{[\alpha,\,\beta]\ni t}
@@ -8,8 +12,9 @@ $\Rm$ 空间中的\emphA{曲线}，就是一个\emphB{单参数}的向量值映�
 \begin{equation}
 	\dot{\V{X}}(t)\coloneq\dv{\V{X}}{t} (t)
 	=\lim_{\incr t\to 0} \frac{\V{X}(t+\incr t)-\V{X}(t)}{\incr t}
-	\eqcolon \mqty[\dot{X}^1(t) \\ \vdots \\ \dot{X}^m(t)] \fullstop
+	\eqcolon \mqty[\dot{X}^1(t) \\ \vdots \\ \dot{X}^m(t)] \comma
 \end{equation}
+按照物理上的习惯，我们用点表示对 $t$ 的导数。
 若该极限存在，则称 $\V{X}(t)\in\Rm$ 在点 $t$
 处\emphA{可微}。此时，$\dot{\V{X}}(t)$ 称为曲线
 $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
@@ -94,3 +99,70 @@ $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
 	\subset\realR^3 \comma
 \end{equation}
 它们称作\emphA{Frenet 标架}。
+
+\subsection{标架运动方程}
+考虑 Frenet 标架关于弧长参数 $s$ 的变化率，即\emphB{标架运动方程}：
+\begin{equation}
+	\qty\big{\dot{\V{\tau}}(s),\,\dot{\V{n}}(s),\,\dot{\V{b}}(s)}
+	\subset\realR^3 \fullstop
+\end{equation}
+
+为此，我们需要先给出一个引理：设 $\qty{\V{e}_i(t)}^m_{i=1}$
+是 $\Rm$ 空间中的一组\emphB{活动单位正交基}，它们满足
+\begin{equation}
+	\ipb{\V{e}_i(t)}{\V{e}_j(t)}=\KroneckerDelta*{ij} \fullstop
+	\label{eq:活动单位正交基引理_单位正交性}
+\end{equation}
+这组基的导数仍位于 $\Rm$ 空间，用自身展开，可有
+%\begin{equation}
+%	\dot{\V{e}}_i(t) = P_{ij}\V{e}_j(t) \fullstop
+%\end{equation}
+%写成矩阵形式为
+\begin{equation}
+	\mqty[\dot{\V{e}}_1(t),\,\cdots,\,\dot{\V{e}}_m(t)]
+	=\mqty[\V{e}_1(t),\,\cdots,\,\V{e}_m(t)] \Mat{P}(t) \fullstop
+	\label{eq:活动单位正交基引理_导数}
+\end{equation}
+此时，我们有
+\begin{equation}
+	\Mat{P}(t)\in\Skw \comma
+\end{equation}
+即 $\Mat{P}(t)$ 是一个\emphB{反对称矩阵}。
+
+\begin{myProof}
+对式~\eqref{eq:活动单位正交基引理_单位正交性} 两边求导，得
+\begin{equation}
+	\ipb{\dot{\V{e}}_i(t)}{\V{e}_j(t)}
+	+\ipb{\V{e}_i(t)}{\dot{\V{e}}_j(t)} = 0 \in\realR \comma
+\end{equation}
+写成矩阵形式，为
+\begin{equation}
+	\mqty[\dot{\V{e}}_1\trans(t) \\ \vdots \\ \dot{\V{e}}_m\trans(t)]
+	\mqty[\V{e}_1(t),\,\cdots,\,\V{e}_m(t)]
+	+\mqty[\V{e}_1\trans(t) \\ \vdots \\ \V{e}_m\trans(t)]
+	\mqty[\dot{\V{e}}_1(t),\,\cdots,\,\dot{\V{e}}_m(t)]
+	=\Mat{0}\in\realR^{m\times m} \fullstop
+\end{equation}
+引入矩阵 $\Mat{E}=\qty[\V{e}_1(t),\,\cdots,\,\V{e}_m(t)]$，
+则上式与 \eqref{eq:活动单位正交基引理_导数}~式可以分别表示成
+\begin{equation}
+	\dot{\Mat{E}}\trans\Mat{E}+\Mat{E}\trans\dot{\Mat{E}}
+	=\Mat{0}\in\realR^{m\times m}
+\end{equation}
+和
+\begin{equation}
+	\dot{\Mat{E}} = \Mat{E}\Mat{P}\in\realR^{m\times m} \fullstop
+\end{equation}
+两式联立，可有
+\begin{align}
+	\Mat{0}=\dot{\Mat{E}}\trans\Mat{E}
+		+\Mat{E}\trans\dot{\Mat{E}} \notag \\
+	&=\qty\big(\Mat{E}\Mat{P})\trans \Mat{E}
+		+\Mat{E}\trans \qty\big(\Mat{E}\Mat{P}) \notag \\
+	&=\Mat{P}\trans \qty\big(\Mat{E}\trans\Mat{E})
+		+\qty\big(\Mat{E}\trans\Mat{E}) \Mat{P}
+	=\Mat{P}\trans+\Mat{P} \comma
+\end{align}
+即 $\Mat{P}\trans=-\Mat{P}$。\myPROBLEM{按照定义}，便知
+$\Mat{P}(t)\in\Skw$。
+\end{myProof}
