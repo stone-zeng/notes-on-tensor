@@ -7,3 +7,5 @@
 3. (3.1.2 参数域方程) C^p 连续条件与 x 关于 X 的可微
 
 4. (3.5.2 Eddington 张量的定义) Eddington 张量与 Levi-Civita 记号
+
+5. (全文) `\det` 写法：改为 `\det\!\mqty[]`

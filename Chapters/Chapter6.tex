@@ -52,8 +52,10 @@ $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
 \begin{equation}
 	\dv{\V{r}}{s} (s)
 	=\dv{\V{r}}{t} (t) \cdot \dv{t}{s} (s)
-	=\frac*{\dv{\V{r}}{t} (t)}{\dv{s}{t} (t)}
-	=\frac*{\dv{\V{r}}{t} (t)}{\norm{\dv{\V{r}}{t} (t)}} \comma
+	=\dv{\V{r}}{t} (t) \div \dv{s}{t} (t)
+	=\dv{\V{r}}{t} (t) \div \norm{\dv{\V{r}}{t} (t)} \comma
+%	=\frac*{\dv{\V{r}}{t} (t)}{\dv{s}{t} (t)}
+%	=\frac*{\dv{\V{r}}{t} (t)}{\norm{\dv{\V{r}}{t} (t)}} \comma
 \end{equation}
 因而 $\dot{\V{r}}(s)$ 是一个单位向量，即
 \begin{equation}
@@ -80,35 +82,44 @@ $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
 	\ddot{\V{r}}(s) \perp \dot{\V{r}}(s) \fullstop
 \end{equation}
 
-现在我们把目光限定在 $\realR^3$ 空间中。将 $\dot{\V{r}}(s)$
-和 $\ddot{\V{r}}(s)$ 分别记为 $\V{\tau}(s)$ 和 $\V{k}(s)$。
-如前所述，$\V{\tau}(s)$ 已经是单位向量；
-而 $\V{k}(s)$ 仍需作单位化处理，其结果记作 $\V{n}(s)$，即
+%将 $\dot{\V{r}}(s)$
+%和 $\ddot{\V{r}}(s)$ 分别记为 $\V{\tau}(s)$ 和 $\V{\kappa}(s)$。
+%如前所述，$\V{\tau}(s)$ 已经是单位向量；
+
+现在我们把目光限定在 $\realR^3$ 空间中。如前所述，
+$\dot{\V{r}}(s)$ 已经是单位向量，我们将其记为 $\V{T}(s)$；
+而 $\ddot{\V{r}}(s)$ 仍需作单位化处理，其结果记作 $\V{N}(s)$，即
 \begin{equation}
-	\V{n}(s)\coloneq\frac{\V{k}(s)}{\norm[\realR^3]{\V{k}(s)}}
-	=\frac{\ddot{\V{r}}(s)}{\norm[\realR^3]{\ddot{\V{r}}(s)}}
-	\fullstop
+	\V{N}(s)\coloneq\frac{\ddot{\V{r}}(s)}
+		{\norm[\realR^3]{\ddot{\V{r}}(s)}}
+	=\frac{\dv*{\dot{\V{r}}}{s}}
+		{\norm[\realR^3]{\dv*{\dot{\V{r}}}{s}}}
+	=\frac{\dot{\V{T}}(s)}{\norm[\realR^3]{\dot{\V{T}}(s)}} \fullstop
+	\label{eq:主单位法向量定义}
 \end{equation}
 最后，只要再令
 \begin{equation}
-	\V{b}(s)\coloneq\V{\tau}(s)\cp\V{n}(s) \comma
+	\V{B}(s)\coloneq\V{T}(s)\cp\V{N}(s) \comma
+	\label{eq:副单位法向量定义}
 \end{equation}
 我们便有了 $\realR^3$ 空间中的一组\emphB{单位正交基}：
 \begin{equation}
-	\qty\big{\V{\tau}(s),\,\V{n}(s),\,\V{b}(s)}
+	\qty\big{\V{T}(s),\,\V{N}(s),\,\V{B}(s)}
 	\subset\realR^3 \comma
 \end{equation}
-它们称作\emphA{Frenet 标架}。
+它们称为\emphA{Frenet 标架}。
+其中，$\V{T}(s)$、$\V{N}(s)$、$\V{B}(s)$，分别叫做
+\emphA{单位切向量}、\emphA{主单位法向量}和\emphA{副单位法向量}。
 
 \subsection{标架运动方程}
 考虑 Frenet 标架关于弧长参数 $s$ 的变化率，即\emphB{标架运动方程}：
 \begin{equation}
-	\qty\big{\dot{\V{\tau}}(s),\,\dot{\V{n}}(s),\,\dot{\V{b}}(s)}
+	\qty\big{\dot{\V{T}}(s),\,\dot{\V{N}}(s),\,\dot{\V{B}}(s)}
 	\subset\realR^3 \fullstop
 \end{equation}
 
 为此，我们需要先给出一个引理：设 $\qty{\V{e}_i(t)}^m_{i=1}$
-是 $\Rm$ 空间中的一组\emphB{活动单位正交基}，它们满足
+是 $\Rm$ 空间中的一组\emphB{活动}单位正交基，它们满足
 \begin{equation}
 	\ipb{\V{e}_i(t)}{\V{e}_j(t)}=\KroneckerDelta*{ij} \fullstop
 	\label{eq:活动单位正交基引理_单位正交性}
@@ -166,3 +177,78 @@ $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
 即 $\Mat{P}\trans=-\Mat{P}$。\myPROBLEM{按照定义}，便知
 $\Mat{P}(t)\in\Skw$。
 \end{myProof}
+
+根据这一引理，便可有
+\begin{equation}
+	\mqty[\dot{\V{T}}(s),\,\dot{\V{N}}(s),\,\dot{\V{B}}(s)]
+	=\mqty[\V{T}(s),\,\V{N}(s),\,\V{B}(s)] \Mat{P}(s) \comma
+\end{equation}
+其中的 $\Mat{P}(s)$ 是一个三阶反对称矩阵。显然，它的对角元均为零：
+\begin{equation}
+	\Mat{P}(s)=\mqty[0 & \ast & \ast \\
+		\ast & 0 & \ast \\
+		\ast & \ast & 0 ] \fullstop
+\end{equation}
+这里，我们用“$\ast$”表示待定元素。
+由 \eqref{eq:主单位法向量定义}~式，可知
+\begin{equation}
+	\dot{\V{T}}(s)
+	=\norm[\realR^3]{\dot{\V{T}}(s)} \V{N}(s)
+	\eqcolon \kappa(s)\,\V{N}(s) \fullstop
+\end{equation}
+式中的 $\kappa(s)\coloneq\norm[\realR^3]{\dot{\V{T}}(s)}$。
+于是，矩阵 $\Mat{P}(s)$ 的第一列就成为了
+$\qty[0,\,\kappa(s),\,0]\trans$。利用\emphB{反}对称性，可有
+\begin{equation}
+	\Mat{P}(s)=\mqty[0 & -\kappa(s) & 0 \\
+		\kappa(s) & 0 & -\tau(s) \\
+		0 & \tau(s) & 0] \fullstop
+\end{equation}
+我们“强行”引入了 $\tau(s)$，用来取代占位符 $\ast$。
+当然，它的具体形式仍然待定。
+
+\subsection{曲率和挠率}
+利用矩阵 $\Mat{P}(s)$，可以看出
+\begin{equation}
+	\dot{\V{B}}(s)=-\tau(s)\,\V{N}(s) \fullstop
+\end{equation}
+再与 $\V{N}(s)$ 做内积\footnote{%
+	为了表述的清晰，本小节中用“$\cdot$”来表示内积。}，便有
+\begin{equation}
+	\dot{\V{B}}(s)\cdot\V{N}(s)=-\tau(s) \fullstop
+\end{equation}
+根据定义 \eqref{eq:副单位法向量定义}~式，
+\begin{equation}
+	\V{B}(s)=\V{T}(s)\cp\V{N}(s) \comma
+\end{equation}
+于是
+\begin{align}
+	\dot{\V{B}}(s)
+	&=\dv{s}\qty\Big[\V{T}(s)\cp\V{N}(s)]
+	=\dv{s}\qty[\dot{\V{r}}(s)\cp\frac{\ddot{\V{r}}(s)}
+			{\norm[\realR^3]{\ddot{\V{r}}(s)}}] \notag \\
+	&=\ddot{\V{r}}(s)\cp\frac{\ddot{\V{r}}(s)}
+			{\norm[\realR^3]{\ddot{\V{r}}(s)}}
+		+\dot{\V{r}}(s)\cp\frac{\dddot{\V{r}}(s)}
+			{\norm[\realR^3]{\ddot{\V{r}}(s)}}
+		+\dv{s}\qty(\frac{1}{\norm[\realR^3]{\ddot{\V{r}}(s)}}) \,
+			\dot{\V{r}}(s)\cp\ddot{\V{r}}(s) \fullstop
+\end{align}
+显然，该式中的第一项为零。考虑 $\dot{\V{B}}(s)\cdot\V{N}(s)$，
+注意到 $\V{N}(s)$ 与 $\ddot{\V{r}}(s)$ 平行，因此与
+$\dot{\V{r}}(s)\cp\ddot{\V{r}}(s)$ 垂直，所以第三项在点乘
+$\V{N}(s)$ 后也为零。这样便有
+\begin{align}
+	\tau(s)&=-\dot{\V{B}}(s)\cdot\V{N}(s) \notag \\
+	&=-\dot{\V{r}}(s)\cp\frac{\dddot{\V{r}}(s)}
+			{\norm[\realR^3]{\ddot{\V{r}}(s)}}
+		\cdot\frac{\dddot{\V{r}}(s)}
+			{\norm[\realR^3]{\ddot{\V{r}}(s)}} \notag \\
+	&=-\frac{1}{\norm[\realR^3]{\ddot{\V{r}}(s)}^2}
+		\qty\Big[\dot{\V{r}}(s) \cp \dddot{\V{r}}(s)
+				\cdot \ddot{\V{r}}(s)] \notag
+	\intertext{利用向量三重积的性质，再把负号移进来，可得}
+	&=\frac{1}{\norm[\realR^3]{\ddot{\V{r}}(s)}^2}
+		\det\!\mqty[\dot{\V{r}}(s),\,\ddot{\V{r}}(s),\,\dddot{\V{r}}(s)]
+	\fullstop
+\end{align}
