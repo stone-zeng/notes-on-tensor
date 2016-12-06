@@ -380,7 +380,7 @@
 \newcommand{\orthIdx}[1]{\langle{#1}\rangle}
 %% 范数
 \let\PHYSICSNORM=\norm
-\renewcommand{\norm}[2][\Rm]{\PHYSICSNORM{#2}_{#1}}
+\renewcommand{\norm}[2][\Rm]{\abs{#2}_{#1}}
 %% 线性分式
 \WithSuffix\newcommand\frac*[2]{\left.#1\middle/#2\right.}
 %% 内积(括号形式)(Inner Product Braket)
@@ -393,9 +393,11 @@
 %% 全点积(Full Dot Product)
 \newcommand{\fdp}{\odot}
 %% 点乘(Dot Product)
-%% 使用 \cdot
-%% \cdotp 作为 ordinary 符号
-\newcommand{\cdotord}{\mathord{\cdotp}}
+%TODO 使用 \cdot 表示普通乘法，使用 \dotp 表示点乘
+%% \dt 是 LaTeX 内部定义
+\newcommand{\dotp}{\vysmblkcircle}
+%% \cdot 作为 ordinary 符号
+\newcommand{\cdotord}{\mathord{\cdot}}
 %% 叉乘(Cross Product)(has been defined in `physics' package)
 \renewcommand{\cp}{\vectimes}
 %% 协变导数(Covariant Derivative)
