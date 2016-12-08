@@ -38,6 +38,7 @@ $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
 两边对 $t$ 求导，可有
 \begin{equation}
 	\dv{s}{t} (t) = \norm{\dv{\V{X}}{t} (t)} \fullstop
+	\label{eq:弧长与一般参数的关系}
 \end{equation}
 为了研究问题的方便，我们以后将用弧长作为曲线的参数，即
 \begin{equation}
@@ -53,10 +54,10 @@ $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
 \begin{equation}
 	\dv{\V{r}}{s} (s)
 	=\dv{\V{r}}{t} (t) \cdot \dv{t}{s} (s)
-	=\dv{\V{r}}{t} (t) \div \dv{s}{t} (t)
-	=\dv{\V{r}}{t} (t) \div \norm{\dv{\V{r}}{t} (t)} \comma
-%	=\frac*{\dv{\V{r}}{t} (t)}{\dv{s}{t} (t)}
-%	=\frac*{\dv{\V{r}}{t} (t)}{\norm{\dv{\V{r}}{t} (t)}} \comma
+%	=\dv{\V{r}}{t} (t) \div \dv{s}{t} (t)
+%	=\dv{\V{r}}{t} (t) \div \norm{\dv{\V{r}}{t} (t)} \comma
+	=\frac*{\dv{\V{r}}{t} (t)}{\dv{s}{t} (t)}
+	=\frac*{\dv{\V{r}}{t} (t)}{\norm{\dv{\V{r}}{t} (t)}} \comma
 \end{equation}
 因而 $\dot{\V{r}}(s)$ 是一个单位向量，即
 \begin{equation}
@@ -109,7 +110,7 @@ $\dot{\V{r}}(s)$ 已经是单位向量，我们将其记为 $\V{T}(s)$；
 	\subset\realR^3 \comma
 \end{equation}
 它们称为\emphA{Frenet 标架}。
-其中，$\V{T}(s)$、$\V{N}(s)$、$\V{B}(s)$，分别叫做
+其中，$\V{T}(s)$、$\V{N}(s)$、$\V{B}(s)$，分别叫做%
 \emphA{单位切向量}、\emphA{主单位法向量}和\emphA{副单位法向量}。
 
 \subsection{标架运动方程}
@@ -214,9 +215,9 @@ $\qty[0,\,\kappa(s),\,0]\trans$。利用\emphB{反}对称性，可有
 	\dot{\V{B}}(s)=-\tau(s)\,\V{N}(s) \fullstop
 \end{equation}
 再与 $\V{N}(s)$ 做内积\footnote{%
-	为了表述的清晰，本小节中用“$\cdot$”来表示内积。}，便有
+	为了表述的清晰，本小节中用“$\vdp$”来表示内积。}，便有
 \begin{equation}
-	\dot{\V{B}}(s)\cdot\V{N}(s)=-\tau(s) \fullstop
+	\dot{\V{B}}(s)\vdp\V{N}(s)=-\tau(s) \fullstop
 \end{equation}
 根据定义 \eqref{eq:副单位法向量定义}~式，
 \begin{equation}
@@ -235,19 +236,19 @@ $\qty[0,\,\kappa(s),\,0]\trans$。利用\emphB{反}对称性，可有
 		+\dv{s}\qty(\frac{1}{\norm[\realR^3]{\ddot{\V{r}}(s)}}) \,
 			\dot{\V{r}}(s)\cp\ddot{\V{r}}(s) \fullstop
 \end{align}
-显然，该式中的第一项为零。考虑 $\dot{\V{B}}(s)\cdot\V{N}(s)$，
+显然，该式中的第一项为零。考虑 $\dot{\V{B}}(s)\vdp\V{N}(s)$，
 注意到 $\V{N}(s)$ 与 $\ddot{\V{r}}(s)$ 平行，因此与
 $\dot{\V{r}}(s)\cp\ddot{\V{r}}(s)$ 垂直，所以第三项在点乘
 $\V{N}(s)$ 后也为零。这样便有
 \begin{align}
-	\tau(s)&=-\dot{\V{B}}(s)\cdot\V{N}(s) \notag \\
+	\tau(s)&=-\dot{\V{B}}(s)\vdp\V{N}(s) \notag \\
 	&=-\dot{\V{r}}(s)\cp\frac{\dddot{\V{r}}(s)}
 			{\norm[\realR^3]{\ddot{\V{r}}(s)}}
-		\cdot\frac{\dddot{\V{r}}(s)}
+		\vdp\frac{\dddot{\V{r}}(s)}
 			{\norm[\realR^3]{\ddot{\V{r}}(s)}} \notag \\
 	&=-\frac{1}{\norm[\realR^3]{\ddot{\V{r}}(s)}^2}
 		\qty\Big[\dot{\V{r}}(s) \cp \dddot{\V{r}}(s)
-				\cdot \ddot{\V{r}}(s)] \notag
+				\vdp \ddot{\V{r}}(s)] \notag
 	\intertext{利用向量三重积的性质，再把负号移进来，可得}
 	&=\frac{1}{\norm[\realR^3]{\ddot{\V{r}}(s)}^2}
 		\det\!\mqty[\dot{\V{r}}(s),\,\ddot{\V{r}}(s),\,\dddot{\V{r}}(s)]
@@ -259,13 +260,13 @@ $\V{N}(s)$ 后也为零。这样便有
 至此，我们就得到了 $\realR^3$ 空间中以\emphB{弧长}%
 为参数的\emphB{Frenet 标架}：
 \begin{braceEq}
-	\V{T}(s) &\coloneq \dot{\V{r}}(s) \comma
+	\V{T}(s) &\defeq \dot{\V{r}}(s) \comma
 	\label{eq:Frenet标架定义_T} \\
-	\V{N}(s) &\coloneq
+	\V{N}(s) &\defeq
 		\frac{\ddot{\V{r}}(s)}{\norm[\realR^3]{\ddot{\V{r}}(s)}}
 		=\frac{\dot{\V{T}}(s)}{\norm[\realR^3]{\dot{\V{T}}(s)}} \comma
 	\label{eq:Frenet标架定义_N} \\
-	\V{B}(s) &\coloneq\ \V{T}(s)\cp\V{N}(s) \fullstop
+	\V{B}(s) &\defeq \V{T}(s)\cp\V{N}(s) \fullstop
 	\label{eq:Frenet标架定义_B}
 \end{braceEq}
 以及对应的标架运动方程
@@ -340,3 +341,27 @@ $\V{r}(t)$ 来表示，其中的参数 $t$ 为时间。
 当质点做匀变速运动时，则只有 $\V{N}$ 分量。
 
 \section{Frenet 标架（一般参数）}
+本节我们重回一般参数下的映照形式，即
+\begin{equation}
+	\mmap{\V{r}(t)}{[\alpha,\,\beta]\ni t}{\V{r}(t)\in\realR^3} \comma
+\end{equation}
+其中的参数 $t$ 与弧长 $s$
+的关系同式~\eqref{eq:弧长与一般参数的关系}:
+\begin{equation}
+	\dv{s}{t} (t)=\norm{\dot{\V{r}}(t)} \fullstop
+\end{equation}
+
+后文的推导需要用到向量的\emphA{内蕴正交分解}：
+$\forall\,\V{\xi},\,\V{e}\in\realR^3$ 且满足 $\norm{\V{e}}=1$，有
+\begin{equation}
+	\V{\xi}=\qty\big(\V{\xi}\vdp\V{e})\,\V{e}
+		-\qty\big(\V{\xi}\cp\V{e})\cp\V{e} \fullstop
+\end{equation}
+证明见\myPROBLEM{内蕴正交分解}。
+
+下面着手计算 Frenet 标架。首先是单位切向量：
+\begin{align}
+	\V{T}(s)\defeq\dot{\V{r}}(s)=\dot{\V{r}}(t)\cdot\dv{t}{s} (s)
+	=\frac*{\dot{\V{r}}(t)}{\dv{s}{t} (t)}
+	=\frac{\dot{\V{r}}(t)}{\norm{\dot{\V{r}}(t)}} \fullstop
+\end{align}
