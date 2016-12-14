@@ -95,13 +95,14 @@
 		math-style = ISO,
 		bold-style = ISO
 	]{xits-math.otf}
-%	]{libertinusmath-regular.otf}
 %	]{texgyreschola-math.otf}
 %	]{texgyredejavu-math.otf}
 %	]{texgyrepagella-math.otf}
 %	]{latinmodern-math.otf}
-%	]{MinionMath-Regular.otf}
 %	]{Asana-math.otf}
+%	]{MinionMath-Regular.otf}
+%	]{libertinusmath-regular.otf}
+%	]{Cambria Math}
 % 加粗使用 \symbf{}
 % 直立希腊字母：\uppi 等
 
@@ -184,7 +185,7 @@
 \usepackage{physics}
 
 %% 单位
-%\usepackage{siunitx}
+\usepackage{siunitx}
 
 %% 定制列表环境
 \usepackage{enumitem}
@@ -393,7 +394,7 @@
 %% 全点积(Full Dot Product)
 \newcommand{\fdp}{\odot}
 %% 点乘([Vector] Dot Product)
-%TODO 使用 \cdot 表示普通乘法，使用 \dotp 表示点乘
+%TODO 使用 \cdot 表示普通乘法，使用 \vdp 表示点乘
 %% \dp 是 LaTeX 内部定义
 \newcommand{\vdp}{\vysmblkcircle}
 %% \cdot 作为 ordinary 符号

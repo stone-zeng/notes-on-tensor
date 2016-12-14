@@ -119,7 +119,6 @@ $\dot{\V{r}}(s)$ 已经是单位向量，我们将其记为 $\V{T}(s)$；
 	\qty\big{\dot{\V{T}}(s),\,\dot{\V{N}}(s),\,\dot{\V{B}}(s)}
 	\subset\realR^3 \fullstop
 \end{equation}
-
 为此，我们需要先给出一个引理：设 $\qty{\V{e}_i(t)}^m_{i=1}$
 是 $\Rm$ 空间中的一组\emphB{活动}单位正交基，它们满足
 \begin{equation}
@@ -127,10 +126,6 @@ $\dot{\V{r}}(s)$ 已经是单位向量，我们将其记为 $\V{T}(s)$；
 	\label{eq:活动单位正交基引理_单位正交性}
 \end{equation}
 这组基的导数仍位于 $\Rm$ 空间，用自身展开，可有
-%\begin{equation}
-%	\dot{\V{e}}_i(t) = P_{ij}\V{e}_j(t) \fullstop
-%\end{equation}
-%写成矩阵形式为
 \begin{equation}
 	\mqty[\dot{\V{e}}_1(t),\,\cdots,\,\dot{\V{e}}_m(t)]
 	=\mqty[\V{e}_1(t),\,\cdots,\,\V{e}_m(t)] \Mat{P}(t) \fullstop
@@ -168,7 +163,7 @@ $\dot{\V{r}}(s)$ 已经是单位向量，我们将其记为 $\V{T}(s)$；
 \end{equation}
 两式联立，可有
 \begin{align}
-	\Mat{0}=\dot{\Mat{E}}\trans\Mat{E}
+	\Mat{0}&=\dot{\Mat{E}}\trans\Mat{E}
 		+\Mat{E}\trans\dot{\Mat{E}} \notag \\
 	&=\qty\big(\Mat{E}\Mat{P})\trans \Mat{E}
 		+\Mat{E}\trans \qty\big(\Mat{E}\Mat{P}) \notag \\
@@ -280,13 +275,15 @@ $\V{N}(s)$ 后也为零。这样便有
 \end{braceEq}
 其中，
 \begin{equation}
-	\kappa(s)=\norm[\realR^3]{\dot{\V{T}}(s)}
+	\kappa(s)\defeq\norm[\realR^3]{\dot{\V{T}}(s)}
 		=\norm[\realR^3]{\ddot{\V{r}}(s)}
+	\label{eq:曲率的定义}
 \end{equation}
 称为\emphA{曲率}，
 \begin{equation}
-	\tau(s)=\frac{1}{\norm[\realR^3]{\ddot{\V{r}}(s)}^2}
+	\tau(s)\defeq\frac{1}{\norm[\realR^3]{\ddot{\V{r}}(s)}^2}
 	\det\!\mqty[\dot{\V{r}}(s),\,\ddot{\V{r}}(s),\,\dddot{\V{r}}(s)]
+	\label{eq:挠率的定义}
 \end{equation}
 称为\emphA{挠率}。
 
@@ -341,27 +338,113 @@ $\V{r}(t)$ 来表示，其中的参数 $t$ 为时间。
 当质点做匀变速运动时，则只有 $\V{N}$ 分量。
 
 \section{Frenet 标架（一般参数）}
-本节我们重回一般参数下的映照形式，即
+本节我们重回\emphB{一般参数}下的映照形式，即
 \begin{equation}
 	\mmap{\V{r}(t)}{[\alpha,\,\beta]\ni t}{\V{r}(t)\in\realR^3} \comma
 \end{equation}
 其中的参数 $t$ 与弧长 $s$
 的关系同式~\eqref{eq:弧长与一般参数的关系}:
 \begin{equation}
-	\dv{s}{t} (t)=\norm{\dot{\V{r}}(t)} \fullstop
+	\dv{s}{t} (t)=\norm[\realR^3]{\dot{\V{r}}(t)} \fullstop
+	\label{eq:弧长与一般参数的关系2}
 \end{equation}
 
 后文的推导需要用到向量的\emphA{内蕴正交分解}：
-$\forall\,\V{\xi},\,\V{e}\in\realR^3$ 且满足 $\norm{\V{e}}=1$，有
+$\forall\,\V{\xi},\,\V{e}\in\realR^3$ 且满足
+$\norm[\realR^3]{\V{e}}=1$，有
 \begin{equation}
 	\V{\xi}=\qty\big(\V{\xi}\vdp\V{e})\,\V{e}
 		-\qty\big(\V{\xi}\cp\V{e})\cp\V{e} \fullstop
+	\label{eq:内蕴正交分解_Chapter6}
 \end{equation}
 证明见\myPROBLEM{内蕴正交分解}。
 
-下面着手计算 Frenet 标架。首先是单位切向量：
+下面着手计算 Frenet 标架。首先来处理单位切向量：
 \begin{align}
 	\V{T}(s)\defeq\dot{\V{r}}(s)=\dot{\V{r}}(t)\cdot\dv{t}{s} (s)
 	=\frac*{\dot{\V{r}}(t)}{\dv{s}{t} (t)}
-	=\frac{\dot{\V{r}}(t)}{\norm{\dot{\V{r}}(t)}} \fullstop
+	=\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}} \fullstop
 \end{align}
+接下来计算它的导数 $\dot{\V{T}}(s)$：
+\begin{align}
+	\dot{\V{T}}(s)
+	&=\dv{s}\qty[\frac{\dot{\V{r}}(t)}
+		{\norm[\realR^3]{\dot{\V{r}}(t)}}] \notag \\
+	&=\dv{t}\qty[\frac{\dot{\V{r}}(t)}
+		{\norm[\realR^3]{\dot{\V{r}}(t)}}] \cdot \dv{t}{s} (s) \notag
+	\intertext{代入 \eqref{eq:弧长与一般参数的关系2}~式，得}
+	&=\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}}
+		\dv{t}\qty[\frac{\dot{\V{r}}(t)}
+			{\norm[\realR^3]{\dot{\V{r}}(t)}}] \notag \\
+	&=\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}^2} \qty[\ddot{\V{r}}(t)
+			-\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}}
+			\cdot\dv{t}\norm[\realR^3]{\dot{\V{r}}(t)}] \fullstop
+	\label{eq:T_一般参数_Part1}
+\end{align}
+此处涉及到了模的导数。考虑
+\begin{equation}
+	\dv{t}\qty[\norm[\realR^3]{\dot{\V{r}}(t)}^2]
+	=2\,\norm[\realR^3]{\dot{\V{r}}(t)}
+		\cdot \dv{t}\norm[\realR^3]{\dot{\V{r}}(t)} \semicomma
+\end{equation}
+另一方面，
+\begin{equation}
+	\dv{t}\qty[\norm[\realR^3]{\dot{\V{r}}(t)}^2]
+	=\dv{t}\qty\big[\dot{\V{r}}(t)\vdp\dot{\V{r}}(t)]
+	=2\,\dot{\V{r}}(t)\vdp\ddot{\V{r}}(t) \fullstop
+\end{equation}
+联立两式，便有
+\begin{equation}
+	\dv{t}\norm[\realR^3]{\dot{\V{r}}(t)}
+	=\ddot{\V{r}}(t) \vdp
+		\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}} \fullstop
+\end{equation}
+代回 \eqref{eq:T_一般参数_Part1}~式，继续推导：
+\begin{align}
+	\dot{\V{T}}(s)
+	&=\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}^2} \qty[\ddot{\V{r}}(t)
+		-\qty(\ddot{\V{r}}(t) \vdp
+			\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}})
+		\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}}] \notag
+	\intertext{式中的 $\frac*{\dot{\V{r}}(t)}{\norm{\dot{\V{r}}(t)}}$
+		是一个单位向量，它相当于式~\eqref{eq:内蕴正交分解_Chapter6}
+		中的 $\V{e}$，而 $\ddot{\V{r}}(t)$ 则相当于 $\V{\xi}$。因此，
+		利用向量的内蕴正交分解，有}
+	&=-\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}^2}
+		\qty[\qty(\ddot{\V{r}}(t)
+			\cp \frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}})
+		\cp \frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}}]
+		\notag \\
+	&=-\frac{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+			\cp\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}^4} \fullstop
+\end{align}
+
+根据曲率的定义 \eqref{eq:曲率的定义}~式，
+\begin{align}
+	\kappa(s)\defeq\norm[\realR^3]{\dot{\V{T}}(s)}
+	=\frac{\norm[\realR^3]{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+		\cp\dot{\V{r}}(t)}}{\norm[\realR^3]{\dot{\V{r}}(t)}^4} \fullstop
+\end{align}
+注意到 $\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))\perp\dot{\V{r}}(t)$，
+所以
+\begin{equation}
+	\norm[\realR^3]{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+		\cp\dot{\V{r}}(t)}
+	=\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}
+		\cdot\norm[\realR^3]{\dot{\V{r}}(t)} \fullstop
+\end{equation}
+这样，曲率就能够写成
+\begin{equation}
+	\kappa(s)=\frac{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}}
+		{\norm[\realR^3]{\dot{\V{r}}(t)}^3} \fullstop
+\end{equation}
+利用定义 \eqref{eq:Frenet标架定义_N}~式，
+$\V{N}(s)$ 也便可以易如反掌地写出来了：
+\begin{equation}
+	\V{N}(s)=\frac{\dot{\V{T}}(s)}{\norm[\realR^3]{\dot{\V{T}}(s)}}
+	=\frac{\dot{\V{T}}(s)}{\kappa(s)}
+	=-\frac{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+			\cp\dot{\V{r}}(t)}
+		{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}
+			\norm[\realR^3]{\dot{\V{r}}(t)}} \fullstop
+\end{equation}
