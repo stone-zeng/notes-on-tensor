@@ -42,6 +42,12 @@
 		citecolor = {green!50!black},
 		urlcolor = {blue!70!black}
 	}
+% 脚注引用
+% 直接用 \ref
+%\makeatletter
+%\newcommand{\footnoteref}[1]{\protected@xdef%
+%	\@thefnmark{\ref{#1}}\@footnotemark}
+%\makeatother
 
 %% 常规字体选择
 % 与 `graphicx' 冲突
@@ -95,13 +101,14 @@
 		math-style = ISO,
 		bold-style = ISO
 	]{xits-math.otf}
-%	]{libertinusmath-regular.otf}
 %	]{texgyreschola-math.otf}
 %	]{texgyredejavu-math.otf}
 %	]{texgyrepagella-math.otf}
 %	]{latinmodern-math.otf}
-%	]{MinionMath-Regular.otf}
 %	]{Asana-math.otf}
+%	]{MinionMath-Regular.otf}
+%	]{libertinusmath-regular.otf}
+%	]{Cambria Math}
 % 加粗使用 \symbf{}
 % 直立希腊字母：\uppi 等
 
@@ -184,7 +191,7 @@
 \usepackage{physics}
 
 %% 单位
-%\usepackage{siunitx}
+\usepackage{siunitx}
 
 %% 定制列表环境
 \usepackage{enumitem}
@@ -240,6 +247,9 @@
 	{\endEmphEqMainEnv \endmySubEq}
 
 %TODO——命令
+%% 浪纹连接号
+% Unicode FF5E ～ FULLWIDTH TILDE
+\newcommand{\linktilde}{\symbol{65374}}
 %% 空行
 %\newcommand{\blankline}{\mbox{}\par\mbox{}}
 \newcommand{\blankline}{\mbox{}}
@@ -380,9 +390,10 @@
 \newcommand{\orthIdx}[1]{\langle{#1}\rangle}
 %% 范数
 \let\PHYSICSNORM=\norm
-\renewcommand{\norm}[2][\Rm]{\PHYSICSNORM{#2}_{#1}}
+\renewcommand{\norm}[2][\Rm]{\abs{#2}_{#1}}
 %% 线性分式
-\WithSuffix\newcommand\frac*[2]{\left.#1\middle/#2\right.}
+% 已有命令 \flatfrac
+%\WithSuffix\newcommand\frac*[2]{\left.#1\middle/#2\right.}
 %% 内积(括号形式)(Inner Product Braket)
 %\newcommand{\ipb}[3][\Rm]{\qty(#2,\,#3)_{#1}}
 \newcommand{\ipb}[3][\Rm]{\left\langle#2,\,#3\right\rangle_{#1}}
@@ -392,10 +403,12 @@
 \newcommand{\edp}[1][e]{\mathbin{\dbinom{#1}{\mathord{\cdot}}}}
 %% 全点积(Full Dot Product)
 \newcommand{\fdp}{\odot}
-%% 点乘(Dot Product)
-%% 使用 \cdot
-%% \cdotp 作为 ordinary 符号
-\newcommand{\cdotord}{\mathord{\cdotp}}
+%% 点乘([Vector] Dot Product)
+%TODO 使用 \cdot 表示普通乘法，使用 \vdp 表示点乘
+%% \dp 是 LaTeX 内部定义
+\newcommand{\vdp}{\vysmblkcircle}
+%% \cdot 作为 ordinary 符号
+\newcommand{\cdotord}{\mathord{\cdot}}
 %% 叉乘(Cross Product)(has been defined in `physics' package)
 \renewcommand{\cp}{\vectimes}
 %% 协变导数(Covariant Derivative)
