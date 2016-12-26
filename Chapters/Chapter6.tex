@@ -54,10 +54,8 @@ $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
 \begin{equation}
 	\dv{\V{r}}{s} (s)
 	=\dv{\V{r}}{t} (t) \cdot \dv{t}{s} (s)
-%	=\dv{\V{r}}{t} (t) \div \dv{s}{t} (t)
-%	=\dv{\V{r}}{t} (t) \div \norm{\dv{\V{r}}{t} (t)} \comma
-	=\frac*{\dv{\V{r}}{t} (t)}{\dv{s}{t} (t)}
-	=\frac*{\dv{\V{r}}{t} (t)}{\norm{\dv{\V{r}}{t} (t)}} \comma
+	=\flatfrac{\dv{\V{r}}{t} (t)}{\dv{s}{t} (t)}
+	=\flatfrac{\dv{\V{r}}{t} (t)}{\norm{\dv{\V{r}}{t} (t)}} \comma
 \end{equation}
 因而 $\dot{\V{r}}(s)$ 是一个单位向量，即
 \begin{equation}
@@ -82,11 +80,8 @@ $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
 内积为零，就意味着正交：
 \begin{equation}
 	\ddot{\V{r}}(s) \perp \dot{\V{r}}(s) \fullstop
+	\label{eq:r的一阶导数垂直二阶导数_弧长参数}
 \end{equation}
-
-%将 $\dot{\V{r}}(s)$
-%和 $\ddot{\V{r}}(s)$ 分别记为 $\V{\tau}(s)$ 和 $\V{\kappa}(s)$。
-%如前所述，$\V{\tau}(s)$ 已经是单位向量；
 
 现在我们把目光限定在 $\realR^3$ 空间中。如前所述，
 $\dot{\V{r}}(s)$ 已经是单位向量，我们将其记为 $\V{T}(s)$；
@@ -254,7 +249,7 @@ $\V{N}(s)$ 后也为零。这样便有
 
 至此，我们就得到了 $\realR^3$ 空间中以\emphB{弧长}%
 为参数的\emphB{Frenet 标架}：
-\begin{braceEq}
+\begin{braceEq*}{\label{eq:Frenet标架_弧长参数}}
 	\V{T}(s) &\defeq \dot{\V{r}}(s) \comma
 	\label{eq:Frenet标架定义_T} \\
 	\V{N}(s) &\defeq
@@ -263,26 +258,28 @@ $\V{N}(s)$ 后也为零。这样便有
 	\label{eq:Frenet标架定义_N} \\
 	\V{B}(s) &\defeq \V{T}(s)\cp\V{N}(s) \fullstop
 	\label{eq:Frenet标架定义_B}
-\end{braceEq}
+\end{braceEq*}
 以及对应的标架运动方程
-\begin{braceEq}
+\begin{braceEq*}{\label{eq:Frenet标架运动方程_弧长参数}}
 	\dot{\V{T}}(s)&=\kappa(s)\,\V{N}(s) \comma
 	\label{eq:Frenet标架的导数_T} \\
 	\dot{\V{N}}(s)&=-\kappa(s)\,\V{T}(s)+\tau(s)\,\V{B}(s) \comma
 	\label{eq:Frenet标架的导数_N} \\
 	\dot{\V{B}}(s)&=-\tau(s)\,\V{N}(s) \comma
 	\label{eq:Frenet标架的导数_B}
-\end{braceEq}
+\end{braceEq*}
 其中，
 \begin{equation}
 	\kappa(s)\defeq\norm[\realR^3]{\dot{\V{T}}(s)}
-		=\norm[\realR^3]{\ddot{\V{r}}(s)}
+	=\norm[\realR^3]{\ddot{\V{r}}(s)}
 	\label{eq:曲率的定义}
 \end{equation}
 称为\emphA{曲率}，
 \begin{equation}
 	\tau(s)\defeq\frac{1}{\norm[\realR^3]{\ddot{\V{r}}(s)}^2}
-	\det\!\mqty[\dot{\V{r}}(s),\,\ddot{\V{r}}(s),\,\dddot{\V{r}}(s)]
+		\det\!\mqty[\dot{\V{r}}(s),\,\ddot{\V{r}}(s),\,\dddot{\V{r}}(s)]
+	=\frac{1}{\kappa^2(s)}
+		\det\!\mqty[\dot{\V{r}}(s),\,\ddot{\V{r}}(s),\,\dddot{\V{r}}(s)]
 	\label{eq:挠率的定义}
 \end{equation}
 称为\emphA{挠率}。
@@ -335,7 +332,7 @@ $\V{r}(t)$ 来表示，其中的参数 $t$ 为时间。
 	+\norm{\V{v}(t)}^2\,\kappa(s)\,\V{N}(s) \fullstop
 \end{align}
 由此可知，加速度只有 $\V{T}$ 分量和 $\V{N}$ 分量；
-当质点做匀变速运动时，则只有 $\V{N}$ 分量。
+当质点做\emphB{匀变速}运动时，则只有 $\V{N}$ 分量。
 
 \section{Frenet 标架（一般参数）}
 本节我们重回\emphB{一般参数}下的映照形式，即
@@ -359,12 +356,17 @@ $\norm[\realR^3]{\V{e}}=1$，有
 \end{equation}
 证明见\myPROBLEM{内蕴正交分解}。
 
-下面着手计算 Frenet 标架。首先来处理单位切向量：
-\begin{align}
+\subsection{标架的形式}
+首先来处理单位切向量：\footnote{
+	此时我们把 $s$ 作为参数，只不过 $s=s(t)$。所以 $\V{T}(s)$
+	实际上和 $\V{T}(t)$ 相等。
+	\label{fn:T(s)=T(t)}}
+\begin{equation}
 	\V{T}(s)\defeq\dot{\V{r}}(s)=\dot{\V{r}}(t)\cdot\dv{t}{s} (s)
-	=\frac*{\dot{\V{r}}(t)}{\dv{s}{t} (t)}
+	=\flatfrac{\dot{\V{r}}(t)}{\dv{s}{t} (t)}
 	=\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}} \fullstop
-\end{align}
+	\label{eq:T_一般参数}
+\end{equation}
 接下来计算它的导数 $\dot{\V{T}}(s)$：
 \begin{align}
 	\dot{\V{T}}(s)
@@ -379,17 +381,17 @@ $\norm[\realR^3]{\V{e}}=1$，有
 	&=\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}^2} \qty[\ddot{\V{r}}(t)
 			-\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}}
 			\cdot\dv{t}\norm[\realR^3]{\dot{\V{r}}(t)}] \fullstop
-	\label{eq:T_一般参数_Part1}
+	\label{eq:T的导数_一般参数_Part1}
 \end{align}
 此处涉及到了模的导数。考虑
 \begin{equation}
-	\dv{t}\qty[\norm[\realR^3]{\dot{\V{r}}(t)}^2]
+	\dv{t}\qty\Big[\norm[\realR^3]{\dot{\V{r}}(t)}^2]
 	=2\,\norm[\realR^3]{\dot{\V{r}}(t)}
 		\cdot \dv{t}\norm[\realR^3]{\dot{\V{r}}(t)} \semicomma
 \end{equation}
 另一方面，
 \begin{equation}
-	\dv{t}\qty[\norm[\realR^3]{\dot{\V{r}}(t)}^2]
+	\dv{t}\qty\Big[\norm[\realR^3]{\dot{\V{r}}(t)}^2]
 	=\dv{t}\qty\big[\dot{\V{r}}(t)\vdp\dot{\V{r}}(t)]
 	=2\,\dot{\V{r}}(t)\vdp\ddot{\V{r}}(t) \fullstop
 \end{equation}
@@ -399,14 +401,14 @@ $\norm[\realR^3]{\V{e}}=1$，有
 	=\ddot{\V{r}}(t) \vdp
 		\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}} \fullstop
 \end{equation}
-代回 \eqref{eq:T_一般参数_Part1}~式，继续推导：
+代回 \eqref{eq:T的导数_一般参数_Part1}~式，继续推导：
 \begin{align}
 	\dot{\V{T}}(s)
 	&=\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}^2} \qty[\ddot{\V{r}}(t)
 		-\qty(\ddot{\V{r}}(t) \vdp
 			\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}})
 		\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}}] \notag
-	\intertext{式中的 $\frac*{\dot{\V{r}}(t)}{\norm{\dot{\V{r}}(t)}}$
+	\intertext{式中的 $\flatfrac{\dot{\V{r}}(t)}{\norm{\dot{\V{r}}(t)}}$
 		是一个单位向量，它相当于式~\eqref{eq:内蕴正交分解_Chapter6}
 		中的 $\V{e}$，而 $\ddot{\V{r}}(t)$ 则相当于 $\V{\xi}$。因此，
 		利用向量的内蕴正交分解，有}
@@ -417,6 +419,7 @@ $\norm[\realR^3]{\V{e}}=1$，有
 		\notag \\
 	&=-\frac{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
 			\cp\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}^4} \fullstop
+	\label{eq:T的导数_一般参数_Part2}
 \end{align}
 
 根据曲率的定义 \eqref{eq:曲率的定义}~式，
@@ -425,8 +428,8 @@ $\norm[\realR^3]{\V{e}}=1$，有
 	=\frac{\norm[\realR^3]{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
 		\cp\dot{\V{r}}(t)}}{\norm[\realR^3]{\dot{\V{r}}(t)}^4} \fullstop
 \end{align}
-注意到 $\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))\perp\dot{\V{r}}(t)$，
-所以
+注意到 $\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+\perp\dot{\V{r}}(t)$，所以
 \begin{equation}
 	\norm[\realR^3]{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
 		\cp\dot{\V{r}}(t)}
@@ -437,14 +440,273 @@ $\norm[\realR^3]{\V{e}}=1$，有
 \begin{equation}
 	\kappa(s)=\frac{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}}
 		{\norm[\realR^3]{\dot{\V{r}}(t)}^3} \fullstop
+	\label{eq:曲率_一般参数}
 \end{equation}
 利用定义 \eqref{eq:Frenet标架定义_N}~式，
 $\V{N}(s)$ 也便可以易如反掌地写出来了：
 \begin{equation}
-	\V{N}(s)=\frac{\dot{\V{T}}(s)}{\norm[\realR^3]{\dot{\V{T}}(s)}}
+	\V{N}(s)\defeq\frac{\dot{\V{T}}(s)}
+		{\norm[\realR^3]{\dot{\V{T}}(s)}}
 	=\frac{\dot{\V{T}}(s)}{\kappa(s)}
 	=-\frac{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
 			\cp\dot{\V{r}}(t)}
 		{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}
 			\norm[\realR^3]{\dot{\V{r}}(t)}} \fullstop
 \end{equation}
+
+最后轮到 $\V{B}(s)$ 了：
+\begin{align}
+	\V{B}(s)=\V{T}(s)\cp\V{N}(s)
+	&=\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}}
+		\cp\qty[-\frac{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+				\cp\dot{\V{r}}(t)}
+			{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}
+				\norm[\realR^3]{\dot{\V{r}}(t)}}] \notag \\
+	&=\frac{\dot{\V{r}}(t)}
+			{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}}
+		\cp\qty[-\qty(\ddot{\V{r}}(t)
+				\cp\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}})
+			\cp\frac{\dot{\V{r}}(t)}
+				{\norm[\realR^3]{\dot{\V{r}}(t)}}] \notag
+	\intertext{这样处理是为了倒过来应用\emphB{内蕴正交分解}：}
+	&=\frac{\dot{\V{r}}(t)}
+			{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}}
+		\cp\qty[\ddot{\V{r}}(t)-\qty(\ddot{\V{r}}(t) \vdp
+				\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}})
+			\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}}] \notag
+	\intertext{由于 $\dot{\V{r}}(t)\cp\dot{\V{r}}(t)=0$，
+		因而方括号中的第二项可以略去，使得结果大为简化：}
+	&=\frac{\dot{\V{r}}(t)\cp\ddot{\V{r}}(t)}
+			{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}} \fullstop
+	\label{eq:B_一般参数}
+\end{align}
+
+\subsection{曲率和挠率}
+曲率在计算 $\V{N}$ 的时候已经顺带求过了，我们现在来求挠率。
+根据式~\eqref{eq:挠率的定义}，有
+\begin{equation}
+	\tau(s)=\frac{1}{\kappa^2(s)}
+		\det\!\mqty[\dot{\V{r}}(s),\,\ddot{\V{r}}(s),\,\dddot{\V{r}}(s)]
+	\fullstop
+\end{equation}
+因此首先需要知道 $\V{r}$ 关于 $s$ 的一至三阶导数。
+由 \eqref{eq:T_一般参数}~式，可知
+\begin{equation}
+	\dot{\V{r}}(s)=\V{T}(s)
+	=\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}} \semicomma
+\end{equation}
+二阶导数则要利用式~\eqref{eq:T的导数_一般参数_Part2}：
+\begin{equation}
+	\ddot{\V{r}}(s)=\dot{\V{T}}(s)
+	=-\frac{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+		\cp\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}^4} \semicomma
+\end{equation}
+进而又可得到三阶导数：
+\begin{equation}
+	\dddot{\V{r}}(s)
+	=\dv{\ddot{\V{r}}}{s} (s)
+	=-\dv{\ddot{\V{r}}}{t} (s) \cdot \dv{t}{s}
+	=-\flatfrac{\dv{\ddot{\V{r}}}{t} (s)}{\dv{s}{t} (t)}
+	=-\dv{t}\qty[\frac{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+			\cp\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}^4}]
+		\cdot\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}} \fullstop
+\end{equation}
+最后一步仍然利用了 \eqref{eq:弧长与一般参数的关系2}~式。
+我们知道，
+\begin{equation*}
+	\det\!\mqty[\dot{\V{r}}(s),\,\ddot{\V{r}}(s),\,\dddot{\V{r}}(s)]
+	=\dot{\V{r}}(s)\cp\ddot{\V{r}}(s)\vdp\dddot{\V{r}}(s) \fullstop
+\end{equation*}
+首先考察叉乘项：
+\begin{align}
+	\dot{\V{r}}(s)\cp\ddot{\V{r}}(s)
+	&=\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}}
+		\cp \qty[-\frac{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+			\cp\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}^4}] \notag
+	\intertext{注意到该式的结构与 \eqref{eq:B_一般参数}~式的
+		第二步非常相似，因此我们采用同样的办法处理，即先调整系数，
+		再反向运用\emphB{内蕴正交分解}：}
+	&=\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}^3}
+		\cp\qty[-\qty(\ddot{\V{r}}(t)
+				\cp\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}})
+			\cp\frac{\dot{\V{r}}(t)}
+				{\norm[\realR^3]{\dot{\V{r}}(t)}}] \notag \\
+	&=\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}^3}
+		\cp\qty[\ddot{\V{r}}(t)-\qty(\ddot{\V{r}}(t) \vdp
+				\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}})
+			\frac{\dot{\V{r}}(t)}
+				{\norm[\realR^3]{\dot{\V{r}}(t)}}] \notag
+	\intertext{同样，因为 $\dot{\V{r}}(t)\cp\dot{\V{r}}(t)=0$，
+		所以又只剩下了第一项，即}
+	&=\frac{\dot{\V{r}}(t)\cp\ddot{\V{r}}(t)}
+			{\norm[\realR^3]{\dot{\V{r}}(t)}^3} \fullstop
+\end{align}
+再来看 $\dddot{\V{r}}(t)$。
+\begin{align}
+	\dddot{\V{r}}(t)
+	&=-\dv{t}\qty[\frac{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+			\cp\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}^4}]
+		\cdot\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}} \notag \\
+	&=-\frac{\displaystyle
+			\dv{t}\qty\Big[\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+				\cp\dot{\V{r}}(t)] \cdot \norm[\realR^3]{\dot{\V{r}}(t)}^4
+			+\qty\Big[\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+				\cp\dot{\V{r}}(t)]
+				\cdot \dv{t}\qty\Big[\norm[\realR^3]{\dot{\V{r}}(t)}^4]}
+		{\norm[\realR^3]{\dot{\V{r}}(t)}^8}
+		\cdot\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}} \notag \\
+	&=-\frac{\displaystyle
+			\dv{t}\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+				\cp\dot{\V{r}}(t)
+			+\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+				\cp\dv{\V{\ddot{r}}}{t} (t)}
+			{\norm[\realR^3]{\dot{\V{r}}(t)}^5}
+		-\frac{\displaystyle
+				\dv{t}\qty\Big[\norm[\realR^3]{\dot{\V{r}}(t)}^4]}
+			{\norm[\realR^3]{\dot{\V{r}}(t)}^9}
+			\cdot\qty\Big[\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+				\cp\dot{\V{r}}(t)] \notag \\
+	&=-\frac{\qty\big(\dddot{\V{r}}(t)\cp\dot{\V{r}}(t)
+				+\ddot{\V{r}}(t)\cp\ddot{\V{r}}(t)) \cp \dot{\V{r}}(t)
+			+\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+				\cp \dddot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}^5}
+		-\frac{\displaystyle
+				\dv{t}\qty\Big[\norm[\realR^3]{\dot{\V{r}}(t)}^4]}
+			{\norm[\realR^3]{\dot{\V{r}}(t)}^9}
+			\cdot\qty\Big[\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+				\cp\dot{\V{r}}(t)] \notag
+	\intertext{第一项中，$\ddot{\V{r}}(t)\cp\ddot{\V{r}}(t)=0$。所以}
+	&=-\frac{\qty\big(\dddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+				\cp\dot{\V{r}}(t)
+			+\hl{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))}
+				\cp\dddot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}^5}
+		-\frac{\displaystyle
+				\dv{t}\qty\Big[\norm[\realR^3]{\dot{\V{r}}(t)}^4]}
+			{\norm[\realR^3]{\dot{\V{r}}(t)}^9}
+			\cdot\qty\Big[\hl{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))}
+				\cp\dot{\V{r}}(t)] \fullstop
+\end{align}
+式中的高亮部分与另一个向量做叉乘后，垂直于
+$\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)$；
+而另一方面，$\dot{\V{r}}(s)\cp\ddot{\V{r}}(s)$ 又平行于
+$\dot{\V{r}}(t)\cp\ddot{\V{r}}(t)$。因此二者做点乘后即为零。
+这样，我们就有
+\begin{align}
+	\dot{\V{r}}(s)\cp\ddot{\V{r}}(s)\vdp\dddot{\V{r}}(s)
+	&=\frac{\dot{\V{r}}(t)\cp\ddot{\V{r}}(t)}
+			{\norm[\realR^3]{\dot{\V{r}}(t)}^3}
+		\vdp\qty[-\frac{\qty\big(\dddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+				\cp\dot{\V{r}}(t)}
+			{\norm[\realR^3]{\dot{\V{r}}(t)}^5}] \notag \\
+	&=\frac{\dot{\V{r}}(t)\cp\ddot{\V{r}}(t)}
+			{\norm[\realR^3]{\dot{\V{r}}(t)}^6}
+		\vdp\qty[-\qty(\dddot{\V{r}}(t)
+				\cp\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}})
+			\cp\frac{\dot{\V{r}}(t)}
+				{\norm[\realR^3]{\dot{\V{r}}(t)}}] \notag
+	\intertext{照例，使用\emphB{内蕴正交分解}：}
+	&=\frac{\dot{\V{r}}(t)\cp\ddot{\V{r}}(t)}
+			{\norm[\realR^3]{\dot{\V{r}}(t)}^6}
+		\vdp\qty[\dddot{\V{r}}(t)-\qty(\dddot{\V{r}}(t) \vdp
+				\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}})
+			\frac{\dot{\V{r}}(t)}
+				{\norm[\realR^3]{\dot{\V{r}}(t)}}] \notag
+	\intertext{第二项点乘后为零：}
+	&=\frac{\dot{\V{r}}(t)\cp\ddot{\V{r}}(t)\vdp\dddot{\V{r}}(t)}
+			{\norm[\realR^3]{\dot{\V{r}}(t)}^6} \fullstop
+\end{align}
+此即
+\begin{equation}
+	\det\!\mqty[\dot{\V{r}}(s),\,\ddot{\V{r}}(s),\,\dddot{\V{r}}(s)]
+	=\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}^6}
+		\det\!\mqty[\dot{\V{r}}(t),\,\ddot{\V{r}}(t),\,\dddot{\V{r}}(t)]
+	\fullstop
+\end{equation}
+再代入一般参数下曲率的表达式~\eqref{eq:曲率_一般参数}，
+就可得到挠率：
+\begin{align}
+	\tau(s)&=\frac{1}{\kappa^2(s)}
+		\cdot\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}^6}
+		\det\!\mqty[\dot{\V{r}}(t),\,\ddot{\V{r}}(t),\,\dddot{\V{r}}(t)]
+		\notag \\
+	&=\frac{\norm[\realR^3]{\dot{\V{r}}(t)}^6}
+			{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}^2}
+		\cdot\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}^6}
+		\det\!\mqty[\dot{\V{r}}(t),\,\ddot{\V{r}}(t),\,\dddot{\V{r}}(t)]
+		\notag \\
+	&=\frac{1}{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}^2}
+		\det\!\mqty[\dot{\V{r}}(t),\,\ddot{\V{r}}(t),\,\dddot{\V{r}}(t)]
+		\fullstop
+\end{align}
+
+\blankline
+
+现在来总结一下\emphB{一般参数}下的 Frenet 标架：
+\begin{braceEq*}{\label{eq:Frenet标架_一般参数}}
+	\V{T}(t)&=\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}}
+		\comma \\
+	\V{N}(t)&=-\frac{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
+			\cp\dot{\V{r}}(t)}
+		{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}
+			\norm[\realR^3]{\dot{\V{r}}(t)}} \comma \\
+	\V{B}(t)&=\frac{\dot{\V{r}}(t)\cp\ddot{\V{r}}(t)}
+		{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}} \fullstop
+\end{braceEq*}
+曲率和挠率分别为
+\begin{equation}
+	\kappa(t)=\frac{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}}
+		{\norm[\realR^3]{\dot{\V{r}}(t)}^3}
+\end{equation}
+和
+\begin{equation}
+	\tau(t)=
+	\frac{1}{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}^2}
+	\det\!\mqty[\dot{\V{r}}(t),\,\ddot{\V{r}}(t),\,\dddot{\V{r}}(t)]
+	\fullstop
+\end{equation}
+注意我们把参数全部换成了 $t$。\footnote{
+	根据第~\pageref{fn:T(s)=T(t)}~页的脚注~\ref{fn:T(s)=T(t)}，
+	$\V{T}(s)=\V{T}(t)$。类似地，还有 $\kappa(s)=\kappa(t)$ 等。
+实际上，它们是同一个量在不同参数下的表示。
+但 $\dot{\V{T}}(s)\neq\dot{\V{T}}(t)$。这是因为前者是对 $s$ 求导，
+而后者则是对 $t$ 求导。不要被点号迷惑。}
+
+至于标架运动方程，则可直接利用
+\eqref{eq:Frenet标架运动方程_弧长参数}~式：
+\begin{braceEq*}{\label{eq:Frenet标架运动方程_一般参数}}
+	\dot{\V{T}}(t)&=\dot{\V{T}}(s)\cdot\dv{s}{t} (t)
+		=\norm[\realR^3]{\dot{\V{r}}(t)} \cdot
+			\qty\big[\kappa(t)\,\V{N}(t)] \comma \\
+	\dot{\V{N}}(t)&=\dot{\V{N}}(s)\cdot\dv{s}{t} (t)
+		=\norm[\realR^3]{\dot{\V{r}}(t)} \cdot
+			\qty\big[-\kappa(t)\,\V{T}(t)+\tau(t)\,\V{B}(t)] \comma \\
+	\dot{\V{B}}(t)&=\dot{\V{B}}(s)\cdot\dv{s}{t} (t)
+		=\norm[\realR^3]{\dot{\V{r}}(t)} \cdot
+			\qty\big[-\tau(t)\,\V{N}(t)] \fullstop
+\end{braceEq*}
+
+若 $t$ 取为 $s$，有
+\begin{equation}
+	\norm[\realR^3]{\dot{\V{r}}(t)}
+	=\norm[\realR^3]{\dot{\V{r}}(s)}=1 \fullstop
+\end{equation}
+根据式~\eqref{eq:r的一阶导数垂直二阶导数_弧长参数}，
+$\ddot{\V{r}}(s) \perp \dot{\V{r}}(s)$，因此
+\begin{equation}
+	\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}
+	=\norm[\realR^3]{\ddot{\V{r}}(s)\cp\dot{\V{r}}(s)}
+	=\norm[\realR^3]{\ddot{\V{r}}(t)}
+		\cdot \norm[\realR^3]{\dot{\V{r}}(t)}
+	=\norm[\realR^3]{\ddot{\V{r}}(t)} \fullstop
+\end{equation}
+利用内蕴正交分解，稍做计算，还可知
+\begin{equation}
+	\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))\cp\dot{\V{r}}(t)
+	=-\ddot{\V{r}}(t)+
+		\qty\big(\ddot{\V{r}}(t)\vdp\dot{\V{r}}(t))\,\dot{\V{r}}(t)
+	=-\ddot{\V{r}}(t) \fullstop
+\end{equation}
+此时，把 \eqref{eq:Frenet标架_一般参数}~\linktilde
+~\eqref{eq:Frenet标架运动方程_一般参数}~式
+与 \eqref{eq:Frenet标架_弧长参数}~\linktilde
+~\eqref{eq:挠率的定义}~式进行比较，可以发现它们是完全一样的。

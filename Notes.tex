@@ -42,6 +42,12 @@
 		citecolor = {green!50!black},
 		urlcolor = {blue!70!black}
 	}
+% 脚注引用
+% 直接用 \ref
+%\makeatletter
+%\newcommand{\footnoteref}[1]{\protected@xdef%
+%	\@thefnmark{\ref{#1}}\@footnotemark}
+%\makeatother
 
 %% 常规字体选择
 % 与 `graphicx' 冲突
@@ -241,6 +247,9 @@
 	{\endEmphEqMainEnv \endmySubEq}
 
 %TODO——命令
+%% 浪纹连接号
+% Unicode FF5E ～ FULLWIDTH TILDE
+\newcommand{\linktilde}{\symbol{65374}}
 %% 空行
 %\newcommand{\blankline}{\mbox{}\par\mbox{}}
 \newcommand{\blankline}{\mbox{}}
@@ -383,7 +392,8 @@
 \let\PHYSICSNORM=\norm
 \renewcommand{\norm}[2][\Rm]{\abs{#2}_{#1}}
 %% 线性分式
-\WithSuffix\newcommand\frac*[2]{\left.#1\middle/#2\right.}
+% 已有命令 \flatfrac
+%\WithSuffix\newcommand\frac*[2]{\left.#1\middle/#2\right.}
 %% 内积(括号形式)(Inner Product Braket)
 %\newcommand{\ipb}[3][\Rm]{\qty(#2,\,#3)_{#1}}
 \newcommand{\ipb}[3][\Rm]{\left\langle#2,\,#3\right\rangle_{#1}}
