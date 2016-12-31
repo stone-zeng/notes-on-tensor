@@ -40,7 +40,7 @@ $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
 	\dv{s}{t} (t) = \norm{\dv{\V{X}}{t} (t)} \fullstop
 	\label{eq:弧长与一般参数的关系}
 \end{equation}
-为了研究问题的方便，我们以后将用弧长作为曲线的参数，即
+在本节中，我们将采用弧长作为曲线的参数，即
 \begin{equation}
 	\mmap{\V{r}(s)}{[0,\,L]\ni s}{\V{r}(s)\in\Rm} \fullstop
 \end{equation}
@@ -60,6 +60,7 @@ $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
 因而 $\dot{\V{r}}(s)$ 是一个单位向量，即
 \begin{equation}
 	\norm{\dot{\V{r}}(s)}=1 \fullstop
+	\label{eq:r的一阶导数为单位向量_弧长参数}
 \end{equation}
 接下来继续对 $\dot{\V{r}}(s)$ 求导：
 \begin{equation}
@@ -82,6 +83,9 @@ $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
 	\ddot{\V{r}}(s) \perp \dot{\V{r}}(s) \fullstop
 	\label{eq:r的一阶导数垂直二阶导数_弧长参数}
 \end{equation}
+采用一般参数时，\eqref{eq:r的一阶导数为单位向量_弧长参数}~式和
+\eqref{eq:r的一阶导数垂直二阶导数_弧长参数} 未必成立。
+解决方案见 \ref{sec:Frenet标架_一般参数}~节。
 
 现在我们把目光限定在 $\realR^3$ 空间中。如前所述，
 $\dot{\V{r}}(s)$ 已经是单位向量，我们将其记为 $\V{T}(s)$；
@@ -250,13 +254,14 @@ $\V{N}(s)$ 后也为零。这样便有
 至此，我们就得到了 $\realR^3$ 空间中以\emphB{弧长}%
 为参数的\emphB{Frenet 标架}：
 \begin{braceEq*}{\label{eq:Frenet标架_弧长参数}}
-	\V{T}(s) &\defeq \dot{\V{r}}(s) \comma
+	\V{T}(s) &= \dot{\V{r}}(s) \comma
 	\label{eq:Frenet标架定义_T} \\
-	\V{N}(s) &\defeq
-		\frac{\ddot{\V{r}}(s)}{\norm[\realR^3]{\ddot{\V{r}}(s)}}
-		=\frac{\dot{\V{T}}(s)}{\norm[\realR^3]{\dot{\V{T}}(s)}} \comma
+	\V{N}(s) &= \frac{\dot{\V{T}}(s)}{\norm[\realR^3]{\dot{\V{T}}(s)}}
+		=\frac{\ddot{\V{r}}(s)}{\norm[\realR^3]{\ddot{\V{r}}(s)}} \comma
 	\label{eq:Frenet标架定义_N} \\
-	\V{B}(s) &\defeq \V{T}(s)\cp\V{N}(s) \fullstop
+	\V{B}(s) &= \V{T}(s)\cp\V{N}(s)
+		=\frac{\dot{\V{r}}(s)\cp\ddot{\V{r}}(s)}
+			{\norm[\realR^3]{\ddot{\V{r}}(s)}} \fullstop
 	\label{eq:Frenet标架定义_B}
 \end{braceEq*}
 以及对应的标架运动方程
@@ -283,6 +288,46 @@ $\V{N}(s)$ 后也为零。这样便有
 	\label{eq:挠率的定义}
 \end{equation}
 称为\emphA{挠率}。
+
+\subsection{Frenet 标架的几何意义}
+利用 Taylor 公式，把 $\V{r}(s_0+\incr s)$ 展开至三阶，可得
+\begin{equation}
+	\V{r}(s_0+\incr s)
+	=\V{r}(s_0)+\dot{\V{r}}(s_0)\cdot(\incr s)
+		+\frac{1}{2}\,\ddot{\V{r}}(s_0)\cdot(\incr s)^2
+		+\frac{1}{6}\,\dddot{\V{r}}(s_0)\cdot(\incr s)^3
+		+\sOv{(\incr s)^3} \fullstop
+\end{equation}
+其中，一阶和二阶导数可以分别表示为
+\begin{equation}
+	\dot{\V{r}}(s_0)=\V{T}(s_0)
+\end{equation}
+和
+\begin{equation}
+	\ddot{\V{r}}(s_0)=\norm[\realR^3]{\ddot{\V{r}}(s_0)} \V{N}(s_0)
+	=\kappa(s_0)\,\V{N}(s_0) \fullstop
+\end{equation}
+至于三阶导数，可用一组单位正交基（此处当然要用 Frenet 标架）展开：
+\begin{equation}
+	\dddot{\V{r}}(s_0)
+	=\qty[\dddot{\V{r}}(s_0)\vdp\V{T}(s_0)]\,\V{T}(s_0)
+	+\qty[\dddot{\V{r}}(s_0)\vdp\V{N}(s_0)]\,\V{N}(s_0)
+	+\qty[\dddot{\V{r}}(s_0)\vdp\V{B}(s_0)]\,\V{B}(s_0) \fullstop
+\end{equation}
+关于 $\V{T}(s_0)$、$\V{N}(s_0)$、$\V{B}(s_0)$ 合并同类项，可得
+\begin{align}
+	\V{r}(s_0+\incr s)
+	&=\V{r}(s_0)
+	+\qty[\incr s + \frac{\dddot{\V{r}}(s_0)\vdp\V{T}(s_0)}{6}\,
+		(\incr s)^3]\,\V{T}(s_0) \notag \\*
+	&\alspace\phantom{\V{r}(s_0)}
+		+\qty[\frac{\kappa(s_0)}{2}\,(\incr s)^2
+			+\frac{\dddot{\V{r}}(s_0)\vdp\V{N}(s_0)}{6}\,(\incr s)^3]\,
+		\V{N}(s_0) \notag \\*
+	&\alspace\phantom{\V{r}(s_0)}
+		+\qty[\frac{\dddot{\V{r}}(s_0)\vdp\V{B}(s_0)}{6}\,(\incr s)^3]\,
+		\V{B}(s_0) + \sOv{(\incr s)^3}
+\end{align}
 
 \subsection{应用：速度与加速度}
 三维空间中，质点的运动\emphA{轨迹}可以用 $\realR^3$ 中的曲线
@@ -335,6 +380,7 @@ $\V{r}(t)$ 来表示，其中的参数 $t$ 为时间。
 当质点做\emphB{匀变速}运动时，则只有 $\V{N}$ 分量。
 
 \section{Frenet 标架（一般参数）}
+\label{sec:Frenet标架_一般参数}
 本节我们重回\emphB{一般参数}下的映照形式，即
 \begin{equation}
 	\mmap{\V{r}(t)}{[\alpha,\,\beta]\ni t}{\V{r}(t)\in\realR^3} \comma
@@ -387,7 +433,7 @@ $\norm[\realR^3]{\V{e}}=1$，有
 \begin{equation}
 	\dv{t}\qty\Big[\norm[\realR^3]{\dot{\V{r}}(t)}^2]
 	=2\,\norm[\realR^3]{\dot{\V{r}}(t)}
-		\cdot \dv{t}\norm[\realR^3]{\dot{\V{r}}(t)} \semicomma
+		\cdot \dv{t}\norm[\realR^3]{\dot{\V{r}}(t)} \semicolon
 \end{equation}
 另一方面，
 \begin{equation}
@@ -493,13 +539,13 @@ $\V{N}(s)$ 也便可以易如反掌地写出来了：
 由 \eqref{eq:T_一般参数}~式，可知
 \begin{equation}
 	\dot{\V{r}}(s)=\V{T}(s)
-	=\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}} \semicomma
+	=\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}} \semicolon
 \end{equation}
 二阶导数则要利用式~\eqref{eq:T的导数_一般参数_Part2}：
 \begin{equation}
 	\ddot{\V{r}}(s)=\dot{\V{T}}(s)
 	=-\frac{\qty\big(\ddot{\V{r}}(t)\cp\dot{\V{r}}(t))
-		\cp\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}^4} \semicomma
+		\cp\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}^4} \semicolon
 \end{equation}
 进而又可得到三阶导数：
 \begin{equation}
@@ -669,7 +715,7 @@ $\dot{\V{r}}(t)\cp\ddot{\V{r}}(t)$。因此二者做点乘后即为零。
 	$\V{T}(s)=\V{T}(t)$。类似地，还有 $\kappa(s)=\kappa(t)$ 等。
 实际上，它们是同一个量在不同参数下的表示。
 但 $\dot{\V{T}}(s)\neq\dot{\V{T}}(t)$。这是因为前者是对 $s$ 求导，
-而后者则是对 $t$ 求导。不要被点号迷惑。}
+而后者则是对 $t$ 求导。不要被符号迷惑。}
 
 至于标架运动方程，则可直接利用
 \eqref{eq:Frenet标架运动方程_弧长参数}~式：
