@@ -298,7 +298,8 @@ $\V{N}(s)$ 后也为零。这样便有
 		+\frac{1}{6}\,\dddot{\V{r}}(s_0)\cdot(\incr s)^3
 		+\sOv{(\incr s)^3} \fullstop
 \end{equation}
-其中，一阶和二阶导数可以分别表示为
+其中的一阶和二阶导数，根据式~\eqref{eq:Frenet标架_弧长参数}，
+可以分别表示为
 \begin{equation}
 	\dot{\V{r}}(s_0)=\V{T}(s_0)
 \end{equation}
@@ -315,19 +316,57 @@ $\V{N}(s)$ 后也为零。这样便有
 	+\qty[\dddot{\V{r}}(s_0)\vdp\V{B}(s_0)]\,\V{B}(s_0) \fullstop
 \end{equation}
 关于 $\V{T}(s_0)$、$\V{N}(s_0)$、$\V{B}(s_0)$ 合并同类项，可得
-\begin{align}
-	\V{r}(s_0+\incr s)
-	&=\V{r}(s_0)
-	+\qty[\incr s + \frac{\dddot{\V{r}}(s_0)\vdp\V{T}(s_0)}{6}\,
-		(\incr s)^3]\,\V{T}(s_0) \notag \\*
-	&\alspace\phantom{\V{r}(s_0)}
-		+\qty[\frac{\kappa(s_0)}{2}\,(\incr s)^2
-			+\frac{\dddot{\V{r}}(s_0)\vdp\V{N}(s_0)}{6}\,(\incr s)^3]\,
-		\V{N}(s_0) \notag \\*
-	&\alspace\phantom{\V{r}(s_0)}
-		+\qty[\frac{\dddot{\V{r}}(s_0)\vdp\V{B}(s_0)}{6}\,(\incr s)^3]\,
-		\V{B}(s_0) + \sOv{(\incr s)^3}
-\end{align}
+\begin{mySubEq}
+	\begin{align}
+		&\alspace\V{r}(s_0+\incr s) \notag \\
+		&=\V{r}(s_0)
+			+\qty[\incr s+\frac{1}{6}\,\dddot{\V{r}}(s_0)\vdp\V{T}(s_0)\,
+				(\incr s)^3] \, \V{T}(s_0) \notag \\*
+		&\alspace\phantom{\V{r}(s_0)}
+			+\qty[\frac{1}{2}\,\kappa(s_0)\,(\incr s)^2
+				+\frac{1}{6}\,\dddot{\V{r}}(s_0)\vdp\V{N}(s_0)\,
+				(\incr s)^3] \, \V{N}(s_0) \notag \\*
+		&\alspace\phantom{\V{r}(s_0)}
+			+\qty[\frac{1}{6}\,\dddot{\V{r}}(s_0)\vdp\V{B}(s_0)\,
+			(\incr s)^3] \, \V{B}(s_0) + \sOv{(\incr s)^3} \notag \\
+		&=\V{r}(s_0)
+			+\mqty[\V{T}(s_0),\,\V{N}(s_0),\,\V{B}(s_0)] \,
+			\mqty[\displaystyle \incr s
+					+\frac{1}{6}\,\dddot{\V{r}}(s_0)\vdp\V{T}(s_0)\,
+					(\incr s)^3+\sO{(\incr s)^3} \\[1ex]
+				\displaystyle \frac{1}{2}\,\kappa(s_0)\,(\incr s)^2
+					+\frac{1}{6}\,\dddot{\V{r}}(s_0)\vdp\V{N}(s_0) \,
+					(\incr s)^3+\sO{(\incr s)^3} \\[1ex]
+				\displaystyle \frac{1}{6}
+					\dddot{\V{r}}(s_0)\vdp\V{B}(s_0) \, (\incr s)^3
+					+\sO{(\incr s)^3}]
+		\intertext{若只精确到二阶无穷小量，则为}
+		&=\V{r}(s_0)
+			+\mqty[\V{T}(s_0),\,\V{N}(s_0),\,\V{B}(s_0)] \,
+			\mqty[\incr s+\sO{(\incr s)^2} \\[1ex]
+				\displaystyle \frac{1}{2}\kappa(s_0)\,(\incr s)^2
+					+\sO{(\incr s)^2} \\[1ex]
+				\sO{(\incr s)^3}] \fullstop
+	\end{align}
+\end{mySubEq}
+
+以上推导说明，当误差限制在二阶无穷小量时，$\V{B}$ 方向分量为零。
+这样，我们就可以认为曲线只在 $\V{T}$ 和 $\V{N}$ 张成的平面中运动，
+此平面称为\emphA{密切平面}。
+设其横纵坐标分别为 $\tilde{x}$、$\tilde{y}$，则有
+\begin{braceEq}
+	\tilde{x}&=\incr s \comma \\
+	\tilde{y}&=\frac{1}{2}\,\kappa(s_0)\,(\incr s)^2
+		=\frac{1}{2}\,\kappa(s_0)\,\tilde{x}^2 \fullstop
+\end{braceEq}
+如图所示。
+该抛物线与圆心位于 $\qty(0,\,\kappa^{-1}(s_0))$，
+半径等于 $\kappa^{-1}(s_0)$ 的圆也是密切的。
+
+\myPROBLEM{密切圆，图见“曲线上标架-Part 02”20 min}。
+
+只有考虑三阶无穷小量时，才可以看出曲线偏离密切平面。
+显然，这一偏离的“速率”将由挠率刻画。
 
 \subsection{应用：速度与加速度}
 三维空间中，质点的运动\emphA{轨迹}可以用 $\realR^3$ 中的曲线
