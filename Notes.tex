@@ -22,33 +22,6 @@
 %% 设置标题
 \usepackage{titlesec}
 
-%% 交叉引用，超链接等
-\usepackage[hyperindex]{hyperref}
-	\hypersetup{
-		%% PDF 书签
-		bookmarksopen = true,
-		bookmarksopenlevel = 1,
-		bookmarksnumbered = true,
-		%% PDF 标题作者
-%		pdftitle = {},
-%		pdfauthor = {},
-		%% 脚注
-%		hyperfootnotes = false,
-		%% 目录  只引用页码
-		linktoc = page,
-		%% 超链接颜色
-		colorlinks,
-		linkcolor = {red!60!black},
-		citecolor = {green!50!black},
-		urlcolor = {blue!70!black}
-	}
-% 脚注引用
-% 直接用 \ref
-%\makeatletter
-%\newcommand{\footnoteref}[1]{\protected@xdef%
-%	\@thefnmark{\ref{#1}}\@footnotemark}
-%\makeatother
-
 %% 常规字体选择
 % 与 `graphicx' 冲突
 \PassOptionsToPackage{draft}{graphicx}
@@ -211,6 +184,55 @@
 		\newtheorem{myProof}{证明：}
 
 %% 索引
+%\usepackage{imakeidx}
+\usepackage{makeidx}
+	\makeindex%[options = {-s MyIndexStyle.mst}]
+	\newcommand{\idx}[1]{\index{#1}}
+	%HACK：20170114 缺字，改用浪纹连接符代替
+	\newcommand{\idxOmit}{\linkTilde}
+
+%% 索引格式
+\usepackage[
+		hangindent = 6 em,
+		subindent = 2 em,
+		subsubindent = 4 em
+	]{idxlayout}
+
+%% 交叉引用，超链接等
+\usepackage[hyperindex]{hyperref}
+	\makeatletter
+	\AtBeginDocument{
+		\hypersetup{
+			%% PDF 标题作者
+			pdftitle = {\@title},
+			pdfauthor = {\@author}
+		}
+	}
+	\makeatother
+
+	\hypersetup{
+		%% PDF 书签
+		bookmarksopen = true,
+		bookmarksopenlevel = 1,
+		bookmarksnumbered = true,
+		%% 脚注
+%			hyperfootnotes = false,
+		%% 目录  只引用页码
+		linktoc = page,
+		%% 超链接边框
+		pdfborder = 0 0 0,
+		%% 超链接颜色
+		colorlinks,
+		linkcolor = {red!60!black},
+		citecolor = {green!50!black},
+		urlcolor = {blue!70!black}
+	}
+% 脚注引用
+% 直接用 \ref
+%\makeatletter
+%\newcommand{\footnoteref}[1]{\protected@xdef%
+%	\@thefnmark{\ref{#1}}\@footnotemark}
+%\makeatother
 
 %TODO——环境
 %% 定制列表（编号）
@@ -247,9 +269,12 @@
 	{\endEmphEqMainEnv \endmySubEq}
 
 %TODO——命令
-%% 浪纹连接号
+%% 浪纹连接号、代字符
 % Unicode FF5E ～ FULLWIDTH TILDE
-\newcommand{\linktilde}{\symbol{65374}}
+\newcommand{\linkTilde}{\symbol{65374}}
+% Unicode 2053 ⁓ SWUNG DASH
+% see \idxOmit
+\newcommand{\swungDash}{\symbol{8275}}
 %% 空行
 %\newcommand{\blankline}{\mbox{}\par\mbox{}}
 \newcommand{\blankline}{\mbox{}}
@@ -404,7 +429,7 @@
 %% 全点积(Full Dot Product)
 \newcommand{\fdp}{\odot}
 %% 点乘([Vector] Dot Product)
-%TODO 使用 \cdot 表示普通乘法，使用 \vdp 表示点乘
+% 使用 \cdot 表示普通乘法，使用 \vdp 表示点乘
 %% \dp 是 LaTeX 内部定义
 \newcommand{\vdp}{\vysmblkcircle}
 %% \cdot 作为 ordinary 符号
@@ -466,16 +491,19 @@
 
 
 %TODO——标题页
-\title{
-	\vspace{-4 cm} \color{Sienna} \Huge 张量分析
-}
-\author{
-	\CJKfamily{楷体} \color{DarkRed} \Large
-	复旦大学\phantom{空格}谢锡麟
-}
-\date{
-	\CJKfamily{楷体} \color{Goldenrod} \Large \today
-}
+\title{张量分析}
+\author{复旦大学　谢锡麟} % 此处为全角空格
+\date{\today}
+%\title{
+%	\vspace{-4 cm} \color{Sienna} \Huge 张量分析
+%}
+%\author{
+%	\CJKfamily{楷体} \color{DarkRed} \Large
+%	复旦大学\phantom{空格}谢锡麟
+%}
+%\date{
+%	\CJKfamily{楷体} \color{Goldenrod} \Large \today
+%}
 
 
 \begin{document}
@@ -507,6 +535,5 @@
 %		\small
 %		\bibliography{Reference}
 %	}
-%	\printindex[pkg]
-%	\printindex[cmd]
+	\printindex
 \end{document}

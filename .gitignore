@@ -103,7 +103,6 @@ acs-*.bib
 *.idx
 *.ilg
 *.ind
-*.ist
 
 # minitoc
 *.maf
@@ -193,3 +192,4 @@ TSWLatexianTemp*
 *.csv
 *.xls
 *.xlsx
+*.exe

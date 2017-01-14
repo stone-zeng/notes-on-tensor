@@ -3,7 +3,8 @@
 % #1898 Freeze while typing \texorpdfstring
 % https://sourceforge.net/p/texstudio/bugs/1898/
 \subsection{\texorpdfstring{$\Rm$}{R\^{}m} 空间中曲线的表示}
-$\Rm$ 空间中的\emphA{曲线}，就是一个\emphB{单参数}的向量值映照：
+$\Rm$ 空间中的\emphA{曲线}\idx{曲线}，
+就是一个\emphB{单参数}的向量值映照：
 \begin{equation}
 	\mmap{\V{X}(t)}{[\alpha,\,\beta]\ni t}
 		{\V{X}(t)=\mqty[X^1(t) \\ \vdots \\ X^m(t)]\in\Rm} \fullstop
@@ -16,8 +17,8 @@ $\Rm$ 空间中的\emphA{曲线}，就是一个\emphB{单参数}的向量值映�
 \end{equation}
 按照物理上的习惯，我们用点表示对 $t$ 的导数。
 若该极限存在，则称 $\V{X}(t)\in\Rm$ 在点 $t$
-处\emphA{可微}。此时，$\dot{\V{X}}(t)$ 称为曲线
-$\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
+处\emphA{可微}\idx{可微}。此时，$\dot{\V{X}}(t)$ 称为曲线
+$\V{X}(t)$ 的\emphA{切向量}\idx{切向量}。上述极限可以等价地表述为
 \begin{equation}
 	\V{X}(t+\incr t) = \V{X}(t)+\dv{\V{X}}{t} (t) \cdot\incr t
 		+\sOv{\incr t} \fullstop
@@ -28,9 +29,9 @@ $\V{X}(t)$ 的\emphA{切向量}。上述极限可以等价地表述为
 		\cdot\qty(t-t_0)+\sOv{t-t_0} \fullstop
 \end{equation}
 该方程表示一条直线，称为曲线 $\V{X}(t)$
-在 $t_0$ 处的\emphA{切线}。
+在 $t_0$ 处的\emphA{切线}\idx{切线}。
 
-在物理域中，\emphA{弧长} $s$ 可以表示为
+在物理域中，\emphA{弧长}\idx{弧长} $s$ 可以表示为
 \begin{equation}
 	s=\int_\alpha^\beta \norm{\dv{\V{X}}{t} (t)} \dd{t} \comma
 	\label{eq:弧长的定义}
@@ -108,12 +109,15 @@ $\dot{\V{r}}(s)$ 已经是单位向量，我们将其记为 $\V{T}(s)$；
 	\qty\big{\V{T}(s),\,\V{N}(s),\,\V{B}(s)}
 	\subset\realR^3 \comma
 \end{equation}
-它们称为\emphA{Frenet 标架}。
-其中，$\V{T}(s)$、$\V{N}(s)$、$\V{B}(s)$，分别叫做%
-\emphA{单位切向量}、\emphA{主单位法向量}和\emphA{副单位法向量}。
+它们称为\emphA{Frenet 标架}\idx{Frenet 标架}。
+其中，$\V{T}(s)$、$\V{N}(s)$、$\V{B}(s)$，
+分别叫做\emphA{单位切向量}\idx{单位切向量}、
+\emphA{主单位法向量}\idx{主单位法向量}和%
+\emphA{副单位法向量}\idx{副单位法向量}。
 
 \subsection{标架运动方程}
-考虑 Frenet 标架关于弧长参数 $s$ 的变化率，即\emphB{标架运动方程}：
+考虑 Frenet 标架关于弧长参数 $s$ 的变化率，
+即\emphB{标架运动方程}\idx{标架运动方程}：
 \begin{equation}
 	\qty\big{\dot{\V{T}}(s),\,\dot{\V{N}}(s),\,\dot{\V{B}}(s)}
 	\subset\realR^3 \fullstop
@@ -252,7 +256,7 @@ $\V{N}(s)$ 后也为零。这样便有
 \blankline
 
 至此，我们就得到了 $\realR^3$ 空间中以\emphB{弧长}%
-为参数的\emphB{Frenet 标架}：
+为参数的\emphB{Frenet 标架}\idx{Frenet 标架}：
 \begin{braceEq*}{\label{eq:Frenet标架_弧长参数}}
 	\V{T}(s) &= \dot{\V{r}}(s) \comma
 	\label{eq:Frenet标架定义_T} \\
@@ -264,7 +268,7 @@ $\V{N}(s)$ 后也为零。这样便有
 			{\norm[\realR^3]{\ddot{\V{r}}(s)}} \fullstop
 	\label{eq:Frenet标架定义_B}
 \end{braceEq*}
-以及对应的标架运动方程
+以及对应的标架运动方程\idx{标架运动方程}
 \begin{braceEq*}{\label{eq:Frenet标架运动方程_弧长参数}}
 	\dot{\V{T}}(s)&=\kappa(s)\,\V{N}(s) \comma
 	\label{eq:Frenet标架的导数_T} \\
@@ -279,7 +283,7 @@ $\V{N}(s)$ 后也为零。这样便有
 	=\norm[\realR^3]{\ddot{\V{r}}(s)}
 	\label{eq:曲率的定义}
 \end{equation}
-称为\emphA{曲率}，
+称为\emphA{曲率}\idx{曲率!弧长参数下的\idxOmit}，
 \begin{equation}
 	\tau(s)\defeq\frac{1}{\norm[\realR^3]{\ddot{\V{r}}(s)}^2}
 		\det\!\mqty[\dot{\V{r}}(s),\,\ddot{\V{r}}(s),\,\dddot{\V{r}}(s)]
@@ -287,7 +291,7 @@ $\V{N}(s)$ 后也为零。这样便有
 		\det\!\mqty[\dot{\V{r}}(s),\,\ddot{\V{r}}(s),\,\dddot{\V{r}}(s)]
 	\label{eq:挠率的定义}
 \end{equation}
-称为\emphA{挠率}。
+称为\emphA{挠率}\idx{挠率!弧长参数下的\idxOmit}。
 
 \subsection{Frenet 标架的几何意义}
 利用 Taylor 公式，把 $\V{r}(s_0+\incr s)$ 展开至三阶，可得
@@ -352,7 +356,7 @@ $\V{N}(s)$ 后也为零。这样便有
 
 以上推导说明，当误差限制在二阶无穷小量时，$\V{B}$ 方向分量为零。
 这样，我们就可以认为曲线只在 $\V{T}$ 和 $\V{N}$ 张成的平面中运动，
-此平面称为\emphA{密切平面}。
+此平面称为\emphA{密切平面}\idx{密切平面}。
 设其横纵坐标分别为 $\tilde{x}$、$\tilde{y}$，则有
 \begin{braceEq}
 	\tilde{x}&=\incr s \comma \\
@@ -369,9 +373,9 @@ $\V{N}(s)$ 后也为零。这样便有
 显然，这一偏离的“速率”将由挠率刻画。
 
 \subsection{应用：速度与加速度}
-三维空间中，质点的运动\emphA{轨迹}可以用 $\realR^3$ 中的曲线
-$\V{r}(t)$ 来表示，其中的参数 $t$ 为时间。
-质点运动的\emphA{速度} $\V{v}(t)$，定义为
+三维空间中，质点的运动轨迹可以用 $\realR^3$ 中的曲线
+$\V{r}(t)$ 来表示，其中的参数 $t$ 为时间。\idx{质点的运动}
+质点运动的\emphA{速度}\idx{速度} $\V{v}(t)$，定义为
 \begin{equation}
 	\V{v}(t)\defeq\dot{\V{r}}(t)
 	\coloneq\dv{\V{r}}{t} (t)
@@ -396,9 +400,9 @@ $\V{r}(t)$ 来表示，其中的参数 $t$ 为时间。
 \begin{equation}
 	\norm{\V{v}(t)}=\norm{\dot{\V{r}}(t)} \comma
 \end{equation}
-我们称之为\emphA{速率}。
+我们称之为\emphA{速率}\idx{速率}。
 
-速度相对时间的变化率称为\emphA{加速度}：
+速度相对时间的变化率称为\emphA{加速度}\idx{加速度}：
 \begin{align}
 	\V{a}(t)\defeq\dot{\V{v}}(t)
 	&=\dv{t}\norm{\dot{\V{r}}(t)} \cdot \V{T}(s)
@@ -431,7 +435,7 @@ $\V{r}(t)$ 来表示，其中的参数 $t$ 为时间。
 	\label{eq:弧长与一般参数的关系2}
 \end{equation}
 
-后文的推导需要用到向量的\emphA{内蕴正交分解}：
+后文的推导需要用到向量的\emphA{内蕴正交分解}\idx{内蕴正交分解}：
 $\forall\,\V{\xi},\,\V{e}\in\realR^3$ 且满足
 $\norm[\realR^3]{\V{e}}=1$，有
 \begin{equation}
@@ -521,7 +525,7 @@ $\norm[\realR^3]{\V{e}}=1$，有
 	=\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}
 		\cdot\norm[\realR^3]{\dot{\V{r}}(t)} \fullstop
 \end{equation}
-这样，曲率就能够写成
+这样，曲率就能够写成\idx{曲率!一般参数下的\idxOmit!推导过程}
 \begin{equation}
 	\kappa(s)=\frac{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}}
 		{\norm[\realR^3]{\dot{\V{r}}(t)}^3} \fullstop
@@ -568,7 +572,8 @@ $\V{N}(s)$ 也便可以易如反掌地写出来了：
 
 \subsection{曲率和挠率}
 曲率在计算 $\V{N}$ 的时候已经顺带求过了，我们现在来求挠率。
-根据式~\eqref{eq:挠率的定义}，有
+根据式~\eqref{eq:挠率的定义}，
+有\idx{挠率!一般参数下的\idxOmit!推导过程|(}
 \begin{equation}
 	\tau(s)=\frac{1}{\kappa^2(s)}
 		\det\!\mqty[\dot{\V{r}}(s),\,\ddot{\V{r}}(s),\,\dddot{\V{r}}(s)]
@@ -708,7 +713,7 @@ $\dot{\V{r}}(t)\cp\ddot{\V{r}}(t)$。因此二者做点乘后即为零。
 	\fullstop
 \end{equation}
 再代入一般参数下曲率的表达式~\eqref{eq:曲率_一般参数}，
-就可得到挠率：
+就可得到挠率：\idx{挠率!一般参数下的\idxOmit!推导过程|)}
 \begin{align}
 	\tau(s)&=\frac{1}{\kappa^2(s)}
 		\cdot\frac{1}{\norm[\realR^3]{\dot{\V{r}}(t)}^6}
@@ -727,6 +732,7 @@ $\dot{\V{r}}(t)\cp\ddot{\V{r}}(t)$。因此二者做点乘后即为零。
 \blankline
 
 现在来总结一下\emphB{一般参数}下的 Frenet 标架：
+\idx{Frenet 标架!一般参数下的\idxOmit}
 \begin{braceEq*}{\label{eq:Frenet标架_一般参数}}
 	\V{T}(t)&=\frac{\dot{\V{r}}(t)}{\norm[\realR^3]{\dot{\V{r}}(t)}}
 		\comma \\
@@ -738,6 +744,7 @@ $\dot{\V{r}}(t)\cp\ddot{\V{r}}(t)$。因此二者做点乘后即为零。
 		{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}} \fullstop
 \end{braceEq*}
 曲率和挠率分别为
+\idx{曲率!一般参数下的\idxOmit}\idx{挠率!一般参数下的\idxOmit}
 \begin{equation}
 	\kappa(t)=\frac{\norm[\realR^3]{\ddot{\V{r}}(t)\cp\dot{\V{r}}(t)}}
 		{\norm[\realR^3]{\dot{\V{r}}(t)}^3}
@@ -791,7 +798,7 @@ $\ddot{\V{r}}(s) \perp \dot{\V{r}}(s)$，因此
 		\qty\big(\ddot{\V{r}}(t)\vdp\dot{\V{r}}(t))\,\dot{\V{r}}(t)
 	=-\ddot{\V{r}}(t) \fullstop
 \end{equation}
-此时，把 \eqref{eq:Frenet标架_一般参数}~\linktilde
+此时，把 \eqref{eq:Frenet标架_一般参数}~\linkTilde
 ~\eqref{eq:Frenet标架运动方程_一般参数}~式
-与 \eqref{eq:Frenet标架_弧长参数}~\linktilde
+与 \eqref{eq:Frenet标架_弧长参数}~\linkTilde
 ~\eqref{eq:挠率的定义}~式进行比较，可以发现它们是完全一样的。
