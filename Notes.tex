@@ -24,7 +24,7 @@
 
 %% 常规字体选择
 % 与 `graphicx' 冲突
-\PassOptionsToPackage{draft}{graphicx}
+%\PassOptionsToPackage{draft}{graphicx}
 \usepackage[no-math]{fontspec}
 	\setmainfont[
 		Extension = .otf,
@@ -514,26 +514,26 @@
 %	
 %	\mainmatter
 %	\chapter{张量的定义及表示}
-%		\input{Chapters/Chapter1}
+%		\input{Chapters/Definition_Tensor}
 %	
 %	\chapter{张量的运算性质}
-%		\input{Chapters/Chapter2}
+%		\input{Chapters/Algebric_Properties_of_Tensor}
 %	
 %	\chapter{微分同胚（曲线坐标系）}
-%		\input{Chapters/Chapter3}
+%		\input{Chapters/Curvilinear_Coordinats}
 %	
 %	\chapter{张量场可微性}
-%		\input{Chapters/Chapter4}
-%	
-%	\chapter{非完整基理论}
-%		\input{Chapters/Chapter5}
-%	
-	\chapter{曲线上的标架及其运动方程}
-		\input{Chapters/Chapter6}
+%		\input{Chapters/Derivative_on_Tensor_Field}
+	
+	\chapter{非完整基理论}
+		\input{Chapters/Nonholonomic_Basis_Theory}
+	
+%	\chapter{曲线上的标架及其运动方程}
+%		\input{Chapters/Curve_Frame}
 %	\backmatter
 %	{
 %		\small
 %		\bibliography{Reference}
 %	}
-	\printindex
+%	\printindex
 \end{document}
