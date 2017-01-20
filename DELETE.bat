@@ -7,6 +7,7 @@ REM del *.bbl
 REM del *.blg
 
 DEL *.idx
+DEL *.ind
 DEL *.ilg
 
 DEL *.out

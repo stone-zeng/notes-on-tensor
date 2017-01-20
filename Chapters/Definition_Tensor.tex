@@ -1,8 +1,10 @@
 \section{对偶基，度量}
 \subsection{对偶基} \label{subsec:对偶基}
-设 $\qty{\V{g}_i}^m_{i=1}$ 是 $\Rm$ 空间中的一组\emphA{基}，
+设 $\qty{\V{g}_i}^m_{i=1}$ 是 $\Rm$
+空间中的一组\emphA{基（向量）}\idx{基}\idx{基向量|see{基}}，
 即极大线性无关向量组。此时，$\Rm$ 中将\emphB{唯一}存在另一组基
-$\qty{\V{g}^i}^m_{i=1}$，二者满足\emphA{对偶关系}：
+$\qty{\V{g}^i}^m_{i=1}$，
+二者满足\emphA{对偶关系}\idx{对偶!对偶关系}：
 \begin{equation}
 	\ipb{\V{g}_i}{\V{g}^j}=\KroneckerDelta{j}{i}
 	=\left\{\begin{aligned}
@@ -12,7 +14,7 @@ $\qty{\V{g}^i}^m_{i=1}$，二者满足\emphA{对偶关系}：
 	\label{eq:对偶关系}
 \end{equation}
 式中，$\ipb{\V{g}_i}{\V{g}^j}$ 的 $\KroneckerDelta{j}{i}$ 是 
-\emphA{Kronecker δ 函数}。
+\emphA{Kronecker δ 函数}\idx{Kronecker δ 函数}。
 
 \begin{myProof}
 根据内积的定义，
@@ -52,14 +54,18 @@ $\qty[\V{g}_1,\,\cdots,\,\V{g}_m]$ 非奇异。因此
 逆矩阵（及其转置）是存在且唯一的，这就证明了对偶基的存在性和唯一性。
 \end{myProof}
 
+满足对偶关系的基称为\emphA{对偶基}
+\idx{对偶!对偶基}\idx{基!对偶基}。
 我们把指标写在\emphB{下面}的基 $\qty{\V{g}_i}^m_{i=1}$
-称为\emphA{协变基}；指标写在\emphB{上面}的基
-$\qty{\V{g}^i}^m_{i=1}$ 称为\emphA{逆变基}。
+称为\emphA{协变基}\idx{协变!协变基}\idx{基!协变基}；
+指标写在\emphB{上面}的基 $\qty{\V{g}^i}^m_{i=1}$
+称为\emphA{逆变基}\idx{逆变!逆变基}\idx{基!逆变基}。
 式~\eqref{eq:逆变基用协变基表示} 明确指出了逆变基与协变基的关系。
 
 \blankline
 
-下面我们引入\emphA{单位正交基}（或\emphA{标准正交基}），
+下面我们引入\emphA{单位正交基}\idx{单位正交基}
+（或\emphA{标准正交基}\idx{标准正交基|see{单位正交基}}），
 它是指模长为一且两两正交的一组基。
 
 如果矩阵 $\Mat{A}$ 满足
@@ -71,7 +77,8 @@ $\qty{\V{g}^i}^m_{i=1}$ 称为\emphA{逆变基}。
 	\Mat{A}\trans=\Mat{A}^{-1} \text{\ 或\ }
 	\Mat{A}=\Mat{A}\invTrans \comma
 \end{equation}
-则称 $\Mat{A}$ 为\emphA{正交矩阵}。正交矩阵的全体记作 $\Orth$。
+则称 $\Mat{A}$ 为\emphA{正交矩阵}\idx{正交矩阵}。
+正交矩阵的全体记作 $\Orth$。
 由线性代数中的结论可知，正交矩阵 $\Mat{A}$
 的每一行和每一列均是单位正交基；
 反之，若矩阵 $\Mat{A}$ 的每一行和每一列均是单位正交基，
@@ -116,7 +123,7 @@ $\qty{\V{g}^i}^m_{i=1}$ 称为\emphA{逆变基}。
 可有 $\V{g}^i=\V{g}_i$。反之亦然。
 
 \subsection{度量} \label{subsec:度量}
-下面引入\emphA{度量}的概念。其定义为
+下面引入\emphA{度量}\idx{度量}的概念。其定义为
 \begin{braceEq}
 	g_{ij} &\defeq \ipb{\V{g}_i}{\V{g}_j} \comma 
 	\label{eq:度量的定义_协变} \\
@@ -140,9 +147,9 @@ $\qty{\V{g}^i}^m_{i=1}$ 称为\emphA{逆变基}。
 	g_{ij}=g_{ji}, \quad g^{ij}=g^{ji} \fullstop
 \end{equation}
 
-利用度量，可以获得\emphA{基向量转换关系}。
+利用度量，可以获得\emphA{基向量转换关系}\idx{基向量!基向量转换关系}。
 第 $i$ 个协变基向量 $\V{g}_i$ 既然是向量，
-就必然可以用协变基或逆变基来表示\footnote{%
+就必然可以用协变基或逆变基来表示\footnote{
 	所谓用某组基来“表示”一个向量，就是把它朝各个基的方向做投影，然后再求和。}。
 根据对偶关系式~\eqref{eq:对偶关系} 和度量的定义
 式~\eqref{eq:度量的定义_协变}、\eqref{eq:度量的定义_逆变}，可知
@@ -164,10 +171,11 @@ $\qty{\V{g}^i}^m_{i=1}$ 称为\emphA{逆变基}。
 而式~\eqref{eq:基向量转换关系1} 和 \eqref{eq:基向量转换关系4}
 则通过\emphB{度量}建立起了协变基与逆变基之间的关系。
 这就称为\emphB{基向量转换关系}，也可以叫做“指标升降游戏”。
+\idx{指标升降游戏}
 
-需要说明的是，根据\emphA{Einstein 求和约定}，
-重复指标（即\emphB{哑标}，这里是 $k$）且一上一下时，已经暗含了求和。
-后文除非特殊说明，也都是如此。
+需要说明的是，根据\emphA{Einstein 求和约定}\idx{Einstein 求和约定}，
+重复指标（即\emphB{哑标}\idx{哑标}，这里是 $k$）且一上一下时，
+已经暗含了求和。后文除非特殊说明，也都是如此。
 
 \blankline
 
@@ -206,16 +214,19 @@ $\qty{\V{g}^i}^m_{i=1}$ 称为\emphA{逆变基}。
 	\end{align}
 \end{mySubEq}
 式中，$\xi^k$ 是 $\V{\xi}$ 与第 $k$ 个\emphB{逆变基}做内积的结果，
-称为 $\V{\xi}$ 的第 $k$ 个\emphA{逆变分量}；
+称为 $\V{\xi}$ 的第 $k$ 个\emphA{逆变分量}
+\idx{逆变!向量的逆变分量}；
 而 $\xi_k$ 是 $\V{\xi}$ 与第 $k$ 个\emphB{协变基}做内积的结果，
-称为 $\V{\xi}$ 的第 $k$ 个\emphA{协变分量}。
+称为 $\V{\xi}$ 的第 $k$ 个\emphA{协变分量}
+\idx{协变!向量的协变分量}。
 
 以后凡是指标在下的（下标），均称为\emphB{协变}某某；
 指标在上的（上标），称为\emphB{逆变}某某。
 
 \section{张量的表示}
 \subsection{张量的表示与简单张量} \label{subsec:张量的表示与简单张量}
-所谓\emphA{张量}，即\emphA{多重线性函数}。
+所谓\emphA{张量}\idx{张量}，
+即\emphA{多重线性函数}\idx{多重线性函数|see{张量}}。
 
 首先用三阶张量举个例子。考虑任意的 $\T{\Phi}\in\Tensors{3}$，
 其中的 $\Tensors{3}$ 表示以 $\Rm$ 为底空间的三阶张量全体。
@@ -292,7 +303,8 @@ $\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
 
 \blankline
 
-暂时中断一下思路，先给出\emphA{简单张量}的定义。
+暂时中断一下思路，
+先给出\emphA{简单张量}\idx{简单张量}\idx{张量!简单张量}的定义。
 \begin{equation}
 	\forall\,\V{u},\,\V{v},\,\V{w}\in\Rm,\quad
 	\V{\xi}\tp\V{\eta}\tp\V{\zeta}\qty(\V{u},\,\V{v},\,\V{w})
@@ -303,8 +315,8 @@ $\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
 式中的 $\V{\xi},\,\V{\eta},\,\V{\zeta}\in\Rm$。
 “$\tp$”的定义将在 \ref{sec:张量积}~节中给出，
 现在可以暂时把 $\V{\xi}\tp\V{\eta}\tp\V{\zeta}$ 理解为一种记号。
-简单张量作为一个映照，组成它的三个向量分别与它们“吃掉”的第一、二、三个变元
-做内积并相乘，结果为一个实数。
+简单张量作为一个映照，组成它的三个向量分别与
+它们“吃掉”的第一、二、三个变元做内积并相乘，结果为一个实数。
 
 考虑到内积的线性性，便有（以第二个变元为例）
 \begin{align}
@@ -331,7 +343,7 @@ $\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
 可见，“简单张量”的名字是名副其实的，它的确是一个特殊的张量。
 
 回过头来看 \eqref{eq:张量的表示2}~式。很明显，它可以用简单张量来表示。
-要注意，由于内积的对称性，可以有两种\footnote{%
+要注意，由于内积的对称性，可以有两种\footnote{
 	这里只考虑把 $\V{u}$、$\V{v}$、$\V{w}$%
 	和 $\V{g}^i$、$\V{g}_j$、$\V{g}^k$ 分别放在一起的情况。}表示方法：
 \begin{mySubEq}
@@ -372,23 +384,27 @@ $\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
 	\tc{\Phi}{_i^j_k}
 	\coloneq \T{\Phi}\qty(\V{g}_i,\,\V{g}^j,\,\V{g}_k) \comma
 \end{equation}
-这称为张量的\emphA{分量}。
-它说明一个张量可以用\emphB{张量分量}和基向量组成的\emphB{简单张量}来表示。
+这称为张量的\emphA{分量}\idx{张量!张量的分量}。
+它说明一个张量可以用\emphB{张量分量}和基向量组成的%
+\emphB{简单张量}来表示。
 
 指标 $i$、$j$、$k$ 的上下是任意的。这里，
 它有赖于式~\eqref{eq:张量的表示1} 中基向量的选取。
 实际上，对于这里的三阶张量，指标的上下一共有 8 种可能。
-指标全部在下面的，称为\emphA{协变分量}：
+指标全部在下面的，称为\emphA{协变分量}
+\idx{协变!张量的协变分量}\idx{张量!张量的分量!协变分量}：
 \begin{equation}
 	\tc{\Phi}{_i_j_k} \coloneq
 	\T{\Phi}\qty(\V{g}_i,\,\V{g}_j,\,\V{g}_k) \semicolon
 \end{equation}
-指标全部在上面的，称为\emphA{逆变分量}：
+指标全部在上面的，称为\emphA{逆变分量}
+\idx{逆变!张量的逆变分量}\idx{张量!张量的分量!逆变分量}：
 \begin{equation}
 	\tc{\Phi}{^i^j^k} \coloneq
 	\T{\Phi}\qty(\V{g}^i,\,\V{g}^j,\,\V{g}^k) \semicolon
 \end{equation}
-其余 6 种，称为\emphA{混合分量}。
+其余 6 种，称为\emphA{混合分量}
+\idx{张量!张量的分量!混合分量}。
 对于一个 $r$ 阶张量，显然共有 $2^r$ 种分量表示，
 其中协变分量与逆变分量各一种，混合分量 $2^r-2$ 种。
 
@@ -401,7 +417,7 @@ $\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
 		\xi_i\V{g}^i \fullstop
 	\end{aligned}\right.
 \end{equation}
-式中，协变分量与逆变分量满足\emphB{坐标转换关系}：
+式中，协变分量与逆变分量满足\emphB{坐标转换关系}\idx{坐标转换关系}：
 \begin{braceEq}
 	\xi^i &=\ipb{\V{\xi}}{\V{g}^i}
 	=\ipb{\V{\xi}}{g^{ik}\V{g}_k}
@@ -412,7 +428,8 @@ $\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
 	=g_{ik}\ipb{\V{\xi}}{\V{g}^k}
 	=g_{ik}\xi^k \fullstop
 \end{braceEq}
-每一式的第二个等号都用到了\emphB{基向量转换关系}，
+每一式的第二个等号都用到了\emphB{基向量转换关系}
+\idx{基向量!基向量转换关系}，
 见式~\eqref{eq:基向量转换关系1} 和 \eqref{eq:基向量转换关系4}。
 
 现在再来考虑张量的分量。仍以上文中的张量 $\tc{\Phi}{_i^j_k}
@@ -434,7 +451,7 @@ $\V{v}$ 的第 $j$ 个协变分量和 $\V{w}$ 的第 $k$ 个逆变分量。
 用同样的手法，还可以得到诸如
 $\tc{\Phi}{^i^j^k}=g^{jp}\tc{\Phi}{^i_p^k}$、
 $\tc{\Phi}{^i_j^k}=g_{jp}g^{kq}\tc{\Phi}{^i^p_k}$
-这样的关系式。
+这样的关系式。\idx{张量!指标升降}
 
 \subsection{相对不同基的张量分量之间的关系}
 \label{subsec:相对不同基的张量分量之间的关系}
@@ -475,7 +492,7 @@ $\V{g}_{(i)}$，作为 $\Rm$ 空间中的一个向量，
 \begin{equation}
 	c^{(i)}_k c^k_{(j)} = \KroneckerDelta{i}{j} \fullstop
 \end{equation}
-写成矩阵形式\footnote{%
+写成矩阵形式\footnote{
 	通常我们约定上面的标号作为行号，下面的标号作为列号。}，为
 \begin{equation}
 	\qty[c^{(i)}_k]\qty[c^k_{(j)}]
@@ -528,3 +545,4 @@ $\V{g}_{(i)}$，作为 $\Rm$ 空间中的一个向量，
 总结一下这两小节得到的结果。
 对于同一组基下的张量分量，其指标升降通过\emphB{度量}来实现；
 对于不同基下的张量分量，其指标转换则通过不同基之间的转换系数来完成。
+\idx{张量!指标转换}

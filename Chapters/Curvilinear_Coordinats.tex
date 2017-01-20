@@ -217,7 +217,7 @@ $\pdv*{x^s}{X^\alpha}$ 项。考虑到
 			\cdot \varphi^k_\beta \qty\big(\V{x}(\V{X})) )
 		\right] \fullstop
 \end{align}
-这样，就把一阶和二阶偏导数项全部用关于 $\V{x}$ 的函数\footnote{%
+这样，就把一阶和二阶偏导数项全部用关于 $\V{x}$ 的函数\footnote{
 	当然它仍然是 $\V{X}$ 的\emphB{隐}函数：
 	$\V{x}=\V{x}(\V{X})$。}表达了出来。
 换句话说，我们已经把\emphB{物理域}中 $f$ 关于 $\V{X}$ 的 PDE，
@@ -230,7 +230,7 @@ $\V{X}(\V{x})$ 所需满足的一些条件。这里再次罗列如下:
 
 \begin{myEnum}
 \item $\domD{\V{X}},\,\domD{\V{x}}\subset\Rm$
-均为\emphA{开集}\footnote{%
+均为\emphA{开集}\footnote{
 	用形象化的语言来说，如果在区域中的任意一点都可以吹出一个球，
 	并能使球上的每个点都落在区域内，那么这个区域就是\emphA{开集}。
 	这是\emphB{复合映照可微性定理}的一个要求。}；
@@ -492,7 +492,7 @@ $x^i$-线作为直线共有 $m$ 条，它们之间互相垂直。作用到值域
 这样的 $x^i$-线尽管变为了曲线，但仍为 $m$ 条。相应的切向量，
 自然也有 $m$ 个。
 
-\section{局部基}
+\section{局部基} \label{sec:局部基}
 这里的讨论基于曲线坐标系（即微分同胚）
 $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 
@@ -551,7 +551,7 @@ $\qty{\V{g}^i(\V{x})}^m_{i=1}$，满足
 \end{equation}
 
 下面我们来寻找逆变基 $\qty{\V{g}^i(\V{x})}^m_{i=1}$ 的具体表示。
-考虑到\footnote{%
+考虑到\footnote{
 	这里的几步推导在 \ref{subsec:参数域方程}~小节中也有所涉及。}
 \begin{equation}
 	\V{X}\qty\big(\V{x}(\V{X}))=\V{X}\in\Rm \comma
@@ -683,7 +683,7 @@ $\V{g}^i(\V{x})$ 的几何意义就是 $x^i$-面的\emphA{法向量}。
 	=b_\alpha \V{e}_\alpha \fullstop
 \end{equation}
 第二步省略掉了求和号，这是根据\emphA{Einstein 求和约定}：
-指标出现两次，则表示对它求和。\footnote{%
+指标出现两次，则表示对它求和。\footnote{
 	在 \ref{subsec:度量}~小节中，还要求重复指标一上一下。
 	典则基不分协变、逆变，标号均在下方，可以视为一个特例。}
 根据之前一小节的结论，$\V{b}$ 还可以用局部协变基和局部逆变基来表示：
@@ -794,28 +794,28 @@ $\pdv*{\V{g}_i}{x^j} (\V{x})$ 就表示 $\V{g}_i(\V{x})$
 \end{braceEq*}
 引入\emphA{第一类 Christoffel 符号}
 \begin{equation}
-	\ChristoffelA{j}{i}{k} \defeq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}_k}
+	\ChrA{j}{i}{k} \defeq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}_k}
 	\label{eq:第一类Christoffel符号定义}
 \end{equation}
 和\emphA{第二类 Christoffel 符号}
 \begin{equation}
-	\ChristoffelB{j}{i}{k} \defeq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}^k}
+	\ChrB{j}{i}{k} \defeq \ipb{\pdv{\V{g}_i}{x^j}}{\V{g}^k}
 	\comma
 	\label{eq:第二类Christoffel符号定义}
 \end{equation}
 则式~\eqref{eq:协变基偏导数的协变与逆变表示} 可以写成
 \begin{braceEq*}
 	{\pdv{\V{g}_i}{x^j} (\V{x})=}
-	&\ChristoffelB{j}{i}{k}\, \V{g}_k \comma \\
-	&\ChristoffelA{j}{i}{k}\, \V{g}^k \fullstop
+	&\ChrB{j}{i}{k}\, \V{g}_k \comma \\
+	&\ChrA{j}{i}{k}\, \V{g}^k \fullstop
 \end{braceEq*}
 
 下面我们来探讨 Christoffel 符号的基本性质——指标 $i$、
 $j$ 可以交换：
 \begin{braceEq}
-	&\ChristoffelB{j}{i}{k}=\ChristoffelB{i}{j}{k} \comma
+	&\ChrB{j}{i}{k}=\ChrB{i}{j}{k} \comma
 	\label{eq:第二类Christoffel符号指标交换} \\
-	&\ChristoffelA{j}{i}{k}=\ChristoffelA{i}{j}{k} \fullstop
+	&\ChrA{j}{i}{k}=\ChrA{i}{j}{k} \fullstop
 	\label{eq:第一类Christoffel符号指标交换}
 \end{braceEq}
 
@@ -871,7 +871,7 @@ $\KroneckerDelta{i}{k}$ 是与 $\V{x}$ 无关的常数，因而
 	\ipb{\pdv{\V{g}^i}{x^j}}{\V{g}_k}
 	=-\ipb{\V{g}^i}{\pdv{\V{g}_k}{x^j}}
 	=-\ipb{\pdv{\V{g}_k}{x^j}}{\V{g}^i}
-	=-\ChristoffelB{j}{k}{i} \fullstop
+	=-\ChrB{j}{k}{i} \fullstop
 \end{equation}
 
 至于 $\ipb{\pdv*{\V{g}^i}{x^j}}{\V{g}^k}$，将在以后讨论。
@@ -927,7 +927,7 @@ $\KroneckerDelta{i}{k}$ 是与 $\V{x}$ 无关的常数，因而
 
 \item 第一类 Christoffel 符号满足
 \begin{equation}
-	\ChristoffelA{i}{j}{k}=\frac{1}{2}\,
+	\ChrA{i}{j}{k}=\frac{1}{2}\,
 		\qty(\pdv{g_{jk}}{x^i}+\pdv{g_{ik}}{x^j}-\pdv{g_{ij}}{x^k})
 		(\V{x}) \fullstop
 		\label{eq:第一类Christoffel符号与度量的关系}
@@ -937,7 +937,7 @@ $\KroneckerDelta{i}{k}$ 是与 $\V{x}$ 无关的常数，因而
 根据式~\eqref{eq:第一类Christoffel符号定义}，
 第一类 Christoffel 符号的定义为
 \begin{equation}
-	\ChristoffelA{i}{j}{k} \defeq \ipb{\pdv{\V{g}_j}{x^i}}{\V{g}_k}
+	\ChrA{i}{j}{k} \defeq \ipb{\pdv{\V{g}_j}{x^i}}{\V{g}_k}
 	\fullstop
 \end{equation}
 考虑度量的定义
@@ -950,7 +950,7 @@ $\KroneckerDelta{i}{k}$ 是与 $\V{x}$ 无关的常数，因而
 	&=\ipb{\pdv{\V{g}_i}{x^k}}{\V{g}_j} (\V{x})
 	+\ipb{\V{g}_i}{\pdv{\V{g}_j}{x^k}} (\V{x}) \notag
 	\intertext{利用上面 Christoffel 符号的定义，有}
-	&=\ChristoffelA{k}{i}{j}+\ChristoffelA{k}{j}{i} \fullstop
+	&=\ChrA{k}{i}{j}+\ChrA{k}{j}{i} \fullstop
 \end{align}
 这样就获得了度量偏导数用 Christoffel 符号的表示。
 但我们需要的却是 Christoffel 符号用度量偏导数的表示。
@@ -963,12 +963,12 @@ $\KroneckerDelta{i}{k}$ 是与 $\V{x}$ 无关的常数，因而
 可有
 \begin{equation}
 	\pdv{g_{jk}}{x^i} (\V{x})
-	=\ChristoffelA{i}{j}{k}+\ChristoffelA{i}{k}{j} \fullstop
+	=\ChrA{i}{j}{k}+\ChrA{i}{k}{j} \fullstop
 \end{equation}
 再进行一次指标轮换：
 \begin{equation}
 	\pdv{g_{ki}}{x^j} (\V{x})
-	=\ChristoffelA{j}{k}{i}+\ChristoffelA{j}{i}{k} \fullstop
+	=\ChrA{j}{k}{i}+\ChrA{j}{i}{k} \fullstop
 \end{equation}
 以上三式联立，就有
 \begin{align}
@@ -976,19 +976,19 @@ $\KroneckerDelta{i}{k}$ 是与 $\V{x}$ 无关的常数，因而
 		\pdv{g_{jk}}{x^i}+\pdv{g_{ki}}{x^j}-\pdv{g_{ij}}{x^k})
 		(\V{x}) \notag \\
 	&=\frac{1}{2}\,\qty\Big[
-		\qty(\ChristoffelA{i}{j}{k}+\ChristoffelA{i}{k}{j})
-		+\qty(\ChristoffelA{j}{k}{i}+\ChristoffelA{j}{i}{k})
-		-\qty(\ChristoffelA{k}{i}{j}+\ChristoffelA{k}{j}{i})] \notag
+		\qty(\ChrA{i}{j}{k}+\ChrA{i}{k}{j})
+		+\qty(\ChrA{j}{k}{i}+\ChrA{j}{i}{k})
+		-\qty(\ChrA{k}{i}{j}+\ChrA{k}{j}{i})] \notag
 	\intertext{利用 \eqref{eq:第一类Christoffel符号指标交换}~式
 		所指出的 Christoffel 符号的指标交换性：}
 	&=\frac{1}{2}\,\qty[
-		\qty(\ChristoffelA{i}{j}{k}+\hl{\ChristoffelA{k}{i}{j}})
-		+\qty(\hl[pink]{\ChristoffelA{j}{k}{i}}
-			+\ChristoffelA{i}{j}{k})
-		-\qty(\hl{\ChristoffelA{k}{i}{j}}
-			+\hl[pink]{\ChristoffelA{j}{k}{i}}) ] \notag
+		\qty(\ChrA{i}{j}{k}+\hl{\ChrA{k}{i}{j}})
+		+\qty(\hl[pink]{\ChrA{j}{k}{i}}
+			+\ChrA{i}{j}{k})
+		-\qty(\hl{\ChrA{k}{i}{j}}
+			+\hl[pink]{\ChrA{j}{k}{i}}) ] \notag
 	\intertext{高亮部分相互抵消，于是可得}
-	&=\ChristoffelA{i}{j}{k} \fullstop
+	&=\ChrA{i}{j}{k} \fullstop
 \end{align}
 \end{myProof}
 \end{myEnum}
@@ -1017,17 +1017,17 @@ Jacobi 矩阵可以用\emphB{协变基}表示为
 第二步，将求得的度量代入
 式~\eqref{eq:第一类Christoffel符号与度量的关系}
 \begin{equation}
-	\ChristoffelA{i}{j}{k}=\frac{1}{2}\,
+	\ChrA{i}{j}{k}=\frac{1}{2}\,
 		\qty(\pdv{g_{jk}}{x^i}+\pdv{g_{ik}}{x^j}-\pdv{g_{ij}}{x^k})
 		(\V{x}) \comma
 \end{equation}
 就得到了第一类 Christoffel 符号。
 至于第二类 Christoffel 符号，它可以表示成
 \begin{equation}
-	\ChristoffelB{i}{j}{k} \defeq \ipb{\pdv{\V{g}_j}{x^i}}{\V{g}^k}
+	\ChrB{i}{j}{k} \defeq \ipb{\pdv{\V{g}_j}{x^i}}{\V{g}^k}
 	=\ipb{\pdv{\V{g}_j}{x^i}}{g^{kl}\,\V{g}_l}
 	=g^{kl}\,\ipb{\pdv{\V{g}_j}{x^i}}{\V{g}_l}
-	=g^{kl}\,\ChristoffelA{i}{j}{l} \fullstop
+	=g^{kl}\,\ChrA{i}{j}{l} \fullstop
 	\label{eq:第二类Christoffel符号用第一类表示}
 \end{equation}
 这样一来，它的表示也就明确了。

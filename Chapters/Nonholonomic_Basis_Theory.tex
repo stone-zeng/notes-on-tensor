@@ -1,1 +1,107 @@
 \section{完整基与非完整基的概念}
+在 \ref{sec:局部基}~节中，我们利用曲线坐标系 $\V{X}(\V{x})$
+构造了 $\Rm$ 上的一组（局部协变）基
+\begin{equation}
+	\qty{\V{g}_i(\V{x})=\pdv{\V{X}}{x^i} (\V{x})}^m_{i=1}
+	\subset\Rm \comma
+\end{equation}
+它们称为\emphA{完整基}。
+与之对应，不是由曲线坐标系诱导的基，称为\emphA{非完整基}。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics{Images/Holonomic_Nonholonomic_Basis.PNG}
+	\caption{完整基与非完整基}
+	\label{fig:完整基与非完整基}
+\end{figure}
+
+如图~\ref{fig:完整基与非完整基}，
+$x^i$-线的\emphB{切向量}构成一组局部协变基
+$\qty{\V{g}_i(\V{x})}^m_{i=1}$，
+它和它的对偶 $\qty{\V{g}^i(\V{x})}^m_{i=1}$ 都是完整基。
+除此以外，我们当然可以选取另外的基 $\qty{\V{g}_{(i)}(\V{x})}^m_{i=1}$
+和 $\qty{\V{g}^{(i)}(\V{x})}^m_{i=1}$，它们不是由曲线坐标系诱导，
+因而是非完整基。
+
+\section{非完整基下的张量梯度}
+下面我们来考察张量梯度在非完整基下的表达形式。
+在 \ref{sec:张量场的梯度}~节中，我们已经推导出了张量场的（右）梯度：
+\begin{equation}
+	\qty\big(\T{\Phi}\tp\opGrad) (\V{x})
+	\defeq \pdv{\T{\Phi}}{x^\mu} (\V{x})
+		\tp \V{g}^\mu(\V{x})
+	=\coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \,
+		\V{g}_i (\V{x}) \tp \V{g}^j (\V{x})
+		\tp \V{g}_k (\V{x}) \tp \V{g}^\mu (\V{x}) \fullstop
+	\label{eq:张量梯度_非完整基}
+\end{equation}
+这是一个四阶张量，对应的张量分量可记作
+\begin{equation}
+	\tc{\qty\big(\T{\Phi}\tp\opGrad)}{^i_j^k_\mu} (\V{x})
+	\coloneq \coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \fullstop
+	\label{eq:张量梯度分量_非完整基}
+\end{equation}
+除此以外，其他的基当然也可以用来表示该张量，
+比如前文提到过的 $\qty{\V{g}_{(i)}(\V{x})}^m_{i=1}$
+和 $\qty{\V{g}^{(i)}(\V{x})}^m_{i=1}$，它们都是非完整基。
+
+非完整基与完整基之间的关系，可以利用
+\ref{subsec:相对不同基的张量分量之间的关系}~小节中引入的%
+\emphB{坐标转换关系}来获得：
+\begin{braceEq}
+	\V{g}_{(i)} (\V{x})
+		&= c^k_{(i)} (\V{x}) \, \V{g}_k (\V{x}) \comma \\
+	\V{g}^{(i)} (\V{x})
+		&= c_k^{(i)} (\V{x}) \, \V{g}^k (\V{x}) \semicolon \\
+	\V{g}_i (\V{x})
+		&= c^{(k)}_i (\V{x}) \, \V{g}_{(k)} (\V{x}) \comma \\
+	\V{g}^i (\V{x})
+		&= c_{(k)}^i (\V{x}) \, \V{g}^{(k)} (\V{x}) \fullstop
+\end{braceEq}
+\myPROBLEM[2017-01-20]{坐标转换关系}
+其中的基转换系数都是已知量，它们的定义如下：\footnote{
+	只有两个基转换系数的原因是内积具有交换律。}
+\begin{braceEq}
+	c^j_{(i)} (\V{x})
+		&\coloneq \ipb{\V{g}_{(i)} (\V{x})}{\V{g}^j (\V{x})} \comma \\
+	c_j^{(i)} (\V{x})
+		&= \ipb{\V{g}^{(i)} (\V{x})}{\V{g}_j (\V{x})} \fullstop
+\end{braceEq}
+代入 \eqref{eq:张量梯度_非完整基}~式，可有\footnote{
+	这里我们省略了“$(\V{x})$”。}
+\begin{align}
+	\T{\Phi}\tp\opGrad
+	&=\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
+		\qty(\vphantom{\frac{0}{0}}
+			\V{g}_i \tp \V{g}^j \tp \V{g}_k \tp \V{g}^\mu) \notag \\
+	&=\coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \,
+		\qty[\vphantom{\frac{0^0}{0^0}}
+			\qty(c^{(p)}_i \, \V{g}_{(p)})
+			\tp \qty(c_{(q)}^j \, \V{g}^{(q)})
+			\tp \qty(c^{(r)}_k \, \V{g}_{(r)})
+			\tp \qty(\vphantom{\frac{0}{0}}
+				c_{(\alpha)}^\mu \, \V{g}^{(\alpha)})] \notag
+	\intertext{根据线性性，提出系数：}
+	&=\qty(c^{(p)}_i c_{(q)}^j c^{(r)}_k c_{(\alpha)}^\mu
+			\coD{\mu}{\tc{\Phi}{^i_j^k}})
+		\qty(\vphantom{\frac{0}{0}}
+			\V{g}_{(p)} \tp \V{g}^{(q)} \tp \V{g}_{(r)}
+			\tp \V{g}^{(\alpha)}) \notag
+	\intertext{写成张量分量与简单张量“乘积”的形式，即为}
+	&\eqcolon \tc{\qty\big(\T{\Phi}\tp\opGrad)}%
+			{^{(p)}_{\!(q)}^{\!(r)}_{\!(\alpha)}} \,
+		\qty(\vphantom{\frac{0}{0}}
+			\V{g}_{(p)} \tp \V{g}^{(q)} \tp \V{g}_{(r)}
+			\tp \V{g}^{(\alpha)}) \fullstop
+\end{align}
+这样，我们就获得了非完整基下张量梯度的表示。
+再利用式~\eqref{eq:张量梯度分量_非完整基}，可知
+\begin{equation}
+	\tc{\qty\big(\T{\Phi}\tp\opGrad)}%
+		{^{(p)}_{\!(q)}^{\!(r)}_{\!(\alpha)}} \,
+	=c^{(p)}_i c_{(q)}^j c^{(r)}_k c_{(\alpha)}^\mu \,
+		\tc{\qty(\vphantom{0^0}
+			\T{\Phi}\tp\opGrad)}{^i_j^k_\mu} \fullstop
+\end{equation}
+以上结果与 \ref{subsec:相对不同基的张量分量之间的关系}~小节
+中的推导是完全一致的。

@@ -2,6 +2,7 @@
 %%TODO 内容问题
 %%HACK 粗鄙技巧
 %%CODE 代码改进
+%%BUG  如题
 
 %TODO——注意事项
 
@@ -24,29 +25,11 @@
 
 %% 常规字体选择
 % 与 `graphicx' 冲突
-%\PassOptionsToPackage{draft}{graphicx}
+\PassOptionsToPackage{draft}{graphicx}
 \usepackage[no-math]{fontspec}
-	\setmainfont[
-		Extension = .otf,
-		BoldFont = xits-bold,
-		ItalicFont = xits-italic,
-		BoldItalicFont = xits-bolditalic,
-		SlantedFont = xits-italic
-	]{xits-regular}
-	\setsansfont[
-		Extension = .otf,
-		BoldFont = texgyreheros-bold,
-		ItalicFont = texgyreheros-italic,
-		BoldItalicFont = texgyreheros-bolditalic,
-		SlantedFont = texgyreheros-italic
-	]{texgyreheros-regular}
-%	\setmonofont[
-%		Extension = .otf,
-%		BoldFont = texgyrecursor-bold,
-%		ItalicFont = texgyrecursor-italic,
-%		SlantedFont = texgyrecursor-italic,
-%		Ligatures = NoCommon
-%	]{texgyrecursor-regular}
+	\setmainfont{XITS}%[SlantedFont = XITS Italic]
+	\setsansfont{TeX Gyre Heros}%[SlantedFont = TeX Gyre Heros Italic]
+	\setmonofont{TeX Gyre Cursor}[Ligatures = NoCommon]
 %	\newfontfamily{\SourceSans}{Source Sans Pro}
 %	\newfontfamily{\Songti}{方正书宋_GBK}
 
@@ -92,6 +75,8 @@
 		section/format+ = {\normalfont\sffamily},
 		subsection/format+ = {\normalfont\sffamily}
 	}
+
+%% XeTeX 下 CJK 文字处理
 \usepackage{xeCJK}
 	\setCJKmainfont[
 		BoldFont = 方正黑体_GBK,
@@ -103,11 +88,6 @@
 		ItalicFont = 方正黑体_GBK,
 		Mapping = fullwidth-stop
 	]{方正黑体_GBK}
-%	\setCJKsansfont[
-%		BoldFont = 思源黑体 CN Regular,
-%		ItalicFont = 思源黑体 CN Regular,
-%		Mapping = fullwidth-stop
-%	]{思源黑体 CN Regular}
 	\setCJKmonofont[
 		BoldFont = 方正仿宋_GBK,
 		ItalicFont = 方正楷体_GBK,
@@ -117,6 +97,34 @@
 	\setCJKfamilyfont{楷体}{方正楷体_GBK}
 	\setCJKfamilyfont{黑体}{方正黑体_GBK}
 	\setCJKfamilyfont{仿宋}{方正仿宋_GBK}
+
+%% LuaTeX 下 CJK 文字处理
+%\usepackage{luatexja}
+%\usepackage[no-math]{luatexja-fontspec}
+%	\setmainjfont{FandolSong}
+%	\setsansjfont{MS Gothic}
+%	\setmainjfont{FZShuSong-Z01}
+	%[
+%		BoldFont = 方正黑体_GBK,
+%		ItalicFont = 方正楷体_GBK,
+%		Mapping = fullwidth-stop
+%	]
+	
+%	\setsansjfont[
+%		BoldFont = 方正黑体_GBK,
+%		ItalicFont = 方正黑体_GBK,
+%		Mapping = fullwidth-stop
+%	]{方正黑体_GBK}
+%%	\setCJKsansfont[
+%%		BoldFont = 思源黑体 CN Regular,
+%%		ItalicFont = 思源黑体 CN Regular,
+%%		Mapping = fullwidth-stop
+%%	]{思源黑体 CN Regular}
+%	\setmonojfont[
+%		BoldFont = 方正仿宋_GBK,
+%		ItalicFont = 方正楷体_GBK,
+%		Mapping = fullwidth-stop
+%	]{方正仿宋_GBK}
 
 %% 脚注增强版
 \usepackage[stable, perpage, bottom]{footmisc}
@@ -186,7 +194,12 @@
 %% 索引
 %\usepackage{imakeidx}
 \usepackage{makeidx}
-	\makeindex%[options = {-s MyIndexStyle.mst}]
+%	\makeindex%[options = {-s MyIndexStyle.mst}]
+	\makeindex
+%		name = Main,
+%		title = {xxxxx Index},
+%		intoc= true
+%	]
 	\newcommand{\idx}[1]{\index{#1}}
 	%HACK：20170114 缺字，改用浪纹连接符代替
 	\newcommand{\idxOmit}{\linkTilde}
@@ -292,7 +305,7 @@
 	{\colorbox{white}{$\textstyle #1$}}%
 	{\colorbox{white}{$\scriptstyle #1$}}%
 	{\colorbox{white}{$\scriptscriptstyle #1$}}}
-\newcommand{\myPROBLEM}[1]{\colorbox{red}{#1}}
+\newcommand{\myPROBLEM}[2][\today]{\colorbox{red}{#1\quad#2}}
 
 %TODO——数学命令
 %--------数学字体--------%
@@ -351,7 +364,8 @@
 %% 张量(Tensor)
 \renewcommand{\T}[1]{\SYMBOL{#1}}
 %% 张量分量(Tensor Components)
-\let\tc=\tensor
+%\let\tc=\tensor
+\newcommand{\tc}[2]{\tensor{#1}{#2}}
 %% 矩阵(Matrix)
 \newcommand{\Mat}[1]{\SYMBOL{#1}}
 %% 置换(Permutation)
@@ -367,9 +381,9 @@
 %% Eddington 张量
 \newcommand{\EdTensor}{\T{\epsilon}}
 %% 第一类 Christoffel 符号
-\newcommand{\ChristoffelA}[3]{\Gamma_{#1#2,\,#3}}
+\newcommand{\ChrA}[3]{\Gamma_{#1#2,\,#3}}
 %% 第二类 Christoffel 符号
-\newcommand{\ChristoffelB}[3]{\tc{\Gamma}{^#3_{#1#2}}}
+\newcommand{\ChrB}[3]{\tc{\Gamma}{^#3_{#1#2}}}
 
 %--------算子--------%
 %% 置换算子(Permutation Operator)
@@ -524,10 +538,10 @@
 %	
 %	\chapter{张量场可微性}
 %		\input{Chapters/Derivative_on_Tensor_Field}
-	
+%	
 	\chapter{非完整基理论}
 		\input{Chapters/Nonholonomic_Basis_Theory}
-	
+%	
 %	\chapter{曲线上的标架及其运动方程}
 %		\input{Chapters/Curve_Frame}
 %	\backmatter

@@ -256,7 +256,7 @@ $\V{\xi}\tp\V{\eta}\tp\V{\zeta}$ 的逆变分量为
 	\mmap{\T{\Phi}}{\domD{\V{x}}\ni\V{x}}
 		{\T{\Phi}(\V{x})\in\Tensors{r}} \comma
 \end{equation}
-则称张量 $\T{\Phi}(\V{x})$ \footnote{%
+则称张量 $\T{\Phi}(\V{x})$ \footnote{
 	类似“$\T{\Phi}(\V{x})$”的记号在前文也表示张量 $\T{\Phi}$
 	\emphB{作用}在向量 $\V{x}$ 上（“吃掉”了 $\V{x}$），此时有
 	$\T{\Phi}(\V{x})\in\realR$，注意不要混淆。
@@ -274,7 +274,7 @@ $\V{X}(\V{x})\in\cf{\domD{\V{x}}}{\domD{\V{X}}}$。
 	\in\Tensors{3} \comma
 \end{equation}
 其中的 $\V{g}_i(\V{x}),\,\V{g}^j(\V{x}),\,\V{g}_k(\V{x})$
-都是\emphB{局部}基，而张量分量则定义为\footnote{%
+都是\emphB{局部}基，而张量分量则定义为\footnote{
 	请注意，下式 $\T{\Phi}$ 之后的第一个圆括号表示\emphB{位于}
 	$\V{x}$ 处；而后面的方括号则表示\emphB{作用在}这几个向量上。}
 \begin{equation}
@@ -425,17 +425,17 @@ $\lambda$ 有关。于是
 式中，$\pdv*{\V{g}_i}{x^\mu} (\V{x})$ 可以用 Christoffel 符号表示：
 \begin{equation}
 	\pdv{\V{g}_i}{x^\mu} (\V{x})
-	=\ChristoffelB{\mu}{i}{s} \V{g}_s (\V{x}) \fullstop
+	=\ChrB{\mu}{i}{s} \V{g}_s (\V{x}) \fullstop
 \end{equation}
 因此 \eqref{eq:张量场偏导数展开式}~式的第二项
 \begin{align}
 	&\alspace\tc{\Phi}{^i_j^k} (\V{x}) \,
 		\pdv{\V{g}_i}{x^\mu} (\V{x})
 		\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \notag \\
-	&=\ChristoffelB{\mu}{i}{s} \tc{\Phi}{^i_j^k}(\V{x}) \,
+	&=\ChrB{\mu}{i}{s} \tc{\Phi}{^i_j^k}(\V{x}) \,
 		\V{g}_s(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \notag
 	\intertext{$i$ 和 $s$ 都是哑标，不妨进行一下交换：}
-	&=\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}(\V{x}) \,
+	&=\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k}(\V{x}) \,
 		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \fullstop
 \end{align}
 同样，后面的两项也可进行类似的处理。这样便有
@@ -444,9 +444,9 @@ $\lambda$ 有关。于是
 	\lim_{\lambda\to 0} \frac{\T{\Phi}\qty(\V{x}+\lambda\,\V{e}_\mu)
 		-\T{\Phi}(\V{x})} {\lambda} \notag \\
 	&=\qty[\qty\Bigg(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}
-		+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
-		-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
-		+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s}) \,
+		+\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
+		-\ChrB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
+		+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s}) \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k] (\V{x}) \notag \\
 	&\eqcolon \coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \,
 		\V{g}_i(\V{x})\tp\V{g}^j(\V{x})\tp\V{g}_k(\V{x}) \comma
@@ -457,13 +457,13 @@ $\lambda$ 有关。于是
 \begin{equation}
 	\coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \defeq
 	\pdv{\tc{\Phi}{^i_j^k}}{x^\mu} (\V{x})
-	+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}(\V{x})
-	-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}(\V{x})
-	+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s}(\V{x})
+	+\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k}(\V{x})
+	-\ChrB{\mu}{j}{s} \tc{\Phi}{^i_s^k}(\V{x})
+	+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s}(\V{x})
 	\fullstop
 \end{equation}
 
-\section{张量场的梯度}
+\section{张量场的梯度} \label{sec:张量场的梯度}
 \subsection{梯度；可微性}
 我们在参数域中的内点 $\V{x}_0$ 处取一个半径为 $\delta$ 的邻域
 $\domB{\delta}{\V{x}_0}$。若使自变量变化到 $\V{x}_0+\V{h}$，
@@ -507,7 +507,7 @@ $\T{\Phi}(\V{x})$，它的变化为
 
 不显含 $\V{h}$ 的只有每行的第一项；它们组合起来，
 与式~\eqref{eq:张量场沿任意方向的变化_1} 的第二部分相互抵消。
-再看 $\V{h}$ 的一次项 ：\footnote{%
+再看 $\V{h}$ 的一次项 ：\footnote{
 	实际是 $h^\mu$ 的一次项。别忘了求和。}
 \begin{equation}
 	\qty[
@@ -523,33 +523,33 @@ $\T{\Phi}(\V{x})$，它的变化为
 \begin{align}
 	&\alspace \left[\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}\,
 			\V{g}_i \tp \V{g}^j \tp \V{g}_k
-		+\tc{\Phi}{^i_j^k}\, \qty\Big(\ChristoffelB{\mu}{i}{s}\V{g}_s)
+		+\tc{\Phi}{^i_j^k}\, \qty\Big(\ChrB{\mu}{i}{s}\V{g}_s)
 			\tp\V{g}^j\tp\V{g}_k \right.
 		\notag \\*
 	&\phantom{MM} \left.\phantom{}-\tc{\Phi}{^i_j^k} \,
-			\V{g}_i\tp\qty\Big(\ChristoffelB{\mu}{s}{j}\V{g}^s)\tp\V{g}_k
+			\V{g}_i\tp\qty\Big(\ChrB{\mu}{s}{j}\V{g}^s)\tp\V{g}_k
 		+\tc{\Phi}{^i_j^k} \,
-			\V{g}_i\tp\V{g}^j\tp\qty\Big(\ChristoffelB{\mu}{k}{s}\V{g}_s)
+			\V{g}_i\tp\V{g}^j\tp\qty\Big(\ChrB{\mu}{k}{s}\V{g}_s)
 		\vphantom{\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}} \right]
 		\qty(\V{x}_0) \cdot h^\mu \notag \\
 	%%
 	&=\left(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}\,
 			\V{g}_i \tp \V{g}^j \tp \V{g}_k
-		+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k} \,
+		+\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k} \,
 			\V{g}_i\tp\V{g}^j\tp\V{g}_k \right.
 		\notag \\*
 	&\phantom{MM} \left.\phantom{}
-		-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k} \,
+		-\ChrB{\mu}{j}{s} \tc{\Phi}{^i_s^k} \,
 			\V{g}_i\tp\V{g}^j\tp\V{g}_k
-		+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s} \,
+		+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s} \,
 			\V{g}_i\tp\V{g}^j\tp\V{g}_k
 		\vphantom{\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}} \right)
 		\qty(\V{x}_0) \cdot h^\mu \notag \\
 	%%
 	&=\qty[\qty\Bigg(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}
-		+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
-		-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
-		+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s}) \,
+		+\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
+		-\ChrB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
+		+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s}) \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k] \qty(\V{x}_0)
 		\cdot h^\mu \fullstop
 \end{align}
@@ -566,9 +566,9 @@ $\T{\Phi}(\V{x})$，它的变化为
 	&\alspace\T{\Phi}\qty(\V{x}_0+\V{h})-\T{\Phi}\qty(\V{x}_0)
 		\notag \\
 	&=\qty[\qty\Bigg(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}
-			+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
-			-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
-			+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s}) \,
+			+\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
+			-\ChrB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
+			+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s}) \,
 			\V{g}_i\tp\V{g}^j\tp\V{g}_k] \qty(\V{x}_0) \cdot h^\mu
 		+\sOv{\norm{\V{h}}} \notag
 	\intertext{利用协变导数，有}
@@ -659,7 +659,7 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 \end{equation}
 再引入\emphA{梯度算子}
 \begin{equation}
-	\opGrad \coloneq
+	\opGrad \qty(\V{x}_0) \coloneq
 	\V{g}^\mu \pdv{x^\mu} \qty(\V{x}_0) \comma
 \end{equation}
 我们得到的结论就可以表述为
@@ -769,8 +769,8 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 式中，协变导数定义为
 \begin{equation}
 	\coD{\mu}{g_{ij}} \defeq \pdv{g_{ij}}{x^\mu}
-		-\ChristoffelB{\mu}{i}{s} g_{sj}
-		-\ChristoffelB{\mu}{j}{s} g_{is} \fullstop
+		-\ChrB{\mu}{i}{s} g_{sj}
+		-\ChrB{\mu}{j}{s} g_{is} \fullstop
 \end{equation}
 以下有两种方法证明 $\coD{\mu}{g_{ij}}=0$。
 
@@ -782,43 +782,43 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 		+\ipb{\V{g}_i}{\pdv{\V{g}_j}{x^\mu}} \notag
 	\intertext{根据 Christoffel 符号的定义
 		（见 \ref{subsec:Christoffel符号}~小节），有}
-	&=\ChristoffelA{\mu}{i}{j}+\ChristoffelA{\mu}{j}{i} \fullstop
+	&=\ChrA{\mu}{i}{j}+\ChrA{\mu}{j}{i} \fullstop
 \end{align}
 另一方面，回忆 \eqref{eq:第二类Christoffel符号用第一类表示}~式：
 \begin{equation}
-	\ChristoffelB{i}{j}{k}=\ChristoffelA{i}{j}{l} g^{kl}\ \comma
+	\ChrB{i}{j}{k}=\ChrA{i}{j}{l} g^{kl}\ \comma
 \end{equation}
 可有
 \begin{braceEq}
-	\ChristoffelB{\mu}{i}{s} g_{sj}
-		&=\ChristoffelA{\mu}{i}{k} g^{sk} g_{sj}
-		=\ChristoffelA{\mu}{i}{k} \KroneckerDelta{k}{j}
-		=\ChristoffelA{\mu}{i}{j} \comma \\
-	\ChristoffelB{\mu}{j}{s} g_{is}
-		&=\ChristoffelA{\mu}{j}{k} g^{sk} g_{is}
-		=\ChristoffelA{\mu}{j}{k} \KroneckerDelta{k}{i}
-		=\ChristoffelA{\mu}{j}{i} \fullstop
+	\ChrB{\mu}{i}{s} g_{sj}
+		&=\ChrA{\mu}{i}{k} g^{sk} g_{sj}
+		=\ChrA{\mu}{i}{k} \KroneckerDelta{k}{j}
+		=\ChrA{\mu}{i}{j} \comma \\
+	\ChrB{\mu}{j}{s} g_{is}
+		&=\ChrA{\mu}{j}{k} g^{sk} g_{is}
+		=\ChrA{\mu}{j}{k} \KroneckerDelta{k}{i}
+		=\ChrA{\mu}{j}{i} \fullstop
 \end{braceEq}
 于是
 \begin{equation}
 	\coD{\mu}{g_{ij}}
-	=\ChristoffelA{\mu}{i}{j}+\ChristoffelA{\mu}{j}{i}
-	-\ChristoffelA{\mu}{i}{j}-\ChristoffelA{\mu}{j}{i}
+	=\ChrA{\mu}{i}{j}+\ChrA{\mu}{j}{i}
+	-\ChrA{\mu}{i}{j}-\ChrA{\mu}{j}{i}
 	=0 \fullstop
 \end{equation}
 
 方法二则利用第一类 Christoffel 符号的性质
 \eqref{eq:第一类Christoffel符号与度量的关系}~式：
 \begin{equation}
-	\ChristoffelA{i}{j}{k}=\frac{1}{2}\, \qty(
+	\ChrA{i}{j}{k}=\frac{1}{2}\, \qty(
 		\pdv{g_{jk}}{x^i}+\pdv{g_{ik}}{x^j}-\pdv{g_{ij}}{x^k})
 	\fullstop
 \end{equation}
 因而
 \begin{align}
-	&\alspace \ChristoffelB{\mu}{i}{s} g_{sj}
-		+\ChristoffelB{\mu}{j}{s} g_{is} \notag \\
-	&=\ChristoffelA{\mu}{i}{j}+\ChristoffelA{\mu}{j}{i} \notag \\
+	&\alspace \ChrB{\mu}{i}{s} g_{sj}
+		+\ChrB{\mu}{j}{s} g_{is} \notag \\
+	&=\ChrA{\mu}{i}{j}+\ChrA{\mu}{j}{i} \notag \\
 	&=\frac{1}{2}\, \qty(\pdv{g_{ij}}{x^\mu}
 			+\pdv{g_{\mu j}}{x^i}-\pdv{g_{\mu i}}{x^j})
 		+\frac{1}{2}\, \qty(\pdv{g_{ji}}{x^\mu}
@@ -857,9 +857,9 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 \begin{align}
 	\coD{\mu}{\LeviCivita{^i_j^k}}
 	\defeq \pdv{\LeviCivita{^i_j^k}}{x^\mu}
-		+\ChristoffelB{\mu}{s}{i} \LeviCivita{^s_j^k}
-		-\ChristoffelB{\mu}{j}{s} \LeviCivita{^i_s^k}
-		+\ChristoffelB{\mu}{s}{k} \LeviCivita{^i_j^s} \fullstop
+		+\ChrB{\mu}{s}{i} \LeviCivita{^s_j^k}
+		-\ChrB{\mu}{j}{s} \LeviCivita{^i_s^k}
+		+\ChrB{\mu}{s}{k} \LeviCivita{^i_j^s} \fullstop
 	\label{eq:Eddington张量偏导数推导}
 \end{align}
 根据定义，$\LeviCivita{^i_j^k}=\det[\V{g}^i,\,\V{g}_j,\,\V{g}^k]$。
@@ -872,19 +872,19 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 		+\det[\V{g}^i,\,\pdv{\V{g}_j}{x^\mu},\,\V{g}^k]
 		+\det[\V{g}^i,\,\V{g}_j,\,\pdv{\V{g}^k}{x^\mu}] \notag
 	\intertext{利用标架运动方程，有}
-	&=\det[-\ChristoffelB{\mu}{s}{i}\V{g}^s,\,\V{g}_j,\,\V{g}^k]
-		+\det[\V{g}^i,\,\ChristoffelB{\mu}{j}{s}\V{g}_s,\,\V{g}^k]
-		+\det[\V{g}^i,\,\V{g}_j,\,-\ChristoffelB{\mu}{s}{k}\V{g}^s]
+	&=\det[-\ChrB{\mu}{s}{i}\V{g}^s,\,\V{g}_j,\,\V{g}^k]
+		+\det[\V{g}^i,\,\ChrB{\mu}{j}{s}\V{g}_s,\,\V{g}^k]
+		+\det[\V{g}^i,\,\V{g}_j,\,-\ChrB{\mu}{s}{k}\V{g}^s]
 		\notag
 	\intertext{再利用行列式的线性性，提出系数：}
-	&=-\ChristoffelB{\mu}{s}{i}\det[\V{g}^s,\,\V{g}_j,\,\V{g}^k]
-		+\ChristoffelB{\mu}{j}{s}\det[\V{g}^i,\,\V{g}_s,\,\V{g}^k]
-		-\ChristoffelB{\mu}{s}{k}\det[\V{g}^i,\,\V{g}_j,\,\V{g}^s]
+	&=-\ChrB{\mu}{s}{i}\det[\V{g}^s,\,\V{g}_j,\,\V{g}^k]
+		+\ChrB{\mu}{j}{s}\det[\V{g}^i,\,\V{g}_s,\,\V{g}^k]
+		-\ChrB{\mu}{s}{k}\det[\V{g}^i,\,\V{g}_j,\,\V{g}^s]
 		\notag
 	\intertext{代回 Eddington 张量的定义，可得}
-	&=-\ChristoffelB{\mu}{s}{i} \LeviCivita{^s_j^k}
-		+\ChristoffelB{\mu}{j}{s} \LeviCivita{^i_s^k}
-		-\ChristoffelB{\mu}{s}{k} \LeviCivita{^i_j^s} \fullstop
+	&=-\ChrB{\mu}{s}{i} \LeviCivita{^s_j^k}
+		+\ChrB{\mu}{j}{s} \LeviCivita{^i_s^k}
+		-\ChrB{\mu}{s}{k} \LeviCivita{^i_j^s} \fullstop
 \end{align}
 这与式~\eqref{eq:Eddington张量偏导数推导} 的后三项恰好抵消。
 于是便有 $\coD{\mu}{\LeviCivita{^i_j^k}}=0$。进而
@@ -920,18 +920,18 @@ $\coD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 	&\alspace \coD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_p^q})}
 	=\coD{\mu}{\tc{\Omega}{^i_j^k_p^q}} \notag \\
 	&\defeq \pdv{\tc{\Omega}{^i_j^k_p^q}}{x^\mu}
-		+\ChristoffelB{\mu}{s}{i} \tc{\Omega}{^s_j^k_p^q}
-		-\ChristoffelB{\mu}{j}{s} \tc{\Omega}{^i_s^k_p^q}
-		+\ChristoffelB{\mu}{s}{k} \tc{\Omega}{^i_j^s_p^q}
-		-\ChristoffelB{\mu}{p}{s} \tc{\Omega}{^i_j^k_s^q}
-		+\ChristoffelB{\mu}{s}{q} \tc{\Omega}{^i_j^k_p^s} \notag \\
+		+\ChrB{\mu}{s}{i} \tc{\Omega}{^s_j^k_p^q}
+		-\ChrB{\mu}{j}{s} \tc{\Omega}{^i_s^k_p^q}
+		+\ChrB{\mu}{s}{k} \tc{\Omega}{^i_j^s_p^q}
+		-\ChrB{\mu}{p}{s} \tc{\Omega}{^i_j^k_s^q}
+		+\ChrB{\mu}{s}{q} \tc{\Omega}{^i_j^k_p^s} \notag \\
 	&=\pdv{x^\mu} \qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_p^q})
-		+\qty\Big(\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
-			-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
-			+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s})\,\tc{\Psi}{_p^q}
+		+\qty\Big(\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
+			-\ChrB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
+			+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s})\,\tc{\Psi}{_p^q}
 		+\tc{\Phi}{^i_j^k}\,\qty\Big(
-			-\ChristoffelB{\mu}{p}{s} \tc{\Psi}{_s^q}
-			+\ChristoffelB{\mu}{s}{q} \tc{\Psi}{_p^s}) \fullstop
+			-\ChrB{\mu}{p}{s} \tc{\Psi}{_s^q}
+			+\ChrB{\mu}{s}{q} \tc{\Psi}{_p^s}) \fullstop
 \end{align}
 第一项偏导数自然满足乘积法则：
 \begin{equation}
@@ -943,12 +943,12 @@ $\coD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 \begin{align}
 	\coD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_p^q})}
 	&=\qty\Bigg(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}
-			+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
-			-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
-			+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s})\,\tc{\Psi}{_p^q}
+			+\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
+			-\ChrB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
+			+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s})\,\tc{\Psi}{_p^q}
 		+\tc{\Phi}{^i_j^k}\,\qty\Bigg(\pdv{\tc{\Psi}{_p^q}}{x^\mu}
-			-\ChristoffelB{\mu}{p}{s} \tc{\Psi}{_s^q}
-			+\ChristoffelB{\mu}{s}{q} \tc{\Psi}{_p^s}) \notag \\
+			-\ChrB{\mu}{p}{s} \tc{\Psi}{_s^q}
+			+\ChrB{\mu}{s}{q} \tc{\Psi}{_p^s}) \notag \\
 	&\defeq \qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}})\,\tc{\Psi}{_p^q}
 		+\tc{\Phi}{^i_j^k}\,\qty\Big(\coD{\mu}{\tc{\Psi}{_p^q}})
 		\fullstop
@@ -963,42 +963,42 @@ $\coD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 		+\tc{\Phi}{^i_j^k}\,\qty\Big(\coD{\mu}{\tc{\Psi}{_k^q}})
 		\notag \\
 	&=\qty\Bigg(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}
-			+\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
-			-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
-			+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s})\,\tc{\Psi}{_k^q}
+			+\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
+			-\ChrB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
+			+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s})\,\tc{\Psi}{_k^q}
 		+\tc{\Phi}{^i_j^k}\,\qty\Bigg(\pdv{\tc{\Psi}{_k^q}}{x^\mu}
-			-\ChristoffelB{\mu}{k}{s} \tc{\Psi}{_s^q}
-			+\ChristoffelB{\mu}{s}{q} \tc{\Psi}{_k^s}) \notag \\
+			-\ChrB{\mu}{k}{s} \tc{\Psi}{_s^q}
+			+\ChrB{\mu}{s}{q} \tc{\Psi}{_k^s}) \notag \\
 	&=\pdv{x^\mu} \qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_k^q})
-		+\qty\Big(\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
-			-\ChristoffelB{\mu}{j}{s}\tc{\Phi}{^i_s^k})\,\tc{\Psi}{_k^q}
+		+\qty\Big(\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
+			-\ChrB{\mu}{j}{s}\tc{\Phi}{^i_s^k})\,\tc{\Psi}{_k^q}
 		+\tc{\Phi}{^i_j^k}\,
-			\qty\Big(\ChristoffelB{\mu}{s}{q}\tc{\Psi}{_k^s}) \notag \\*
+			\qty\Big(\ChrB{\mu}{s}{q}\tc{\Psi}{_k^s}) \notag \\*
 	&\alspace\phantom{}
-		+\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s}\,\tc{\Psi}{_k^q}
-		-\ChristoffelB{\mu}{k}{s} \tc{\Phi}{^i_j^k}\,\tc{\Psi}{_s^q}
+		+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s}\,\tc{\Psi}{_k^q}
+		-\ChrB{\mu}{k}{s} \tc{\Phi}{^i_j^k}\,\tc{\Psi}{_s^q}
 	\fullstop \label{eq:带哑标的Leibniz法则}
 \end{align}
 而根据定义，则
 \begin{equation}
 	\coD{\mu}{\qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_k^q})}
 	\defeq \pdv{x^\mu} \qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_k^q})
-		+\qty\Big(\ChristoffelB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
-			-\ChristoffelB{\mu}{j}{s} \tc{\Phi}{^i_s^k})\,\tc{\Psi}{_k^q}
+		+\qty\Big(\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
+			-\ChrB{\mu}{j}{s} \tc{\Phi}{^i_s^k})\,\tc{\Psi}{_k^q}
 		+\tc{\Phi}{^i_j^k}\,
-			\qty\Big(\ChristoffelB{\mu}{s}{q} \tc{\Psi}{_k^s})
+			\qty\Big(\ChrB{\mu}{s}{q} \tc{\Psi}{_k^s})
 	\fullstop
 \end{equation}
 很明显，式~\eqref{eq:带哑标的Leibniz法则} 中多了两项。
 不过稍作计算，就可知道
 \begin{align}
-	&\alspace \ChristoffelB{\mu}{s}{k}
+	&\alspace \ChrB{\mu}{s}{k}
 		\tc{\Phi}{^i_j^s}\,\tc{\Psi}{_k^q}
-	-\ChristoffelB{\mu}{k}{s}
+	-\ChrB{\mu}{k}{s}
 		\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_s^q} \notag
 	\intertext{$k$ 和 $s$ 都是哑标，不妨在第二项中将二者交换：}
-	&=\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s}\,\tc{\Psi}{_k^q}
-		-\ChristoffelB{\mu}{s}{k} \tc{\Phi}{^i_j^s}\,\tc{\Psi}{_k^q}
+	&=\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s}\,\tc{\Psi}{_k^q}
+		-\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s}\,\tc{\Psi}{_k^q}
 	=0 \fullstop
 \end{align}
 可见，Leibniz 法则经受住了考验。
@@ -1058,14 +1058,14 @@ $\coD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 	&=\pdv{x^\nu}\qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}}) \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k
 		+\coD{\mu}{\tc{\Phi}{^i_j^k}} \qty\Big(
-			\ChristoffelB{\nu}{i}{s} \V{g}_s\tp\V{g}^j\tp\V{g}_k
-			-\ChristoffelB{\nu}{s}{j} \V{g}_i\tp\V{g}^s\tp\V{g}_k
-			+\ChristoffelB{\nu}{k}{s} \V{g}_i\tp\V{g}^j\tp\V{g}_s)
+			\ChrB{\nu}{i}{s} \V{g}_s\tp\V{g}^j\tp\V{g}_k
+			-\ChrB{\nu}{s}{j} \V{g}_i\tp\V{g}^s\tp\V{g}_k
+			+\ChrB{\nu}{k}{s} \V{g}_i\tp\V{g}^j\tp\V{g}_s)
 		\notag \\
 	&=\qty[\pdv{x^\nu} \qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}})
-			+\ChristoffelB{\nu}{s}{i} \coD{\mu}{\tc{\Phi}{^s_j^k}}
-			-\ChristoffelB{\nu}{j}{s} \coD{\mu}{\tc{\Phi}{^i_s^k}}
-			+\ChristoffelB{\nu}{s}{k} \coD{\mu}{\tc{\Phi}{^i_j^s}}] \,
+			+\ChrB{\nu}{s}{i} \coD{\mu}{\tc{\Phi}{^s_j^k}}
+			-\ChrB{\nu}{j}{s} \coD{\mu}{\tc{\Phi}{^i_s^k}}
+			+\ChrB{\nu}{s}{k} \coD{\mu}{\tc{\Phi}{^i_j^s}}] \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
 	\label{eq:混合协变导数推导}
 \end{align}
@@ -1073,10 +1073,10 @@ $\coD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 \begin{equation}
 	\coD{\nu}{\qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}})}
 	\defeq \pdv{x^\nu} \qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}})
-		+\ChristoffelB{\nu}{s}{i} \coD{\mu}{\tc{\Phi}{^s_j^k}}
-		-\ChristoffelB{\nu}{j}{s} \coD{\mu}{\tc{\Phi}{^i_s^k}}
-		+\ChristoffelB{\nu}{s}{k} \coD{\mu}{\tc{\Phi}{^i_j^s}}
-		-\ChristoffelB{\nu}{\mu}{s} \coD{s}{\tc{\Phi}{^i_j^k}}
+		+\ChrB{\nu}{s}{i} \coD{\mu}{\tc{\Phi}{^s_j^k}}
+		-\ChrB{\nu}{j}{s} \coD{\mu}{\tc{\Phi}{^i_s^k}}
+		+\ChrB{\nu}{s}{k} \coD{\mu}{\tc{\Phi}{^i_j^s}}
+		-\ChrB{\nu}{\mu}{s} \coD{s}{\tc{\Phi}{^i_j^k}}
 	\fullstop
 \end{equation}
 代入 \eqref{eq:混合协变导数推导}~式，可得
@@ -1085,20 +1085,20 @@ $\coD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 	=\pdv{x^\nu} \qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k)
 	=\qty\Big(\coD{\nu}{\coD{\mu}{\tc{\Phi}{^i_j^k}}}
-		+\ChristoffelB{\nu}{\mu}{s} \coD{s}{\tc{\Phi}{^i_j^k}}) \,
+		+\ChrB{\nu}{\mu}{s} \coD{s}{\tc{\Phi}{^i_j^k}}) \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
 \end{equation}
 同理，
 \begin{equation}
 	\pdv{\T{\Phi}}{x^\mu}{x^\nu}
 	=\qty\Big(\coD{\mu}{\coD{\nu}{\tc{\Phi}{^i_j^k}}}
-		+\ChristoffelB{\mu}{\nu}{s} \coD{s}{\tc{\Phi}{^i_j^k}}) \,
+		+\ChrB{\mu}{\nu}{s} \coD{s}{\tc{\Phi}{^i_j^k}}) \,
 		\V{g}_i\tp\V{g}^j\tp\V{g}_k \fullstop
 \end{equation}
 
 根据 Christoffel 符号的性质，
 \begin{equation}
-	\ChristoffelB{\nu}{\mu}{s}=\ChristoffelB{\mu}{\nu}{s}
+	\ChrB{\nu}{\mu}{s}=\ChrB{\mu}{\nu}{s}
 	\semicolon
 \end{equation}
 而按照\myPROBLEM{一般赋范线性空间上的微分学}, 
