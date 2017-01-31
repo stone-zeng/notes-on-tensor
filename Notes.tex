@@ -383,7 +383,7 @@
 %% 第一类 Christoffel 符号
 \newcommand{\ChrA}[3]{\Gamma_{#1#2,\,#3}}
 %% 第二类 Christoffel 符号
-\newcommand{\ChrB}[3]{\tc{\Gamma}{^#3_{#1#2}}}
+\newcommand{\ChrB}[3]{\tc{\Gamma}{^{#3}_{#1#2}}}
 
 %--------算子--------%
 %% 置换算子(Permutation Operator)
@@ -410,21 +410,17 @@
 %% 带描述集合
 \DeclarePairedDelimiterX\set[2]{\{}{\}}{#1 \;\delimsize\vert\; #2}
 %% 中标
-%\makeatletter
-%\protected\def\xvcenter{%
-%	\hbox\bgroup$\everyvbox{\everyvbox{}\aftergroup%
-%	\m@th\aftergroup$\aftergroup\egroup}%
-%	\vcenter%
-%}
-%\newcommand{\mid@script}[2]{\vcenter{\hbox{$\m@th#1#2$}}}
-%\DeclareRobustCommand{\midscript}[1]{\mathchoice%
-%	{\mid@script\scriptstyle{#1}}%
-%	{\mid@script\scriptstyle{#1}}%
-%	{\mid@script\scriptscriptstyle{#1}}%
-%	{\mid@script\scriptscriptstyle{#1}}%
-%}
-%\makeatother
-\newcommand\midscript[1]{{\scriptstyle #1}}
+%% 见 http://tex.stackexchange.com/q/250961
+\makeatletter
+\newcommand{\mid@script}[2]{\vcenter{\hbox{$\m@th#1#2$}}}
+\DeclareRobustCommand{\midscript}[1]{\mathchoice%
+	{\mid@script\scriptstyle{#1}}%
+	{\mid@script\scriptstyle{#1}}%
+	{\mid@script\scriptscriptstyle{#1}}%
+	{\mid@script\scriptscriptstyle{#1}}%
+}
+\makeatother
+%\newcommand\midscript[1]{{\scriptstyle #1}}
 %% 单位正交基指标(Orthonormal Index)
 \newcommand{\orthIdx}[1]{\langle{#1}\rangle}
 %% 范数
