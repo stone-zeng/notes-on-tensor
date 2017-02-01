@@ -30,15 +30,18 @@
 	\setmainfont{XITS}%[SlantedFont = XITS Italic]
 	\setsansfont{TeX Gyre Heros}%[SlantedFont = TeX Gyre Heros Italic]
 	\setmonofont{TeX Gyre Cursor}[Ligatures = NoCommon]
-%	\newfontfamily{\SourceSans}{Source Sans Pro}
-%	\newfontfamily{\Songti}{方正书宋_GBK}
 
 %% AMS 数学支持
 \usepackage{amsmath}
 	% 允许多行公式中间分页
 	\allowdisplaybreaks
 	% 调整多行公式间距
-	\setlength{\jot}{6pt}
+	\jot = 6pt
+	% 调整公式前后间距
+%	\AtBeginDocument{
+%		\abovedisplayshortskip = \abovedisplayskip
+%		\belowdisplayshortskip = \belowdisplayskip
+%	}
 \usepackage{amssymb}
 
 %% 数学工具(Must before `unicode-math')
@@ -420,7 +423,6 @@
 	{\mid@script\scriptscriptstyle{#1}}%
 }
 \makeatother
-%\newcommand\midscript[1]{{\scriptstyle #1}}
 %% 单位正交基指标(Orthonormal Index)
 \newcommand{\orthIdx}[1]{\langle{#1}\rangle}
 %% 范数
@@ -430,7 +432,6 @@
 % 已有命令 \flatfrac
 %\WithSuffix\newcommand\frac*[2]{\left.#1\middle/#2\right.}
 %% 内积(括号形式)(Inner Product Braket)
-%\newcommand{\ipb}[3][\Rm]{\qty(#2,\,#3)_{#1}}
 \newcommand{\ipb}[3][\Rm]{\left\langle#2,\,#3\right\rangle_{#1}}
 %% 张量积(Tensor Product)
 \newcommand{\tp}{\otimes}
@@ -465,7 +466,7 @@
 \newcommand{\sOv}[1]{\mathop{\mbfscro\!}\qty(#1)}
 %% 向量形式小 O 记号(带上下标)
 \WithSuffix\newcommand\sOv*[2]{\mathop{
-		\tc{\mbfscro}{#1} \!}\qty(#2)}
+	\tc{\mbfscro}{#1} \!}\qty(#2)}
 %% 复合(Composite)
 \newcommand{\comp}{\circ}
 %% 定义等号(Definition Equal)
@@ -499,28 +500,17 @@
 \newcommand{\res}{\text{res.}}
 %\renewcommand{\intertext}[1]{\shortintertext{\textit{#1}}}
 
-
 %TODO——标题页
 \title{张量分析}
 \author{复旦大学　谢锡麟} % 此处为全角空格
 \date{\today}
-%\title{
-%	\vspace{-4 cm} \color{Sienna} \Huge 张量分析
-%}
-%\author{
-%	\CJKfamily{楷体} \color{DarkRed} \Large
-%	复旦大学\phantom{空格}谢锡麟
-%}
-%\date{
-%	\CJKfamily{楷体} \color{Goldenrod} \Large \today
-%}
 
 
 \begin{document}
 %	\frontmatter
 %	\maketitle
 %	
-%%	\tableofcontents
+%	\tableofcontents
 %	
 %	\mainmatter
 %	\chapter{张量的定义及表示}
@@ -540,10 +530,11 @@
 %	
 %	\chapter{曲线上的标架及其运动方程}
 %		\input{Chapters/Curve_Frame}
+%	
 %	\backmatter
 %	{
-%		\small
-%		\bibliography{Reference}
+%%		\small
+%%		\bibliography{Reference}
+%		\printindex
 %	}
-%	\printindex
 \end{document}

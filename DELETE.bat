@@ -13,5 +13,6 @@ DEL *.ilg
 DEL *.out
 DEL *.thm
 
-REM DEL *.toc
+DEL *.toc
+
 REM DEL *.listing

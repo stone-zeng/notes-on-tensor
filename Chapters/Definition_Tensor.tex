@@ -8,8 +8,8 @@ $\qty{\V{g}^i}^m_{i=1}$，
 \begin{equation}
 	\ipb{\V{g}_i}{\V{g}^j}=\KroneckerDelta{j}{i}
 	=\left\{\begin{aligned}
-		1,\quad j&=i \semicolon\\
-		0,\quad j&\neq i \fullstop
+		1,\quad i&=j \semicolon\\
+		0,\quad i&\neq j \fullstop
 	\end{aligned}\right.
 	\label{eq:对偶关系}
 \end{equation}
@@ -135,10 +135,11 @@ $\qty[\V{g}_1,\,\cdots,\,\V{g}_m]$ 非奇异。因此
 	g_{ik}\,g^{kj} = \KroneckerDelta{j}{i} \fullstop
 	\label{eq:度量之积}
 \end{equation}
-也可以写成矩阵的形式：
+也可以写成矩阵形式：
 \begin{equation}
 	\mqty[g_{ik}]\mqty[g^{kj}]
 	=\mqty[\KroneckerDelta{j}{i}]=\Mat{I}_m \comma
+	\label{eq:度量之积_矩阵形式}
 \end{equation}
 其中的 $\Mat{I}_m$ 是 $m$ 阶单位阵。该式的证明将在稍后给出。
 
