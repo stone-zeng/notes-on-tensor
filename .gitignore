@@ -182,6 +182,7 @@ TSWLatexianTemp*
 # VS Code
 *.db
 *.vscodelog
+.vscode/
 
 ## OTHERS:
 *.txt
@@ -193,3 +194,5 @@ TSWLatexianTemp*
 *.xls
 *.xlsx
 *.exe
+
+FigureTest/

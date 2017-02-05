@@ -25,7 +25,7 @@
 
 %% 常规字体选择
 % 与 `graphicx' 冲突
-\PassOptionsToPackage{draft}{graphicx}
+%\PassOptionsToPackage{draft}{graphicx}
 \usepackage[no-math]{fontspec}
 	\setmainfont{XITS}%[SlantedFont = XITS Italic]
 	\setsansfont{TeX Gyre Heros}%[SlantedFont = TeX Gyre Heros Italic]
@@ -86,6 +86,7 @@
 		ItalicFont = 方正楷体_GBK,
 		Mapping = fullwidth-stop
 	]{方正书宋_GBK}
+%	]{思源黑体 Light}
 	\setCJKsansfont[
 		BoldFont = 方正黑体_GBK,
 		ItalicFont = 方正黑体_GBK,
@@ -158,12 +159,19 @@
 
 %% 图形
 % 已被`fontspec' 调用
-%\usepackage{graphicx}
+\usepackage{graphicx}
 
 %% 绘图
 %\usepackage{tikz}
-%	\usepgflibrary{arrows.meta}
-%	\tikzset{>=Stealth}
+%	\usetikzlibrary{arrows.meta}
+%%	\usetikzlibrary{intersections}
+%	\tikzset{
+%		> = Stealth
+%	}
+
+\usepackage{asymptote}
+	\def\asydir{Asy}
+	\input{AsySetup}
 
 %% 强调公式
 \usepackage[ntheorem]{empheq}
@@ -196,9 +204,9 @@
 
 %% 索引
 %\usepackage{imakeidx}
-\usepackage{makeidx}
+%\usepackage{makeidx}
 %	\makeindex%[options = {-s MyIndexStyle.mst}]
-	\makeindex
+%	\makeindex
 %		name = Main,
 %		title = {xxxxx Index},
 %		intoc= true
@@ -251,9 +259,9 @@
 %\makeatother
 
 %TODO——环境
-%% 定制列表（编号）
+%% 自定义列表（编号）
 \newenvironment{myEnum}
-	{\begin{enumerate}[
+	{\enumerate[
 %		label=\bullet, %标签样式：圆点
 		align = leftalignwithindent, %对齐（见上）
 		listparindent = 2 em, %条目段落缩进
@@ -262,7 +270,7 @@
 		itemsep = 0 pt,
 		parsep = 0 pt
 	]}
-	{\end{enumerate}}
+	{\endenumerate}
 %% 子公式
 \newenvironment{mySubEq}
 	{\subequations \renewcommand{\theequation}%
@@ -283,6 +291,15 @@
 		\setkeys{EmphEqOpt}{left={{\displaystyle #2}\empheqlbrace}}%
 		\EmphEqMainEnv}%
 	{\endEmphEqMainEnv \endmySubEq}
+%% 自定义图片环境
+%#1: figure 浮动选项
+%#2: 题注 (caption)
+%#3: 引用标签 (label)
+\newenvironment{myFig}[3][h]
+	{\figure[#1]%
+		\newcommand{\captionLabel}{\caption{#2} \label{#3}}%
+		\centering}
+	{\captionLabel \endfigure}
 
 %TODO——命令
 %% 浪纹连接号、代字符
@@ -519,15 +536,15 @@
 %	\chapter{张量的运算性质}
 %		\input{Chapters/Algebric_Properties_of_Tensor}
 %	
-%	\chapter{微分同胚（曲线坐标系）}
-%		\input{Chapters/Curvilinear_Coordinats}
-%	
+	\chapter{微分同胚（曲线坐标系）}
+		\input{Chapters/Curvilinear_Coordinats}
+	
 %	\chapter{张量场可微性}
 %		\input{Chapters/Derivative_on_Tensor_Field}
 %	
-	\chapter{非完整基理论}
-		\input{Chapters/Nonholonomic_Basis_Theory}
-%	
+%	\chapter{非完整基理论}
+%		\input{Chapters/Nonholonomic_Basis_Theory}
+%%	
 %	\chapter{曲线上的标架及其运动方程}
 %		\input{Chapters/Curve_Frame}
 %	
@@ -537,4 +554,6 @@
 %%		\bibliography{Reference}
 %		\printindex
 %	}
+
+%	\include{FigureTest/Test}
 \end{document}

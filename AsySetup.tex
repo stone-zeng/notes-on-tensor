@@ -1,0 +1,47 @@
+\begin{asydef}
+//***** 导言区设置 *****//
+texpreamble("
+%\usepackage{suffix}
+
+\usepackage[no-math]{fontspec}
+	\setmainfont{Source Sans Pro Light}
+
+\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{mathtools}
+
+\usepackage{unicode-math}
+	\setmathfont[
+		math-style = ISO,
+		bold-style = ISO
+	]{xits-math.otf}
+
+\usepackage{xeCJK}
+	\setCJKmainfont{思源黑体 Light}
+
+
+\usepackage[svgnames]{xcolor}
+
+%\usepackage{tensor}
+%\usepackage{physics}
+%\usepackage{siunitx}
+");
+
+
+// 单位 1 = 1cm
+unitsize(1cm);
+
+// 默认字号
+defaultpen(fontsize(9 pt));
+
+// Mathematica 颜色
+//pen color1 = rgb(0.368417, 0.506779, 0.709798);
+//pen color2 = rgb(0.880722, 0.611041, 0.142051);
+//pen color3 = rgb(0.560181, 0.691569, 0.194885);
+//pen color4 = rgb(0.922526, 0.385626, 0.209179);
+//pen color5 = rgb(0.647624, 0.378160, 0.614037);
+//pen color6 = rgb(0.772079, 0.431554, 0.102387);
+//pen color7 = rgb(0.363898, 0.618501, 0.782349);
+//pen color8 = rgb(0.972829, 0.621644, 0.073362);
+
+\end{asydef}

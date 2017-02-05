@@ -1,18 +1,26 @@
-@ECHO OFF
+@echo off
 
-DEL *.aux
-DEL *.log
+
+del *.aux
+del *.log
 
 REM del *.bbl
 REM del *.blg
 
-DEL *.idx
-DEL *.ind
-DEL *.ilg
+del *.idx
+del *.ind
+del *.ilg
 
-DEL *.out
-DEL *.thm
+del *.out
+del *.thm
 
-DEL *.toc
+del *.toc
 
-REM DEL *.listing
+REM del *.listing
+
+del *.fdb_latexmk
+del *.fls
+del *.pre
+
+del Asy\*.aux
+del Asy\*.log
