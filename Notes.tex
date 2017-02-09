@@ -281,14 +281,14 @@
 \newenvironment{braceEq}[1][align]
 	{\mySubEq%
 		\setkeys{EmphEqEnv}{#1}%
-		\setkeys{EmphEqOpt}{left=\empheqlbrace}%
+		\setkeys{EmphEqOpt}{left = \empheqlbrace}%
 		\EmphEqMainEnv}%
 	{\endEmphEqMainEnv \endmySubEq}
 %% 大括号公式2(分情况讨论)
 \newenvironment{braceEq*}[2][align]
 	{\mySubEq%
 		\setkeys{EmphEqEnv}{#1}%
-		\setkeys{EmphEqOpt}{left={{\displaystyle #2}\empheqlbrace}}%
+		\setkeys{EmphEqOpt}{left = {{\displaystyle #2}\empheqlbrace}}%
 		\EmphEqMainEnv}%
 	{\endEmphEqMainEnv \endmySubEq}
 %% 自定义图片环境
@@ -298,8 +298,10 @@
 \newenvironment{myFig}[3][h]
 	{\figure[#1]%
 		\newcommand{\captionLabel}{\caption{#2} \label{#3}}%
-		\centering}
-	{\captionLabel \endfigure}
+		\centering%
+		\vspace{1 ex}}
+	{\vspace{-1 ex}%
+		\captionLabel \endfigure}
 
 %TODO——命令
 %% 浪纹连接号、代字符
@@ -544,7 +546,7 @@
 %	
 %	\chapter{非完整基理论}
 %		\input{Chapters/Nonholonomic_Basis_Theory}
-%%	
+%	
 %	\chapter{曲线上的标架及其运动方程}
 %		\input{Chapters/Curve_Frame}
 %	
