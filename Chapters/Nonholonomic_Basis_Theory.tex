@@ -448,7 +448,7 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 \ref{sec:非完整基下的张量梯度}~节中所使用的方法（坐标转换）并无二致，
 但它在某些特定情况下将会十分有用，这就是下一节要介绍的内容。
 
-\section{应用：单位正交基}
+\section{单位正交基}
 \subsection{选取非完整基}
 实际情况下，为了计算的方便，
 我们通常会取一组\emphA{正交基}作为完整基，它们满足
@@ -512,6 +512,7 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 	\pdv{x^{(\mu)}}
 	=c^\mu_{(\mu)} \pdv{x^\mu}
 	=\frac{1}{\sqrt{g_{\mu\mu}}} \pdv{x^\mu} \fullstop
+	\label{eq:形式偏导数_单位正交基}
 \end{equation}
 指标 $\mu$ 不求和，此式便只剩下了一项。
 
@@ -536,7 +537,7 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 			\frac{1}{\sqrt{g_{\beta\beta}}}
 			\cdot \pdv{c^{(\gamma)}_\beta}{x^\alpha} \fullstop
 \end{align}
-此处的指标均不表示求和。
+此处的指标 $\alpha$、$\beta$、$\gamma$ 均不表示求和。
 
 上式包含一个完整基下的 Christoffel 符号
 $\ChrB{\alpha}{\beta}{\gamma}$。
@@ -557,8 +558,9 @@ $\ChrB{\alpha}{\beta}{\gamma}$。
 		\qty(\pdv{g_{\beta\gamma}}{x^\alpha}
 			+\pdv{g_{\alpha\gamma}}{x^\beta}
 			-\pdv{g_{\alpha\beta}}{x^\gamma}) \fullstop
+	\label{eq:形式Christoffel符号_单位正交基}
 \end{align}
-这里的指标 $\alpha$、$\beta$、$\gamma$ 都不表示求和。
+同样，指标都不表示求和。
 
 现在我们来分 4 种情况，进一步化简 $\ChrB{\alpha}{\beta}{\gamma}$。
 
@@ -573,8 +575,8 @@ $\ChrB{\alpha}{\beta}{\gamma}$。
 	\ChrB{\alpha}{\beta}{\gamma}=0 \fullstop
 \end{equation}
 
-\item $\alpha=\beta\neq\gamma$，
-即 $\ChrB{\alpha}{\alpha}{\gamma}$。直接计算，可有
+\item $\alpha=\beta\neq\gamma$，即 $\ChrB{\alpha}{\alpha}{\gamma}$。
+直接计算，可有
 \begin{equation}
 	\ChrB{\alpha}{\alpha}{\gamma}
 	=g^{\gamma\gamma}\,\ChrA{\alpha}{\alpha}{\gamma}
@@ -584,8 +586,7 @@ $\ChrB{\alpha}{\beta}{\gamma}$。
 		\pdv{g_{\alpha\alpha}}{x^\gamma} \fullstop
 \end{equation}
 
-\item $\alpha=\gamma\neq\beta$，
-即 $\ChrB{\alpha}{\beta}{\alpha}$。
+\item $\alpha=\gamma\neq\beta$，即 $\ChrB{\alpha}{\beta}{\alpha}$。
 根据式~\eqref{eq:第二类Christoffel符号指标交换}，
 它又等于 $\ChrB{\beta}{\alpha}{\alpha}$。同样，直接来进行计算：
 \begin{equation}
@@ -597,7 +598,7 @@ $\ChrB{\alpha}{\beta}{\gamma}$。
 		\pdv{g_{\alpha\alpha}}{x^\beta} \fullstop
 \end{equation}
 
-\item $\alpha=\gamma=\beta$，即 $\ChrB{\alpha}{\alpha}{\alpha}$。
+\item $\alpha=\beta=\gamma$，即 $\ChrB{\alpha}{\alpha}{\alpha}$。
 指标只剩下了一个，喜闻乐见。
 \begin{equation}
 	\ChrB{\alpha}{\alpha}{\alpha}
@@ -608,3 +609,163 @@ $\ChrB{\alpha}{\beta}{\gamma}$。
 		\pdv{g_{\alpha\alpha}}{x^\alpha} \fullstop
 \end{equation}
 \end{myEnum}
+
+算好了完整基（正交基）下的 Christoffel 符号，
+就可以考虑非完整基（单位正交基）下的情况了。
+我们在式~\eqref{eq:形式Christoffel符号_单位正交基}
+中已经计算出了非完整基下的 Christoffel 符号，
+现在只要把以上四种情况逐一代入即可。
+
+\begin{myEnum}
+\item $\alpha\neq\beta\neq\gamma$。
+已经知道 $\ChrB{\alpha}{\beta}{\gamma}=0$，
+而根据 \eqref{eq:坐标转换系数_单位正交基_2}~式，
+又有 $c^{(\gamma)}_\beta=0$，于是
+\begin{equation}
+	\ChrB{(\alpha)}{(\beta)}{(\gamma)}=0 \fullstop
+\end{equation}
+
+\item $\alpha=\beta\neq\gamma$。此时有
+\begin{align}
+	\ChrB{(\alpha)}{(\alpha)}{(\gamma)}
+	&=\frac{1}{g_{\alpha\alpha}} \sqrt{g_{\gamma\gamma}}
+			\cdot \ChrB{\alpha}{\alpha}{\gamma}
+		-\frac{1}{g_{\alpha\alpha}}
+			\cdot \pdv{c^{(\gamma)}_\alpha}{x^\alpha} \notag \\
+	&=\frac{1}{g_{\alpha\alpha}} \sqrt{g_{\gamma\gamma}}
+		\cdot \qty(-\frac{1}{2} \frac{1}{g_{\gamma\gamma}}
+			\pdv{g_{\alpha\alpha}}{x^\gamma}) - 0 \notag \\
+	&=-\frac{1}{\sqrt{g_{\gamma\gamma}}}
+		\cdot \qty(\frac{1}{2g_{\alpha\alpha}}
+			\pdv{g_{\alpha\alpha}}{x^\gamma}) \fullstop
+\end{align}
+考虑到
+\begin{equation}
+	\pdv{x} \ln\sqrt{f(x)}
+	=\pdv{x} \qty[\frac{1}{2} \ln f(x)]
+	=\frac{1}{2} \frac{1}{f(x)} \pdv{f(x)}{x} \comma
+\end{equation}
+于是
+\begin{equation}
+	\ChrB{(\alpha)}{(\alpha)}{(\gamma)}
+	=-\frac{1}{\sqrt{g_{\gamma\gamma}}}
+		\pdv{x^\gamma} \qty(\vphantom{\frac{0}{0}}
+			\ln \sqrt{g_{\alpha\alpha}}) \fullstop
+\end{equation}
+
+\item $\alpha=\gamma\neq\beta$。此时
+\begin{align}
+	\ChrB{(\alpha)}{(\beta)}{(\alpha)}
+	&=\frac{1}{\sqrt{g_{\beta\beta}}}
+			\cdot \ChrB{\alpha}{\beta}{\alpha}
+		-\frac{1}{\sqrt{g_{\alpha\alpha}}}
+			\frac{1}{\sqrt{g_{\beta\beta}}}
+			\cdot \pdv{c^{(\alpha)}_\beta}{x^\alpha} \notag \\
+	&=\frac{1}{\sqrt{g_{\beta\beta}}}
+		\cdot \qty(\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
+			\pdv{g_{\alpha\alpha}}{x^\beta}) - 0 \notag
+	\intertext{同理，利用对数，可得}
+	&=\frac{1}{\sqrt{g_{\beta\beta}}}
+		\pdv{x^\beta} \qty(\vphantom{\frac{0}{0}}
+			\ln \sqrt{g_{\alpha\alpha}}) \fullstop
+\end{align}
+注意这里没有负号。
+
+\item[\theenumi*.] $\beta=\gamma\neq\alpha$，
+即 $\ChrB{(\alpha)}{(\beta)}{(\beta)}$。
+不过我们暂时先从 $\ChrB{(\beta)}{(\alpha)}{(\alpha)}$ 开始。
+
+之前虽然已经计算了 $\ChrB{(\alpha)}{(\beta)}{(\alpha)}$，
+但由于我们并未证明\emphB{形式} Christoffel 符号的下标可以交换
+\footnote{所以这里也多了一种情况需要讨论。}，
+因而仍要从头来算：
+\begin{align}
+	\ChrB{(\beta)}{(\alpha)}{(\alpha)}
+	&=\frac{1}{\sqrt{g_{\beta\beta}}}
+			\cdot \ChrB{\beta}{\alpha}{\alpha}
+		-\frac{1}{\sqrt{g_{\beta\beta}}}
+			\frac{1}{\sqrt{g_{\alpha\alpha}}}
+			\cdot \pdv{c^{(\alpha)}_\alpha}{x^\beta} \notag
+	\intertext{交换 Christoffel 符号的下标，
+		同时代入\eqref{eq:坐标转换系数_单位正交基_2}~式，可有}
+	&=\frac{1}{\sqrt{g_{\beta\beta}}}
+			\cdot \ChrB{\alpha}{\beta}{\alpha}
+		-\frac{1}{\sqrt{g_{\beta\beta}}}
+			\frac{1}{\sqrt{g_{\alpha\alpha}}}
+			\cdot \pdv{x^\beta} \sqrt{g_{\alpha\alpha}} \notag \\
+	&=\frac{1}{\sqrt{g_{\beta\beta}}}
+		\cdot \qty(\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
+			\pdv{g_{\alpha\alpha}}{x^\beta})
+		-\frac{1}{\sqrt{g_{\beta\beta}}}
+			\frac{1}{\sqrt{g_{\alpha\alpha}}}
+			\cdot \frac{1}{2\sqrt{g_{\alpha\alpha}}}
+			\pdv{g_{\alpha\alpha}}{x^\beta} \notag \\
+	&=0 \fullstop
+\end{align}
+
+回过头来，若要得到 $\ChrB{(\alpha)}{(\beta)}{(\beta)}$，
+只需交换 $\alpha$、$\beta$，结果当然不变：
+\begin{equation}
+	\ChrB{(\alpha)}{(\beta)}{(\beta)}=0 \fullstop
+\end{equation}
+
+\item $\alpha=\beta=\gamma$。指标全部相同，有
+\begin{align}
+	\ChrB{(\alpha)}{(\alpha)}{(\alpha)}
+	&=\frac{1}{\sqrt{g_{\alpha\alpha}}}
+			\cdot \ChrB{\alpha}{\alpha}{\alpha}
+		-\frac{1}{g_{\alpha\alpha}}
+			\cdot \pdv{c^{(\alpha)}_\alpha}{x^\alpha} \notag \\
+	&=\frac{1}{\sqrt{g_{\alpha\alpha}}}
+		\cdot \qty(\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
+			\pdv{g_{\alpha\alpha}}{x^\alpha})
+		-\frac{1}{g_{\alpha\alpha}}
+			\cdot \pdv{x^\alpha} \sqrt{g_{\alpha\alpha}} \notag \\
+	&=\frac{1}{2g_{\alpha\alpha} \sqrt{g_{\alpha\alpha}}}
+			\pdv{g_{\alpha\alpha}}{x^\alpha}
+		-\frac{1}{g_{\alpha\alpha}}
+			\cdot \frac{1}{2\sqrt{g_{\alpha\alpha}}}
+			\pdv{g_{\alpha\alpha}}{x^\alpha} \notag \\
+	&=0 \comma
+\end{align}
+依然是个很漂亮的结果。
+\end{myEnum}
+
+到此，我们可以看到，只有两种形式的 Christoffel 符号非零：
+\begin{braceEq}
+	\ChrB{(\alpha)}{(\alpha)}{(\beta)}
+	&=-\frac{1}{\sqrt{g_{\beta\beta}}}
+		\pdv{x^\beta} \qty(\vphantom{\frac{0}{0}}
+			\ln \sqrt{g_{\alpha\alpha}})
+	=-\pdv{x^{(\beta)}} \ln\sqrt{g_{\alpha\alpha}} \comma \\
+	\ChrB{(\alpha)}{(\beta)}{(\alpha)}
+	&=\frac{1}{\sqrt{g_{\beta\beta}}}
+		\pdv{x^\beta} \qty(\vphantom{\frac{0}{0}}
+			\ln \sqrt{g_{\alpha\alpha}})
+	=\pdv{x^{(\beta)}} \ln\sqrt{g_{\alpha\alpha}} \fullstop
+\end{braceEq}
+后一个等号利用了形式偏导数 \eqref{eq:形式偏导数_单位正交基}~式。
+
+对于单位正交基，其度量满足
+\begin{equation}
+	g^{(\alpha)(\beta)}=g_{(\alpha)(\beta)}
+	=\KroneckerDelta*{\alpha}{\beta} \comma
+\end{equation}
+因此协变基与逆变基只好相同。
+这样一来，协变分量与逆变分量也就没有了差别，我们统一用尖括号标出。
+于是上面的 Christoffel 符号就可以写成
+\begin{braceEq}
+	\ChrU{\alpha}{\alpha}{\beta}
+	&=\ChrA{(\alpha)}{(\alpha)}{(\beta)}
+		=\ChrB{(\alpha)}{(\alpha)}{(\beta)}
+		=-\pdv{x^{(\beta)}} \ln\sqrt{g_{\alpha\alpha}} \comma \\
+	\ChrU{\alpha}{\beta}{\alpha}
+	&=\ChrA{(\alpha)}{(\beta)}{(\alpha)}
+		=\ChrB{(\alpha)}{(\beta)}{(\alpha)}
+		=\pdv{x^{(\beta)}} \ln\sqrt{g_{\alpha\alpha}} \fullstop
+\end{braceEq}
+显然，它们的第二、第三指标具有反对称性：
+\begin{equation}
+	\ChrU{\alpha}{\alpha}{\beta}
+	=-\ChrU{\alpha}{\beta}{\alpha} \fullstop
+\end{equation}
