@@ -5,8 +5,9 @@
 	\qty{\V{g}_i(\V{x})=\pdv{\V{X}}{x^i} (\V{x})}^m_{i=1}
 	\subset\Rm \comma
 \end{equation}
-它们称为\emphA{完整基}。
-与之对应，不是由曲线坐标系诱导的基，称为\emphA{非完整基}。
+它们称为\emphA{完整基}\idx{完整基}。
+与之对应，不是由曲线坐标系诱导的基，
+称为\emphA{非完整基}\idx{非完整基}。
 
 \begin{figure}[h]
 	\centering
@@ -47,7 +48,7 @@ $\qty{\V{g}_i(\V{x})}^m_{i=1}$，
 
 非完整基与完整基之间的关系，可以利用
 \ref{subsec:相对不同基的张量分量之间的关系}~小节中引入的%
-\emphB{坐标转换关系}来获得：
+\emphB{坐标转换关系}\idx{坐标转换关系}来获得：
 \begin{braceEq}
 	\V{g}_{(i)} (\V{x})
 		&= c^k_{(i)} (\V{x}) \, \V{g}_k (\V{x}) \comma \\
@@ -134,6 +135,7 @@ $\qty{\V{g}_i(\V{x})}^m_{i=1}$，
 	=c^i_{(\alpha)} c^j_{(\beta)}
 		\qty(c^{(\gamma)}_k \ChrB{i}{j}{k}
 			-\pdv{c^{(\gamma)}_j}{x^i}) \fullstop
+	\label{eq:形式Christoffel符号}
 \end{equation}
 \myPROBLEM[2017-01-31]{第一类形式 Christoffel 符号}
 
@@ -451,7 +453,7 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 \section{单位正交基}
 \subsection{选取非完整基}
 实际情况下，为了计算的方便，
-我们通常会取一组\emphA{正交基}作为完整基，它们满足
+我们通常会取一组\emphA{正交基}\idx{正交基}作为完整基，它们满足
 \begin{equation}
 	\ipb{\V{g}_i}{\V{g}_j}=0, \quad i\neq j \fullstop
 \end{equation}
@@ -473,7 +475,8 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 换句话说，逆变基同样是一组正交基。
 
 出于量纲一致等因素的考虑，我们常常需要将正交基单位化，
-使其成为\emphA{单位正交基}。当然，之前的完整基也就成了非完整基：
+使其成为\emphA{单位正交基}\idx{单位正交基}。
+当然，之前的完整基也就成了非完整基：
 \begin{equation}
 	\V{g}_{(\alpha)} \defeq c^i_{(\alpha)}\,\V{g}_i \comma
 \end{equation}
@@ -486,7 +489,8 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 	\label{eq:坐标转换系数_单位正交基_1}
 \end{equation}
 这里 $g_{ii}$ 中的指标 $i$ 不求和。\footnote{
- 在 $i=\alpha$ 的情况下，该系数常被称作 \emphA{Lamé 系数}。}
+	在 $i=\alpha$ 的情况下，该系数常被称作
+	\emphA{Lamé 系数}\idx{Lamé 系数}。}
 对于逆变基，也是同样的：
 \begin{equation}
 	\V{g}^{(\alpha)} \defeq c^{(\alpha)}_i\,\V{g}^i \comma
@@ -500,8 +504,8 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 	\label{eq:坐标转换系数_单位正交基_2}
 \end{equation}
 
-\subsection{形式运算}
-首先考虑形式偏导数：
+\subsection{形式偏导数}
+非完整基形式运算的第一步是考虑形式偏导数：
 \begin{equation}
 	\pdv{x^{(\mu)}} \defeq c^l_{(\mu)} \pdv{x^l} \fullstop
 \end{equation}
@@ -516,9 +520,8 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 \end{equation}
 指标 $\mu$ 不求和，此式便只剩下了一项。
 
-\blankline
-
-下面处理形式 Christoffel 符号：
+\subsection{形式 Christoffel 符号}
+根据 \eqref{eq:形式Christoffel符号}~式，
 \begin{align}
 	\ChrB{(\alpha)}{(\beta)}{(\gamma)}
 	&\defeq c^i_{(\alpha)} c^j_{(\beta)} c^{(\gamma)}_k \ChrB{i}{j}{k}
@@ -768,4 +771,42 @@ $\ChrB{\alpha}{\beta}{\gamma}$。
 \begin{equation}
 	\ChrU{\alpha}{\alpha}{\beta}
 	=-\ChrU{\alpha}{\beta}{\alpha} \fullstop
+	\label{eq:单位正交基下Christoffel符号的反对称性}
 \end{equation}
+
+\subsection{形式“协变”导数}
+根据式~\eqref{eq:形式协变导数} 中的定义（仍以三阶张量为例），我们有
+\begin{equation}
+	\coD{(\mu)}{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
+	\defeq \pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}%
+		{x^{(\mu)}}
+	+\ChrB{(\mu)}{(\sigma)}{(\alpha)}
+		\tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}}
+	-\ChrB{(\mu)}{(\beta)}{(\sigma)}
+		\tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}}
+	+\ChrB{(\mu)}{(\sigma)}{(\gamma)}
+		\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}} \fullstop
+\end{equation}
+利用单位正交基不区分协变、逆变的特点，可以把它写成
+\begin{align}
+	\coD*{\mu}{\Phi\midscript{\orthIdx{\alpha\beta\gamma}}}
+	&=\pdv{\Phi\midscript{\orthIdx{\alpha\beta\gamma}}}{x^{(\mu)}}
+		+\ChrU{\mu}{\sigma}{\alpha} \,
+			\Phi\midscript{\orthIdx{\sigma\beta\gamma}}
+		-\ChrU{\mu}{\hl{\beta\sigma}}{} \,
+			\Phi\midscript{\orthIdx{\alpha\sigma\gamma}}
+		+\ChrU{\mu}{\sigma}{\gamma} \,
+			\Phi\midscript{\orthIdx{\alpha\beta\sigma}} \notag
+	\intertext{根据 Christoffel 符号的反对称性
+		\eqref{eq:单位正交基下Christoffel符号的反对称性}~式，有}
+	&=\pdv{\Phi\midscript{\orthIdx{\alpha\beta\gamma}}}{x^{(\mu)}}
+		+\ChrU{\mu}{\sigma}{\alpha} \,
+			\Phi\midscript{\orthIdx{\sigma\beta\gamma}}
+		+\ChrU{\mu}{\hl{\sigma\beta}}{} \,
+			\Phi\midscript{\orthIdx{\alpha\sigma\gamma}}
+		+\ChrU{\mu}{\sigma}{\gamma} \,
+			\Phi\midscript{\orthIdx{\alpha\beta\sigma}} \fullstop
+\end{align}
+这样，Christoffel 符号中的第二个指标就都是哑标 $\sigma$，
+而哑标所取代的对应指标则放在第三个位置上。
+同时，这种写法也免去了正负号的困扰。
