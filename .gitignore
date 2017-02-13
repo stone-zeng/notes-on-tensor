@@ -184,6 +184,9 @@ TSWLatexianTemp*
 *.vscodelog
 
 ## OTHERS:
+# Results
+*.pdf
+
 # Images
 *.svg
 *.bmp
