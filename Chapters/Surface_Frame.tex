@@ -1,0 +1,245 @@
+\section{曲面的定义；切空间}
+\subsection{曲面的定义}
+自变量维数比因变量维数低一维的向量值映照，都可以称为\emphA{曲面}。
+常见的三维曲面，其自变量是二维的，正符合了该定义。
+
+如图~\ref{fig:曲面的定义}，
+$m+1$ 维 Euclid 空间中的 $m$ 维曲面 $\V{\Sigma}(\V{x})$，
+都可以用如下的向量值映照表示：
+\begin{equation}
+	\mmap{\V{\Sigma}(\V{x})}
+		{\domD{\V{x}}\ni\V{x}=\mqty[x^1 \\ \vdots \\ x^m]}
+		{\V{\Sigma}(\V{x})
+			=\mqty[\Sigma^1 \\ \vdots \\ \Sigma^m \\ \Sigma^{m+1}](\V{x})
+			\in\Rm*} \fullstop
+\end{equation}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics{Images/Surface_Definition.PNG}
+	\caption{$m+1$ 维 Euclid 空间中 $m$ 维曲面的定义}
+	\label{fig:曲面的定义}
+\end{figure}
+
+\subsection{切向量与切空间}
+循着与体积上张量场场论（见第\ref{chap:微分同胚}章）相同的思路，
+我们先来计算 $\V{\Sigma}(\V{x})$ 的 Jacobi 矩阵：
+\begin{equation}
+	\JacobiD{\V{\Sigma}}(\V{x})
+	=\mqty[\displaystyle \pdv{\V{\Sigma}}{x^1},\,
+			\cdots,\,\pdv{\V{\Sigma}}{x^m}] (\V{x})
+	\defeq\mqty[\V{g}_1,\,\cdots,\,\V{g}_m] (\V{x})
+		\in\realR^{(m+1)\times m} \comma
+\end{equation}
+式中，
+\begin{equation}
+	\V{g}_i(\V{x}) \defeq \pdv{\V{\Sigma}}{x^i} (\V{x})
+	=\lim_{\lambda\to 0}
+		\frac{\V{\Sigma}\qty(\V{x}+\lambda\,\V{e}_i)-\V{\Sigma}(\V{x})}
+		{\lambda} \in\Rm* \fullstop
+\end{equation}
+需要注意，与微分同胚不同，此处的 Jacobi 矩阵\emphB{不是}方阵。
+
+为了考察 $\V{g}_i(\V{x})$ 的几何意义，
+我们在定义域空间 $\domD{\V{x}}\in\Rm$ 中过点 $\V{x}$ 作出
+$x^i$-线，其上的任意一点均可表示为 $\V{x}+\lambda\,\V{e}_i$。
+在映照 $\V{\Sigma}(\V{x})$ 的作用下，
+点 $\V{x}$ 和 $\V{x}+\lambda\,\V{e}_i$ 分别被映照到值域空间
+$\domD{\V{\Sigma}}$ 中的点 $\Sigma(\V{x})$ 和
+$\Sigma\qty(\V{x}+\lambda\,\V{e}_i)$。同时，$x^i$-线也被映照到
+$\domD{\V{\Sigma}}$ 中，成为一条曲线。
+
+当 $\lambda\to 0$ 时，
+\begin{equation}
+	\frac{\V{\Sigma}\qty(\V{x}+\lambda\,\V{e}_i)-\V{\Sigma}(\V{x})}
+	{\lambda}
+	\to \pdv{\V{\Sigma}}{x^i} (\V{x}) = \V{g}_i(\V{x}) \comma
+\end{equation}
+这便是值域空间中 $x^i$-线的\emphA{切向量}。
+切向量张成了 $\Rm*$ 空间的一个子空间：
+\begin{equation}
+	\vspan\qty{\V{g}_i(\V{x})}^m_{i=1} \subset\Rm* \fullstop
+\end{equation}
+
+如果要构造一组基，必须使其满足\emphB{线性无关}的要求。
+由此，我们引出\emphA{正则点}的定义，
+它指能够使 Jacobi 矩阵 $\JacobiD{\V{\Sigma}}(\V{x})$ 列满秩，即
+\begin{equation*}
+	\rank\JacobiD{\V{\Sigma}}(\V{x})=m
+\end{equation*}
+的点 $\V{x}\in\domD{\V{x}}$ 或 $\V{\Sigma}(\V{x})\in\Rm*$。
+在正则点处，便有 $\qty{\V{g}_i(\V{x})}^m_{i=1} \subset\Rm*$
+线性无关。此时，切向量张成的空间称为\emphA{切空间}
+（或\emphA{切平面}），记作
+\begin{equation}
+	\Tspace{\V{\Sigma}}{\V{x}}
+	\defeq\vspan\qty{\V{g}_i(\V{x})}^m_{i=1} \subset\Rm*
+	\fullstop
+\end{equation}
+切空间 $\Tspace{\V{\Sigma}}{\V{x}}$ 的维度是 $m$。
+
+\subsection{局部基}
+设位于点 $\V{x}$ 处的 $m+1$ 维单位向量 $\V{n}(\V{x})$ 满足
+$\norm[\Rm*]{\V{n}(\V{x})}=1$ 且
+\begin{equation}
+	(\JacobiD{\V{\Sigma}})\trans(\V{x}) \vdp \V{n}(\V{x})
+	=\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]\trans (\V{x}) \vdp \V{n}(\V{x})
+	=\mqty[\qty(\V{g}_1)\trans \\ \vdots \\ \qty(\V{g}_m)\trans]
+		\vdp \V{n}(\V{x}) = \V{0}\in\Rm \fullstop
+	\label{eq:曲面协变基_法向量}
+\end{equation}
+当 $\JacobiD{\V{\Sigma}}(\V{x})$ 列满秩（即 $\V{x}$ 是正则点）时，
+根据线性代数中的\emphB{基扩张定理}
+\myPROBLEM[2017-02-13]{基扩张定理}，
+这样的单位向量 $\V{n}(\V{x})$ 是唯一存在的，称为\emphA{法向量}。
+
+令 $\V{g}_{m+1}\defeq\V{n}(\V{x})$，则
+\begin{equation}
+	\qty{\V{g}_i(\V{x})}^{m+1}_{i=1}
+	=\qty{\pdv{\V{\Sigma}}{x^1} (\V{x}),\,\cdots,\,
+		\pdv{\V{\Sigma}}{x^m} (\V{x}),\,\V{n}(\V{x})}
+\end{equation}
+是 $\Rm*$ 空间中的一组基。
+它的指标都在下面，因此是一组\emphA{局部协变基}。
+
+\blankline
+
+接下来研究对应的\emphA{局部逆变基}
+$\qty{\V{g}^i(\V{x})}^{m+1}_{i=1}$，
+它与局部协变基共同满足\emphA{对偶关系}：\footnote{
+	以下在不引起混淆的地方将省去“$(\V{x})$”，
+	但仍不要忘记正则点的要求。}
+\begin{equation}
+	\ipb[\Rm*]{\V{g}_i}{\V{g}^j} = \KroneckerDelta{j}{i} \fullstop
+	\label{eq:曲面局部基_对偶关系}
+\end{equation}
+写成矩阵形式，为
+\begin{equation}
+	\qty[\begin{array}{@{}c@{}}
+		\qty(\V{g}^1)\trans \\ \vdots \\ \qty\big(\V{g}^m)\trans \\[3pt]
+		\hdashline \\[-12pt]
+		\qty(\V{g}^{m+1})\trans
+	\end{array}] \,
+	\qty[\begin{array}{@{}c:c@{}}
+		\V{g}_1,\,\cdots,\,\V{g}_m & \V{n}
+	\end{array}]
+	=\qty[\begin{array}{@{}c:c@{}}
+		\mqty[\qty(\V{g}^\nu)\trans\vdp\V{g}_\mu]^m_{\mu,\,\nu=1} &
+			\mqty[\qty(\V{g}^1)\trans \\ \vdots \\ \qty(\V{g}^m)\trans]
+			\vdp \V{n} \\[3pt]
+		\hdashline \\[-12pt]
+		\qty(\V{g}^{m+1})\trans \vdp \mqty[\V{g}_1,\,\cdots,\,\V{g}_m] &
+		\qty(\V{g}^{m+1})\trans \vdp \V{n}
+	\end{array}]
+	=\Mat{I}_{m+1} \fullstop
+	\label{eq:曲面局部基_对偶关系_矩阵形式}
+\end{equation}
+为了表述的清晰，在这里以及之后的一小段我们将用拉丁字母 $i$、$j$
+代表指标 1 到 $m+1$，而用希腊字母 $\mu$、$\nu$ 代表指标 1 到 $m$。
+
+按照分块矩阵的计算法则，显然有
+$\qty(\V{g}^{m+1})\trans \vdp \V{n}=1$。于是
+\begin{equation}
+	\V{g}^{m+1} = \V{n}+\sum_{\mu=1}^{m} a_\mu\,\V{g}_\mu \comma
+	\label{eq:曲面逆变基m+1_完整形式}
+\end{equation}
+式中的 $a_\mu$ 是待定系数。
+
+考虑式~\eqref{eq:曲面局部基_对偶关系_矩阵形式} 中矩阵的左下角，有
+\begin{align}
+	\qty(\V{g}^{m+1})\trans \vdp \mqty[\V{g}_1,\,\cdots,\,\V{g}_m]
+	&=\qty(\V{n}+\sum_{\mu=1}^{m} a_\mu\,\V{g}_\mu)\trans
+		\vdp \mqty[\V{g}_1,\,\cdots,\,\V{g}_m] \notag
+	\intertext{根据 \eqref{eq:曲面协变基_法向量}~式，
+		$\V{n}$ 与 $\V{g}_\mu$ 正交：}
+	&=\sum_{\mu=1}^{m} a_\mu\,\qty(\V{g}_\mu)\trans
+		\vdp \mqty[\V{g}_1,\,\cdots,\,\V{g}_m] \notag \\
+	&=\mqty[\displaystyle
+			\sum_{\mu=1}^{m} a_\mu\,\qty(\V{g}_\mu)\trans
+				\vdp\V{g}_1,\,\cdots,\,
+			\sum_{\mu=1}^{m} a_\mu\,\qty(\V{g}_\mu)\trans
+				\vdp\V{g}_m] \notag \\
+	&\defeq \mqty[\displaystyle
+			\sum_{\mu=1}^{m} a_\mu\,g_{1\mu},\,\cdots,\,
+			\sum_{\mu=1}^{m} a_\mu\,g_{m\mu}] \notag \\
+	&=\V{0}\in\realR^{1\times m} \fullstop
+\end{align}
+式中的 $g_{\mu\nu}\defeq\qty(\V{g}_\nu)\trans\vdp\V{g}_\mu
+	=\ipb[\Rm*]{\V{g}_\mu}{\V{g}_\nu}$。转置一下，可得
+\begin{align}
+	\mqty[\displaystyle \sum_{\mu=1}^{m} a_\mu\,g_{1\mu} \\ \vdots \\
+		\displaystyle \sum_{\mu=1}^{m} a_i\,g_{m\mu}]
+	&=\mqty[g_{11} & \cdots & g_{1m} \\
+			\vdots & \ddots & \vdots \\
+			g_{m1} & \cdots & g_{mm}]\,
+		\mqty[a_1 \\ \vdots \\ a_m] \notag \\
+	&=\mqty[\qty(\V{g}_1)\trans \\ \vdots \\ \qty(\V{g}_m)\trans]
+		\mqty[\V{g}_1,\,\cdots,\,\V{g}_m] \,
+		\mqty[a_1 \\ \vdots \\ a_m] \notag \\
+	&=\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]\trans
+		\mqty[\V{g}_1,\,\cdots,\,\V{g}_m] \,
+		\mqty[a_1 \\ \vdots \\ a_m]
+	\defeq\qty(\Mat{A}\trans\Mat{A}) \, \mqty[a_1 \\ \vdots \\ a_m]
+	=\V{0}\in\Rm \fullstop
+\end{align}
+其中，矩阵 $\Mat{A}\defeq\qty[\V{g}_1,\,\cdots,\,\V{g}_m]
+	\in\realR^{(m+1)\times m}$。
+由于处在\emphB{正则点} $\V{x}$ 处，
+$\qty{\V{g}_\mu}^m_{\mu=1}$ 线性无关，因此 $\rank\Mat{A}=m$。
+根据线性代数的知识，
+\begin{equation}
+	\rank\qty(\Mat{A}\trans\Mat{A}) = \rank\Mat{A} = m \comma
+\end{equation}
+所以矩阵 $\Mat{A}\trans\Mat{A}$ 非奇异。
+这样就必然有 $\qty[a_1,\,\cdots,\,a_m]\trans=\V{0}\in\Rm$，
+即 $a_\mu=0$。代回到 \eqref{eq:曲面逆变基m+1_完整形式}~式，可知
+\begin{equation}
+	\V{g}^{m+1}=\V{n} \fullstop
+\end{equation}
+
+再来看矩阵的右上角：
+\begin{equation}
+	\mqty[\qty(\V{g}^1)\trans \\ \vdots \\ \qty(\V{g}^m)\trans]
+		\vdp \V{n}
+	=\mqty[\qty(\V{g}^1)\trans\vdp\V{n} \\ \vdots \\
+		\qty(\V{g}^m)\trans\vdp\V{n}]
+	=\V{0}\in\Rm \comma
+\end{equation}
+因此 $\V{g}^\mu\perp\V{n}$。又因为 $\V{n}$ 和
+$\vspan\qty{\V{g}_i(\V{x})}^m_{\mu=1}$ 共同构成了基，所以
+\begin{equation}
+	\V{g}^\mu\in\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \fullstop
+\end{equation}
+
+最后轮到左上角：
+\begin{equation}
+	\mqty[\qty(\V{g}^\nu)\trans\vdp\V{g}_\mu]^m_{\mu,\,\nu=1}=\Mat{I}_m
+	\iff \ipb[\Rm*]{\V{g}_\mu}{\V{g}^\nu}
+		=\KroneckerDelta{\nu}{\mu} \fullstop
+	\label{eq:曲面局部基_切空间_对偶关系}
+\end{equation}
+这是一个与式~\eqref{eq:曲面局部基_对偶关系} 类似的“对偶关系”，
+不过请注意指标取值的不同。此处的“对偶关系”仅存在于\emphB{切空间}
+$\Tspace{\V{\Sigma}}{\V{x}}
+	=\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1}$ 中。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics{Images/Surface_Local_Basis.PNG}
+	\caption{$m+1$ 维 Euclid 空间中 $m$ 维曲面上的局部基}
+	\label{fig:曲面上的局部基}
+\end{figure}
+
+总结一下前面得到的结果。如图~\ref{fig:曲面上的局部基} 所示，
+对于 $m+1$ 维空间中的 $m$ 维曲面而言，
+其协变基由切向量与法向量共同组成：
+\begin{equation}
+	\qty{\V{g}_i(\V{x})}^m_{i=1}
+	\defeq\qty{\pdv{\V{\Sigma}}{x^1} (\V{x}),\,\cdots,\,
+		\pdv{\V{\Sigma}}{x^m} (\V{x}),\,\V{n}(\V{x})} \semicolon
+\end{equation}
+至于逆变基，它的前 $m$ 个向量由切空间上的对偶关系
+\eqref{eq:曲面局部基_切空间_对偶关系}~式决定，而第 $m+1$ 个向量则为
+\begin{equation}
+	\V{g}^{m+1}(\V{x})=\V{g}_{m+1}(\V{x})=\V{n}(\V{x}) \fullstop
+\end{equation}

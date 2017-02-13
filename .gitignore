@@ -184,12 +184,21 @@ TSWLatexianTemp*
 *.vscodelog
 
 ## OTHERS:
-*.txt
+# Images
 *.svg
-*.dat
+*.bmp
 *.jpg
 *.png
+
+# Data
 *.csv
+*.dat
+*.txt
 *.xls
 *.xlsx
+
+# Programs
 *.exe
+
+# Macro finding result
+*.find
