@@ -285,7 +285,7 @@ $\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
 \end{align}
 不用忘记按照 Einstein 求和约定对哑标 $i$ 进行求和\footnote{
 	$i$ 的取值范围是 1 到 $m$。
-	前一小节关于字母的约定这里没有采用。}。可以发现，
+	前一小节关于字母的约定就把它忘掉吧。}。可以发现，
 \begin{equation}
 	\dv{\V{\Gamma}_\V{\Sigma}}{t} (t)
 	=\dot{x}^i(t) \, \V{g}_i\qty\big(\V{x}(t))
@@ -299,3 +299,111 @@ $\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
 被典则基所取代的。如果使用典则基，自变量的微小误差，
 就会使得像点落在曲面之外。这在工业设计领域将是不可接受的。
 \myPROBLEM[2017-02-25]{见 12-曲面定义及其切空间-Part 02.flv 最后}
+
+\section{度量张量与曲率张量}
+\subsection{基本形式}
+曲面的\emphA{第一基本形式}指切空间中的内积，即
+\begin{equation}
+	g_{ij}\defeq\ipb[\Rm*]{\V{g}_i}{\V{g}_j} \comma
+\end{equation}
+其中的 $i$、$j$ 表示 1 到 $m$。$g_{ij}$ 构成的矩阵为
+\begin{equation}
+	\Mat{G}\coloneq\mqty[g_{ij}]
+	=\mqty[g_{11} & \cdots & g_{1m} \\
+		\vdots & \ddots & \vdots \\
+		g_{m1} & \cdots & g_{mm}]
+	=\mqty[\qty(\V{g}_1)\trans \\ \vdots \\ \qty(\V{g}_m)\trans]\,
+		\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]
+	=(\JacobiD{\V{\Sigma}})\trans \vdp (\JacobiD{\V{\Sigma}})
+	\fullstop
+\end{equation}
+根据内积的对称性，$g_{ij}=g_{ji}$，于是矩阵 $\Mat{G}$
+是一个对称阵。除此以外，在正则点处，它还是一个\emphB{正定}矩阵。
+
+\begin{myProof}
+对于任意的向量 $\V{\xi}\in\Rm$，有
+\begin{align}
+	\V{\xi}\trans\,\Mat{G}\,\V{\xi}
+	&=\V{\xi}\trans \,
+		\qty\Big[(\JacobiD{\V{\Sigma}})\trans
+			\vdp (\JacobiD{\V{\Sigma}})] \,
+		\V{\xi} \notag \\
+	&=\qty\Big[\V{\xi}\trans (\JacobiD{\V{\Sigma}})\trans]
+		\vdp \qty\Big[\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}]
+	=\qty\Big[\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}]\trans
+		\vdp \qty\Big[\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}] \notag \\
+	&=\norm[\Rm*]{\vphantom{0^0}
+			\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}}^2
+	=\norm[\Rm*]{\xi^i\,\V{g}_i}^2 \geqslant 0 \fullstop
+\end{align}
+这样，若有 $\V{\xi}\trans\,\Mat{G}\,\V{\xi}=0$，则必有
+$\xi^i\,\V{g}_i=0$。而在正则点处，
+$\qty{\V{g}_i(\V{x})}^m_{i=1} \subset\Rm*$ 线性无关。于是 $\V{g}_i$
+的系数就全都为零，即 $\xi^i=0\in\realR$，$\V{\xi}=\V{0}\in\Rm$。
+这就证明了 $\Mat{G}$ 的正定性。
+\end{myProof}
+
+以后我们的讨论都只考虑正则点的情况，
+这相当于体积上张量场场论中\emphB{微分同胚}的条件。
+
+\blankline
+
+曲面的\emphA{第二基本形式}定义为
+\begin{equation}
+	b_{ij}\defeq\ipb[\Rm*]{\pdv{\V{g}_j}{x^i}}{\V{n}} \fullstop
+\end{equation}
+与第一基本形式类似，矩阵 $\Mat{B}\coloneq\mqty[b_{ij}]$
+也是对称的（但未必正定）。
+
+\begin{myProof}
+对称性的根源在于二阶偏导数可以交换次序：
+\begin{align}
+	\pdv{\V{g}_j}{x^i}
+	=\pdv{x^i} \qty(\pdv{\V{\Sigma}}{x^j})
+	=\pdv{\V{\Sigma}}{x^i}{x^j}
+	=\pdv{\V{\Sigma}}{x^j}{x^i}
+	=\pdv{x^j} \qty(\pdv{\V{\Sigma}}{x^i})
+	=\pdv{\V{g}_i}{x^j} \fullstop
+\end{align}
+于是 $b_{ij}=b_{ji}$。
+\end{myProof}
+
+\blankline
+
+根据线性代数中的\emphA{同时对角化}定理，
+\myPROBLEM[2017-02-25]{同时对角化}
+由于第一、第二基本形式的表示矩阵 $\Mat{G}$ 和 $\Mat{B}$
+均是对称矩阵，并且 $\Mat{G}$ 还具有正定性，因此必然唯一存在
+一个非奇异的矩阵 $\Mat{S}\in\realR^{m\times m}$，使得
+\begin{equation}
+	\Mat{S}\trans\Mat{G}\Mat{S}=\Mat{I}_m \quad\text{且}\quad
+	\Mat{S}\trans\Mat{B}\Mat{S}
+	=\mqty[\dmat{\lambda_1,\ddots,\lambda_m}] \comma
+\end{equation}
+其中的 $\lambda_i$ 满足
+\begin{equation}
+	\det(\Mat{B}-\lambda_i\,\Mat{G})=0 \fullstop
+\end{equation}
+根据行列式的性质，可知
+\begin{equation}
+	\det(\Mat{G}^{-1}\Mat{B}-\lambda_i\,\Mat{I}_m)
+	=\det\qty\Big[\Mat{G}^{-1} \qty(\Mat{B}-\lambda_i\,\Mat{G})]
+	=\det(\Mat{G}^{-1}) \cdot \det(\Mat{B}-\lambda_i\,\Mat{G})
+	=\det(\Mat{G}^{-1}) \cdot 0 = 0 \fullstop
+\end{equation}
+这说明 $\lambda_i$ 是矩阵 $\Mat{G}^{-1}\Mat{B}$ 的特征值。
+
+定义\emphA{Gauss 曲率} $K_G$ 为这些特征值之积，它等于矩阵
+$\Mat{G}^{-1}\Mat{B}$ 的行列式：
+\begin{equation}
+	K_G\defeq\prod_{i=1}^{m} \lambda_i = \det(\Mat{G}^{-1}\Mat{B})
+	=\frac{\det\Mat{B}}{\det\Mat{G}} \semicolon
+\end{equation}
+定义\emphA{平均曲率} $H$ 为特征值之和的平均值，
+它等于矩阵的迹除以 $m$：
+\begin{equation}
+	H\defeq\frac{1}{m}\sum_{i=1}^{m} \lambda_i
+	=\frac{\tr(\Mat{G}^{-1}\Mat{B})}{m} \fullstop
+\end{equation}
+
+\subsection{度量张量与曲率张量}

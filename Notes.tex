@@ -109,21 +109,24 @@
 %\usepackage{xeCJK}
 	\setCJKmainfont{FZShuSong-Z01}[
 		BoldFont = FZHei-B01, ItalicFont = FZKai-Z03,
-		Mapping = fullwidth-stop
+%		Mapping = fullwidth-stop
 	]
 	\setCJKsansfont{FZHei-B01}[
 		BoldFont = FZHei-B01, ItalicFont = FZHei-B01,
-		Mapping = fullwidth-stop
+%		Mapping = fullwidth-stop
 	]
 	\setCJKmonofont{FZFangSong-Z02}[
 		BoldFont = FZFangSong-Z02, ItalicFont = FZKai-Z03,
-		Mapping = fullwidth-stop
+%		Mapping = fullwidth-stop
 	]
 	\setCJKfamilyfont{宋体}{FZShuSong-Z01}
 	\setCJKfamilyfont{楷体}{FZKai-Z03}
 	\setCJKfamilyfont{黑体}{FZHei-B01}
 	\setCJKfamilyfont{仿宋}{FZFangSong-Z02}
 
+%% LuaLaTeX 下的句号处理
+\catcode`\。 = \active
+\newcommand{。}{．}
 
 %% 调用 Unicode OpenType 数学字体
 \usepackage{unicode-math}
@@ -388,7 +391,7 @@
 %\let\tc=\tensor
 \newcommand{\tc}[2]{\tensor{#1}{#2}}
 %% 矩阵(Matrix)
-\newcommand{\Mat}[1]{\SYMBOL{#1}}
+\newcommand{\Mat}[1]{\symbfup{#1}}
 %% 置换(Permutation)
 \newcommand{\Perm}[1]{\SYMBOL{#1}}
 
