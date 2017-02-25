@@ -88,45 +88,48 @@
 	% 错误 ×
 	\newcommand{\xmark}{\ding{55}}
 
-%% 调用 Unicode OpenType 数学字体
-\usepackage{unicode-math}
-	\setmathfont{xits-math.otf}[math-style = ISO, bold-style = ISO]
-% 加粗使用 \symbf{}
-% 直立希腊字母：\uppi 等
-
 %% 中文文字处理
-\usepackage[UTF8, heading = true]{ctex}
+%BUG：20170225 似乎必须在 `unicode-math' 之前
+\usepackage[UTF8, heading = true, fontset = none]{ctex}
 %	\pagestyle{fancy} % draft 下禁用
 	\pagestyle{plain}
 	\ctexset{
-		section/format+ = {\normalfont\sffamily\CJKfamily{黑体}},
-		subsection/format+ = {\normalfont\sffamily\CJKfamily{黑体}},
+		section/format+ = {\normalfont\sffamily},
+		subsection/format+ = {\normalfont\sffamily}
+		% draft 下禁用（注意上一行的逗号）
 		% 目录名称
-		contentsname = {目 \quad 录},
+%		contentsname = {目 \quad 录},
 		% 目录格式
-		subsection/tocline = {\CJKfamily{楷体} \CTEXnumberline{#1}#2}
+%		subsection/tocline = {\CJKfamily{楷体} \CTEXnumberline{#1}#2}
 	}
 	% 重定义右页眉格式
 	\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
 
 %% XeTeX 下 CJK 文字处理
-\usepackage{xeCJK}
-	\setCJKmainfont{方正书宋_GBK}[
-		BoldFont = 方正黑体_GBK, ItalicFont = 方正楷体_GBK,
+%\usepackage{xeCJK}
+	\setCJKmainfont{FZShuSong-Z01}[
+		BoldFont = FZHei-B01, ItalicFont = FZKai-Z03,
 		Mapping = fullwidth-stop
 	]
-	\setCJKsansfont{方正黑体_GBK}[
-		BoldFont = 方正黑体_GBK, ItalicFont = 方正黑体_GBK,
+	\setCJKsansfont{FZHei-B01}[
+		BoldFont = FZHei-B01, ItalicFont = FZHei-B01,
 		Mapping = fullwidth-stop
 	]
-	\setCJKmonofont{方正仿宋_GBK}[
-		BoldFont = 方正仿宋_GBK, ItalicFont = 方正楷体_GBK,
+	\setCJKmonofont{FZFangSong-Z02}[
+		BoldFont = FZFangSong-Z02, ItalicFont = FZKai-Z03,
 		Mapping = fullwidth-stop
 	]
-	\setCJKfamilyfont{宋体}{方正书宋_GBK}
-	\setCJKfamilyfont{楷体}{方正楷体_GBK}
-	\setCJKfamilyfont{黑体}{方正黑体_GBK}
-	\setCJKfamilyfont{仿宋}{方正仿宋_GBK}
+	\setCJKfamilyfont{宋体}{FZShuSong-Z01}
+	\setCJKfamilyfont{楷体}{FZKai-Z03}
+	\setCJKfamilyfont{黑体}{FZHei-B01}
+	\setCJKfamilyfont{仿宋}{FZFangSong-Z02}
+
+
+%% 调用 Unicode OpenType 数学字体
+\usepackage{unicode-math}
+	\setmathfont{xits-math.otf}[math-style = ISO, bold-style = ISO]
+% 加粗使用 \symbf{}
+% 直立希腊字母：\uppi 等
 
 %% 脚注增强版
 \usepackage[stable, perpage, bottom]{footmisc}

@@ -13,6 +13,7 @@ $m+1$ 维 Euclid 空间中的 $m$ 维曲面 $\V{\Sigma}(\V{x})$，
 			=\mqty[\Sigma^1 \\ \vdots \\ \Sigma^m \\ \Sigma^{m+1}](\V{x})
 			\in\Rm*} \fullstop
 \end{equation}
+式中的 $\domD{\V{x}}$ 代表\emphB{参数域}。
 
 \begin{figure}[h]
 	\centering
@@ -30,6 +31,7 @@ $m+1$ 维 Euclid 空间中的 $m$ 维曲面 $\V{\Sigma}(\V{x})$，
 			\cdots,\,\pdv{\V{\Sigma}}{x^m}] (\V{x})
 	\defeq\mqty[\V{g}_1,\,\cdots,\,\V{g}_m] (\V{x})
 		\in\realR^{(m+1)\times m} \comma
+	\label{eq:曲面映照的Jacobi矩阵}
 \end{equation}
 式中，
 \begin{equation}
@@ -134,7 +136,7 @@ $\qty{\V{g}^i(\V{x})}^{m+1}_{i=1}$，
 	=\Mat{I}_{m+1} \fullstop
 	\label{eq:曲面局部基_对偶关系_矩阵形式}
 \end{equation}
-为了表述的清晰，在这里以及之后的一小段我们将用拉丁字母 $i$、$j$
+为了表述的清晰，在本小节我们将用拉丁字母 $i$、$j$
 代表指标 1 到 $m+1$，而用希腊字母 $\mu$、$\nu$ 代表指标 1 到 $m$。
 
 按照分块矩阵的计算法则，显然有
@@ -243,3 +245,57 @@ $\Tspace{\V{\Sigma}}{\V{x}}
 \begin{equation}
 	\V{g}^{m+1}(\V{x})=\V{g}_{m+1}(\V{x})=\V{n}(\V{x}) \fullstop
 \end{equation}
+
+\subsection{曲面上的曲线}
+首先要在参数域 $\domD{\V{x}}$ 中定义曲线：
+\begin{equation}
+	\mmap{\V{\Gamma}_\V{x}(t)}{[a,\,b]\ni t}
+		{\V{\Gamma}_\V{x}(t)
+			=\mqty[\Gamma_\V{x}^1(t) \\ \vdots \\ \Gamma_\V{x}^m(t)]
+			=\mqty[x^1(t) \\ \vdots \\ x^m(t)]
+				\in\domD{\V{x}}\in\Rm} \fullstop
+\end{equation}
+这里用下标 $\V{x}$ 表示参数域。
+于是，曲面（物理域）上的曲线就可以表示为
+$\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
+\begin{equation}
+	\mmap{\V{\Gamma}_\V{\Sigma}(t)}{[a,\,b]\ni t}
+		{\V{\Gamma}_\V{\Sigma}(t)
+			\defeq\V{\Sigma}\comp\V{\Gamma}_\V{x}(t)
+			=\V{\Sigma}\qty\big[\V{x}(t)] \in\Rm*} \fullstop
+\end{equation}
+类似地，下标 $\V{\Sigma}$ 表示曲面。
+
+下面计算曲面上曲线的切向量：
+\begin{align}
+	\dv{\V{\Gamma}_\V{\Sigma}}{t} (t)
+	=\JacobiD{\V{\Gamma}_\V{\Sigma}} (t)
+%	\intertext{，可有}
+	&=\JacobiD{\V{\Sigma}} \qty\big(\V{x}(t))
+		\vdp \JacobiD{\V{\Gamma}_\V{x}} (t) \notag
+	\intertext{上面一个等号利用了\emphB{复合映照的可微性定理}。
+		再根据式~\eqref{eq:曲面映照的Jacobi矩阵}，
+		$\V{\Sigma}(\V{x})$ 的 Jacobi 矩阵由（前 $m$ 个）
+		局部协变基组成，而 $\V{\Gamma}_\V{x} (t)$ 的 Jacobi
+		矩阵又可以直接写出来，于是}
+	&=\mqty[\V{g}_1 \qty\big(\V{x}(t)),\,\cdots,\,
+			\V{g}_m \qty\big(\V{x}(t))] \,
+		\mqty[\dot{x}^1(t) \\ \vdots \\ \dot{x}^m(t)] \notag \\
+	&=\dot{x}^i(t) \, \V{g}_i\qty\big(\V{x}(t)) \fullstop
+\end{align}
+不用忘记按照 Einstein 求和约定对哑标 $i$ 进行求和\footnote{
+	$i$ 的取值范围是 1 到 $m$。
+	前一小节关于字母的约定这里没有采用。}。可以发现，
+\begin{equation}
+	\dv{\V{\Gamma}_\V{\Sigma}}{t} (t)
+	=\dot{x}^i(t) \, \V{g}_i\qty\big(\V{x}(t))
+		\in\Tspace{\V{\Sigma}}{\V{x}}
+			=\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \comma
+\end{equation}
+说明曲面上所有曲线的切向量都落在该曲面的切空间中。
+
+在\emphB{体积上}的张量场场论中，如果非要使用典则基，也并非不可；
+但在\emphB{曲面上}的张量场场论中，曲面上的局部基却是完全无法
+被典则基所取代的。如果使用典则基，自变量的微小误差，
+就会使得像点落在曲面之外。这在工业设计领域将是不可接受的。
+\myPROBLEM[2017-02-25]{见 12-曲面定义及其切空间-Part 02.flv 最后}
