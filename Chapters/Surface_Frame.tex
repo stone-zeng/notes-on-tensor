@@ -298,7 +298,8 @@ $\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
 \myPROBLEM[2017-02-25]{见 12-曲面定义及其切空间-Part 02.flv 最后}
 
 \section{度量张量与曲率张量}
-\subsection{两种基本形式}
+\label{sec:度量张量与曲率张量}
+\subsection{第一基本形式；度量张量}
 曲面的\emphA{第一基本形式}指切空间中的内积，即
 \begin{equation}
 	g_{\mu\nu}\defeq\ipb[\Rm*]{\V{g}_\mu}{\V{g}_\nu} \comma
@@ -341,14 +342,56 @@ $\xi^\mu=0\in\realR$，$\V{\xi}=\V{0}\in\Rm$。
 这就证明了 $\Mat{G}$ 的正定性。
 \end{myProof}
 
-以后我们的讨论都只考虑正则点的情况，
-这相当于体积上张量场场论中\emphB{微分同胚}的条件。
+在曲面上的张量场场论中，我们以后的所有讨论都将只考虑处在正则点处的
+情况。这相当于体积上张量场场论中\emphB{微分同胚}的条件。
 
 \blankline
 
+利用曲面上的第一基本形式，可以定义\emphA{度量张量}：
+\begin{equation}
+	\T{G} \defeq g_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu
+	\in\Tensors[\Rm*]{2} \comma
+\end{equation}
+其中的 $g_{\mu\nu}\defeq\ipb[\Rm*]{\V{g}_\mu}{\V{g}_\nu}$。
+
+把 $\V{g}_\nu$ 用局部\emphB{逆变}基展开，可有
+\begin{align}
+	\V{g}_\nu &=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_i}\,\V{g}^i \notag \\
+	&=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_\mu}\,\V{g}^\mu
+		+\ipb[\Rm*]{\V{g}_\nu}{\V{n}}\,\V{n} \notag
+	\intertext{由于 $\V{g}_\nu$ 与 $\V{n}$ 正交，因此}
+	&=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_\mu}\,\V{g}^\mu
+	=g_{\mu\nu}\,\V{g}^\mu \fullstop
+	\label{eq:曲面局部基_指标升降_1}
+\end{align}
+同理，还可以知道
+\begin{equation}
+	\V{g}^\nu=g^{\mu\nu}\,\V{g}_\mu \fullstop
+	\label{eq:曲面局部基_指标升降_2}
+\end{equation}
+此处的 $g^{\mu\nu}$ 自然等于 $\ipb[\Rm*]{\V{g}^\mu}{\V{g}^\nu}$。
+
+据此，我们便可以获得度量张量的其他形式：
+\begin{mySubEq}
+	\begin{align}
+		\T{G} &\defeq g_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu \notag
+		\intertext{代入 \eqref{eq:曲面局部基_指标升降_1}~式，
+			并利用 Krnonecker δ，可得}
+		&=\V{g}_\nu\tp\V{g}^\nu
+		=\KroneckerDelta{\mu}{\nu}\,\V{g}_\mu\tp\V{g}^\nu \fullstop
+		\intertext{这是\emphB{混合分量}。代入
+			\eqref{eq:曲面局部基_指标升降_2}~式，又有}
+		\T{G} &= \V{g}_\nu\tp\V{g}^\nu
+		=g^{\mu\nu}\,\V{g}_\mu\tp\V{g}_\nu \fullstop
+	\end{align}
+\end{mySubEq}
+这是\emphB{逆变分量}。
+
+\subsection{第二基本形式；曲率张量}
 曲面的\emphA{第二基本形式}定义为
 \begin{equation}
 	b_{\mu\nu}\defeq\ipb[\Rm*]{\pdv{\V{g}_\nu}{x^\mu}}{\V{n}} \fullstop
+	\label{eq:曲面的第二基本形式}
 \end{equation}
 与第一基本形式类似，矩阵 $\Mat{B}\coloneq\mqty[b_{\mu\nu}]$
 也是对称的（但未必正定）。
@@ -368,6 +411,35 @@ $\xi^\mu=0\in\realR$，$\V{\xi}=\V{0}\in\Rm$。
 
 \blankline
 
+对应于第二基本形式，我们可以定义\emphA{曲率张量}：
+\begin{equation}
+	\T{K} \defeq b_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu
+	\in\Tensors[\Rm*]{2} \comma
+\end{equation}
+式中的 $b_{\mu\nu}$ 由 \eqref{eq:曲面的第二基本形式}~式定义。
+
+引入 $\tc{b}{^\mu_\nu}\coloneq g^{\mu\sigma} b_{\sigma\nu}$，
+即可获得曲率张量在混合分量下的表示：
+\begin{mySubEq}
+	\begin{align}
+		\T{K} &\defeq b_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu \notag \\
+		&=b_{\mu\nu}\,g^{\mu\sigma}\,\V{g}_\sigma\tp\V{g}^\nu \notag \\
+		&=\tc{b}{^\sigma_\nu}\,\V{g}_\sigma\tp\V{g}^\nu
+		=\tc{b}{^\mu_\nu}\,\V{g}_\mu\tp\V{g}^\nu \semicolon
+		\intertext{再引入 $b^{\mu\nu}
+			\coloneq g^{\nu\sigma} \tc{b}{^\mu_\sigma}$，
+			又可获得逆变分量下的表示：}
+		\T{K}&=\tc{b}{^\mu_\nu}\,\V{g}_\mu\tp\V{g}^\nu \notag \\
+		&=\tc{b}{^\mu_\nu}\,g^{\nu\sigma}\,
+			\V{g}_\mu\tp\V{g}^\sigma \notag \\
+		&=b^{\mu\sigma}\,\V{g}_\mu\tp\V{g}_\sigma
+		=b^{\mu\nu}\,\V{g}_\mu\tp\V{g}_\nu \fullstop
+	\end{align}
+\end{mySubEq}
+以上推导中两式的最后一步都只是哑标的简单替换。
+
+\section{Gauss 曲率与平均曲率}
+\subsection{定义}
 根据线性代数中的\emphA{同时对角化}定理，
 \myPROBLEM[2017-02-25]{同时对角化}
 由于第一、第二基本形式的表示矩阵 $\Mat{G}$ 和 $\Mat{B}$
@@ -396,51 +468,51 @@ $\Mat{G}^{-1}\Mat{B}$ 的行列式：
 \begin{equation}
 	K_G\defeq\prod_{\mu=1}^{m} \lambda_\mu = \det(\Mat{G}^{-1}\Mat{B})
 	=\frac{\det\Mat{B}}{\det\Mat{G}} \semicolon
+	\label{eq:Gauss曲率定义}
 \end{equation}
 定义\emphA{平均曲率} $H$ 为特征值之和的平均值，
 它等于矩阵的迹除以 $m$：
 \begin{equation}
 	H\defeq\frac{1}{m}\sum_{\mu=1}^{m} \lambda_\mu
 	=\frac{\tr(\Mat{G}^{-1}\Mat{B})}{m} \fullstop
+	\label{eq:平均曲率定义}
 \end{equation}
 
-\subsection{度量张量与曲率张量}
-曲面上的\emphA{度量张量} $\T{G}$ 定义为
+我们知道度量满足
 \begin{equation}
-	\T{G} \defeq g_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu
-	\in\Tensors[\Rm*]{2} \comma
+	g_{\mu\sigma}\,g^{\sigma\nu}=\KroneckerDelta{\nu}{\mu} \fullstop
 \end{equation}
-式中的 $g_{\mu\nu}\defeq\ipb[\Rm*]{\V{g}_\mu}{\V{g}_\nu}$。
-
-把 $\V{g}_\nu$ 用局部\emphB{逆变}基展开，可有
-\begin{align}
-	\V{g}_\nu &=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_i}\,\V{g}^i \notag \\
-	&=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_\mu}\,\V{g}^\mu
-		+\ipb[\Rm*]{\V{g}_\nu}{\V{n}}\,\V{n} \notag
-	\intertext{由于 $\V{g}_\nu$ 与 $\V{n}$ 正交，因此}
-	&=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_\mu}\,\V{g}^\mu
-	=g_{\mu\nu}\,\V{g}^\mu \fullstop
-	\label{eq:曲面局部基_指标升降_1}
-\end{align}
-同理，还可以知道
+考虑到 $\Mat{G}=\mqty[g_{\mu\nu}]$ 以及
+$\Mat{B}=\mqty[b_{\mu\nu}]$，便有
 \begin{equation}
-	\V{g}^\nu=g^{\mu\nu}\,\V{g}_\mu \fullstop
-	\label{eq:曲面局部基_指标升降_2}
+	\Mat{G}^{-1}=\mqty[g_{\mu\nu}]^{-1}=\mqty[g^{\mu\nu}] \comma
 \end{equation}
-此处的 $g^{\mu\nu}$ 自然等于 $\ipb[\Rm*]{\V{g}^\mu}{\V{g}^\nu}$。
+即度量张量逆变分量对应的矩阵。因此
+\begin{equation}
+	\Mat{G}^{-1}\Mat{B}=\mqty[g^{\mu\nu}]\mqty[b_{\mu\nu}]
+	=\mqty[g^{\mu\sigma}\,b_{\sigma\nu}]
+	=\mqty[\tc{b}{^\mu_\nu}] \fullstop
+\end{equation}
+这是曲率张量\emphB{混合分量}所对应的矩阵。此时，
+$\lambda_\mu$ 就成为了矩阵 $\mqty[\tc{b}{^\mu_\nu}]$ 的特征值，
+而两种曲率也可以分别写成
+\begin{braceEq}
+	K_G &=\det(\Mat{G}^{-1}\Mat{B})
+		=\det\mqty[\tc{b}{^\mu_\nu}] \comma \\
+	H &=\frac{1}{m}\frac{\tr(\Mat{G}^{-1}\Mat{B})}{m}
+		=\frac{1}{m}\tr\mqty[\tc{b}{^\mu_\nu}]
+		=\frac{1}{m}\cdot\tc{b}{^\mu_\mu}
+		=\frac{1}{m}\qty\Big(\tc{b}{^1_1}+\tc{b}{^2_2}
+			+\cdots+\tc{b}{^p_p}) \fullstop
+\end{braceEq}
+第二式的展开是根据了矩阵迹的定义。
 
-于是我们便可以获得度量张量的其他形式：
-\begin{mySubEq}
-	\begin{align}
-		\T{G} &\defeq g_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu \notag
-		\intertext{代入 \eqref{eq:曲面局部基_指标升降_1}~式，
-			并利用 Krnonecker δ，可得}
-		&=\V{g}_\nu\tp\V{g}^\nu
-		=\KroneckerDelta{\mu}{\nu}\,\V{g}_\mu\tp\V{g}^\nu \fullstop
-		\intertext{这是\emphB{混合分量}。代入
-			\eqref{eq:曲面局部基_指标升降_2}~式，又有}
-		\T{G} &= \V{g}_\nu\tp\V{g}^\nu
-		=g^{\mu\nu}\,\V{g}_\mu\tp\V{g}_\nu \fullstop
-	\end{align}
-\end{mySubEq}
-这是\emphB{逆变分量}。
+\subsection{Gauss 映照}
+下面我们将以三维空间中的曲面为例，描述其弯曲程度。
+在曲面 $\V{\Sigma}$ 上的每一点处，都定义有法向量 $\V{n}$。
+如果 $\V{\Sigma}$ 是平坦的，则各法向量就应当平行分布，
+类似于成片的小树林；而如果 $\V{\Sigma}$ 是弯曲的，
+那么这些法向量就会分散开去，好比刺猬身上张开的刺。
+
+为了定量地刻画（三维空间中）曲面的弯曲程度，Gauss 构造了一个从该曲面
+到二维球面（当然也是位于三维空间中）的映照。
