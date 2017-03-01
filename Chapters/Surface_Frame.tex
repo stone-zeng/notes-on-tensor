@@ -35,32 +35,34 @@ $m+1$ 维 Euclid 空间中的 $m$ 维曲面 $\V{\Sigma}(\V{x})$，
 \end{equation}
 式中，
 \begin{equation}
-	\V{g}_i(\V{x}) \defeq \pdv{\V{\Sigma}}{x^i} (\V{x})
+	\V{g}_\mu(\V{x}) \defeq \pdv{\V{\Sigma}}{x^\mu} (\V{x})
 	=\lim_{\lambda\to 0}
-		\frac{\V{\Sigma}\qty(\V{x}+\lambda\,\V{e}_i)-\V{\Sigma}(\V{x})}
+		\frac{\V{\Sigma}\qty(\V{x}+\lambda\,\V{e}_\mu)-\V{\Sigma}(\V{x})}
 		{\lambda} \in\Rm* \fullstop
 \end{equation}
 需要注意，与微分同胚不同，此处的 Jacobi 矩阵\emphB{不是}方阵。
+为了表述的清晰，本章中我们将用拉丁字母 $i$、$j$
+代表指标 1 到 $m+1$，而用希腊字母 $\mu$、$\nu$ 代表指标 1 到 $m$。
 
-为了考察 $\V{g}_i(\V{x})$ 的几何意义，
+为了考察 $\V{g}_\mu(\V{x})$ 的几何意义，
 我们在定义域空间 $\domD{\V{x}}\in\Rm$ 中过点 $\V{x}$ 作出
-$x^i$-线，其上的任意一点均可表示为 $\V{x}+\lambda\,\V{e}_i$。
+$x^\mu$-线，其上的任意一点均可表示为 $\V{x}+\lambda\,\V{e}_\mu$。
 在映照 $\V{\Sigma}(\V{x})$ 的作用下，
-点 $\V{x}$ 和 $\V{x}+\lambda\,\V{e}_i$ 分别被映照到值域空间
+点 $\V{x}$ 和 $\V{x}+\lambda\,\V{e}_\mu$ 分别被映照到值域空间
 $\domD{\V{\Sigma}}$ 中的点 $\Sigma(\V{x})$ 和
-$\Sigma\qty(\V{x}+\lambda\,\V{e}_i)$。同时，$x^i$-线也被映照到
+$\Sigma\qty(\V{x}+\lambda\,\V{e}_\mu)$。同时，$x^\mu$-线也被映照到
 $\domD{\V{\Sigma}}$ 中，成为一条曲线。
 
 当 $\lambda\to 0$ 时，
 \begin{equation}
-	\frac{\V{\Sigma}\qty(\V{x}+\lambda\,\V{e}_i)-\V{\Sigma}(\V{x})}
+	\frac{\V{\Sigma}\qty(\V{x}+\lambda\,\V{e}_\mu)-\V{\Sigma}(\V{x})}
 	{\lambda}
-	\to \pdv{\V{\Sigma}}{x^i} (\V{x}) = \V{g}_i(\V{x}) \comma
+	\to \pdv{\V{\Sigma}}{x^\mu} (\V{x}) = \V{g}_\mu(\V{x}) \comma
 \end{equation}
-这便是值域空间中 $x^i$-线的\emphA{切向量}。
+这便是值域空间中 $x^\mu$-线的\emphA{切向量}。
 切向量张成了 $\Rm*$ 空间的一个子空间：
 \begin{equation}
-	\vspan\qty{\V{g}_i(\V{x})}^m_{i=1} \subset\Rm* \fullstop
+	\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \subset\Rm* \fullstop
 \end{equation}
 
 如果要构造一组基，必须使其满足\emphB{线性无关}的要求。
@@ -70,12 +72,12 @@ $\domD{\V{\Sigma}}$ 中，成为一条曲线。
 	\rank\JacobiD{\V{\Sigma}}(\V{x})=m
 \end{equation*}
 的点 $\V{x}\in\domD{\V{x}}$ 或 $\V{\Sigma}(\V{x})\in\Rm*$。
-在正则点处，便有 $\qty{\V{g}_i(\V{x})}^m_{i=1} \subset\Rm*$
+在正则点处，便有 $\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \subset\Rm*$
 线性无关。此时，切向量张成的空间称为\emphA{切空间}
 （或\emphA{切平面}），记作
 \begin{equation}
 	\Tspace{\V{\Sigma}}{\V{x}}
-	\defeq\vspan\qty{\V{g}_i(\V{x})}^m_{i=1} \subset\Rm*
+	\defeq\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \subset\Rm*
 	\fullstop
 \end{equation}
 切空间 $\Tspace{\V{\Sigma}}{\V{x}}$ 的维度是 $m$。
@@ -136,8 +138,6 @@ $\qty{\V{g}^i(\V{x})}^{m+1}_{i=1}$，
 	=\Mat{I}_{m+1} \fullstop
 	\label{eq:曲面局部基_对偶关系_矩阵形式}
 \end{equation}
-为了表述的清晰，在本小节我们将用拉丁字母 $i$、$j$
-代表指标 1 到 $m+1$，而用希腊字母 $\mu$、$\nu$ 代表指标 1 到 $m$。
 
 按照分块矩阵的计算法则，显然有
 $\qty(\V{g}^{m+1})\trans \vdp \V{n}=1$。于是
@@ -270,7 +270,6 @@ $\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
 \begin{align}
 	\dv{\V{\Gamma}_\V{\Sigma}}{t} (t)
 	=\JacobiD{\V{\Gamma}_\V{\Sigma}} (t)
-%	\intertext{，可有}
 	&=\JacobiD{\V{\Sigma}} \qty\big(\V{x}(t))
 		\vdp \JacobiD{\V{\Gamma}_\V{x}} (t) \notag
 	\intertext{上面一个等号利用了\emphB{复合映照的可微性定理}。
@@ -281,14 +280,12 @@ $\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
 	&=\mqty[\V{g}_1 \qty\big(\V{x}(t)),\,\cdots,\,
 			\V{g}_m \qty\big(\V{x}(t))] \,
 		\mqty[\dot{x}^1(t) \\ \vdots \\ \dot{x}^m(t)] \notag \\
-	&=\dot{x}^i(t) \, \V{g}_i\qty\big(\V{x}(t)) \fullstop
+	&=\dot{x}^\mu(t) \, \V{g}_\mu\qty\big(\V{x}(t)) \fullstop
 \end{align}
-不用忘记按照 Einstein 求和约定对哑标 $i$ 进行求和\footnote{
-	$i$ 的取值范围是 1 到 $m$。
-	前一小节关于字母的约定就把它忘掉吧。}。可以发现，
+不用忘记按照 Einstein 求和约定对哑标 $\mu$ 进行求和。可以发现，
 \begin{equation}
 	\dv{\V{\Gamma}_\V{\Sigma}}{t} (t)
-	=\dot{x}^i(t) \, \V{g}_i\qty\big(\V{x}(t))
+	=\dot{x}^\mu(t) \, \V{g}_\mu\qty\big(\V{x}(t))
 		\in\Tspace{\V{\Sigma}}{\V{x}}
 			=\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \comma
 \end{equation}
@@ -301,14 +298,14 @@ $\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
 \myPROBLEM[2017-02-25]{见 12-曲面定义及其切空间-Part 02.flv 最后}
 
 \section{度量张量与曲率张量}
-\subsection{基本形式}
+\subsection{两种基本形式}
 曲面的\emphA{第一基本形式}指切空间中的内积，即
 \begin{equation}
-	g_{ij}\defeq\ipb[\Rm*]{\V{g}_i}{\V{g}_j} \comma
+	g_{\mu\nu}\defeq\ipb[\Rm*]{\V{g}_\mu}{\V{g}_\nu} \comma
 \end{equation}
-其中的 $i$、$j$ 表示 1 到 $m$。$g_{ij}$ 构成的矩阵为
+其中的 $\mu$、$\nu$ 表示 1 到 $m$。$g_{\mu\nu}$ 构成的矩阵为
 \begin{equation}
-	\Mat{G}\coloneq\mqty[g_{ij}]
+	\Mat{G}\coloneq\mqty[g_{\mu\nu}]
 	=\mqty[g_{11} & \cdots & g_{1m} \\
 		\vdots & \ddots & \vdots \\
 		g_{m1} & \cdots & g_{mm}]
@@ -317,7 +314,7 @@ $\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
 	=(\JacobiD{\V{\Sigma}})\trans \vdp (\JacobiD{\V{\Sigma}})
 	\fullstop
 \end{equation}
-根据内积的对称性，$g_{ij}=g_{ji}$，于是矩阵 $\Mat{G}$
+根据内积的对称性，$g_{\mu\nu}=g_{\nu\mu}$，于是矩阵 $\Mat{G}$
 是一个对称阵。除此以外，在正则点处，它还是一个\emphB{正定}矩阵。
 
 \begin{myProof}
@@ -334,12 +331,13 @@ $\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
 		\vdp \qty\Big[\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}] \notag \\
 	&=\norm[\Rm*]{\vphantom{0^0}
 			\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}}^2
-	=\norm[\Rm*]{\xi^i\,\V{g}_i}^2 \geqslant 0 \fullstop
+	=\norm[\Rm*]{\xi^\mu\,\V{g}_\mu}^2 \geqslant 0 \fullstop
 \end{align}
 这样，若有 $\V{\xi}\trans\,\Mat{G}\,\V{\xi}=0$，则必有
-$\xi^i\,\V{g}_i=0$。而在正则点处，
-$\qty{\V{g}_i(\V{x})}^m_{i=1} \subset\Rm*$ 线性无关。于是 $\V{g}_i$
-的系数就全都为零，即 $\xi^i=0\in\realR$，$\V{\xi}=\V{0}\in\Rm$。
+$\xi^\mu\,\V{g}_\mu=0$。而在正则点处，
+$\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \subset\Rm*$ 线性无关。
+于是 $\V{g}_\mu$ 的系数就全都为零，即
+$\xi^\mu=0\in\realR$，$\V{\xi}=\V{0}\in\Rm$。
 这就证明了 $\Mat{G}$ 的正定性。
 \end{myProof}
 
@@ -350,22 +348,22 @@ $\qty{\V{g}_i(\V{x})}^m_{i=1} \subset\Rm*$ 线性无关。于是 $\V{g}_i$
 
 曲面的\emphA{第二基本形式}定义为
 \begin{equation}
-	b_{ij}\defeq\ipb[\Rm*]{\pdv{\V{g}_j}{x^i}}{\V{n}} \fullstop
+	b_{\mu\nu}\defeq\ipb[\Rm*]{\pdv{\V{g}_\nu}{x^\mu}}{\V{n}} \fullstop
 \end{equation}
-与第一基本形式类似，矩阵 $\Mat{B}\coloneq\mqty[b_{ij}]$
+与第一基本形式类似，矩阵 $\Mat{B}\coloneq\mqty[b_{\mu\nu}]$
 也是对称的（但未必正定）。
 
 \begin{myProof}
 对称性的根源在于二阶偏导数可以交换次序：
 \begin{align}
-	\pdv{\V{g}_j}{x^i}
-	=\pdv{x^i} \qty(\pdv{\V{\Sigma}}{x^j})
-	=\pdv{\V{\Sigma}}{x^i}{x^j}
-	=\pdv{\V{\Sigma}}{x^j}{x^i}
-	=\pdv{x^j} \qty(\pdv{\V{\Sigma}}{x^i})
-	=\pdv{\V{g}_i}{x^j} \fullstop
+	\pdv{\V{g}_\nu}{x^\mu}
+	=\pdv{x^\mu} \qty(\pdv{\V{\Sigma}}{x^\nu})
+	=\pdv{\V{\Sigma}}{x^\mu}{x^\nu}
+	=\pdv{\V{\Sigma}}{x^\nu}{x^\mu}
+	=\pdv{x^\nu} \qty(\pdv{\V{\Sigma}}{x^\mu})
+	=\pdv{\V{g}_\mu}{x^\nu} \fullstop
 \end{align}
-于是 $b_{ij}=b_{ji}$。
+于是 $b_{\mu\nu}=b_{\nu\mu}$。
 \end{myProof}
 
 \blankline
@@ -380,15 +378,15 @@ $\qty{\V{g}_i(\V{x})}^m_{i=1} \subset\Rm*$ 线性无关。于是 $\V{g}_i$
 	\Mat{S}\trans\Mat{B}\Mat{S}
 	=\mqty[\dmat{\lambda_1,\ddots,\lambda_m}] \comma
 \end{equation}
-其中的 $\lambda_i$ 满足
+其中的 $\lambda_\mu$ 满足
 \begin{equation}
-	\det(\Mat{B}-\lambda_i\,\Mat{G})=0 \fullstop
+	\det(\Mat{B}-\lambda_\mu\,\Mat{G})=0 \fullstop
 \end{equation}
 根据行列式的性质，可知
 \begin{equation}
-	\det(\Mat{G}^{-1}\Mat{B}-\lambda_i\,\Mat{I}_m)
-	=\det\qty\Big[\Mat{G}^{-1} \qty(\Mat{B}-\lambda_i\,\Mat{G})]
-	=\det(\Mat{G}^{-1}) \cdot \det(\Mat{B}-\lambda_i\,\Mat{G})
+	\det(\Mat{G}^{-1}\Mat{B}-\lambda_\mu\,\Mat{I}_m)
+	=\det\qty\Big[\Mat{G}^{-1} \qty(\Mat{B}-\lambda_\mu\,\Mat{G})]
+	=\det(\Mat{G}^{-1}) \cdot \det(\Mat{B}-\lambda_\mu\,\Mat{G})
 	=\det(\Mat{G}^{-1}) \cdot 0 = 0 \fullstop
 \end{equation}
 这说明 $\lambda_i$ 是矩阵 $\Mat{G}^{-1}\Mat{B}$ 的特征值。
@@ -396,14 +394,53 @@ $\qty{\V{g}_i(\V{x})}^m_{i=1} \subset\Rm*$ 线性无关。于是 $\V{g}_i$
 定义\emphA{Gauss 曲率} $K_G$ 为这些特征值之积，它等于矩阵
 $\Mat{G}^{-1}\Mat{B}$ 的行列式：
 \begin{equation}
-	K_G\defeq\prod_{i=1}^{m} \lambda_i = \det(\Mat{G}^{-1}\Mat{B})
+	K_G\defeq\prod_{\mu=1}^{m} \lambda_\mu = \det(\Mat{G}^{-1}\Mat{B})
 	=\frac{\det\Mat{B}}{\det\Mat{G}} \semicolon
 \end{equation}
 定义\emphA{平均曲率} $H$ 为特征值之和的平均值，
 它等于矩阵的迹除以 $m$：
 \begin{equation}
-	H\defeq\frac{1}{m}\sum_{i=1}^{m} \lambda_i
+	H\defeq\frac{1}{m}\sum_{\mu=1}^{m} \lambda_\mu
 	=\frac{\tr(\Mat{G}^{-1}\Mat{B})}{m} \fullstop
 \end{equation}
 
 \subsection{度量张量与曲率张量}
+曲面上的\emphA{度量张量} $\T{G}$ 定义为
+\begin{equation}
+	\T{G} \defeq g_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu
+	\in\Tensors[\Rm*]{2} \comma
+\end{equation}
+式中的 $g_{\mu\nu}\defeq\ipb[\Rm*]{\V{g}_\mu}{\V{g}_\nu}$。
+
+把 $\V{g}_\nu$ 用局部\emphB{逆变}基展开，可有
+\begin{align}
+	\V{g}_\nu &=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_i}\,\V{g}^i \notag \\
+	&=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_\mu}\,\V{g}^\mu
+		+\ipb[\Rm*]{\V{g}_\nu}{\V{n}}\,\V{n} \notag
+	\intertext{由于 $\V{g}_\nu$ 与 $\V{n}$ 正交，因此}
+	&=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_\mu}\,\V{g}^\mu
+	=g_{\mu\nu}\,\V{g}^\mu \fullstop
+	\label{eq:曲面局部基_指标升降_1}
+\end{align}
+同理，还可以知道
+\begin{equation}
+	\V{g}^\nu=g^{\mu\nu}\,\V{g}_\mu \fullstop
+	\label{eq:曲面局部基_指标升降_2}
+\end{equation}
+此处的 $g^{\mu\nu}$ 自然等于 $\ipb[\Rm*]{\V{g}^\mu}{\V{g}^\nu}$。
+
+于是我们便可以获得度量张量的其他形式：
+\begin{mySubEq}
+	\begin{align}
+		\T{G} &\defeq g_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu \notag
+		\intertext{代入 \eqref{eq:曲面局部基_指标升降_1}~式，
+			并利用 Krnonecker δ，可得}
+		&=\V{g}_\nu\tp\V{g}^\nu
+		=\KroneckerDelta{\mu}{\nu}\,\V{g}_\mu\tp\V{g}^\nu \fullstop
+		\intertext{这是\emphB{混合分量}。代入
+			\eqref{eq:曲面局部基_指标升降_2}~式，又有}
+		\T{G} &= \V{g}_\nu\tp\V{g}^\nu
+		=g^{\mu\nu}\,\V{g}_\mu\tp\V{g}_\nu \fullstop
+	\end{align}
+\end{mySubEq}
+这是\emphB{逆变分量}。
