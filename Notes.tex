@@ -6,7 +6,7 @@
 
 \documentclass{book}
 
-\newcommand*{\DEBUG}{}%
+%\newcommand*{\DEBUG}{}%
 \ifdefined\DEBUG
 	\relax
 \else
@@ -45,18 +45,21 @@
 		marginparwidth = 1.8 cm
 	}
 
-%% 页面格式
 \ifdefined\RELEASE
+	%% 页面格式
 	\usepackage{fancyhdr}
-	% 清除所有页面格式
-	\fancyhf{}
-	% 页眉(见 `ctex' 下的重定义)
-	\fancyhead[EL]{\nouppercase{\CJKfamily{楷体} \leftmark}}
-	\fancyhead[OR]{\nouppercase{\CJKfamily{楷体} \rightmark}}
-	% 页脚
-	\fancyfoot[C]{\thepage}
-	% 关闭横线显示
-	\renewcommand{\headrulewidth}{0 pt}
+		% 清除所有页面格式
+		\fancyhf{}
+		% 页眉(见 `ctex' 下的重定义)
+		\fancyhead[EL]{\nouppercase{\CJKfamily{楷体} \leftmark}}
+		\fancyhead[OR]{\nouppercase{\CJKfamily{楷体} \rightmark}}
+		% 页脚
+		\fancyfoot[C]{\thepage}
+		% 关闭横线显示
+		\renewcommand{\headrulewidth}{0 pt}
+
+	%% 空白页不显示页眉页脚
+	\usepackage{emptypage}
 \fi
 
 %% 设置标题
@@ -223,6 +226,9 @@
 	\newcommand{\idx}[1]{\index{#1}}
 	%HACK：20170114 缺字，改用浪纹连接符代替
 	\newcommand{\idxOmit}{\linkTilde}
+\else
+	\newcommand{\idx}[1]{}
+	\newcommand{\idxOmit}{}
 \fi
 
 %% 索引格式(draft 下禁用)
@@ -577,45 +583,48 @@
 	\end{center}
 \end{titlepage}}
 
+%TODO——选择编译
+\ifdefined\DEBUG
+	\includeonly{Chapters/Surface_Frame}
+	\renewcommand{\part}[1]{}
+	\renewcommand{\chapter}[1]{}
+\fi
 
 \begin{document}
-%\frontmatter
-%	\myTitle
-%	
-%	\tableofcontents
-%	
-%\mainmatter
-%	\part{张量代数}
-%		\chapter{张量的定义及表示}
-%			\input{Chapters/Definition_Tensor}
-%		
-%		\chapter{张量的运算性质}
-%			\input{Chapters/Algebric_Properties_of_Tensor}
-%	
-%	\part{体积上的张量场场论}
-%		\chapter{微分同胚（曲线坐标系）} \label{chap:微分同胚}
-%			\input{Chapters/Curvilinear_Coordinats}
-%		
-%		\chapter{张量场可微性}
-%			\input{Chapters/Derivative_on_Tensor_Field}
-%		
-%		\chapter{非完整基理论}
-%			\input{Chapters/Nonholonomic_Basis_Theory}
-%		
-%		\chapter{曲线上的标架及其运动方程}
-%			\input{Chapters/Curve_Frame}
-%	
-%	\part{曲面上的张量场场论}
-		\chapter{曲面与曲面标架}
-			\input{Chapters/Surface_Frame}
-%	
+\ifdefined\RELEASE
+	\frontmatter
+		\myTitle
+		\tableofcontents
+		
+	\mainmatter
+\fi
+
+	\part{张量代数}
+		% 张量的定义及表示
+		\include{Chapters/Tensor_Definition}
+		% 张量的运算性质
+		\include{Chapters/Tensor_Properties}
+	
+	\part{体积上的张量场场论}
+		% 微分同胚（曲线坐标系）
+		\include{Chapters/Diffeomorphism}
+		% 张量场可微性
+		\include{Chapters/Tensor_Field_Derivative}
+		% 非完整基理论
+		\include{Chapters/Nonholonomic_Basis_Theory}
+		% 曲线上的标架及其运动方程
+		\include{Chapters/Curve_Frame}
+	
+	\part{曲面上的张量场场论}
+		% 曲面与曲面标架
+		\include{Chapters/Surface_Frame}
+	
 %	\part{微分流形}
-%	
-%\backmatter
-%	\listoffixmes
-%	\printindex
-%	{
-%		\small
-%		%\bibliography{Reference}
-%	}
+	
+\ifdefined\RELEASE
+	\backmatter
+		\listoffixmes
+		\printindex
+%		\bibliography{Reference}
+\fi
 \end{document}

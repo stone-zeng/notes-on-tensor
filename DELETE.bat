@@ -2,6 +2,7 @@
 
 DEL *.aux
 DEL *.log
+DEL Chapters\*.aux
 
 REM del *.bbl
 REM del *.blg
