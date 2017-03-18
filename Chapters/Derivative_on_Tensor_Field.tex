@@ -865,6 +865,7 @@ $h^\nu\V{g}_\nu\qty(\V{x}_0)$ 的点积。接下来讨论该项的意义。
 \end{align}
 根据定义，$\LeviCivita{^i_j^k}=\det[\V{g}^i,\,\V{g}_j,\,\V{g}^k]$。
 因此
+\myPROBLEM*[2017-03-18]{det 命令写法不一致}，
 \begin{align}
 	\pdv{\LeviCivita{^i_j^k}}{x^\mu}
 	&=\pdv{x^\mu} \qty\bigg(
@@ -946,8 +947,10 @@ $\coD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 	&=\qty\Bigg(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}
 			+\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
 			-\ChrB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
-			+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s})\,\tc{\Psi}{_p^q}
-		+\tc{\Phi}{^i_j^k}\,\qty\Bigg(\pdv{\tc{\Psi}{_p^q}}{x^\mu}
+			+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s}) \,
+		\tc{\Psi}{_p^q} \notag \\*
+	&\alspace\phantom{} +\tc{\Phi}{^i_j^k} \,
+		\qty\Bigg(\pdv{\tc{\Psi}{_p^q}}{x^\mu}
 			-\ChrB{\mu}{p}{s} \tc{\Psi}{_s^q}
 			+\ChrB{\mu}{s}{q} \tc{\Psi}{_p^s}) \notag \\
 	&\defeq \qty\Big(\coD{\mu}{\tc{\Phi}{^i_j^k}})\,\tc{\Psi}{_p^q}
@@ -966,8 +969,10 @@ $\coD{\mu}{\LeviCivita{^{ijk}}}$ 等，也都等于零。
 	&=\qty\Bigg(\pdv{\tc{\Phi}{^i_j^k}}{x^\mu}
 			+\ChrB{\mu}{s}{i} \tc{\Phi}{^s_j^k}
 			-\ChrB{\mu}{j}{s} \tc{\Phi}{^i_s^k}
-			+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s})\,\tc{\Psi}{_k^q}
-		+\tc{\Phi}{^i_j^k}\,\qty\Bigg(\pdv{\tc{\Psi}{_k^q}}{x^\mu}
+			+\ChrB{\mu}{s}{k} \tc{\Phi}{^i_j^s}) \,
+		\tc{\Psi}{_k^q} \notag \\*
+	&\alspace\phantom{} +\tc{\Phi}{^i_j^k} \,
+		\qty\Bigg(\pdv{\tc{\Psi}{_k^q}}{x^\mu}
 			-\ChrB{\mu}{k}{s} \tc{\Psi}{_s^q}
 			+\ChrB{\mu}{s}{q} \tc{\Psi}{_k^s}) \notag \\
 	&=\pdv{x^\mu} \qty\Big(\tc{\Phi}{^i_j^k}\,\tc{\Psi}{_k^q})

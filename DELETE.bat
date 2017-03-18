@@ -15,4 +15,8 @@ DEL *.thm
 
 DEL *.toc
 
+DEL *.lox
+
+DEL *.find
+
 REM DEL *.listing

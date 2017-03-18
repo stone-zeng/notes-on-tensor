@@ -298,8 +298,9 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 \end{align}
 该式与 \eqref{eq:张量分量偏导数_非完整基形式运算}~式相加，得
 \begin{align}
-	\coD{(\mu)}{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
-	&\defeq \pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}%
+	&\alspace \coD{(\mu)}{\tc{\Phi}
+		{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
+	\defeq \pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}%
 		{x^{(\mu)}}
 		+\ChrB{(\mu)}{(\sigma)}{(\alpha)}
 			\tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}}
@@ -400,8 +401,9 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 \end{align}
 代回式~\eqref{eq:非完整基形式理论推导}，有
 \begin{align}
-	\coD{(\mu)}{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
-	&=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+	&\alspace \coD{(\mu)}{\tc{\Phi}
+		{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
+	=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
 			\pdv{\tc{\Phi}{^i_j^k}}{x^l}
 		+c^l_{(\mu)} \tc{\Phi}{^i_j^k}
 		\qty(\vphantom{\pdv{c^{(\gamma)}_k}{x^l}}
@@ -752,7 +754,7 @@ $\ChrB{\alpha}{\beta}{\gamma}$。
 对于单位正交基，其度量满足
 \begin{equation}
 	g^{(\alpha)(\beta)}=g_{(\alpha)(\beta)}
-	=\KroneckerDelta*{\alpha}{\beta} \comma
+	=\KroneckerDelta*{\alpha\beta} \comma
 \end{equation}
 因此协变基与逆变基只好相同。
 这样一来，协变分量与逆变分量也就没有了差别，我们统一用尖括号标出。

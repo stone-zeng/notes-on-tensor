@@ -12,8 +12,12 @@ $m+1$ 维 Euclid 空间中的 $m$ 维曲面 $\V{\Sigma}(\V{x})$，
 		{\V{\Sigma}(\V{x})
 			=\mqty[\Sigma^1 \\ \vdots \\ \Sigma^m \\ \Sigma^{m+1}](\V{x})
 			\in\Rm*} \fullstop
+	\label{eq:曲面的定义}
 \end{equation}
 式中的 $\domD{\V{x}}$ 代表\emphB{参数域}。
+
+为了表述的清晰，本章中我们将用拉丁字母 $i$、$j$
+代表指标 1 到 $m+1$，而用希腊字母 $\mu$、$\nu$ 代表指标 1 到 $m$。
 
 \begin{figure}[h]
 	\centering
@@ -39,10 +43,9 @@ $m+1$ 维 Euclid 空间中的 $m$ 维曲面 $\V{\Sigma}(\V{x})$，
 	=\lim_{\lambda\to 0}
 		\frac{\V{\Sigma}\qty(\V{x}+\lambda\,\V{e}_\mu)-\V{\Sigma}(\V{x})}
 		{\lambda} \in\Rm* \fullstop
+	\label{eq:曲面切向量}
 \end{equation}
 需要注意，与微分同胚不同，此处的 Jacobi 矩阵\emphB{不是}方阵。
-为了表述的清晰，本章中我们将用拉丁字母 $i$、$j$
-代表指标 1 到 $m+1$，而用希腊字母 $\mu$、$\nu$ 代表指标 1 到 $m$。
 
 为了考察 $\V{g}_\mu(\V{x})$ 的几何意义，
 我们在定义域空间 $\domD{\V{x}}\in\Rm$ 中过点 $\V{x}$ 作出
@@ -303,6 +306,7 @@ $\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
 曲面的\emphA{第一基本形式}指切空间中的内积，即
 \begin{equation}
 	g_{\mu\nu}\defeq\ipb[\Rm*]{\V{g}_\mu}{\V{g}_\nu} \comma
+	\label{eq:曲面第一基本形式}
 \end{equation}
 其中的 $\mu$、$\nu$ 表示 1 到 $m$。$g_{\mu\nu}$ 构成的矩阵为
 \begin{equation}
@@ -438,8 +442,19 @@ $\xi^\mu=0\in\realR$，$\V{\xi}=\V{0}\in\Rm$。
 \end{mySubEq}
 以上推导中两式的最后一步都只是哑标的简单替换。
 
+至于另一个混合分量 $\tc{b}{_\mu^\nu}$，根据对称性，可知
+\begin{equation}
+	\tc{b}{_\mu^\nu}
+	\coloneq g_{\mu\sigma} b^{\sigma\nu}
+	=g_{\mu\sigma} b^{\nu\sigma}=\tc{b}{^\nu_\mu} \fullstop
+\end{equation}
+所以我们把曲率张量 $\T{K}$ 的混合分量统一记为 $b^\mu_\nu$，即
+\begin{equation}
+	b^\mu_\nu \coloneq \tc{b}{^\mu_\nu} = \tc{b}{_\nu^\mu} \fullstop
+\end{equation}
+
 \section{Gauss 曲率与平均曲率}
-\subsection{定义}
+\subsection{定义} \label{subsec:Gauss曲率与平均曲率_定义}
 根据线性代数中的\emphA{同时对角化}定理，
 \myPROBLEM[2017-02-25]{同时对角化}
 由于第一、第二基本形式的表示矩阵 $\Mat{G}$ 和 $\Mat{B}$
@@ -463,10 +478,10 @@ $\xi^\mu=0\in\realR$，$\V{\xi}=\V{0}\in\Rm$。
 \end{equation}
 这说明 $\lambda_i$ 是矩阵 $\Mat{G}^{-1}\Mat{B}$ 的特征值。
 
-定义\emphA{Gauss 曲率} $K_G$ 为这些特征值之积，它等于矩阵
+定义\emphA{Gauss 曲率} $\KG$ 为这些特征值之积，它等于矩阵
 $\Mat{G}^{-1}\Mat{B}$ 的行列式：
 \begin{equation}
-	K_G\defeq\prod_{\mu=1}^{m} \lambda_\mu = \det(\Mat{G}^{-1}\Mat{B})
+	\KG\defeq\prod_{\mu=1}^{m} \lambda_\mu = \det(\Mat{G}^{-1}\Mat{B})
 	=\frac{\det\Mat{B}}{\det\Mat{G}} \semicolon
 	\label{eq:Gauss曲率定义}
 \end{equation}
@@ -491,28 +506,219 @@ $\Mat{B}=\mqty[b_{\mu\nu}]$，便有
 \begin{equation}
 	\Mat{G}^{-1}\Mat{B}=\mqty[g^{\mu\nu}]\mqty[b_{\mu\nu}]
 	=\mqty[g^{\mu\sigma}\,b_{\sigma\nu}]
-	=\mqty[\tc{b}{^\mu_\nu}] \fullstop
+	=\mqty[b^\mu_\nu] \fullstop
 \end{equation}
 这是曲率张量\emphB{混合分量}所对应的矩阵。此时，
-$\lambda_\mu$ 就成为了矩阵 $\mqty[\tc{b}{^\mu_\nu}]$ 的特征值，
+$\lambda_\mu$ 就成为了矩阵 $\mqty[b^\mu_\nu]$ 的特征值，
 而两种曲率也可以分别写成
 \begin{braceEq}
-	K_G &=\det(\Mat{G}^{-1}\Mat{B})
-		=\det\mqty[\tc{b}{^\mu_\nu}] \comma \\
+	\KG &=\det(\Mat{G}^{-1}\Mat{B})
+		=\det\!\mqty[b^\mu_\nu] \comma \label{eq:Gauss曲率_表示} \\
 	H &=\frac{1}{m}\frac{\tr(\Mat{G}^{-1}\Mat{B})}{m}
-		=\frac{1}{m}\tr\mqty[\tc{b}{^\mu_\nu}]
-		=\frac{1}{m}\cdot\tc{b}{^\mu_\mu}
-		=\frac{1}{m}\qty\Big(\tc{b}{^1_1}+\tc{b}{^2_2}
-			+\cdots+\tc{b}{^p_p}) \fullstop
+		=\frac{1}{m}\tr\mqty[b^\mu_\nu]
+		=\frac{1}{m}\cdot b^\mu_\nu
+		=\frac{1}{m}\qty\Big(b^1_1+b^2_2+\cdots+b^p_p) \fullstop
+		\label{eq:平均曲率_表示}
 \end{braceEq}
 第二式的展开是根据了矩阵迹的定义。
 
 \subsection{Gauss 映照}
-下面我们将以三维空间中的曲面为例，描述其弯曲程度。
-在曲面 $\V{\Sigma}$ 上的每一点处，都定义有法向量 $\V{n}$。
-如果 $\V{\Sigma}$ 是平坦的，则各法向量就应当平行分布，
-类似于成片的小树林；而如果 $\V{\Sigma}$ 是弯曲的，
-那么这些法向量就会分散开去，好比刺猬身上张开的刺。
+以下叙述将按照三维空间中的曲面展开，当然若要推广到 $\Rm$
+空间也并非难事。
 
-为了定量地刻画（三维空间中）曲面的弯曲程度，Gauss 构造了一个从该曲面
-到二维球面（当然也是位于三维空间中）的映照。
+设曲面 $\V{\Sigma}(\V{x})$ 上的每一点处都定义有法向量
+$\V{n}(\V{x})$。如果 $\V{\Sigma}(\V{x})$ 是平坦的，
+则各法向量就应当平行分布，类似于成片的小树林；
+而如果 $\V{\Sigma}(\V{x})$ 是弯曲的，那么这些法向量就会分散开去，
+好比刺猬身上张开的刺。
+
+为了定量刻画曲面 $\V{\Sigma}(\V{x})$ 的弯曲程度，Gauss 构造了一个从
+该曲面到二维单位球面 $S^2$ 的映照，
+即\emphA{Gauss 映照}：\idx{Gauss 映照}
+在 $P\in\V{\Sigma}$ 点附近取一小块邻域 $\Sigma (\V{x})$%
+\footnote{注意“$\Sigma$”加粗与否代表着不同的意思。
+	加粗的“$\V{\Sigma}$” 代表曲面（此处是一个 $\realR^2$ 到 $\realR^3$
+	的映照）；而不加粗的 “$\Sigma$”则仅仅表示曲面上的一块区域，
+	不存在映照的概念。对于 $\sigma$ 也是一样的。
+	另外注意 $\V{x}\in\domD{\V{x}}$ 是参数域中的点，可以表示为
+	$\V{x}=\qty[x^1,\,x^2]\trans$。}，
+将该邻域中每一点处的单位法向量 $\V{n}$ \emphB{平行移动}到单位球所在的
+坐标系中，并使该向量的起点位于坐标系原点。
+这样，向量的终点就会落在单位球面 $S^2$ 上，并扫出一片区域
+$\sigma (\V{x})$。如前文所言，由于曲面弯曲程度的不同，
+这些法向量的张开程度也就不同。而这种“张开程度”，则可以用区域
+$\sigma (\V{x})$ 相对于球心的立体角来描述。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics{Images/Gauss_Mapping.PNG}
+	\caption{Gauss 映照}
+	\label{fig:Gauss映照}
+\end{figure}
+
+由此，曲面 $\V{\Sigma}$ 在 $P$ 点附近的弯曲程度就可以定义为
+\begin{equation}
+	K=\lim_{\norm[]{\Sigma (\V{x})}\to 0}
+		\frac{\norm[]{\sigma(\V{x})}}{\norm[]{\Sigma(\V{x})}} \fullstop
+	\label{eq:Gauss曲率计算式_1}
+\end{equation}
+式中的 $\norm[]{\Sigma (\V{x})}$ 和 $\norm[]{\sigma(\V{x})}$
+分别表示 $\Sigma (\V{x})$ 和 $\sigma (\V{x})$ 两块区域的面积。
+
+下面我们来计算 $K$。根据式~\eqref{eq:曲面的定义}，
+曲面 $\V{\Sigma}(\V{x})$ 可以用如下映照表示：
+\begin{equation}
+	\mmap{\V{\Sigma}(\V{x})}
+		{\domD{\V{x}}\ni\V{x}=\mqty[x^1 \\ x^2]}
+		{\V{\Sigma}(\V{x})
+			=\mqty[\Sigma^1 \\ \Sigma^2 \\ \Sigma^3](\V{x}) \in\realR^3}
+		\fullstop
+\end{equation}
+至于球面 $S^2$，它是由单位矢量绕原点旋转而扫出来的。
+对于我们所感兴趣的区域 $\sigma (\V{x})$，单位矢量可以取为从曲面
+$\V{\Sigma}$ 上平行移动过来的法向量 $\V{n}$。
+于是球面 $\V{\sigma}(\V{x})$ （当然只有我们关注的一部分）
+就可以表示为
+\begin{equation}
+	\mmap{\V{\sigma}(\V{x})}
+		{\domD{\V{x}}\ni\V{x}=\mqty[x^1 \\ x^2]}
+		{\V{\sigma}(\V{x})=\V{n}(\V{x})\in\realR^3} \fullstop
+\end{equation}
+
+在 $P$ 点附近，曲面 $\V{\Sigma}(\V{x})$ 可以用平面逼近。于是
+\begin{equation}
+	\norm[]{\Sigma (\V{x})}
+	\approx \norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp
+			\pdv{\V{\Sigma}}{x^2}} \fullstop
+\end{equation}
+同理，球面上区域 $\sigma (\V{x})$ 的面积近似为
+\begin{equation}
+	\norm[]{\sigma (\V{x})}
+	\approx \norm[\realR^3]{\pdv{\V{n}}{x^1} \cp
+			\pdv{\V{n}}{x^2}} \fullstop
+\end{equation}
+代入式~\eqref{eq:Gauss曲率计算式_1}。
+由于我们只探讨正则点处的情形，因此取极限后等号就能够取到：
+\begin{equation}
+	K=\lim_{\norm[]{\Sigma (\V{x})}\to 0}
+		\frac{\norm[]{\sigma(\V{x})}}{\norm[]{\Sigma(\V{x})}}
+	=\frac{\displaystyle \norm[\realR^3]{\pdv{\V{n}}{x^1} \cp
+			\pdv{\V{n}}{x^2}}}
+		{\displaystyle \norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp
+			\pdv{\V{\Sigma}}{x^2}}} \fullstop
+	\label{eq:Gauss曲率计算式_2}
+\end{equation}
+
+考虑一般情况下法向量 $\V{n}$ 的偏导数。该偏导数仍为一个向量，
+因此可以用局部（逆变）基展开：
+\begin{equation}
+	\pdv{\V{n}}{x^\mu}
+	=\ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{g}_\nu}\,\V{g}^\nu
+		+\ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{n}}\,\V{n} \fullstop
+\end{equation}
+式中的第一个内积可以写成
+\begin{align}
+	\ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{g}_\nu}
+	&=\pdv{x^\mu} \ipb[\Rm*]{\V{n}}{\V{g}_\nu}
+		-\ipb[\Rm*]{\V{n}}{\pdv{\V{g}_\nu}{x^\mu}} \notag
+	\intertext{代入 $\ipb[\Rm*]{\V{n}}{\V{g}_\nu}=0$，得}
+	&=-\ipb[\Rm*]{\pdv{\V{g}_\nu}{x^\mu}}{\V{n}}
+	=-b_{\mu\nu} \comma
+\end{align}
+这就是式~\eqref{eq:曲面的第二基本形式} 所定义的曲面第二基本形式；
+第二个内积则等于零：
+\begin{equation}
+	\ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{n}}
+	=\frac{\displaystyle \ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{n}}
+		+\ipb[\Rm*]{\V{n}}{\pdv{\V{n}}{x^\mu}}}{2}
+	=\frac{1}{2} \pdv{x^\mu} \ipb[\Rm*]{{\V{n}}}{{\V{n}}}
+	=\frac{1}{2} \pdv{x^\mu} \norm[\Rm*]{\V{n}}^2
+	=0 \fullstop
+\end{equation}
+所以
+\begin{equation}
+	\pdv{\V{n}}{x^\mu}
+	=-b_{\mu\nu}\,\V{g}^\nu
+	=-b^\tau_\mu\,g_{\tau\nu} \cdot g^{\sigma\nu}\,\V{g}_\sigma
+	=-b^\tau_\mu\,\KroneckerDelta{\tau}{\sigma}\,\V{g}_\sigma
+	=-b^\tau_\mu\,\V{g}_\tau=-b^\nu_\mu\,\V{g}_\nu \fullstop
+\end{equation}
+代回到 \eqref{eq:Gauss曲率计算式_2}~式的分子中去，可得
+\begin{align}
+	\norm[\realR^3]{\pdv{\V{n}}{x^1} \cp \pdv{\V{n}}{x^2}}
+	&=\norm[\realR^3]{\qty(-b^\mu_1\,\V{g}_\mu)
+			\cp \qty(-b^\nu_2\,\V{g}_\nu)} \notag \\
+	&=\norm[\realR^3]{\qty(-b_1^1\,\V{g}_1 - b_1^2\,\V{g}_2)
+			\cp \qty(-b_2^1\,\V{g}_1 - b_2^2\,\V{g}_2)} \notag
+	\intertext{注意到 $\V{g}_1\cp\V{g}_1=\V{g}_2\cp\V{g}_2=0$，于是}
+	&=\norm[\realR^3]{
+			b_1^1 \, b_2^2 \qty(\V{g}_1 \cp \V{g}_2)
+			+b_1^2 \, b_2^1 \qty(\V{g}_2 \cp \V{g}_1)} \notag \\
+	&=\qty(b_1^1 \, b_2^2 - b_1^2 \, b_2^1)
+		\cdot \norm[\realR^3]{\V{g}_1 \cp \V{g}_2} \notag \\
+	&=\det\!\mqty[b_1^1 & b_1^2 \\[2pt] b_2^1 & b_2^2]
+		\cdot \norm[\realR^3]{\V{g}_1 \cp \V{g}_2} \notag \\
+	&=\det\!\mqty[b^\mu_\nu]
+		\cdot \norm[\realR^3]{\V{g}_1 \cp \V{g}_2} \notag
+	\intertext{根据切向量的定义 \eqref{eq:曲面切向量}~式，
+		$\V{g}_\mu=\pdv*{\V{\Sigma}}{x^\mu}\in\realR^3$。所以}
+	&=\det\!\mqty[b^\mu_\nu] \cdot
+		\norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp \pdv{\V{\Sigma}}{x^2}}
+		\comma
+\end{align}
+后面的一部分恰好是 \eqref{eq:Gauss曲率计算式_2}~式的分母。于是
+\begin{equation}
+	K=\det\!\mqty[b^\mu_\nu] \comma
+\end{equation}
+与 \eqref{eq:Gauss曲率_表示}~式相比较便可以看出，
+这里的 $K$ 正是前一小节中所定义的 \emphB{Gauss 曲率} $\KG$。
+
+\blankline
+
+上面的计算过程中，分母最后消去了。当然它的值也可以算出来：
+\begin{equation}
+	\norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp \pdv{\V{\Sigma}}{x^2}}
+	=\norm[\realR^3]{\V{g}_1 \cp \V{g}_2}
+	=\qty(\V{g}_1 \cp \V{g}_2) \vdp \V{n}
+	=\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}] \fullstop
+\end{equation}
+把右边的行列式平方之后可得
+\begin{align}
+	&\mathrel{\phantom{=}}
+		\qty(\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}])^2
+	=\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}] \cdot
+		\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}] \notag
+	\intertext{矩阵转置之后行列式不变：}
+	&=\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}]\trans \cdot
+		\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}]
+	=\det\mqty[\V{g}_1\trans \\[2pt] \V{g}_2\trans \\[2pt]
+			\V{n}\trans] \cdot
+		\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}]
+	=\det \qty\Bigg(
+			\mqty[\V{g}_1\trans \\[2pt] \V{g}_2\trans \\[2pt] \V{n}\trans]
+			\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}] ) \notag \\
+	&=\det\!\mqty[
+			\ipb[\realR^3]{\V{g}_1}{\V{g}_1} &
+			\ipb[\realR^3]{\V{g}_1}{\V{g}_2} &
+			\ipb[\realR^3]{\V{g}_1}{\V{n}} \\
+			\ipb[\realR^3]{\V{g}_2}{\V{g}_1} &
+			\ipb[\realR^3]{\V{g}_2}{\V{g}_2} &
+			\ipb[\realR^3]{\V{g}_2}{\V{n}} \\
+			\ipb[\realR^3]{\V{n}}{\V{g}_1} &
+			\ipb[\realR^3]{\V{n}}{\V{g}_2} &
+			\ipb[\realR^3]{\V{n}}{\V{n}} ] \notag
+	\intertext{根据曲面第一基本形式的定义
+		\eqref{eq:曲面第一基本形式}~式，并利用法向量与切向量正交的性质
+		\eqref{eq:曲面协变基_法向量}~式，可有}
+	&=\det\!\mqty[
+			g_{11} & g_{12} & 0 \\
+			g_{21} & g_{22} & 0 \\
+			0 & 0 & 1 ]
+	=\det\!\mqty[g_{11} & g_{12} \\ g_{21} & g_{22}]
+	=\det\Mat{G} \fullstop
+\end{align}
+式中的 $\Mat{G}$ 就是曲面第一基本形式的表示矩阵。此时，
+\begin{equation}
+	\norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp \pdv{\V{\Sigma}}{x^2}}
+	=\sqrt{\det\Mat{G}} \fullstop
+\end{equation}

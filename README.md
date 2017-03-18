@@ -1,3 +1,3 @@
 # Notes_on_Tensor
 
-LaTeX documents for tensor analysis (Xie Xilin).
+现代张量分析讲义（by 谢锡麟）．

@@ -4,10 +4,14 @@
 %%CODE 代码改进
 %%BUG  如题
 
-%TODO——注意事项
+\documentclass{book}
 
-\documentclass[oneside]{book}
-%\documentclass{book}
+\newcommand*{\DEBUG}{}%
+\ifdefined\DEBUG
+	\relax
+\else
+	\newcommand*{\RELEASE}{}%
+\fi
 
 %TODO——宏查找
 % 见 http://tex.stackexchange.com/a/8523
@@ -41,24 +45,33 @@
 		marginparwidth = 1.8 cm
 	}
 
-%% 页面格式(draft 下禁用)
-%\usepackage{fancyhdr}
-%	% 清除所有页面格式
-%	\fancyhf{}
-%	% 页眉(见 `ctex' 下的重定义)
-%	\fancyhead[EL]{\nouppercase{\CJKfamily{楷体} \leftmark}}
-%	\fancyhead[OR]{\nouppercase{\CJKfamily{楷体} \rightmark}}
-%	% 页脚
-%	\fancyfoot[C]{\thepage}
-%	% 关闭横线显示
-%	\renewcommand{\headrulewidth}{0 pt}
+%% 页面格式
+\ifdefined\RELEASE
+	\usepackage{fancyhdr}
+	% 清除所有页面格式
+	\fancyhf{}
+	% 页眉(见 `ctex' 下的重定义)
+	\fancyhead[EL]{\nouppercase{\CJKfamily{楷体} \leftmark}}
+	\fancyhead[OR]{\nouppercase{\CJKfamily{楷体} \rightmark}}
+	% 页脚
+	\fancyfoot[C]{\thepage}
+	% 关闭横线显示
+	\renewcommand{\headrulewidth}{0 pt}
+\fi
 
 %% 设置标题
 %\usepackage{titlesec}
 
+%% 图形
+\ifdefined\DEBUG
+	\usepackage[draft]{graphicx}
+\else
+	\usepackage{graphicx}
+\fi
+
 %% 常规字体选择
 % 与 `graphicx' 冲突
-\PassOptionsToPackage{draft}{graphicx}
+%\PassOptionsToPackage{draft}{graphicx}
 \usepackage[no-math]{fontspec}
 	\setmainfont{XITS}%[SlantedFont = XITS Italic]
 	\setsansfont{TeX Gyre Heros}%[SlantedFont = TeX Gyre Heros Italic]
@@ -91,34 +104,32 @@
 %% 中文文字处理
 %BUG：20170225 似乎必须在 `unicode-math' 之前
 \usepackage[UTF8, heading = true, fontset = none]{ctex}
-%	\pagestyle{fancy} % draft 下禁用
-	\pagestyle{plain}
 	\ctexset{
 		section/format+ = {\normalfont\sffamily},
 		subsection/format+ = {\normalfont\sffamily}
-		% draft 下禁用（注意上一行的逗号）
-		% 目录名称
-%		contentsname = {目 \quad 录},
-		% 目录格式
-%		subsection/tocline = {\CJKfamily{楷体} \CTEXnumberline{#1}#2}
 	}
-	% 重定义右页眉格式
-	\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
+	\ifdefined\DEBUG
+		\pagestyle{plain}
+	\else
+		\ctexset{
+			% 目录名称
+			contentsname = {目 \quad 录},
+			% 目录格式
+			subsection/tocline = {\CJKfamily{楷体} \CTEXnumberline{#1}#2}
+		}
+		\pagestyle{fancy}
+		% 重定义右页眉格式
+		\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
+	\fi
 
 %% XeTeX 下 CJK 文字处理
 %\usepackage{xeCJK}
-	\setCJKmainfont{FZShuSong-Z01}[
-		BoldFont = FZHei-B01, ItalicFont = FZKai-Z03,
-%		Mapping = fullwidth-stop
-	]
-	\setCJKsansfont{FZHei-B01}[
-		BoldFont = FZHei-B01, ItalicFont = FZHei-B01,
-%		Mapping = fullwidth-stop
-	]
-	\setCJKmonofont{FZFangSong-Z02}[
-		BoldFont = FZFangSong-Z02, ItalicFont = FZKai-Z03,
-%		Mapping = fullwidth-stop
-	]
+	\setCJKmainfont{FZShuSong-Z01}%
+		[BoldFont = FZHei-B01, ItalicFont = FZKai-Z03]
+	\setCJKsansfont{FZHei-B01}%
+		[BoldFont = FZHei-B01, ItalicFont = FZHei-B01]
+	\setCJKmonofont{FZFangSong-Z02}%
+		[BoldFont = FZFangSong-Z02, ItalicFont = FZKai-Z03]
 	\setCJKfamilyfont{宋体}{FZShuSong-Z01}
 	\setCJKfamilyfont{楷体}{FZKai-Z03}
 	\setCJKfamilyfont{黑体}{FZHei-B01}
@@ -143,16 +154,16 @@
 	%TODO：20160705 脚注不用上标
 	%HACK：20160709 见 http://tex.stackexchange.com/q/19844
 	\makeatletter
-	\newlength{\fnBreite}
-	\renewcommand{\@makefntext}[1]{%
-		\settowidth{\fnBreite}{\footnotesize\@thefnmark.i}%
-		\protect\footnotesize\upshape%
-		\setlength{\@tempdima}{\columnwidth}%
-		\addtolength{\@tempdima}{-\fnBreite}%
-		\makebox[\fnBreite][l]{\@thefnmark\phantom{  }}%
-		\parbox[t]{\@tempdima}%
-		{\everypar{\hspace*{1em}}\hspace*{-1em}\upshape#1}%
-	}
+		\newlength{\fnBreite}
+		\renewcommand{\@makefntext}[1]{%
+			\settowidth{\fnBreite}{\footnotesize\@thefnmark.i}%
+			\protect\footnotesize\upshape%
+			\setlength{\@tempdima}{\columnwidth}%
+			\addtolength{\@tempdima}{-\fnBreite}%
+			\makebox[\fnBreite][l]{\@thefnmark\phantom{  }}%
+			\parbox[t]{\@tempdima}%
+			{\everypar{\hspace*{1em}}\hspace*{-1em}\upshape#1}%
+		}
 	\makeatother
 
 %% 颜色
@@ -164,10 +175,6 @@
 %% 表格虚线
 % 需要 `tabularx' 宏包
 \usepackage{arydshln}
-
-%% 图形
-% 已被 `fontspec' 调用
-%\usepackage{graphicx}
 
 %% 绘图
 %\usepackage{tikz}
@@ -205,34 +212,43 @@
 
 %% 目录内容控制(draft 下禁用)
 %% 必须在 `idxlayout' 之前
-%\usepackage[nottoc]{tocbibind}
+\ifdefined\RELEASE
+	\usepackage[nottoc]{tocbibind}
+\fi
 
 %% 索引(draft 下禁用)
-%\usepackage{makeidx}
-%	\makeindex
-%	\newcommand{\idx}[1]{\index{#1}}
-%	%HACK：20170114 缺字，改用浪纹连接符代替
-%	\newcommand{\idxOmit}{\linkTilde}
+\ifdefined\RELEASE
+	\usepackage{makeidx}
+	\makeindex
+	\newcommand{\idx}[1]{\index{#1}}
+	%HACK：20170114 缺字，改用浪纹连接符代替
+	\newcommand{\idxOmit}{\linkTilde}
+\fi
 
 %% 索引格式(draft 下禁用)
-%\usepackage[
-%		hangindent = 6 em,
-%		subindent = 2 em,
-%		subsubindent = 4 em,
-%		% 加入目录
-%		totoc = true
-%	]{idxlayout}
+\ifdefined\RELEASE
+	\usepackage[
+			hangindent = 6 em,
+			subindent = 2 em,
+			subsubindent = 4 em,
+			% 加入目录
+			totoc = true
+		]{idxlayout}
+\fi
 
 %% 标记引用
-\usepackage[draft, color]{showkeys}
+\ifdefined\DEBUG
+	\usepackage[draft, color]{showkeys}
 	\definecolor{refkey}{named}{pink}
 	\definecolor{labelkey}{named}{lime}
+\fi
 
 %% 错误标注
 \usepackage[draft]{fixme}
 	\fxsetup{author = }
 	\fxusetheme{color}
 	\newcommand{\myPROBLEM}[2][2016-09-01]{\fxnote{#1\\#2}}
+	\WithSuffix\newcommand\myPROBLEM*[2][2016-09-01]{\fxwarning{#1\\#2}}
 	\renewcommand{\englishlistfixmename}{问题列表}
 %	\definecolor{fxnote}{named}{red}
 
@@ -410,6 +426,8 @@
 \newcommand{\ChrB}[3]{\tc{\Gamma}{^{#3}_{#1#2}}}
 %% 单位正交基下的 Christoffel 符号
 \newcommand{\ChrU}[3]{\Gamma\midscript{\!\orthIdx{#1#2#3}}}
+%% Gauss 曲率
+\newcommand{\KG}{K_\text{G}}
 
 %--------算子--------%
 %% 置换算子(Permutation Operator)
@@ -535,9 +553,11 @@
 %\renewcommand{\intertext}[1]{\shortintertext{\textit{#1}}}
 
 %TODO——标题页
-%\title{现代张量分析讲义}
-%\author{复旦大学　谢锡麟} % 此处为全角空格
-%\date{\today}
+\ifdefined\RELEASE
+	\title{现代张量分析讲义}
+	\author{复旦大学　谢锡麟} % 此处为全角空格
+	\date{\today}
+\fi
 
 \makeatletter
 	\newcommand{\HUGE}{\@setfontsize\Huge{45}{54}}
@@ -588,14 +608,14 @@
 %	\part{曲面上的张量场场论}
 		\chapter{曲面与曲面标架}
 			\input{Chapters/Surface_Frame}
-	
+%	
 %	\part{微分流形}
 %	
 %\backmatter
-	\listoffixmes
+%	\listoffixmes
 %	\printindex
 %	{
 %		\small
-%		\bibliography{Reference}
+%		%\bibliography{Reference}
 %	}
 \end{document}
