@@ -8,12 +8,12 @@
 $m+1$ 维 Euclid 空间中的 $m$ 维曲面 $\V{\Sigma}(\V{x})$，
 都可以用如下的向量值映照表示：
 \begin{equation}
-	\mmap{\V{\Sigma}(\V{x})}
-		{\domD{\V{x}}\ni\V{x}=\mqty[x^1 \\ \vdots \\ x^m]}
-		{\V{\Sigma}(\V{x})
-			=\mqty[\Sigma^1 \\ \vdots \\ \Sigma^m \\ \Sigma^{m+1}](\V{x})
-			\in\Rm*} \fullstop
-	\label{eq:曲面的定义}
+  \mmap{\V{\Sigma}(\V{x})}
+    {\domD{\V{x}}\ni\V{x}=\mqty[x^1 \\ \vdots \\ x^m]}
+    {\V{\Sigma}(\V{x})
+      =\mqty[\Sigma^1 \\ \vdots \\ \Sigma^m \\ \Sigma^{m+1}](\V{x})
+      \in\Rm*} \fullstop
+  \label{eq:曲面的定义}
 \end{equation}
 式中的 $\domD{\V{x}}$ 代表\emphB{参数域}。
 
@@ -21,30 +21,30 @@ $m+1$ 维 Euclid 空间中的 $m$ 维曲面 $\V{\Sigma}(\V{x})$，
 代表指标 1 到 $m+1$，而用希腊字母 $\mu$、$\nu$ 代表指标 1 到 $m$。
 
 \begin{figure}[h]
-	\centering
-	\includegraphics{Images/Surface_Definition.PNG}
-	\caption{$m+1$ 维 Euclid 空间中 $m$ 维曲面的定义}
-	\label{fig:曲面的定义}
+  \centering
+  \includegraphics{Images/Surface_Definition.PNG}
+  \caption{$m+1$ 维 Euclid 空间中 $m$ 维曲面的定义}
+  \label{fig:曲面的定义}
 \end{figure}
 
 \subsection{切向量与切空间}
 循着与体积上张量场场论（见第\ref{chap:微分同胚}章）相同的思路，
 我们先来计算 $\V{\Sigma}(\V{x})$ 的 Jacobi 矩阵：
 \begin{equation}
-	\JacobiD{\V{\Sigma}}(\V{x})
-	=\mqty[\displaystyle \pdv{\V{\Sigma}}{x^1},\,
-			\cdots,\,\pdv{\V{\Sigma}}{x^m}] (\V{x})
-	\defeq\mqty[\V{g}_1,\,\cdots,\,\V{g}_m] (\V{x})
-		\in\realR^{(m+1)\times m} \comma
-	\label{eq:曲面映照的Jacobi矩阵}
+  \JacobiD{\V{\Sigma}}(\V{x})
+  =\mqty[\displaystyle \pdv{\V{\Sigma}}{x^1},\,
+      \cdots,\,\pdv{\V{\Sigma}}{x^m}] (\V{x})
+  \defeq\mqty[\V{g}_1,\,\cdots,\,\V{g}_m] (\V{x})
+    \in\realR^{(m+1)\times m} \comma
+  \label{eq:曲面映照的Jacobi矩阵}
 \end{equation}
 式中，
 \begin{equation}
-	\V{g}_\mu(\V{x}) \defeq \pdv{\V{\Sigma}}{x^\mu} (\V{x})
-	=\lim_{\lambda\to 0}
-		\frac{\V{\Sigma}\qty(\V{x}+\lambda\,\V{e}_\mu)-\V{\Sigma}(\V{x})}
-		{\lambda} \in\Rm* \fullstop
-	\label{eq:曲面切向量}
+  \V{g}_\mu(\V{x}) \defeq \pdv{\V{\Sigma}}{x^\mu} (\V{x})
+  =\lim_{\lambda\to 0}
+    \frac{\V{\Sigma}\qty(\V{x}+\lambda\,\V{e}_\mu)-\V{\Sigma}(\V{x})}
+    {\lambda} \in\Rm* \fullstop
+  \label{eq:曲面切向量}
 \end{equation}
 需要注意，与微分同胚不同，此处的 Jacobi 矩阵\emphB{不是}方阵。
 
@@ -59,30 +59,30 @@ $\domD{\V{\Sigma}}$ 中，成为一条曲线。
 
 当 $\lambda\to 0$ 时，
 \begin{equation}
-	\frac{\V{\Sigma}\qty(\V{x}+\lambda\,\V{e}_\mu)-\V{\Sigma}(\V{x})}
-	{\lambda}
-	\to \pdv{\V{\Sigma}}{x^\mu} (\V{x}) = \V{g}_\mu(\V{x}) \comma
+  \frac{\V{\Sigma}\qty(\V{x}+\lambda\,\V{e}_\mu)-\V{\Sigma}(\V{x})}
+  {\lambda}
+  \to \pdv{\V{\Sigma}}{x^\mu} (\V{x}) = \V{g}_\mu(\V{x}) \comma
 \end{equation}
 这便是值域空间中 $x^\mu$-线的\emphA{切向量}。
 切向量张成了 $\Rm*$ 空间的一个子空间：
 \begin{equation}
-	\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \subset\Rm* \fullstop
+  \vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \subset\Rm* \fullstop
 \end{equation}
 
 如果要构造一组基，必须使其满足\emphB{线性无关}的要求。
 由此，我们引出\emphA{正则点}的定义，
 它指能够使 Jacobi 矩阵 $\JacobiD{\V{\Sigma}}(\V{x})$ 列满秩，即
 \begin{equation*}
-	\rank\JacobiD{\V{\Sigma}}(\V{x})=m
+  \rank\JacobiD{\V{\Sigma}}(\V{x})=m
 \end{equation*}
 的点 $\V{x}\in\domD{\V{x}}$ 或 $\V{\Sigma}(\V{x})\in\Rm*$。
 在正则点处，便有 $\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \subset\Rm*$
 线性无关。此时，切向量张成的空间称为\emphA{切空间}
 （或\emphA{切平面}），记作
 \begin{equation}
-	\Tspace{\V{\Sigma}}{\V{x}}
-	\defeq\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \subset\Rm*
-	\fullstop
+  \Tspace{\V{\Sigma}}{\V{x}}
+  \defeq\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \subset\Rm*
+  \fullstop
 \end{equation}
 切空间 $\Tspace{\V{\Sigma}}{\V{x}}$ 的维度是 $m$。
 
@@ -90,11 +90,11 @@ $\domD{\V{\Sigma}}$ 中，成为一条曲线。
 设位于点 $\V{x}$ 处的 $m+1$ 维单位向量 $\V{n}(\V{x})$ 满足
 $\norm[\Rm*]{\V{n}(\V{x})}=1$ 且
 \begin{equation}
-	(\JacobiD{\V{\Sigma}})\trans(\V{x}) \vdp \V{n}(\V{x})
-	=\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]\trans (\V{x}) \vdp \V{n}(\V{x})
-	=\mqty[\qty(\V{g}_1)\trans \\ \vdots \\ \qty(\V{g}_m)\trans]
-		\vdp \V{n}(\V{x}) = \V{0}\in\Rm \fullstop
-	\label{eq:曲面协变基_法向量}
+  (\JacobiD{\V{\Sigma}})\trans(\V{x}) \vdp \V{n}(\V{x})
+  =\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]\trans (\V{x}) \vdp \V{n}(\V{x})
+  =\mqty[\qty(\V{g}_1)\trans \\ \vdots \\ \qty(\V{g}_m)\trans]
+    \vdp \V{n}(\V{x}) = \V{0}\in\Rm \fullstop
+  \label{eq:曲面协变基_法向量}
 \end{equation}
 当 $\JacobiD{\V{\Sigma}}(\V{x})$ 列满秩（即 $\V{x}$ 是正则点）时，
 根据线性代数中的\emphB{基扩张定理}
@@ -103,9 +103,9 @@ $\norm[\Rm*]{\V{n}(\V{x})}=1$ 且
 
 令 $\V{g}_{m+1}\defeq\V{n}(\V{x})$，则
 \begin{equation}
-	\qty{\V{g}_i(\V{x})}^{m+1}_{i=1}
-	=\qty{\pdv{\V{\Sigma}}{x^1} (\V{x}),\,\cdots,\,
-		\pdv{\V{\Sigma}}{x^m} (\V{x}),\,\V{n}(\V{x})}
+  \qty{\V{g}_i(\V{x})}^{m+1}_{i=1}
+  =\qty{\pdv{\V{\Sigma}}{x^1} (\V{x}),\,\cdots,\,
+    \pdv{\V{\Sigma}}{x^m} (\V{x}),\,\V{n}(\V{x})}
 \end{equation}
 是 $\Rm*$ 空间中的一组基。
 它的指标都在下面，因此是一组\emphA{局部协变基}。
@@ -115,183 +115,183 @@ $\norm[\Rm*]{\V{n}(\V{x})}=1$ 且
 接下来研究对应的\emphA{局部逆变基}
 $\qty{\V{g}^i(\V{x})}^{m+1}_{i=1}$，
 它与局部协变基共同满足\emphA{对偶关系}：\footnote{
-	以下在不引起混淆的地方将省去“$(\V{x})$”，
-	但仍不要忘记正则点的要求。}
+  以下在不引起混淆的地方将省去“$(\V{x})$”，
+  但仍不要忘记正则点的要求。}
 \begin{equation}
-	\ipb[\Rm*]{\V{g}_i}{\V{g}^j} = \KroneckerDelta{j}{i} \fullstop
-	\label{eq:曲面局部基_对偶关系}
+  \ipb[\Rm*]{\V{g}_i}{\V{g}^j} = \KroneckerDelta{j}{i} \fullstop
+  \label{eq:曲面局部基_对偶关系}
 \end{equation}
 写成矩阵形式，为
 \begin{equation}
-	\qty[\begin{array}{@{}c@{}}
-		\qty(\V{g}^1)\trans \\ \vdots \\ \qty\big(\V{g}^m)\trans \\[3pt]
-		\hdashline \\[-12pt]
-		\qty(\V{g}^{m+1})\trans
-	\end{array}] \,
-	\qty[\begin{array}{@{}c:c@{}}
-		\V{g}_1,\,\cdots,\,\V{g}_m & \V{n}
-	\end{array}]
-	=\qty[\begin{array}{@{}c:c@{}}
-		\mqty[\qty(\V{g}^\nu)\trans\vdp\V{g}_\mu]^m_{\mu,\,\nu=1} &
-			\mqty[\qty(\V{g}^1)\trans \\ \vdots \\ \qty(\V{g}^m)\trans]
-			\vdp \V{n} \\[3pt]
-		\hdashline \\[-12pt]
-		\qty(\V{g}^{m+1})\trans \vdp \mqty[\V{g}_1,\,\cdots,\,\V{g}_m] &
-		\qty(\V{g}^{m+1})\trans \vdp \V{n}
-	\end{array}]
-	=\Mat{I}_{m+1} \fullstop
-	\label{eq:曲面局部基_对偶关系_矩阵形式}
+  \qty[\begin{array}{@{}c@{}}
+    \qty(\V{g}^1)\trans \\ \vdots \\ \qty\big(\V{g}^m)\trans \\[3pt]
+    \hdashline \\[-12pt]
+    \qty(\V{g}^{m+1})\trans
+  \end{array}] \,
+  \qty[\begin{array}{@{}c:c@{}}
+    \V{g}_1,\,\cdots,\,\V{g}_m & \V{n}
+  \end{array}]
+  =\qty[\begin{array}{@{}c:c@{}}
+    \mqty[\qty(\V{g}^\nu)\trans\vdp\V{g}_\mu]^m_{\mu,\,\nu=1} &
+      \mqty[\qty(\V{g}^1)\trans \\ \vdots \\ \qty(\V{g}^m)\trans]
+      \vdp \V{n} \\[3pt]
+    \hdashline \\[-12pt]
+    \qty(\V{g}^{m+1})\trans \vdp \mqty[\V{g}_1,\,\cdots,\,\V{g}_m] &
+    \qty(\V{g}^{m+1})\trans \vdp \V{n}
+  \end{array}]
+  =\Mat{I}_{m+1} \fullstop
+  \label{eq:曲面局部基_对偶关系_矩阵形式}
 \end{equation}
 
 按照分块矩阵的计算法则，显然有
 $\qty(\V{g}^{m+1})\trans \vdp \V{n}=1$。于是
 \begin{equation}
-	\V{g}^{m+1} = \V{n}+\sum_{\mu=1}^{m} a_\mu\,\V{g}_\mu \comma
-	\label{eq:曲面逆变基m+1_完整形式}
+  \V{g}^{m+1} = \V{n}+\sum_{\mu=1}^{m} a_\mu\,\V{g}_\mu \comma
+  \label{eq:曲面逆变基m+1_完整形式}
 \end{equation}
 式中的 $a_\mu$ 是待定系数。
 
 考虑式~\eqref{eq:曲面局部基_对偶关系_矩阵形式} 中矩阵的左下角，有
 \begin{align}
-	\qty(\V{g}^{m+1})\trans \vdp \mqty[\V{g}_1,\,\cdots,\,\V{g}_m]
-	&=\qty(\V{n}+\sum_{\mu=1}^{m} a_\mu\,\V{g}_\mu)\trans
-		\vdp \mqty[\V{g}_1,\,\cdots,\,\V{g}_m] \notag
-	\intertext{根据 \eqref{eq:曲面协变基_法向量}~式，
-		$\V{n}$ 与 $\V{g}_\mu$ 正交：}
-	&=\sum_{\mu=1}^{m} a_\mu\,\qty(\V{g}_\mu)\trans
-		\vdp \mqty[\V{g}_1,\,\cdots,\,\V{g}_m] \notag \\
-	&=\mqty[\displaystyle
-			\sum_{\mu=1}^{m} a_\mu\,\qty(\V{g}_\mu)\trans
-				\vdp\V{g}_1,\,\cdots,\,
-			\sum_{\mu=1}^{m} a_\mu\,\qty(\V{g}_\mu)\trans
-				\vdp\V{g}_m] \notag \\
-	&\defeq \mqty[\displaystyle
-			\sum_{\mu=1}^{m} a_\mu\,g_{1\mu},\,\cdots,\,
-			\sum_{\mu=1}^{m} a_\mu\,g_{m\mu}] \notag \\
-	&=\V{0}\in\realR^{1\times m} \fullstop
+  \qty(\V{g}^{m+1})\trans \vdp \mqty[\V{g}_1,\,\cdots,\,\V{g}_m]
+  &=\qty(\V{n}+\sum_{\mu=1}^{m} a_\mu\,\V{g}_\mu)\trans
+    \vdp \mqty[\V{g}_1,\,\cdots,\,\V{g}_m] \notag
+  \intertext{根据 \eqref{eq:曲面协变基_法向量}~式，
+    $\V{n}$ 与 $\V{g}_\mu$ 正交：}
+  &=\sum_{\mu=1}^{m} a_\mu\,\qty(\V{g}_\mu)\trans
+    \vdp \mqty[\V{g}_1,\,\cdots,\,\V{g}_m] \notag \\
+  &=\mqty[\displaystyle
+      \sum_{\mu=1}^{m} a_\mu\,\qty(\V{g}_\mu)\trans
+        \vdp\V{g}_1,\,\cdots,\,
+      \sum_{\mu=1}^{m} a_\mu\,\qty(\V{g}_\mu)\trans
+        \vdp\V{g}_m] \notag \\
+  &\defeq \mqty[\displaystyle
+      \sum_{\mu=1}^{m} a_\mu\,g_{1\mu},\,\cdots,\,
+      \sum_{\mu=1}^{m} a_\mu\,g_{m\mu}] \notag \\
+  &=\V{0}\in\realR^{1\times m} \fullstop
 \end{align}
 式中的 $g_{\mu\nu}\defeq\qty(\V{g}_\nu)\trans\vdp\V{g}_\mu
-	=\ipb[\Rm*]{\V{g}_\mu}{\V{g}_\nu}$。转置一下，可得
+  =\ipb[\Rm*]{\V{g}_\mu}{\V{g}_\nu}$。转置一下，可得
 \begin{align}
-	\mqty[\displaystyle \sum_{\mu=1}^{m} a_\mu\,g_{1\mu} \\ \vdots \\
-		\displaystyle \sum_{\mu=1}^{m} a_i\,g_{m\mu}]
-	&=\mqty[g_{11} & \cdots & g_{1m} \\
-			\vdots & \ddots & \vdots \\
-			g_{m1} & \cdots & g_{mm}]\,
-		\mqty[a_1 \\ \vdots \\ a_m] \notag \\
-	&=\mqty[\qty(\V{g}_1)\trans \\ \vdots \\ \qty(\V{g}_m)\trans]
-		\mqty[\V{g}_1,\,\cdots,\,\V{g}_m] \,
-		\mqty[a_1 \\ \vdots \\ a_m] \notag \\
-	&=\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]\trans
-		\mqty[\V{g}_1,\,\cdots,\,\V{g}_m] \,
-		\mqty[a_1 \\ \vdots \\ a_m]
-	\defeq\qty(\Mat{A}\trans\Mat{A}) \, \mqty[a_1 \\ \vdots \\ a_m]
-	=\V{0}\in\Rm \fullstop
+  \mqty[\displaystyle \sum_{\mu=1}^{m} a_\mu\,g_{1\mu} \\ \vdots \\
+    \displaystyle \sum_{\mu=1}^{m} a_i\,g_{m\mu}]
+  &=\mqty[g_{11} & \cdots & g_{1m} \\
+      \vdots & \ddots & \vdots \\
+      g_{m1} & \cdots & g_{mm}]\,
+    \mqty[a_1 \\ \vdots \\ a_m] \notag \\
+  &=\mqty[\qty(\V{g}_1)\trans \\ \vdots \\ \qty(\V{g}_m)\trans]
+    \mqty[\V{g}_1,\,\cdots,\,\V{g}_m] \,
+    \mqty[a_1 \\ \vdots \\ a_m] \notag \\
+  &=\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]\trans
+    \mqty[\V{g}_1,\,\cdots,\,\V{g}_m] \,
+    \mqty[a_1 \\ \vdots \\ a_m]
+  \defeq\qty(\Mat{A}\trans\Mat{A}) \, \mqty[a_1 \\ \vdots \\ a_m]
+  =\V{0}\in\Rm \fullstop
 \end{align}
 其中，矩阵 $\Mat{A}\defeq\qty[\V{g}_1,\,\cdots,\,\V{g}_m]
-	\in\realR^{(m+1)\times m}$。
+  \in\realR^{(m+1)\times m}$。
 由于处在\emphB{正则点} $\V{x}$ 处，
 $\qty{\V{g}_\mu}^m_{\mu=1}$ 线性无关，因此 $\rank\Mat{A}=m$。
 根据线性代数的知识，
 \begin{equation}
-	\rank\qty(\Mat{A}\trans\Mat{A}) = \rank\Mat{A} = m \comma
+  \rank\qty(\Mat{A}\trans\Mat{A}) = \rank\Mat{A} = m \comma
 \end{equation}
 所以矩阵 $\Mat{A}\trans\Mat{A}$ 非奇异。
 这样就必然有 $\qty[a_1,\,\cdots,\,a_m]\trans=\V{0}\in\Rm$，
 即 $a_\mu=0$。代回到 \eqref{eq:曲面逆变基m+1_完整形式}~式，可知
 \begin{equation}
-	\V{g}^{m+1}=\V{n} \fullstop
+  \V{g}^{m+1}=\V{n} \fullstop
 \end{equation}
 
 再来看矩阵的右上角：
 \begin{equation}
-	\mqty[\qty(\V{g}^1)\trans \\ \vdots \\ \qty(\V{g}^m)\trans]
-		\vdp \V{n}
-	=\mqty[\qty(\V{g}^1)\trans\vdp\V{n} \\ \vdots \\
-		\qty(\V{g}^m)\trans\vdp\V{n}]
-	=\V{0}\in\Rm \comma
+  \mqty[\qty(\V{g}^1)\trans \\ \vdots \\ \qty(\V{g}^m)\trans]
+    \vdp \V{n}
+  =\mqty[\qty(\V{g}^1)\trans\vdp\V{n} \\ \vdots \\
+    \qty(\V{g}^m)\trans\vdp\V{n}]
+  =\V{0}\in\Rm \comma
 \end{equation}
 因此 $\V{g}^\mu\perp\V{n}$。又因为 $\V{n}$ 和
 $\vspan\qty{\V{g}_i(\V{x})}^m_{\mu=1}$ 共同构成了基，所以
 \begin{equation}
-	\V{g}^\mu\in\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \fullstop
+  \V{g}^\mu\in\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \fullstop
 \end{equation}
 
 最后轮到左上角：
 \begin{equation}
-	\mqty[\qty(\V{g}^\nu)\trans\vdp\V{g}_\mu]^m_{\mu,\,\nu=1}=\Mat{I}_m
-	\iff \ipb[\Rm*]{\V{g}_\mu}{\V{g}^\nu}
-		=\KroneckerDelta{\nu}{\mu} \fullstop
-	\label{eq:曲面局部基_切空间_对偶关系}
+  \mqty[\qty(\V{g}^\nu)\trans\vdp\V{g}_\mu]^m_{\mu,\,\nu=1}=\Mat{I}_m
+  \iff \ipb[\Rm*]{\V{g}_\mu}{\V{g}^\nu}
+    =\KroneckerDelta{\nu}{\mu} \fullstop
+  \label{eq:曲面局部基_切空间_对偶关系}
 \end{equation}
 这是一个与式~\eqref{eq:曲面局部基_对偶关系} 类似的“对偶关系”，
 不过请注意指标取值的不同。此处的“对偶关系”仅存在于\emphB{切空间}
 $\Tspace{\V{\Sigma}}{\V{x}}
-	=\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1}$ 中。
+  =\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1}$ 中。
 
 \begin{figure}[h]
-	\centering
-	\includegraphics{Images/Surface_Local_Basis.PNG}
-	\caption{$m+1$ 维 Euclid 空间中 $m$ 维曲面上的局部基}
-	\label{fig:曲面上的局部基}
+  \centering
+  \includegraphics{Images/Surface_Local_Basis.PNG}
+  \caption{$m+1$ 维 Euclid 空间中 $m$ 维曲面上的局部基}
+  \label{fig:曲面上的局部基}
 \end{figure}
 
 总结一下前面得到的结果。如图~\ref{fig:曲面上的局部基} 所示，
 对于 $m+1$ 维空间中的 $m$ 维曲面而言，
 其协变基由切向量与法向量共同组成：
 \begin{equation}
-	\qty{\V{g}_i(\V{x})}^m_{i=1}
-	\defeq\qty{\pdv{\V{\Sigma}}{x^1} (\V{x}),\,\cdots,\,
-		\pdv{\V{\Sigma}}{x^m} (\V{x}),\,\V{n}(\V{x})} \semicolon
+  \qty{\V{g}_i(\V{x})}^m_{i=1}
+  \defeq\qty{\pdv{\V{\Sigma}}{x^1} (\V{x}),\,\cdots,\,
+    \pdv{\V{\Sigma}}{x^m} (\V{x}),\,\V{n}(\V{x})} \semicolon
 \end{equation}
 至于逆变基，它的前 $m$ 个向量由切空间上的对偶关系
 \eqref{eq:曲面局部基_切空间_对偶关系}~式决定，而第 $m+1$ 个向量则为
 \begin{equation}
-	\V{g}^{m+1}(\V{x})=\V{g}_{m+1}(\V{x})=\V{n}(\V{x}) \fullstop
+  \V{g}^{m+1}(\V{x})=\V{g}_{m+1}(\V{x})=\V{n}(\V{x}) \fullstop
 \end{equation}
 
 \subsection{曲面上的曲线}
 首先要在参数域 $\domD{\V{x}}$ 中定义曲线：
 \begin{equation}
-	\mmap{\V{\Gamma}_\V{x}(t)}{[a,\,b]\ni t}
-		{\V{\Gamma}_\V{x}(t)
-			=\mqty[\Gamma_\V{x}^1(t) \\ \vdots \\ \Gamma_\V{x}^m(t)]
-			=\mqty[x^1(t) \\ \vdots \\ x^m(t)]
-				\in\domD{\V{x}}\in\Rm} \fullstop
+  \mmap{\V{\Gamma}_\V{x}(t)}{[a,\,b]\ni t}
+    {\V{\Gamma}_\V{x}(t)
+      =\mqty[\Gamma_\V{x}^1(t) \\ \vdots \\ \Gamma_\V{x}^m(t)]
+      =\mqty[x^1(t) \\ \vdots \\ x^m(t)]
+        \in\domD{\V{x}}\in\Rm} \fullstop
 \end{equation}
 这里用下标 $\V{x}$ 表示参数域。
 于是，曲面（物理域）上的曲线就可以表示为
 $\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
 \begin{equation}
-	\mmap{\V{\Gamma}_\V{\Sigma}(t)}{[a,\,b]\ni t}
-		{\V{\Gamma}_\V{\Sigma}(t)
-			\defeq\V{\Sigma}\comp\V{\Gamma}_\V{x}(t)
-			=\V{\Sigma}\qty\big[\V{x}(t)] \in\Rm*} \fullstop
+  \mmap{\V{\Gamma}_\V{\Sigma}(t)}{[a,\,b]\ni t}
+    {\V{\Gamma}_\V{\Sigma}(t)
+      \defeq\V{\Sigma}\comp\V{\Gamma}_\V{x}(t)
+      =\V{\Sigma}\qty\big[\V{x}(t)] \in\Rm*} \fullstop
 \end{equation}
 类似地，下标 $\V{\Sigma}$ 表示曲面。
 
 下面计算曲面上曲线的切向量：
 \begin{align}
-	\dv{\V{\Gamma}_\V{\Sigma}}{t} (t)
-	=\JacobiD{\V{\Gamma}_\V{\Sigma}} (t)
-	&=\JacobiD{\V{\Sigma}} \qty\big(\V{x}(t))
-		\vdp \JacobiD{\V{\Gamma}_\V{x}} (t) \notag
-	\intertext{上面一个等号利用了\emphB{复合映照的可微性定理}。
-		再根据式~\eqref{eq:曲面映照的Jacobi矩阵}，
-		$\V{\Sigma}(\V{x})$ 的 Jacobi 矩阵由（前 $m$ 个）
-		局部协变基组成，而 $\V{\Gamma}_\V{x} (t)$ 的 Jacobi
-		矩阵又可以直接写出来，于是}
-	&=\mqty[\V{g}_1 \qty\big(\V{x}(t)),\,\cdots,\,
-			\V{g}_m \qty\big(\V{x}(t))] \,
-		\mqty[\dot{x}^1(t) \\ \vdots \\ \dot{x}^m(t)] \notag \\
-	&=\dot{x}^\mu(t) \, \V{g}_\mu\qty\big(\V{x}(t)) \fullstop
+  \dv{\V{\Gamma}_\V{\Sigma}}{t} (t)
+  =\JacobiD{\V{\Gamma}_\V{\Sigma}} (t)
+  &=\JacobiD{\V{\Sigma}} \qty\big(\V{x}(t))
+    \vdp \JacobiD{\V{\Gamma}_\V{x}} (t) \notag
+  \intertext{上面一个等号利用了\emphB{复合映照的可微性定理}。
+    再根据式~\eqref{eq:曲面映照的Jacobi矩阵}，
+    $\V{\Sigma}(\V{x})$ 的 Jacobi 矩阵由（前 $m$ 个）
+    局部协变基组成，而 $\V{\Gamma}_\V{x} (t)$ 的 Jacobi
+    矩阵又可以直接写出来，于是}
+  &=\mqty[\V{g}_1 \qty\big(\V{x}(t)),\,\cdots,\,
+      \V{g}_m \qty\big(\V{x}(t))] \,
+    \mqty[\dot{x}^1(t) \\ \vdots \\ \dot{x}^m(t)] \notag \\
+  &=\dot{x}^\mu(t) \, \V{g}_\mu\qty\big(\V{x}(t)) \fullstop
 \end{align}
 不用忘记按照 Einstein 求和约定对哑标 $\mu$ 进行求和。可以发现，
 \begin{equation}
-	\dv{\V{\Gamma}_\V{\Sigma}}{t} (t)
-	=\dot{x}^\mu(t) \, \V{g}_\mu\qty\big(\V{x}(t))
-		\in\Tspace{\V{\Sigma}}{\V{x}}
-			=\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \comma
+  \dv{\V{\Gamma}_\V{\Sigma}}{t} (t)
+  =\dot{x}^\mu(t) \, \V{g}_\mu\qty\big(\V{x}(t))
+    \in\Tspace{\V{\Sigma}}{\V{x}}
+      =\vspan\qty{\V{g}_\mu(\V{x})}^m_{\mu=1} \comma
 \end{equation}
 说明曲面上所有曲线的切向量都落在该曲面的切空间中。
 
@@ -306,19 +306,19 @@ $\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
 \subsection{第一基本形式；度量张量}
 曲面的\emphA{第一基本形式}指切空间中的内积，即
 \begin{equation}
-	g_{\mu\nu}\defeq\ipb[\Rm*]{\V{g}_\mu}{\V{g}_\nu} \comma
-	\label{eq:曲面第一基本形式}
+  g_{\mu\nu}\defeq\ipb[\Rm*]{\V{g}_\mu}{\V{g}_\nu} \comma
+  \label{eq:曲面第一基本形式}
 \end{equation}
 其中的 $\mu$、$\nu$ 表示 1 到 $m$。$g_{\mu\nu}$ 构成的矩阵为
 \begin{equation}
-	\Mat{G}\coloneq\mqty[g_{\mu\nu}]
-	=\mqty[g_{11} & \cdots & g_{1m} \\
-		\vdots & \ddots & \vdots \\
-		g_{m1} & \cdots & g_{mm}]
-	=\mqty[\qty(\V{g}_1)\trans \\ \vdots \\ \qty(\V{g}_m)\trans]\,
-		\mqty[\V{g}_1,\,\cdots,\,\V{g}_m]
-	=(\JacobiD{\V{\Sigma}})\trans \vdp (\JacobiD{\V{\Sigma}})
-	\fullstop
+  \Mat{G}\coloneq\mqty[g_{\mu\nu}]
+  =\mqty[g_{11} & \cdots & g_{1m} \\
+    \vdots & \ddots & \vdots \\
+    g_{m1} & \cdots & g_{mm}]
+  =\mqty[\qty(\V{g}_1)\trans \\ \vdots \\ \qty(\V{g}_m)\trans]\,
+    \mqty[\V{g}_1,\,\cdots,\,\V{g}_m]
+  =(\JacobiD{\V{\Sigma}})\trans \vdp (\JacobiD{\V{\Sigma}})
+  \fullstop
 \end{equation}
 根据内积的对称性，$g_{\mu\nu}=g_{\nu\mu}$，于是矩阵 $\Mat{G}$
 是一个对称阵。除此以外，在正则点处，它还是一个\emphB{正定}矩阵。
@@ -326,18 +326,18 @@ $\V{\Gamma}_\V{x}$ 与 $\V{\Sigma}$ 的复合：
 \begin{myProof}
 对于任意的向量 $\V{\xi}\in\Rm$，有
 \begin{align}
-	\V{\xi}\trans\,\Mat{G}\,\V{\xi}
-	&=\V{\xi}\trans \,
-		\qty\Big[(\JacobiD{\V{\Sigma}})\trans
-			\vdp (\JacobiD{\V{\Sigma}})] \,
-		\V{\xi} \notag \\
-	&=\qty\Big[\V{\xi}\trans (\JacobiD{\V{\Sigma}})\trans]
-		\vdp \qty\Big[\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}]
-	=\qty\Big[\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}]\trans
-		\vdp \qty\Big[\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}] \notag \\
-	&=\norm[\Rm*]{\vphantom{0^0}
-			\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}}^2
-	=\norm[\Rm*]{\xi^\mu\,\V{g}_\mu}^2 \geqslant 0 \fullstop
+  \V{\xi}\trans\,\Mat{G}\,\V{\xi}
+  &=\V{\xi}\trans \,
+    \qty\Big[(\JacobiD{\V{\Sigma}})\trans
+      \vdp (\JacobiD{\V{\Sigma}})] \,
+    \V{\xi} \notag \\
+  &=\qty\Big[\V{\xi}\trans (\JacobiD{\V{\Sigma}})\trans]
+    \vdp \qty\Big[\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}]
+  =\qty\Big[\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}]\trans
+    \vdp \qty\Big[\qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}] \notag \\
+  &=\norm[\Rm*]{\vphantom{0^0}
+      \qty(\JacobiD{\V{\Sigma}}) \, \V{\xi}}^2
+  =\norm[\Rm*]{\xi^\mu\,\V{g}_\mu}^2 \geqslant 0 \fullstop
 \end{align}
 这样，若有 $\V{\xi}\trans\,\Mat{G}\,\V{\xi}=0$，则必有
 $\xi^\mu\,\V{g}_\mu=0$。而在正则点处，
@@ -354,49 +354,49 @@ $\xi^\mu=0\in\realR$，$\V{\xi}=\V{0}\in\Rm$。
 
 利用曲面上的第一基本形式，可以定义\emphA{度量张量}：
 \begin{equation}
-	\T{G} \defeq g_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu
-	\in\Tensors[\Rm*]{2} \comma
+  \T{G} \defeq g_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu
+  \in\Tensors[\Rm*]{2} \comma
 \end{equation}
 其中的 $g_{\mu\nu}\defeq\ipb[\Rm*]{\V{g}_\mu}{\V{g}_\nu}$。
 
 把 $\V{g}_\nu$ 用局部\emphB{逆变}基展开，可有
 \begin{align}
-	\V{g}_\nu &=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_i}\,\V{g}^i \notag \\
-	&=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_\mu}\,\V{g}^\mu
-		+\ipb[\Rm*]{\V{g}_\nu}{\V{n}}\,\V{n} \notag
-	\intertext{由于 $\V{g}_\nu$ 与 $\V{n}$ 正交，因此}
-	&=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_\mu}\,\V{g}^\mu
-	=g_{\mu\nu}\,\V{g}^\mu \fullstop
-	\label{eq:曲面局部基_指标升降_1}
+  \V{g}_\nu &=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_i}\,\V{g}^i \notag \\
+  &=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_\mu}\,\V{g}^\mu
+    +\ipb[\Rm*]{\V{g}_\nu}{\V{n}}\,\V{n} \notag
+  \intertext{由于 $\V{g}_\nu$ 与 $\V{n}$ 正交，因此}
+  &=\ipb[\Rm*]{\V{g}_\nu}{\V{g}_\mu}\,\V{g}^\mu
+  =g_{\mu\nu}\,\V{g}^\mu \fullstop
+  \label{eq:曲面局部基_指标升降_1}
 \end{align}
 同理，还可以知道
 \begin{equation}
-	\V{g}^\nu=g^{\mu\nu}\,\V{g}_\mu \fullstop
-	\label{eq:曲面局部基_指标升降_2}
+  \V{g}^\nu=g^{\mu\nu}\,\V{g}_\mu \fullstop
+  \label{eq:曲面局部基_指标升降_2}
 \end{equation}
 此处的 $g^{\mu\nu}$ 自然等于 $\ipb[\Rm*]{\V{g}^\mu}{\V{g}^\nu}$。
 
 据此，我们便可以获得度量张量的其他形式：
 \begin{mySubEq}
-	\begin{align}
-		\T{G} &\defeq g_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu \notag
-		\intertext{代入 \eqref{eq:曲面局部基_指标升降_1}~式，
-			并利用 Krnonecker δ，可得}
-		&=\V{g}_\nu\tp\V{g}^\nu
-		=\KroneckerDelta{\mu}{\nu}\,\V{g}_\mu\tp\V{g}^\nu \fullstop
-		\intertext{这是\emphB{混合分量}。代入
-			\eqref{eq:曲面局部基_指标升降_2}~式，又有}
-		\T{G} &= \V{g}_\nu\tp\V{g}^\nu
-		=g^{\mu\nu}\,\V{g}_\mu\tp\V{g}_\nu \fullstop
-	\end{align}
+  \begin{align}
+    \T{G} &\defeq g_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu \notag
+    \intertext{代入 \eqref{eq:曲面局部基_指标升降_1}~式，
+      并利用 Krnonecker δ，可得}
+    &=\V{g}_\nu\tp\V{g}^\nu
+    =\KroneckerDelta{\mu}{\nu}\,\V{g}_\mu\tp\V{g}^\nu \fullstop
+    \intertext{这是\emphB{混合分量}。代入
+      \eqref{eq:曲面局部基_指标升降_2}~式，又有}
+    \T{G} &= \V{g}_\nu\tp\V{g}^\nu
+    =g^{\mu\nu}\,\V{g}_\mu\tp\V{g}_\nu \fullstop
+  \end{align}
 \end{mySubEq}
 这是\emphB{逆变分量}。
 
 \subsection{第二基本形式；曲率张量}
 曲面的\emphA{第二基本形式}定义为
 \begin{equation}
-	b_{\mu\nu}\defeq\ipb[\Rm*]{\pdv{\V{g}_\nu}{x^\mu}}{\V{n}} \fullstop
-	\label{eq:曲面的第二基本形式}
+  b_{\mu\nu}\defeq\ipb[\Rm*]{\pdv{\V{g}_\nu}{x^\mu}}{\V{n}} \fullstop
+  \label{eq:曲面的第二基本形式}
 \end{equation}
 与第一基本形式类似，矩阵 $\Mat{B}\coloneq\mqty[b_{\mu\nu}]$
 也是对称的（但未必正定）。
@@ -404,12 +404,12 @@ $\xi^\mu=0\in\realR$，$\V{\xi}=\V{0}\in\Rm$。
 \begin{myProof}
 对称性的根源在于二阶偏导数可以交换次序：
 \begin{align}
-	\pdv{\V{g}_\nu}{x^\mu}
-	=\pdv{x^\mu} \qty(\pdv{\V{\Sigma}}{x^\nu})
-	=\pdv{\V{\Sigma}}{x^\mu}{x^\nu}
-	=\pdv{\V{\Sigma}}{x^\nu}{x^\mu}
-	=\pdv{x^\nu} \qty(\pdv{\V{\Sigma}}{x^\mu})
-	=\pdv{\V{g}_\mu}{x^\nu} \fullstop
+  \pdv{\V{g}_\nu}{x^\mu}
+  =\pdv{x^\mu} \qty(\pdv{\V{\Sigma}}{x^\nu})
+  =\pdv{\V{\Sigma}}{x^\mu}{x^\nu}
+  =\pdv{\V{\Sigma}}{x^\nu}{x^\mu}
+  =\pdv{x^\nu} \qty(\pdv{\V{\Sigma}}{x^\mu})
+  =\pdv{\V{g}_\mu}{x^\nu} \fullstop
 \end{align}
 于是 $b_{\mu\nu}=b_{\nu\mu}$。
 \end{myProof}
@@ -418,40 +418,40 @@ $\xi^\mu=0\in\realR$，$\V{\xi}=\V{0}\in\Rm$。
 
 对应于第二基本形式，我们可以定义\emphA{曲率张量}：
 \begin{equation}
-	\T{K} \defeq b_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu
-	\in\Tensors[\Rm*]{2} \comma
+  \T{K} \defeq b_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu
+  \in\Tensors[\Rm*]{2} \comma
 \end{equation}
 式中的 $b_{\mu\nu}$ 由 \eqref{eq:曲面的第二基本形式}~式定义。
 
 引入 $\tc{b}{^\mu_\nu}\coloneq g^{\mu\sigma} b_{\sigma\nu}$，
 即可获得曲率张量在混合分量下的表示：
 \begin{mySubEq}
-	\begin{align}
-		\T{K} &\defeq b_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu \notag \\
-		&=b_{\mu\nu}\,g^{\mu\sigma}\,\V{g}_\sigma\tp\V{g}^\nu \notag \\
-		&=\tc{b}{^\sigma_\nu}\,\V{g}_\sigma\tp\V{g}^\nu
-		=\tc{b}{^\mu_\nu}\,\V{g}_\mu\tp\V{g}^\nu \semicolon
-		\intertext{再引入 $b^{\mu\nu}
-			\coloneq g^{\nu\sigma} \tc{b}{^\mu_\sigma}$，
-			又可获得逆变分量下的表示：}
-		\T{K}&=\tc{b}{^\mu_\nu}\,\V{g}_\mu\tp\V{g}^\nu \notag \\
-		&=\tc{b}{^\mu_\nu}\,g^{\nu\sigma}\,
-			\V{g}_\mu\tp\V{g}^\sigma \notag \\
-		&=b^{\mu\sigma}\,\V{g}_\mu\tp\V{g}_\sigma
-		=b^{\mu\nu}\,\V{g}_\mu\tp\V{g}_\nu \fullstop
-	\end{align}
+  \begin{align}
+    \T{K} &\defeq b_{\mu\nu}\,\V{g}^\mu\tp\V{g}^\nu \notag \\
+    &=b_{\mu\nu}\,g^{\mu\sigma}\,\V{g}_\sigma\tp\V{g}^\nu \notag \\
+    &=\tc{b}{^\sigma_\nu}\,\V{g}_\sigma\tp\V{g}^\nu
+    =\tc{b}{^\mu_\nu}\,\V{g}_\mu\tp\V{g}^\nu \semicolon
+    \intertext{再引入 $b^{\mu\nu}
+      \coloneq g^{\nu\sigma} \tc{b}{^\mu_\sigma}$，
+      又可获得逆变分量下的表示：}
+    \T{K}&=\tc{b}{^\mu_\nu}\,\V{g}_\mu\tp\V{g}^\nu \notag \\
+    &=\tc{b}{^\mu_\nu}\,g^{\nu\sigma}\,
+      \V{g}_\mu\tp\V{g}^\sigma \notag \\
+    &=b^{\mu\sigma}\,\V{g}_\mu\tp\V{g}_\sigma
+    =b^{\mu\nu}\,\V{g}_\mu\tp\V{g}_\nu \fullstop
+  \end{align}
 \end{mySubEq}
 以上推导中两式的最后一步都只是哑标的简单替换。
 
 至于另一个混合分量 $\tc{b}{_\mu^\nu}$，根据对称性，可知
 \begin{equation}
-	\tc{b}{_\mu^\nu}
-	\coloneq g_{\mu\sigma} b^{\sigma\nu}
-	=g_{\mu\sigma} b^{\nu\sigma}=\tc{b}{^\nu_\mu} \fullstop
+  \tc{b}{_\mu^\nu}
+  \coloneq g_{\mu\sigma} b^{\sigma\nu}
+  =g_{\mu\sigma} b^{\nu\sigma}=\tc{b}{^\nu_\mu} \fullstop
 \end{equation}
 所以我们把曲率张量 $\T{K}$ 的混合分量统一记为 $b^\mu_\nu$，即
 \begin{equation}
-	b^\mu_\nu \coloneq \tc{b}{^\mu_\nu} = \tc{b}{_\nu^\mu} \fullstop
+  b^\mu_\nu \coloneq \tc{b}{^\mu_\nu} = \tc{b}{_\nu^\mu} \fullstop
 \end{equation}
 
 \section{Gauss 曲率与平均曲率}
@@ -462,64 +462,64 @@ $\xi^\mu=0\in\realR$，$\V{\xi}=\V{0}\in\Rm$。
 均是对称矩阵，并且 $\Mat{G}$ 还具有正定性，因此必然唯一存在
 一个非奇异的矩阵 $\Mat{S}\in\realR^{m\times m}$，使得
 \begin{equation}
-	\Mat{S}\trans\Mat{G}\Mat{S}=\Mat{I}_m \quad\text{且}\quad
-	\Mat{S}\trans\Mat{B}\Mat{S}
-	=\mqty[\dmat{\lambda_1,\ddots,\lambda_m}] \comma
+  \Mat{S}\trans\Mat{G}\Mat{S}=\Mat{I}_m \quad\text{且}\quad
+  \Mat{S}\trans\Mat{B}\Mat{S}
+  =\mqty[\dmat{\lambda_1,\ddots,\lambda_m}] \comma
 \end{equation}
 其中的 $\lambda_\mu$ 满足
 \begin{equation}
-	\det(\Mat{B}-\lambda_\mu\,\Mat{G})=0 \fullstop
+  \det(\Mat{B}-\lambda_\mu\,\Mat{G})=0 \fullstop
 \end{equation}
 根据行列式的性质，可知
 \begin{equation}
-	\det(\Mat{G}^{-1}\Mat{B}-\lambda_\mu\,\Mat{I}_m)
-	=\det\qty\Big[\Mat{G}^{-1} \qty(\Mat{B}-\lambda_\mu\,\Mat{G})]
-	=\det(\Mat{G}^{-1}) \cdot \det(\Mat{B}-\lambda_\mu\,\Mat{G})
-	=\det(\Mat{G}^{-1}) \cdot 0 = 0 \fullstop
+  \det(\Mat{G}^{-1}\Mat{B}-\lambda_\mu\,\Mat{I}_m)
+  =\det\qty\Big[\Mat{G}^{-1} \qty(\Mat{B}-\lambda_\mu\,\Mat{G})]
+  =\det(\Mat{G}^{-1}) \cdot \det(\Mat{B}-\lambda_\mu\,\Mat{G})
+  =\det(\Mat{G}^{-1}) \cdot 0 = 0 \fullstop
 \end{equation}
 这说明 $\lambda_i$ 是矩阵 $\Mat{G}^{-1}\Mat{B}$ 的特征值。
 
 定义\emphA{Gauss 曲率} $\KG$ 为这些特征值之积，它等于矩阵
 $\Mat{G}^{-1}\Mat{B}$ 的行列式：
 \begin{equation}
-	\KG\defeq\prod_{\mu=1}^{m} \lambda_\mu = \det(\Mat{G}^{-1}\Mat{B})
-	=\frac{\det\Mat{B}}{\det\Mat{G}} \semicolon
-	\label{eq:Gauss曲率定义}
+  \KG\defeq\prod_{\mu=1}^{m} \lambda_\mu = \det(\Mat{G}^{-1}\Mat{B})
+  =\frac{\det\Mat{B}}{\det\Mat{G}} \semicolon
+  \label{eq:Gauss曲率定义}
 \end{equation}
 定义\emphA{平均曲率} $H$ 为特征值之和的平均值，
 它等于矩阵的迹除以 $m$：
 \begin{equation}
-	H\defeq\frac{1}{m}\sum_{\mu=1}^{m} \lambda_\mu
-	=\frac{\tr(\Mat{G}^{-1}\Mat{B})}{m} \fullstop
-	\label{eq:平均曲率定义}
+  H\defeq\frac{1}{m}\sum_{\mu=1}^{m} \lambda_\mu
+  =\frac{\tr(\Mat{G}^{-1}\Mat{B})}{m} \fullstop
+  \label{eq:平均曲率定义}
 \end{equation}
 
 我们知道度量满足
 \begin{equation}
-	g_{\mu\sigma}\,g^{\sigma\nu}=\KroneckerDelta{\nu}{\mu} \fullstop
+  g_{\mu\sigma}\,g^{\sigma\nu}=\KroneckerDelta{\nu}{\mu} \fullstop
 \end{equation}
 考虑到 $\Mat{G}=\mqty[g_{\mu\nu}]$ 以及
 $\Mat{B}=\mqty[b_{\mu\nu}]$，便有
 \begin{equation}
-	\Mat{G}^{-1}=\mqty[g_{\mu\nu}]^{-1}=\mqty[g^{\mu\nu}] \comma
+  \Mat{G}^{-1}=\mqty[g_{\mu\nu}]^{-1}=\mqty[g^{\mu\nu}] \comma
 \end{equation}
 即度量张量逆变分量对应的矩阵。因此
 \begin{equation}
-	\Mat{G}^{-1}\Mat{B}=\mqty[g^{\mu\nu}]\mqty[b_{\mu\nu}]
-	=\mqty[g^{\mu\sigma}\,b_{\sigma\nu}]
-	=\mqty[b^\mu_\nu] \fullstop
+  \Mat{G}^{-1}\Mat{B}=\mqty[g^{\mu\nu}]\mqty[b_{\mu\nu}]
+  =\mqty[g^{\mu\sigma}\,b_{\sigma\nu}]
+  =\mqty[b^\mu_\nu] \fullstop
 \end{equation}
 这是曲率张量\emphB{混合分量}所对应的矩阵。此时，
 $\lambda_\mu$ 就成为了矩阵 $\mqty[b^\mu_\nu]$ 的特征值，
 而两种曲率也可以分别写成
 \begin{braceEq}
-	\KG &=\det(\Mat{G}^{-1}\Mat{B})
-		=\det\!\mqty[b^\mu_\nu] \comma \label{eq:Gauss曲率_表示} \\
-	H &=\frac{1}{m}\frac{\tr(\Mat{G}^{-1}\Mat{B})}{m}
-		=\frac{1}{m}\tr\mqty[b^\mu_\nu]
-		=\frac{1}{m}\cdot b^\mu_\nu
-		=\frac{1}{m}\qty\Big(b^1_1+b^2_2+\cdots+b^p_p) \fullstop
-		\label{eq:平均曲率_表示}
+  \KG &=\det(\Mat{G}^{-1}\Mat{B})
+    =\det\!\mqty[b^\mu_\nu] \comma \label{eq:Gauss曲率_表示} \\
+  H &=\frac{1}{m}\frac{\tr(\Mat{G}^{-1}\Mat{B})}{m}
+    =\frac{1}{m}\tr\mqty[b^\mu_\nu]
+    =\frac{1}{m}\cdot b^\mu_\nu
+    =\frac{1}{m}\qty\Big(b^1_1+b^2_2+\cdots+b^p_p) \fullstop
+    \label{eq:平均曲率_表示}
 \end{braceEq}
 第二式的展开是根据了矩阵迹的定义。
 
@@ -538,11 +538,11 @@ $\V{n}(\V{x})$。如果 $\V{\Sigma}(\V{x})$ 是平坦的，
 即\emphA{Gauss 映照}：\idx{Gauss 映照}
 在 $P\in\V{\Sigma}$ 点附近取一小块邻域 $\Sigma (\V{x})$%
 \footnote{注意“$\Sigma$”加粗与否代表着不同的意思。
-	加粗的“$\V{\Sigma}$” 代表曲面（此处是一个 $\realR^2$ 到 $\realR^3$
-	的映照）；而不加粗的 “$\Sigma$”则仅仅表示曲面上的一块区域，
-	不存在映照的概念。对于 $\sigma$ 也是一样的。
-	另外注意 $\V{x}\in\domD{\V{x}}$ 是参数域中的点，可以表示为
-	$\V{x}=\qty[x^1,\,x^2]\trans$。}，
+  加粗的“$\V{\Sigma}$” 代表曲面（此处是一个 $\realR^2$ 到 $\realR^3$
+  的映照）；而不加粗的 “$\Sigma$”则仅仅表示曲面上的一块区域，
+  不存在映照的概念。对于 $\sigma$ 也是一样的。
+  另外注意 $\V{x}\in\domD{\V{x}}$ 是参数域中的点，可以表示为
+  $\V{x}=\qty[x^1,\,x^2]\trans$。}，
 将该邻域中每一点处的单位法向量 $\V{n}$ \emphB{平行移动}到单位球所在的
 坐标系中，并使该向量的起点位于坐标系原点。
 这样，向量的终点就会落在单位球面 $S^2$ 上，并扫出一片区域
@@ -551,17 +551,17 @@ $\sigma (\V{x})$。如前文所言，由于曲面弯曲程度的不同，
 $\sigma (\V{x})$ 相对于球心的立体角来描述。
 
 \begin{figure}[h]
-	\centering
-	\includegraphics{Images/Gauss_Mapping.PNG}
-	\caption{Gauss 映照}
-	\label{fig:Gauss映照}
+  \centering
+  \includegraphics{Images/Gauss_Mapping.PNG}
+  \caption{Gauss 映照}
+  \label{fig:Gauss映照}
 \end{figure}
 
 由此，曲面 $\V{\Sigma}$ 在 $P$ 点附近的弯曲程度就可以定义为
 \begin{equation}
-	K=\lim_{\norm[]{\Sigma (\V{x})}\to 0}
-		\frac{\norm[]{\sigma(\V{x})}}{\norm[]{\Sigma(\V{x})}} \fullstop
-	\label{eq:Gauss曲率计算式_1}
+  K=\lim_{\norm[]{\Sigma (\V{x})}\to 0}
+    \frac{\norm[]{\sigma(\V{x})}}{\norm[]{\Sigma(\V{x})}} \fullstop
+  \label{eq:Gauss曲率计算式_1}
 \end{equation}
 式中的 $\norm[]{\Sigma (\V{x})}$ 和 $\norm[]{\sigma(\V{x})}$
 分别表示 $\Sigma (\V{x})$ 和 $\sigma (\V{x})$ 两块区域的面积。
@@ -569,11 +569,11 @@ $\sigma (\V{x})$ 相对于球心的立体角来描述。
 下面我们来计算 $K$。根据式~\eqref{eq:曲面的定义}，
 曲面 $\V{\Sigma}(\V{x})$ 可以用如下映照表示：
 \begin{equation}
-	\mmap{\V{\Sigma}(\V{x})}
-		{\domD{\V{x}}\ni\V{x}=\mqty[x^1 \\ x^2]}
-		{\V{\Sigma}(\V{x})
-			=\mqty[\Sigma^1 \\ \Sigma^2 \\ \Sigma^3](\V{x}) \in\realR^3}
-		\fullstop
+  \mmap{\V{\Sigma}(\V{x})}
+    {\domD{\V{x}}\ni\V{x}=\mqty[x^1 \\ x^2]}
+    {\V{\Sigma}(\V{x})
+      =\mqty[\Sigma^1 \\ \Sigma^2 \\ \Sigma^3](\V{x}) \in\realR^3}
+    \fullstop
 \end{equation}
 至于球面 $S^2$，它是由单位矢量绕原点旋转而扫出来的。
 对于我们所感兴趣的区域 $\sigma (\V{x})$，单位矢量可以取为从曲面
@@ -581,95 +581,95 @@ $\V{\Sigma}$ 上平行移动过来的法向量 $\V{n}$。
 于是球面 $\V{\sigma}(\V{x})$ （当然只有我们关注的一部分）
 就可以表示为
 \begin{equation}
-	\mmap{\V{\sigma}(\V{x})}
-		{\domD{\V{x}}\ni\V{x}=\mqty[x^1 \\ x^2]}
-		{\V{\sigma}(\V{x})=\V{n}(\V{x})\in\realR^3} \fullstop
+  \mmap{\V{\sigma}(\V{x})}
+    {\domD{\V{x}}\ni\V{x}=\mqty[x^1 \\ x^2]}
+    {\V{\sigma}(\V{x})=\V{n}(\V{x})\in\realR^3} \fullstop
 \end{equation}
 
 在 $P$ 点附近，曲面 $\V{\Sigma}(\V{x})$ 可以用平面逼近。于是
 \begin{equation}
-	\norm[]{\Sigma (\V{x})}
-	\approx \norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp
-			\pdv{\V{\Sigma}}{x^2}} \fullstop
+  \norm[]{\Sigma (\V{x})}
+  \approx \norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp
+      \pdv{\V{\Sigma}}{x^2}} \fullstop
 \end{equation}
 同理，球面上区域 $\sigma (\V{x})$ 的面积近似为
 \begin{equation}
-	\norm[]{\sigma (\V{x})}
-	\approx \norm[\realR^3]{\pdv{\V{n}}{x^1} \cp
-			\pdv{\V{n}}{x^2}} \fullstop
+  \norm[]{\sigma (\V{x})}
+  \approx \norm[\realR^3]{\pdv{\V{n}}{x^1} \cp
+      \pdv{\V{n}}{x^2}} \fullstop
 \end{equation}
 代入式~\eqref{eq:Gauss曲率计算式_1}。
 由于我们只探讨正则点处的情形，因此取极限后等号就能够取到：
 \begin{equation}
-	K=\lim_{\norm[]{\Sigma (\V{x})}\to 0}
-		\frac{\norm[]{\sigma(\V{x})}}{\norm[]{\Sigma(\V{x})}}
-	=\frac{\displaystyle \norm[\realR^3]{\pdv{\V{n}}{x^1} \cp
-			\pdv{\V{n}}{x^2}}}
-		{\displaystyle \norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp
-			\pdv{\V{\Sigma}}{x^2}}} \fullstop
-	\label{eq:Gauss曲率计算式_2}
+  K=\lim_{\norm[]{\Sigma (\V{x})}\to 0}
+    \frac{\norm[]{\sigma(\V{x})}}{\norm[]{\Sigma(\V{x})}}
+  =\frac{\displaystyle \norm[\realR^3]{\pdv{\V{n}}{x^1} \cp
+      \pdv{\V{n}}{x^2}}}
+    {\displaystyle \norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp
+      \pdv{\V{\Sigma}}{x^2}}} \fullstop
+  \label{eq:Gauss曲率计算式_2}
 \end{equation}
 
 考虑一般情况下法向量 $\V{n}$ 的偏导数。该偏导数仍为一个向量，
 因此可以用局部（逆变）基展开：
 \begin{equation}
-	\pdv{\V{n}}{x^\mu}
-	=\ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{g}_\nu}\,\V{g}^\nu
-		+\ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{n}}\,\V{n} \fullstop
+  \pdv{\V{n}}{x^\mu}
+  =\ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{g}_\nu}\,\V{g}^\nu
+    +\ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{n}}\,\V{n} \fullstop
 \end{equation}
 式中的第一个内积可以写成
 \begin{align}
-	\ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{g}_\nu}
-	&=\pdv{x^\mu} \ipb[\Rm*]{\V{n}}{\V{g}_\nu}
-		-\ipb[\Rm*]{\V{n}}{\pdv{\V{g}_\nu}{x^\mu}} \notag
-	\intertext{代入 $\ipb[\Rm*]{\V{n}}{\V{g}_\nu}=0$，得}
-	&=-\ipb[\Rm*]{\pdv{\V{g}_\nu}{x^\mu}}{\V{n}}
-	=-b_{\mu\nu} \comma
+  \ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{g}_\nu}
+  &=\pdv{x^\mu} \ipb[\Rm*]{\V{n}}{\V{g}_\nu}
+    -\ipb[\Rm*]{\V{n}}{\pdv{\V{g}_\nu}{x^\mu}} \notag
+  \intertext{代入 $\ipb[\Rm*]{\V{n}}{\V{g}_\nu}=0$，得}
+  &=-\ipb[\Rm*]{\pdv{\V{g}_\nu}{x^\mu}}{\V{n}}
+  =-b_{\mu\nu} \comma
 \end{align}
 这就是式~\eqref{eq:曲面的第二基本形式} 所定义的曲面第二基本形式；
 第二个内积则等于零：
 \begin{equation}
-	\ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{n}}
-	=\frac{\displaystyle \ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{n}}
-		+\ipb[\Rm*]{\V{n}}{\pdv{\V{n}}{x^\mu}}}{2}
-	=\frac{1}{2} \pdv{x^\mu} \ipb[\Rm*]{{\V{n}}}{{\V{n}}}
-	=\frac{1}{2} \pdv{x^\mu} \norm[\Rm*]{\V{n}}^2
-	=0 \fullstop
+  \ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{n}}
+  =\frac{\displaystyle \ipb[\Rm*]{\pdv{\V{n}}{x^\mu}}{\V{n}}
+    +\ipb[\Rm*]{\V{n}}{\pdv{\V{n}}{x^\mu}}}{2}
+  =\frac{1}{2} \pdv{x^\mu} \ipb[\Rm*]{{\V{n}}}{{\V{n}}}
+  =\frac{1}{2} \pdv{x^\mu} \norm[\Rm*]{\V{n}}^2
+  =0 \fullstop
 \end{equation}
 所以
 \begin{equation}
-	\pdv{\V{n}}{x^\mu}
-	=-b_{\mu\nu}\,\V{g}^\nu
-	=-b^\tau_\mu\,g_{\tau\nu} \cdot g^{\sigma\nu}\,\V{g}_\sigma
-	=-b^\tau_\mu\,\KroneckerDelta{\tau}{\sigma}\,\V{g}_\sigma
-	=-b^\tau_\mu\,\V{g}_\tau=-b^\nu_\mu\,\V{g}_\nu \fullstop
+  \pdv{\V{n}}{x^\mu}
+  =-b_{\mu\nu}\,\V{g}^\nu
+  =-b^\tau_\mu\,g_{\tau\nu} \cdot g^{\sigma\nu}\,\V{g}_\sigma
+  =-b^\tau_\mu\,\KroneckerDelta{\tau}{\sigma}\,\V{g}_\sigma
+  =-b^\tau_\mu\,\V{g}_\tau=-b^\nu_\mu\,\V{g}_\nu \fullstop
 \end{equation}
 代回到 \eqref{eq:Gauss曲率计算式_2}~式的分子中去，可得
 \begin{align}
-	\norm[\realR^3]{\pdv{\V{n}}{x^1} \cp \pdv{\V{n}}{x^2}}
-	&=\norm[\realR^3]{\qty(-b^\mu_1\,\V{g}_\mu)
-			\cp \qty(-b^\nu_2\,\V{g}_\nu)} \notag \\
-	&=\norm[\realR^3]{\qty(-b_1^1\,\V{g}_1 - b_1^2\,\V{g}_2)
-			\cp \qty(-b_2^1\,\V{g}_1 - b_2^2\,\V{g}_2)} \notag
-	\intertext{注意到 $\V{g}_1\cp\V{g}_1=\V{g}_2\cp\V{g}_2=0$，于是}
-	&=\norm[\realR^3]{
-			b_1^1 \, b_2^2 \qty(\V{g}_1 \cp \V{g}_2)
-			+b_1^2 \, b_2^1 \qty(\V{g}_2 \cp \V{g}_1)} \notag \\
-	&=\qty(b_1^1 \, b_2^2 - b_1^2 \, b_2^1)
-		\cdot \norm[\realR^3]{\V{g}_1 \cp \V{g}_2} \notag \\
-	&=\det\!\mqty[b_1^1 & b_1^2 \\[2pt] b_2^1 & b_2^2]
-		\cdot \norm[\realR^3]{\V{g}_1 \cp \V{g}_2} \notag \\
-	&=\det\!\mqty[b^\mu_\nu]
-		\cdot \norm[\realR^3]{\V{g}_1 \cp \V{g}_2} \notag
-	\intertext{根据切向量的定义 \eqref{eq:曲面切向量}~式，
-		$\V{g}_\mu=\pdv*{\V{\Sigma}}{x^\mu}\in\realR^3$。所以}
-	&=\det\!\mqty[b^\mu_\nu] \cdot
-		\norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp \pdv{\V{\Sigma}}{x^2}}
-		\comma
+  \norm[\realR^3]{\pdv{\V{n}}{x^1} \cp \pdv{\V{n}}{x^2}}
+  &=\norm[\realR^3]{\qty(-b^\mu_1\,\V{g}_\mu)
+      \cp \qty(-b^\nu_2\,\V{g}_\nu)} \notag \\
+  &=\norm[\realR^3]{\qty(-b_1^1\,\V{g}_1 - b_1^2\,\V{g}_2)
+      \cp \qty(-b_2^1\,\V{g}_1 - b_2^2\,\V{g}_2)} \notag
+  \intertext{注意到 $\V{g}_1\cp\V{g}_1=\V{g}_2\cp\V{g}_2=0$，于是}
+  &=\norm[\realR^3]{
+      b_1^1 \, b_2^2 \qty(\V{g}_1 \cp \V{g}_2)
+      +b_1^2 \, b_2^1 \qty(\V{g}_2 \cp \V{g}_1)} \notag \\
+  &=\qty(b_1^1 \, b_2^2 - b_1^2 \, b_2^1)
+    \cdot \norm[\realR^3]{\V{g}_1 \cp \V{g}_2} \notag \\
+  &=\det\!\mqty[b_1^1 & b_1^2 \\[2pt] b_2^1 & b_2^2]
+    \cdot \norm[\realR^3]{\V{g}_1 \cp \V{g}_2} \notag \\
+  &=\det\!\mqty[b^\mu_\nu]
+    \cdot \norm[\realR^3]{\V{g}_1 \cp \V{g}_2} \notag
+  \intertext{根据切向量的定义 \eqref{eq:曲面切向量}~式，
+    $\V{g}_\mu=\pdv*{\V{\Sigma}}{x^\mu}\in\realR^3$。所以}
+  &=\det\!\mqty[b^\mu_\nu] \cdot
+    \norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp \pdv{\V{\Sigma}}{x^2}}
+    \comma
 \end{align}
 后面的一部分恰好是 \eqref{eq:Gauss曲率计算式_2}~式的分母。于是
 \begin{equation}
-	K=\det\!\mqty[b^\mu_\nu] \comma
+  K=\det\!\mqty[b^\mu_\nu] \comma
 \end{equation}
 与 \eqref{eq:Gauss曲率_表示}~式相比较便可以看出，
 这里的 $K$ 正是前一小节中所定义的 \emphB{Gauss 曲率} $\KG$。
@@ -678,48 +678,48 @@ $\V{\Sigma}$ 上平行移动过来的法向量 $\V{n}$。
 
 上面的计算过程中，分母最后消去了。当然它的值也可以算出来：
 \begin{equation}
-	\norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp \pdv{\V{\Sigma}}{x^2}}
-	=\norm[\realR^3]{\V{g}_1 \cp \V{g}_2}
-	=\qty(\V{g}_1 \cp \V{g}_2) \vdp \V{n}
-	=\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}] \fullstop
+  \norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp \pdv{\V{\Sigma}}{x^2}}
+  =\norm[\realR^3]{\V{g}_1 \cp \V{g}_2}
+  =\qty(\V{g}_1 \cp \V{g}_2) \vdp \V{n}
+  =\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}] \fullstop
 \end{equation}
 把右边的行列式平方之后可得
 \begin{align}
-	&\mathrel{\phantom{=}}
-		\qty(\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}])^2
-	=\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}] \cdot
-		\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}] \notag
-	\intertext{矩阵转置之后行列式不变：}
-	&=\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}]\trans \cdot
-		\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}]
-	=\det\mqty[\V{g}_1\trans \\[2pt] \V{g}_2\trans \\[2pt]
-			\V{n}\trans] \cdot
-		\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}]
-	=\det \qty\Bigg(
-			\mqty[\V{g}_1\trans \\[2pt] \V{g}_2\trans \\[2pt] \V{n}\trans]
-			\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}] ) \notag \\
-	&=\det\!\mqty[
-			\ipb[\realR^3]{\V{g}_1}{\V{g}_1} &
-			\ipb[\realR^3]{\V{g}_1}{\V{g}_2} &
-			\ipb[\realR^3]{\V{g}_1}{\V{n}} \\
-			\ipb[\realR^3]{\V{g}_2}{\V{g}_1} &
-			\ipb[\realR^3]{\V{g}_2}{\V{g}_2} &
-			\ipb[\realR^3]{\V{g}_2}{\V{n}} \\
-			\ipb[\realR^3]{\V{n}}{\V{g}_1} &
-			\ipb[\realR^3]{\V{n}}{\V{g}_2} &
-			\ipb[\realR^3]{\V{n}}{\V{n}} ] \notag
-	\intertext{根据曲面第一基本形式的定义
-		\eqref{eq:曲面第一基本形式}~式，并利用法向量与切向量正交的性质
-		\eqref{eq:曲面协变基_法向量}~式，可有}
-	&=\det\!\mqty[
-			g_{11} & g_{12} & 0 \\
-			g_{21} & g_{22} & 0 \\
-			0 & 0 & 1 ]
-	=\det\!\mqty[g_{11} & g_{12} \\ g_{21} & g_{22}]
-	=\det\Mat{G} \fullstop
+  &\mathrel{\phantom{=}}
+    \qty(\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}])^2
+  =\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}] \cdot
+    \det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}] \notag
+  \intertext{矩阵转置之后行列式不变：}
+  &=\det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}]\trans \cdot
+    \det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}]
+  =\det\mqty[\V{g}_1\trans \\[2pt] \V{g}_2\trans \\[2pt]
+      \V{n}\trans] \cdot
+    \det\!\mqty[\V{g}_1,\,\V{g}_2,\,\V{n}]
+  =\det \qty\Bigg(
+      \mqty[\V{g}_1\trans \\[2pt] \V{g}_2\trans \\[2pt] \V{n}\trans]
+      \mqty[\V{g}_1,\,\V{g}_2,\,\V{n}] ) \notag \\
+  &=\det\!\mqty[
+      \ipb[\realR^3]{\V{g}_1}{\V{g}_1} &
+      \ipb[\realR^3]{\V{g}_1}{\V{g}_2} &
+      \ipb[\realR^3]{\V{g}_1}{\V{n}} \\
+      \ipb[\realR^3]{\V{g}_2}{\V{g}_1} &
+      \ipb[\realR^3]{\V{g}_2}{\V{g}_2} &
+      \ipb[\realR^3]{\V{g}_2}{\V{n}} \\
+      \ipb[\realR^3]{\V{n}}{\V{g}_1} &
+      \ipb[\realR^3]{\V{n}}{\V{g}_2} &
+      \ipb[\realR^3]{\V{n}}{\V{n}} ] \notag
+  \intertext{根据曲面第一基本形式的定义
+    \eqref{eq:曲面第一基本形式}~式，并利用法向量与切向量正交的性质
+    \eqref{eq:曲面协变基_法向量}~式，可有}
+  &=\det\!\mqty[
+      g_{11} & g_{12} & 0 \\
+      g_{21} & g_{22} & 0 \\
+      0 & 0 & 1 ]
+  =\det\!\mqty[g_{11} & g_{12} \\ g_{21} & g_{22}]
+  =\det\Mat{G} \fullstop
 \end{align}
 式中的 $\Mat{G}$ 就是曲面第一基本形式的表示矩阵。此时，
 \begin{equation}
-	\norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp \pdv{\V{\Sigma}}{x^2}}
-	=\sqrt{\det\Mat{G}} \fullstop
+  \norm[\realR^3]{\pdv{\V{\Sigma}}{x^1} \cp \pdv{\V{\Sigma}}{x^2}}
+  =\sqrt{\det\Mat{G}} \fullstop
 \end{equation}

@@ -3,18 +3,18 @@
 在 \ref{sec:局部基}~节中，我们利用曲线坐标系 $\V{X}(\V{x})$
 构造了 $\Rm$ 上的一组（局部协变）基
 \begin{equation}
-	\qty{\V{g}_i(\V{x})=\pdv{\V{X}}{x^i} (\V{x})}^m_{i=1}
-	\subset\Rm \comma
+  \qty{\V{g}_i(\V{x})=\pdv{\V{X}}{x^i} (\V{x})}^m_{i=1}
+  \subset\Rm \comma
 \end{equation}
 它们称为\emphA{完整基}\idx{完整基}。
 与之对应，不是由曲线坐标系诱导的基，
 称为\emphA{非完整基}\idx{非完整基}。
 
 \begin{figure}[h]
-	\centering
-	\includegraphics{Images/Holonomic_Nonholonomic_Basis.PNG}
-	\caption{完整基与非完整基}
-	\label{fig:完整基与非完整基}
+  \centering
+  \includegraphics{Images/Holonomic_Nonholonomic_Basis.PNG}
+  \caption{完整基与非完整基}
+  \label{fig:完整基与非完整基}
 \end{figure}
 
 如图~\ref{fig:完整基与非完整基}，
@@ -29,19 +29,19 @@ $\qty{\V{g}_i(\V{x})}^m_{i=1}$，
 下面我们来考察张量梯度在非完整基下的表达形式。
 在 \ref{sec:张量场的梯度}~节中，我们已经推导出了张量场的（右）梯度：
 \begin{equation}
-	\qty\big(\T{\Phi}\tp\opGrad) (\V{x})
-	\defeq \pdv{\T{\Phi}}{x^\mu} (\V{x})
-		\tp \V{g}^\mu(\V{x})
-	=\coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \,
-		\V{g}_i (\V{x}) \tp \V{g}^j (\V{x})
-		\tp \V{g}_k (\V{x}) \tp \V{g}^\mu (\V{x}) \fullstop
-	\label{eq:张量梯度_非完整基}
+  \qty\big(\T{\Phi}\tp\opGrad) (\V{x})
+  \defeq \pdv{\T{\Phi}}{x^\mu} (\V{x})
+    \tp \V{g}^\mu(\V{x})
+  =\coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \,
+    \V{g}_i (\V{x}) \tp \V{g}^j (\V{x})
+    \tp \V{g}_k (\V{x}) \tp \V{g}^\mu (\V{x}) \fullstop
+  \label{eq:张量梯度_非完整基}
 \end{equation}
 这是一个四阶张量，对应的张量分量可记作
 \begin{equation}
-	\tc{\qty\big(\T{\Phi}\tp\opGrad)}{^i_j^k_\mu} (\V{x})
-	\coloneq \coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \fullstop
-	\label{eq:张量梯度分量_非完整基}
+  \tc{\qty\big(\T{\Phi}\tp\opGrad)}{^i_j^k_\mu} (\V{x})
+  \coloneq \coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \fullstop
+  \label{eq:张量梯度分量_非完整基}
 \end{equation}
 除此以外，其他的基当然也可以用来表示该张量，
 比如前文提到过的 $\qty{\V{g}_{(i)}(\V{x})}^m_{i=1}$
@@ -51,60 +51,60 @@ $\qty{\V{g}_i(\V{x})}^m_{i=1}$，
 \ref{subsec:相对不同基的张量分量之间的关系}~小节中引入的%
 \emphB{坐标转换关系}\idx{坐标转换关系}来获得：
 \begin{braceEq}
-	\V{g}_{(i)} (\V{x})
-		&= c^k_{(i)} (\V{x}) \, \V{g}_k (\V{x}) \comma \\
-	\V{g}^{(i)} (\V{x})
-		&= c_k^{(i)} (\V{x}) \, \V{g}^k (\V{x}) \semicolon \\
-	\V{g}_i (\V{x})
-		&= c^{(k)}_i (\V{x}) \, \V{g}_{(k)} (\V{x}) \comma \\
-	\V{g}^i (\V{x})
-		&= c_{(k)}^i (\V{x}) \, \V{g}^{(k)} (\V{x}) \fullstop
+  \V{g}_{(i)} (\V{x})
+    &= c^k_{(i)} (\V{x}) \, \V{g}_k (\V{x}) \comma \\
+  \V{g}^{(i)} (\V{x})
+    &= c_k^{(i)} (\V{x}) \, \V{g}^k (\V{x}) \semicolon \\
+  \V{g}_i (\V{x})
+    &= c^{(k)}_i (\V{x}) \, \V{g}_{(k)} (\V{x}) \comma \\
+  \V{g}^i (\V{x})
+    &= c_{(k)}^i (\V{x}) \, \V{g}^{(k)} (\V{x}) \fullstop
 \end{braceEq}
 \myPROBLEM[2017-01-20]{坐标转换关系}\\
 其中的基转换系数都是已知量，它们的定义如下：\footnote{
-	只有两个基转换系数的原因是内积具有交换律。}
+  只有两个基转换系数的原因是内积具有交换律。}
 \begin{braceEq}
-	c^j_{(i)} (\V{x})
-		&\coloneq \ipb{\V{g}_{(i)} (\V{x})}{\V{g}^j (\V{x})} \comma \\
-	c_j^{(i)} (\V{x})
-		&\coloneq \ipb{\V{g}^{(i)} (\V{x})}{\V{g}_j (\V{x})} \fullstop
+  c^j_{(i)} (\V{x})
+    &\coloneq \ipb{\V{g}_{(i)} (\V{x})}{\V{g}^j (\V{x})} \comma \\
+  c_j^{(i)} (\V{x})
+    &\coloneq \ipb{\V{g}^{(i)} (\V{x})}{\V{g}_j (\V{x})} \fullstop
 \end{braceEq}
 代入 \eqref{eq:张量梯度_非完整基}~式，可有\footnote{
-	这里我们省略了“$(\V{x})$”。}
+  这里我们省略了“$(\V{x})$”。}
 \begin{align}
-	\T{\Phi}\tp\opGrad
-	&=\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
-		\qty(\vphantom{\frac{0}{0}}
-			\V{g}_i \tp \V{g}^j \tp \V{g}_k \tp \V{g}^\mu) \notag \\
-	&=\coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \,
-		\qty[\vphantom{\frac{0^0}{0^0}}
-			\qty(c^{(p)}_i \, \V{g}_{(p)})
-			\tp \qty(c_{(q)}^j \, \V{g}^{(q)})
-			\tp \qty(c^{(r)}_k \, \V{g}_{(r)})
-			\tp \qty(\vphantom{\frac{0}{0}}
-				c_{(\alpha)}^\mu \, \V{g}^{(\alpha)})] \notag
-	\intertext{根据线性性，提出系数：}
-	&=\qty(c^{(p)}_i c_{(q)}^j c^{(r)}_k c_{(\alpha)}^\mu
-			\coD{\mu}{\tc{\Phi}{^i_j^k}})
-		\qty(\vphantom{\frac{0}{0}}
-			\V{g}_{(p)} \tp \V{g}^{(q)} \tp \V{g}_{(r)}
-			\tp \V{g}^{(\alpha)}) \notag
-	\intertext{写成张量分量与简单张量“乘积”的形式，即为}
-	&\eqcolon \tc{\qty\big(\T{\Phi}\tp\opGrad)}%
-			{^{(p)}_{\!(q)}^{\!(r)}_{\!(\alpha)}} \,
-		\qty(\vphantom{\frac{0}{0}}
-			\V{g}_{(p)} \tp \V{g}^{(q)} \tp \V{g}_{(r)}
-			\tp \V{g}^{(\alpha)}) \fullstop
+  \T{\Phi}\tp\opGrad
+  &=\coD{\mu}{\tc{\Phi}{^i_j^k}} \,
+    \qty(\vphantom{\frac{0}{0}}
+      \V{g}_i \tp \V{g}^j \tp \V{g}_k \tp \V{g}^\mu) \notag \\
+  &=\coD{\mu}{\tc{\Phi}{^i_j^k} (\V{x})} \,
+    \qty[\vphantom{\frac{0^0}{0^0}}
+      \qty(c^{(p)}_i \, \V{g}_{(p)})
+      \tp \qty(c_{(q)}^j \, \V{g}^{(q)})
+      \tp \qty(c^{(r)}_k \, \V{g}_{(r)})
+      \tp \qty(\vphantom{\frac{0}{0}}
+        c_{(\alpha)}^\mu \, \V{g}^{(\alpha)})] \notag
+  \intertext{根据线性性，提出系数：}
+  &=\qty(c^{(p)}_i c_{(q)}^j c^{(r)}_k c_{(\alpha)}^\mu
+      \coD{\mu}{\tc{\Phi}{^i_j^k}})
+    \qty(\vphantom{\frac{0}{0}}
+      \V{g}_{(p)} \tp \V{g}^{(q)} \tp \V{g}_{(r)}
+      \tp \V{g}^{(\alpha)}) \notag
+  \intertext{写成张量分量与简单张量“乘积”的形式，即为}
+  &\eqcolon \tc{\qty\big(\T{\Phi}\tp\opGrad)}%
+      {^{(p)}_{\!(q)}^{\!(r)}_{\!(\alpha)}} \,
+    \qty(\vphantom{\frac{0}{0}}
+      \V{g}_{(p)} \tp \V{g}^{(q)} \tp \V{g}_{(r)}
+      \tp \V{g}^{(\alpha)}) \fullstop
 \end{align}
 这样，我们就获得了非完整基下张量梯度的表示。
 再利用式~\eqref{eq:张量梯度分量_非完整基}，可知
 \begin{equation}
-	\tc{\qty\big(\T{\Phi}\tp\opGrad)}%
-		{^{(p)}_{\!(q)}^{\!(r)}_{\!(\alpha)}} \,
-	=c^{(p)}_i c_{(q)}^j c^{(r)}_k c_{(\alpha)}^\mu \,
-		\tc{\qty(\vphantom{0^0}
-			\T{\Phi}\tp\opGrad)}{^i_j^k_\mu} \fullstop
-	\label{eq:非完整基下的张量梯度分量}
+  \tc{\qty\big(\T{\Phi}\tp\opGrad)}%
+    {^{(p)}_{\!(q)}^{\!(r)}_{\!(\alpha)}} \,
+  =c^{(p)}_i c_{(q)}^j c^{(r)}_k c_{(\alpha)}^\mu \,
+    \tc{\qty(\vphantom{0^0}
+      \T{\Phi}\tp\opGrad)}{^i_j^k_\mu} \fullstop
+  \label{eq:非完整基下的张量梯度分量}
 \end{equation}
 以上结果与 \ref{subsec:相对不同基的张量分量之间的关系}~小节
 中的推导是完全一致的。
@@ -122,52 +122,52 @@ $\qty{\V{g}_i(\V{x})}^m_{i=1}$，
 \begin{myEnum}
 \item \emphA{形式偏导数}：
 \begin{equation}
-	\pdv{x^{(\mu)}} \defeq c^l_{(\mu)} \pdv{x^l} \fullstop
-	\label{eq:形式偏导数}
+  \pdv{x^{(\mu)}} \defeq c^l_{(\mu)} \pdv{x^l} \fullstop
+  \label{eq:形式偏导数}
 \end{equation}
 注意 $\pdv*{x^{(\mu)}}$ 本身是不能用极限形式来定义的，
 因为曲线坐标系中并不存在有 $x^{(\mu)}$ 坐标线。
 
 \item \emphA{形式 Christoffel 符号}：
 \begin{equation}
-	\ChrB{(\alpha)}{(\beta)}{(\gamma)}
-	\defeq c^i_{(\alpha)} c^j_{(\beta)} c^{(\gamma)}_k \ChrB{i}{j}{k}
-		-c^i_{(\alpha)} c^j_{(\beta)} \pdv{c^{(\gamma)}_j}{x^i}
-	=c^i_{(\alpha)} c^j_{(\beta)}
-		\qty(c^{(\gamma)}_k \ChrB{i}{j}{k}
-			-\pdv{c^{(\gamma)}_j}{x^i}) \fullstop
-	\label{eq:形式Christoffel符号}
+  \ChrB{(\alpha)}{(\beta)}{(\gamma)}
+  \defeq c^i_{(\alpha)} c^j_{(\beta)} c^{(\gamma)}_k \ChrB{i}{j}{k}
+    -c^i_{(\alpha)} c^j_{(\beta)} \pdv{c^{(\gamma)}_j}{x^i}
+  =c^i_{(\alpha)} c^j_{(\beta)}
+    \qty(c^{(\gamma)}_k \ChrB{i}{j}{k}
+      -\pdv{c^{(\gamma)}_j}{x^i}) \fullstop
+  \label{eq:形式Christoffel符号}
 \end{equation}
 \myPROBLEM[2017-01-31]{第一类形式 Christoffel 符号}
 
 \item \emphA{形式协变导数}。我们以三阶张量 $\T{\Phi}$ 为例给出定义。
 $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 \begin{equation}
-	\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}
-	\coloneq \T{\Phi} \qty(\V{g}^{(\alpha)},\,\V{g}_{(\beta)},\,
-		\V{g}^{(\gamma)}) \fullstop
+  \tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}
+  \coloneq \T{\Phi} \qty(\V{g}^{(\alpha)},\,\V{g}_{(\beta)},\,
+    \V{g}^{(\gamma)}) \fullstop
 \end{equation}
 它相对 $x^{(\mu)}$ 分量的形式协变导数为
 \begin{equation}
-	\coD{(\mu)}{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
-	\defeq \pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}%
-		{x^{(\mu)}}
-	+\ChrB{(\mu)}{(\sigma)}{(\alpha)}
-		\tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}}
-	-\ChrB{(\mu)}{(\beta)}{(\sigma)}
-		\tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}}
-	+\ChrB{(\mu)}{(\sigma)}{(\gamma)}
-		\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}} \fullstop
-	\label{eq:形式协变导数}
+  \coD{(\mu)}{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
+  \defeq \pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}%
+    {x^{(\mu)}}
+  +\ChrB{(\mu)}{(\sigma)}{(\alpha)}
+    \tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}}
+  -\ChrB{(\mu)}{(\beta)}{(\sigma)}
+    \tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}}
+  +\ChrB{(\mu)}{(\sigma)}{(\gamma)}
+    \tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}} \fullstop
+  \label{eq:形式协变导数}
 \end{equation}
 回顾 \ref{sec:张量场的偏导数_协变导数}~节，
 \eqref{eq:协变导数定义}~式给出了完整基下协变导数的定义：
 \begin{equation}
-	\coD{l}{\tc{\Phi}{^i_j^k}} \defeq
-	\pdv{\tc{\Phi}{^i_j^k}}{x^l}
-	+\ChrB{l}{s}{i} \tc{\Phi}{^s_j^k}
-	-\ChrB{l}{j}{s} \tc{\Phi}{^i_s^k}
-	+\ChrB{l}{s}{k} \tc{\Phi}{^i_j^s} \fullstop
+  \coD{l}{\tc{\Phi}{^i_j^k}} \defeq
+  \pdv{\tc{\Phi}{^i_j^k}}{x^l}
+  +\ChrB{l}{s}{i} \tc{\Phi}{^s_j^k}
+  -\ChrB{l}{j}{s} \tc{\Phi}{^i_s^k}
+  +\ChrB{l}{s}{k} \tc{\Phi}{^i_j^s} \fullstop
 \end{equation}
 可以看出\emphB{形式}协变导数的定义与它几乎一模一样。
 \end{myEnum}
@@ -176,17 +176,17 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 
 接下来我们要证明
 \begin{equation}
-	\coD{(\mu)}{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
-	=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k \,
-		\coD{l}{\tc{\Phi}{^i_j^k}} \fullstop
+  \coD{(\mu)}{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
+  =c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k \,
+    \coD{l}{\tc{\Phi}{^i_j^k}} \fullstop
 \end{equation}
 代入式~\eqref{eq:张量梯度分量_非完整基} 和
 \eqref{eq:非完整基下的张量梯度分量}，即得
 \begin{equation}
-	\coD{(\mu)}{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
-	=\tc{\qty(\vphantom{0^0}
-		\T{\Phi}\tp\opGrad)}{^{(p)}_{\!(q)}^{\!(r)}_{\!(\alpha)}}
-	\fullstop
+  \coD{(\mu)}{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
+  =\tc{\qty(\vphantom{0^0}
+    \T{\Phi}\tp\opGrad)}{^{(p)}_{\!(q)}^{\!(r)}_{\!(\alpha)}}
+  \fullstop
 \end{equation}
 换句话说，此处我们正是要验证这种“形式理论”与
 \ref{sec:非完整基下的张量梯度}~节中坐标转换关系的一致性。
@@ -194,255 +194,255 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 \begin{myProof}
 左边按照 \eqref{eq:形式协变导数}~式展开，第一项为
 \begin{align}
-	\pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}%
-		{x^{(\mu)}}
-	&=c^l_{(\mu)} \pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}%
-			^{\!(\gamma)}}}{x^l} \notag
-	\intertext{这里用到了形式偏导数的定义 \eqref{eq:形式偏导数}~式。
-	然后利用坐标转换关系展开张量分量：}
-	&=c^l_{(\mu)} \pdv{x^l}
-		\qty(c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-			\tc{\Phi}{^i_j^k}) \notag
-	%
-	\intertext{再按照通常的偏导数法则直接打开：}
-	&=c^l_{(\mu)} c^j_{(\beta)} c^{(\gamma)}_k
-			\pdv{c^{(\alpha)}_i}{x^l} \tc{\Phi}{^i_j^k}
-		+c^l_{(\mu)} c^{(\alpha)}_i c^{(\gamma)}_k
-			\pdv{c^j_{(\beta)}}{x^l} \tc{\Phi}{^i_j^k}
-		+c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)}
-			\pdv{c^{(\gamma)}_k}{x^l} \tc{\Phi}{^i_j^k} \notag \\*
-	&\alspace{}
-		+c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-			\pdv{\tc{\Phi}{^i_j^k}}{x^l} \notag \\
-	%
-	&=c^l_{(\mu)} \tc{\Phi}{^i_j^k}
-		\qty(c^j_{(\beta)} c^{(\gamma)}_k \pdv{c^{(\alpha)}_i}{x^l}
-			+c^{(\alpha)}_i c^{(\gamma)}_k \pdv{c^j_{(\beta)}}{x^l}
-			+c^{(\alpha)}_i c^j_{(\beta)} \pdv{c^{(\gamma)}_k}{x^l})
-		\notag \\*
-	&\alspace{}
-		+c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-			\pdv{\tc{\Phi}{^i_j^k}}{x^l} \fullstop
-	\label{eq:张量分量偏导数_非完整基形式运算}
+  \pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}%
+    {x^{(\mu)}}
+  &=c^l_{(\mu)} \pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}%
+      ^{\!(\gamma)}}}{x^l} \notag
+  \intertext{这里用到了形式偏导数的定义 \eqref{eq:形式偏导数}~式。
+  然后利用坐标转换关系展开张量分量：}
+  &=c^l_{(\mu)} \pdv{x^l}
+    \qty(c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+      \tc{\Phi}{^i_j^k}) \notag
+  %
+  \intertext{再按照通常的偏导数法则直接打开：}
+  &=c^l_{(\mu)} c^j_{(\beta)} c^{(\gamma)}_k
+      \pdv{c^{(\alpha)}_i}{x^l} \tc{\Phi}{^i_j^k}
+    +c^l_{(\mu)} c^{(\alpha)}_i c^{(\gamma)}_k
+      \pdv{c^j_{(\beta)}}{x^l} \tc{\Phi}{^i_j^k}
+    +c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)}
+      \pdv{c^{(\gamma)}_k}{x^l} \tc{\Phi}{^i_j^k} \notag \\*
+  &\alspace{}
+    +c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+      \pdv{\tc{\Phi}{^i_j^k}}{x^l} \notag \\
+  %
+  &=c^l_{(\mu)} \tc{\Phi}{^i_j^k}
+    \qty(c^j_{(\beta)} c^{(\gamma)}_k \pdv{c^{(\alpha)}_i}{x^l}
+      +c^{(\alpha)}_i c^{(\gamma)}_k \pdv{c^j_{(\beta)}}{x^l}
+      +c^{(\alpha)}_i c^j_{(\beta)} \pdv{c^{(\gamma)}_k}{x^l})
+    \notag \\*
+  &\alspace{}
+    +c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+      \pdv{\tc{\Phi}{^i_j^k}}{x^l} \fullstop
+  \label{eq:张量分量偏导数_非完整基形式运算}
 \end{align}
 
 接下来处理含有形式 Christoffel 符号的三项，分别是
 \begin{mySubEq}
-	\begin{align}
-		\ChrB{(\mu)}{(\sigma)}{(\alpha)}
-			\tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}}
-		&=c^p_{(\mu)} c^q_{(\sigma)}
-			\qty(c^{(\alpha)}_s \ChrB{p}{q}{s} - \pdv{c^{(\alpha)}_q}{x^p})
-			\cdot \tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}} \notag \\
-		&=c^p_{(\mu)} \hl{c^q_{(\sigma)}}
-			\qty(c^{(\alpha)}_s \ChrB{p}{q}{s} - \pdv{c^{(\alpha)}_q}{x^p})
-			\cdot \hl{c^{(\sigma)}_i} c^j_{(\beta)} c^{(\gamma)}_k
-				\tc{\Phi}{^i_j^k} \notag
-		\intertext{根据式~\eqref{eq:坐标转换系数的乘积}，我们有
-			$c^q_{(\sigma)} c^{(\sigma)}_i = \KroneckerDelta{q}{i}$，于是}
-		&=c^p_{(\mu)} \tc{\Phi}{^i_j^k}
-			\qty(c^{(\alpha)}_s c^j_{(\beta)} c^{(\gamma)}_k \ChrB{p}{i}{s}
-				-c^j_{(\beta)} c^{(\gamma)}_k \pdv{c^{(\alpha)}_i}{x^p})
-		\semicolon \\
-		%
-		-\ChrB{(\mu)}{(\beta)}{(\sigma)}
-			\tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}}
-		&=-c^p_{(\mu)} c^q_{(\beta)}
-			\qty(c^{(\sigma)}_s \ChrB{p}{q}{s} - \pdv{c^{(\sigma)}_q}{x^p})
-			\cdot \tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}} \notag \\
-		&=-c^p_{(\mu)} c^q_{(\beta)}
-			\qty(\hl{c^{(\sigma)}_s} \ChrB{p}{q}{s}
-				-\pdv{c^{(\sigma)}_q}{x^p})
-			\cdot c^{(\alpha)}_i \hl{c^j_{(\sigma)}} c^{(\gamma)}_k
-				\tc{\Phi}{^i_j^k} \notag \\
-		&=c^p_{(\mu)} \tc{\Phi}{^i_j^k}
-			\qty(-c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k \ChrB{p}{q}{j}
-				+c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k c^j_{(\sigma)}
-					\pdv{c^{(\sigma)}_q}{x^p}) \semicolon \\
-		%
-		\ChrB{(\mu)}{(\sigma)}{(\gamma)}
-			\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}}
-		&=c^p_{(\mu)} c^q_{(\sigma)}
-			\qty(c^{(\gamma)}_s \ChrB{p}{q}{s} - \pdv{c^{(\gamma)}_q}{x^p})
-			\cdot \tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}} \notag \\
-		&=c^p_{(\mu)} \hl{c^q_{(\sigma)}}
-			\qty(c^{(\gamma)}_s \ChrB{p}{q}{s} - \pdv{c^{(\gamma)}_q}{x^p})
-			\cdot c^{(\alpha)}_i c^j_{(\beta)} \hl{c^{(\sigma)}_k}
-				\tc{\Phi}{^i_j^k} \notag \\
-		&=c^p_{(\mu)} \tc{\Phi}{^i_j^k}
-			\qty(c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_s \ChrB{p}{k}{s}
-				-c^{(\alpha)}_i c^j_{(\beta)} \pdv{c^{(\gamma)}_k}{x^p})
-		\fullstop
-	\end{align}
+  \begin{align}
+    \ChrB{(\mu)}{(\sigma)}{(\alpha)}
+      \tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}}
+    &=c^p_{(\mu)} c^q_{(\sigma)}
+      \qty(c^{(\alpha)}_s \ChrB{p}{q}{s} - \pdv{c^{(\alpha)}_q}{x^p})
+      \cdot \tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}} \notag \\
+    &=c^p_{(\mu)} \hl{c^q_{(\sigma)}}
+      \qty(c^{(\alpha)}_s \ChrB{p}{q}{s} - \pdv{c^{(\alpha)}_q}{x^p})
+      \cdot \hl{c^{(\sigma)}_i} c^j_{(\beta)} c^{(\gamma)}_k
+        \tc{\Phi}{^i_j^k} \notag
+    \intertext{根据式~\eqref{eq:坐标转换系数的乘积}，我们有
+      $c^q_{(\sigma)} c^{(\sigma)}_i = \KroneckerDelta{q}{i}$，于是}
+    &=c^p_{(\mu)} \tc{\Phi}{^i_j^k}
+      \qty(c^{(\alpha)}_s c^j_{(\beta)} c^{(\gamma)}_k \ChrB{p}{i}{s}
+        -c^j_{(\beta)} c^{(\gamma)}_k \pdv{c^{(\alpha)}_i}{x^p})
+    \semicolon \\
+    %
+    -\ChrB{(\mu)}{(\beta)}{(\sigma)}
+      \tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}}
+    &=-c^p_{(\mu)} c^q_{(\beta)}
+      \qty(c^{(\sigma)}_s \ChrB{p}{q}{s} - \pdv{c^{(\sigma)}_q}{x^p})
+      \cdot \tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}} \notag \\
+    &=-c^p_{(\mu)} c^q_{(\beta)}
+      \qty(\hl{c^{(\sigma)}_s} \ChrB{p}{q}{s}
+        -\pdv{c^{(\sigma)}_q}{x^p})
+      \cdot c^{(\alpha)}_i \hl{c^j_{(\sigma)}} c^{(\gamma)}_k
+        \tc{\Phi}{^i_j^k} \notag \\
+    &=c^p_{(\mu)} \tc{\Phi}{^i_j^k}
+      \qty(-c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k \ChrB{p}{q}{j}
+        +c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k c^j_{(\sigma)}
+          \pdv{c^{(\sigma)}_q}{x^p}) \semicolon \\
+    %
+    \ChrB{(\mu)}{(\sigma)}{(\gamma)}
+      \tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}}
+    &=c^p_{(\mu)} c^q_{(\sigma)}
+      \qty(c^{(\gamma)}_s \ChrB{p}{q}{s} - \pdv{c^{(\gamma)}_q}{x^p})
+      \cdot \tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}} \notag \\
+    &=c^p_{(\mu)} \hl{c^q_{(\sigma)}}
+      \qty(c^{(\gamma)}_s \ChrB{p}{q}{s} - \pdv{c^{(\gamma)}_q}{x^p})
+      \cdot c^{(\alpha)}_i c^j_{(\beta)} \hl{c^{(\sigma)}_k}
+        \tc{\Phi}{^i_j^k} \notag \\
+    &=c^p_{(\mu)} \tc{\Phi}{^i_j^k}
+      \qty(c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_s \ChrB{p}{k}{s}
+        -c^{(\alpha)}_i c^j_{(\beta)} \pdv{c^{(\gamma)}_k}{x^p})
+    \fullstop
+  \end{align}
 \end{mySubEq}
 以上三式都有公因子 $c^p_{(\mu)} \tc{\Phi}{^i_j^k}$。
 为了进一步化简，不妨将哑标 $p$ 换为 $l$。这样可有
 \begin{align}
-	&\alspace \ChrB{(\mu)}{(\sigma)}{(\alpha)}
-		\tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}}
-	-\ChrB{(\mu)}{(\beta)}{(\sigma)}
-		\tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}}
-	+\ChrB{(\mu)}{(\sigma)}{(\gamma)}
-		\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}} \notag \\
-	&=c^l_{(\mu)} \tc{\Phi}{^i_j^k}
-		\left[\vphantom{\pdv{c^{(\gamma)}_k}{x^l}} \qty(
-			c^{(\alpha)}_s c^j_{(\beta)} c^{(\gamma)}_k \ChrB{l}{i}{s}
-			-c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k \ChrB{l}{q}{j}
-			+c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_s \ChrB{l}{k}{s})
-		\right. \notag \\
-	&\alspace\phantom{c^l_{(\mu)} \tc{\Phi}{^i_j^k}\left[\right]}
-		\left. {}-c^j_{(\beta)} c^{(\gamma)}_k \pdv{c^{(\alpha)}_i}{x^l}
-			+c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k c^j_{(\sigma)}
-				\pdv{c^{(\sigma)}_q}{x^l}
-			-c^{(\alpha)}_i c^j_{(\beta)} \pdv{c^{(\gamma)}_k}{x^l}
-		\right] \fullstop
+  &\alspace \ChrB{(\mu)}{(\sigma)}{(\alpha)}
+    \tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}}
+  -\ChrB{(\mu)}{(\beta)}{(\sigma)}
+    \tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}}
+  +\ChrB{(\mu)}{(\sigma)}{(\gamma)}
+    \tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}} \notag \\
+  &=c^l_{(\mu)} \tc{\Phi}{^i_j^k}
+    \left[\vphantom{\pdv{c^{(\gamma)}_k}{x^l}} \qty(
+      c^{(\alpha)}_s c^j_{(\beta)} c^{(\gamma)}_k \ChrB{l}{i}{s}
+      -c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k \ChrB{l}{q}{j}
+      +c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_s \ChrB{l}{k}{s})
+    \right. \notag \\
+  &\alspace\phantom{c^l_{(\mu)} \tc{\Phi}{^i_j^k}\left[\right]}
+    \left. {}-c^j_{(\beta)} c^{(\gamma)}_k \pdv{c^{(\alpha)}_i}{x^l}
+      +c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k c^j_{(\sigma)}
+        \pdv{c^{(\sigma)}_q}{x^l}
+      -c^{(\alpha)}_i c^j_{(\beta)} \pdv{c^{(\gamma)}_k}{x^l}
+    \right] \fullstop
 \end{align}
 该式与 \eqref{eq:张量分量偏导数_非完整基形式运算}~式相加，得
 \begin{align}
-	&\alspace \coD{(\mu)}{\tc{\Phi}
-		{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
-	\defeq \pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}%
-		{x^{(\mu)}}
-		+\ChrB{(\mu)}{(\sigma)}{(\alpha)}
-			\tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}}
-		-\ChrB{(\mu)}{(\beta)}{(\sigma)}
-			\tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}}
-		+\ChrB{(\mu)}{(\sigma)}{(\gamma)}
-			\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}} \notag \\
-	%
-	&=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-			\pdv{\tc{\Phi}{^i_j^k}}{x^l}
-		+c^l_{(\mu)} \tc{\Phi}{^i_j^k} \left[
-			\hl{c^j_{(\beta)} c^{(\gamma)}_k \pdv{c^{(\alpha)}_i}{x^l}}
-			+c^{(\alpha)}_i c^{(\gamma)}_k \pdv{c^j_{(\beta)}}{x^l}
-			+\hl[pink]{c^{(\alpha)}_i c^j_{(\beta)}
-				\pdv{c^{(\gamma)}_k}{x^l}} \right. \notag \\*
-	&\alspace
-	\phantom{c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-			\pdv{\tc{\Phi}{^i_j^k}}{x^l}
-		+c^l_{(\mu)} \tc{\Phi}{^i_j^k} \left[\right]}
-		\left. {}
-			+\qty(c^{(\alpha)}_s c^j_{(\beta)} c^{(\gamma)}_k \ChrB{l}{i}{s}
-			-c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k \ChrB{l}{q}{j}
-			+c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_s \ChrB{l}{k}{s})
-		\right. \notag \\*
-	&\alspace
-	\phantom{c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-			\pdv{\tc{\Phi}{^i_j^k}}{x^l}
-		+c^l_{(\mu)} \tc{\Phi}{^i_j^k} \left[\right]}
-		\left. {}
-			-\hl{c^j_{(\beta)} c^{(\gamma)}_k \pdv{c^{(\alpha)}_i}{x^l}}
-			+c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k c^j_{(\sigma)}
-				\pdv{c^{(\sigma)}_q}{x^l}
-			-\hl[pink]{c^{(\alpha)}_i c^j_{(\beta)}
-				\pdv{c^{(\gamma)}_k}{x^l}} \right] \notag
-	%
-	\intertext{高亮部分相互抵消：}
-	&=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-			\pdv{\tc{\Phi}{^i_j^k}}{x^l}
-		+c^l_{(\mu)} \tc{\Phi}{^i_j^k}
-		\left[\vphantom{\pdv{c^{(\gamma)}_k}{x^l}} \qty(
-			c^{(\alpha)}_s c^j_{(\beta)} c^{(\gamma)}_k \ChrB{l}{i}{s}
-			-c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k \ChrB{l}{q}{j}
-			+c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_s \ChrB{l}{k}{s})
-		\right. \notag \\
-	&\alspace
-	\phantom{c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-			\pdv{\tc{\Phi}{^i_j^k}}{x^l}
-		+c^l_{(\mu)} \tc{\Phi}{^i_j^k} \left[\right]}
-		\left. {}
-			+c^{(\alpha)}_i c^{(\gamma)}_k \pdv{c^j_{(\beta)}}{x^l}
-			+c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k c^j_{(\sigma)}
-				\pdv{c^{(\sigma)}_q}{x^l} \right]
-	\label{eq:非完整基形式理论推导}
+  &\alspace \coD{(\mu)}{\tc{\Phi}
+    {^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
+  \defeq \pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}%
+    {x^{(\mu)}}
+    +\ChrB{(\mu)}{(\sigma)}{(\alpha)}
+      \tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}}
+    -\ChrB{(\mu)}{(\beta)}{(\sigma)}
+      \tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}}
+    +\ChrB{(\mu)}{(\sigma)}{(\gamma)}
+      \tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}} \notag \\
+  %
+  &=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+      \pdv{\tc{\Phi}{^i_j^k}}{x^l}
+    +c^l_{(\mu)} \tc{\Phi}{^i_j^k} \left[
+      \hl{c^j_{(\beta)} c^{(\gamma)}_k \pdv{c^{(\alpha)}_i}{x^l}}
+      +c^{(\alpha)}_i c^{(\gamma)}_k \pdv{c^j_{(\beta)}}{x^l}
+      +\hl[pink]{c^{(\alpha)}_i c^j_{(\beta)}
+        \pdv{c^{(\gamma)}_k}{x^l}} \right. \notag \\*
+  &\alspace
+  \phantom{c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+      \pdv{\tc{\Phi}{^i_j^k}}{x^l}
+    +c^l_{(\mu)} \tc{\Phi}{^i_j^k} \left[\right]}
+    \left. {}
+      +\qty(c^{(\alpha)}_s c^j_{(\beta)} c^{(\gamma)}_k \ChrB{l}{i}{s}
+      -c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k \ChrB{l}{q}{j}
+      +c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_s \ChrB{l}{k}{s})
+    \right. \notag \\*
+  &\alspace
+  \phantom{c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+      \pdv{\tc{\Phi}{^i_j^k}}{x^l}
+    +c^l_{(\mu)} \tc{\Phi}{^i_j^k} \left[\right]}
+    \left. {}
+      -\hl{c^j_{(\beta)} c^{(\gamma)}_k \pdv{c^{(\alpha)}_i}{x^l}}
+      +c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k c^j_{(\sigma)}
+        \pdv{c^{(\sigma)}_q}{x^l}
+      -\hl[pink]{c^{(\alpha)}_i c^j_{(\beta)}
+        \pdv{c^{(\gamma)}_k}{x^l}} \right] \notag
+  %
+  \intertext{高亮部分相互抵消：}
+  &=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+      \pdv{\tc{\Phi}{^i_j^k}}{x^l}
+    +c^l_{(\mu)} \tc{\Phi}{^i_j^k}
+    \left[\vphantom{\pdv{c^{(\gamma)}_k}{x^l}} \qty(
+      c^{(\alpha)}_s c^j_{(\beta)} c^{(\gamma)}_k \ChrB{l}{i}{s}
+      -c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k \ChrB{l}{q}{j}
+      +c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_s \ChrB{l}{k}{s})
+    \right. \notag \\
+  &\alspace
+  \phantom{c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+      \pdv{\tc{\Phi}{^i_j^k}}{x^l}
+    +c^l_{(\mu)} \tc{\Phi}{^i_j^k} \left[\right]}
+    \left. {}
+      +c^{(\alpha)}_i c^{(\gamma)}_k \pdv{c^j_{(\beta)}}{x^l}
+      +c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k c^j_{(\sigma)}
+        \pdv{c^{(\sigma)}_q}{x^l} \right]
+  \label{eq:非完整基形式理论推导}
 \end{align}
 注意到 $c^j_{(\beta)} = c^q_{(\beta)} \KroneckerDelta{j}{q}
-	=c^q_{(\beta)} c^j_{(\sigma)} c^{(\sigma)}_q$，因此
+  =c^q_{(\beta)} c^j_{(\sigma)} c^{(\sigma)}_q$，因此
 \begin{equation}
-	\pdv{c^j_{(\beta)}}{x^l}
-	=\pdv{x^l} \qty(c^q_{(\beta)} c^j_{(\sigma)} c^{(\sigma)}_q)
-	=c^j_{(\sigma)} c^{(\sigma)}_q \pdv{c^q_{(\beta)}}{x^l}
-		+c^q_{(\beta)} c^{(\sigma)}_q \pdv{c^j_{(\sigma)}}{x^l}
-		+c^q_{(\beta)} c^j_{(\sigma)} \pdv{c^{(\sigma)}_q}{x^l} \fullstop
+  \pdv{c^j_{(\beta)}}{x^l}
+  =\pdv{x^l} \qty(c^q_{(\beta)} c^j_{(\sigma)} c^{(\sigma)}_q)
+  =c^j_{(\sigma)} c^{(\sigma)}_q \pdv{c^q_{(\beta)}}{x^l}
+    +c^q_{(\beta)} c^{(\sigma)}_q \pdv{c^j_{(\sigma)}}{x^l}
+    +c^q_{(\beta)} c^j_{(\sigma)} \pdv{c^{(\sigma)}_q}{x^l} \fullstop
 \end{equation}
 所以 \eqref{eq:非完整基形式理论推导}~式中最后一步的第二行就能够写成
 \begin{align}
-	&\alspace c^{(\alpha)}_i c^{(\gamma)}_k \pdv{c^j_{(\beta)}}{x^l}
-		+c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k c^j_{(\sigma)}
-			\pdv{c^{(\sigma)}_q}{x^l} \notag \\
-	&=c^{(\alpha)}_i c^{(\gamma)}_k
-		\qty(\pdv{c^j_{(\beta)}}{x^l}
-			+c^q_{(\beta)} c^j_{(\sigma)} \pdv{c^{(\sigma)}_q}{x^l})
-		\notag \\
-	&=c^{(\alpha)}_i c^{(\gamma)}_k \qty(
-			\hl{c^j_{(\sigma)}} c^{(\sigma)}_q \pdv{c^q_{(\beta)}}{x^l}
-			+\hl[pink]{c^q_{(\beta)}} c^{(\sigma)}_q
-				\pdv{c^j_{(\sigma)}}{x^l}
-			+c^q_{(\beta)} \hl{c^j_{(\sigma)}} \pdv{c^{(\sigma)}_q}{x^l}
-			+\hl[pink]{c^q_{(\beta)}} c^j_{(\sigma)}
-				\pdv{c^{(\sigma)}_q}{x^l}) \notag
-	\intertext{合并同类项：}
-	&=c^{(\alpha)}_i c^{(\gamma)}_k \qty[
-			c^j_{(\sigma)}
-			\qty(c^{(\sigma)}_q \pdv{c^q_{(\beta)}}{x^l}
-				+c^q_{(\beta)} \pdv{c^{(\sigma)}_q}{x^l})
-		+c^q_{(\beta)}
-			\qty(c^{(\sigma)}_q \pdv{c^j_{(\sigma)}}{x^l}
-				+c^j_{(\sigma)} \pdv{c^{(\sigma)}_q}{x^l}) ] \notag \\
-	&=c^{(\alpha)}_i c^{(\gamma)}_k \qty[
-			\vphantom{\pdv{c^q_{(\beta)}}{x^l}}
-			c^j_{(\sigma)} \pdv{x^l} \qty(c^{(\sigma)}_q c^q_{(\beta)})
-			+c^q_{(\beta)} \pdv{x^l} \qty(c^{(\sigma)}_q c^j_{(\sigma)}) ]
-		\notag
-	\intertext{再次利用式~\eqref{eq:坐标转换系数的乘积}，可得}
-	&=c^{(\alpha)}_i c^{(\gamma)}_k \qty(
-			c^j_{(\sigma)} \pdv{\KroneckerDelta{\sigma}{\beta}}{x^l}
-			+c^q_{(\beta)} \pdv{\KroneckerDelta{j}{q}}{x^l} )
-	=0 \fullstop
+  &\alspace c^{(\alpha)}_i c^{(\gamma)}_k \pdv{c^j_{(\beta)}}{x^l}
+    +c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k c^j_{(\sigma)}
+      \pdv{c^{(\sigma)}_q}{x^l} \notag \\
+  &=c^{(\alpha)}_i c^{(\gamma)}_k
+    \qty(\pdv{c^j_{(\beta)}}{x^l}
+      +c^q_{(\beta)} c^j_{(\sigma)} \pdv{c^{(\sigma)}_q}{x^l})
+    \notag \\
+  &=c^{(\alpha)}_i c^{(\gamma)}_k \qty(
+      \hl{c^j_{(\sigma)}} c^{(\sigma)}_q \pdv{c^q_{(\beta)}}{x^l}
+      +\hl[pink]{c^q_{(\beta)}} c^{(\sigma)}_q
+        \pdv{c^j_{(\sigma)}}{x^l}
+      +c^q_{(\beta)} \hl{c^j_{(\sigma)}} \pdv{c^{(\sigma)}_q}{x^l}
+      +\hl[pink]{c^q_{(\beta)}} c^j_{(\sigma)}
+        \pdv{c^{(\sigma)}_q}{x^l}) \notag
+  \intertext{合并同类项：}
+  &=c^{(\alpha)}_i c^{(\gamma)}_k \qty[
+      c^j_{(\sigma)}
+      \qty(c^{(\sigma)}_q \pdv{c^q_{(\beta)}}{x^l}
+        +c^q_{(\beta)} \pdv{c^{(\sigma)}_q}{x^l})
+    +c^q_{(\beta)}
+      \qty(c^{(\sigma)}_q \pdv{c^j_{(\sigma)}}{x^l}
+        +c^j_{(\sigma)} \pdv{c^{(\sigma)}_q}{x^l}) ] \notag \\
+  &=c^{(\alpha)}_i c^{(\gamma)}_k \qty[
+      \vphantom{\pdv{c^q_{(\beta)}}{x^l}}
+      c^j_{(\sigma)} \pdv{x^l} \qty(c^{(\sigma)}_q c^q_{(\beta)})
+      +c^q_{(\beta)} \pdv{x^l} \qty(c^{(\sigma)}_q c^j_{(\sigma)}) ]
+    \notag
+  \intertext{再次利用式~\eqref{eq:坐标转换系数的乘积}，可得}
+  &=c^{(\alpha)}_i c^{(\gamma)}_k \qty(
+      c^j_{(\sigma)} \pdv{\KroneckerDelta{\sigma}{\beta}}{x^l}
+      +c^q_{(\beta)} \pdv{\KroneckerDelta{j}{q}}{x^l} )
+  =0 \fullstop
 \end{align}
 代回式~\eqref{eq:非完整基形式理论推导}，有
 \begin{align}
-	&\alspace \coD{(\mu)}{\tc{\Phi}
-		{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
-	=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-			\pdv{\tc{\Phi}{^i_j^k}}{x^l}
-		+c^l_{(\mu)} \tc{\Phi}{^i_j^k}
-		\qty(\vphantom{\pdv{c^{(\gamma)}_k}{x^l}}
-			c^{(\alpha)}_s c^j_{(\beta)} c^{(\gamma)}_k \ChrB{l}{i}{s}
-			-c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k \ChrB{l}{q}{j}
-			+c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_s \ChrB{l}{k}{s})
-		\notag \\
-	&=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-			\pdv{\tc{\Phi}{^i_j^k}}{x^l}
-		+c^l_{(\mu)}
-		\qty(\vphantom{\pdv{c^{(\gamma)}_k}{x^l}}
-			c^{(\alpha)}_s c^j_{(\beta)} c^{(\gamma)}_k
-				\ChrB{l}{i}{s} \tc{\Phi}{^i_j^k}
-			-c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k
-				\ChrB{l}{q}{j} \tc{\Phi}{^i_j^k}
-			+c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_s
-				\ChrB{l}{k}{s} \tc{\Phi}{^i_j^k}) \notag
-	\intertext{下面要对哑标进行重排。
-		括号里的第一项：$s \leftrightarrow i$；
-		第二项：$j \rightarrow s, q \rightarrow j$；
-		第三项：$s \leftrightarrow k$。于是}
-	&=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-			\pdv{\tc{\Phi}{^i_j^k}}{x^l}
-		+c^l_{(\mu)}
-		\qty(\vphantom{\pdv{c^{(\gamma)}_k}{x^l}}
-			c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-				\ChrB{l}{s}{i} \tc{\Phi}{^s_j^k}
-			-c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-				\ChrB{l}{j}{s} \tc{\Phi}{^i_s^k}
-			+c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-				\ChrB{l}{s}{k} \tc{\Phi}{^i_j^s}) \notag \\
-	&=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
-		\qty(\pdv{\tc{\Phi}{^i_j^k}}{x^l}
-			+\ChrB{l}{s}{i} \tc{\Phi}{^s_j^k}
-			-\ChrB{l}{j}{s} \tc{\Phi}{^i_s^k}
-			+\ChrB{l}{s}{k} \tc{\Phi}{^i_j^s}) \notag \\
-	&=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k \,
-		\coD{l}{\tc{\Phi}{^i_j^k}} \fullstop
+  &\alspace \coD{(\mu)}{\tc{\Phi}
+    {^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
+  =c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+      \pdv{\tc{\Phi}{^i_j^k}}{x^l}
+    +c^l_{(\mu)} \tc{\Phi}{^i_j^k}
+    \qty(\vphantom{\pdv{c^{(\gamma)}_k}{x^l}}
+      c^{(\alpha)}_s c^j_{(\beta)} c^{(\gamma)}_k \ChrB{l}{i}{s}
+      -c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k \ChrB{l}{q}{j}
+      +c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_s \ChrB{l}{k}{s})
+    \notag \\
+  &=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+      \pdv{\tc{\Phi}{^i_j^k}}{x^l}
+    +c^l_{(\mu)}
+    \qty(\vphantom{\pdv{c^{(\gamma)}_k}{x^l}}
+      c^{(\alpha)}_s c^j_{(\beta)} c^{(\gamma)}_k
+        \ChrB{l}{i}{s} \tc{\Phi}{^i_j^k}
+      -c^{(\alpha)}_i c^q_{(\beta)} c^{(\gamma)}_k
+        \ChrB{l}{q}{j} \tc{\Phi}{^i_j^k}
+      +c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_s
+        \ChrB{l}{k}{s} \tc{\Phi}{^i_j^k}) \notag
+  \intertext{下面要对哑标进行重排。
+    括号里的第一项：$s \leftrightarrow i$；
+    第二项：$j \rightarrow s, q \rightarrow j$；
+    第三项：$s \leftrightarrow k$。于是}
+  &=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+      \pdv{\tc{\Phi}{^i_j^k}}{x^l}
+    +c^l_{(\mu)}
+    \qty(\vphantom{\pdv{c^{(\gamma)}_k}{x^l}}
+      c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+        \ChrB{l}{s}{i} \tc{\Phi}{^s_j^k}
+      -c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+        \ChrB{l}{j}{s} \tc{\Phi}{^i_s^k}
+      +c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+        \ChrB{l}{s}{k} \tc{\Phi}{^i_j^s}) \notag \\
+  &=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k
+    \qty(\pdv{\tc{\Phi}{^i_j^k}}{x^l}
+      +\ChrB{l}{s}{i} \tc{\Phi}{^s_j^k}
+      -\ChrB{l}{j}{s} \tc{\Phi}{^i_s^k}
+      +\ChrB{l}{s}{k} \tc{\Phi}{^i_j^s}) \notag \\
+  &=c^l_{(\mu)} c^{(\alpha)}_i c^j_{(\beta)} c^{(\gamma)}_k \,
+    \coD{l}{\tc{\Phi}{^i_j^k}} \fullstop
 \end{align}
 这就完成了证明。
 \end{myProof}
@@ -458,7 +458,7 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 实际情况下，为了计算的方便，
 我们通常会取一组\emphA{正交基}\idx{正交基}作为完整基，它们满足
 \begin{equation}
-	\ipb{\V{g}_i}{\V{g}_j}=0, \quad i\neq j \fullstop
+  \ipb{\V{g}_i}{\V{g}_j}=0, \quad i\neq j \fullstop
 \end{equation}
 注意此处的 $\V{g}_i$ 和 $\V{g}_j$ 都是协变基。
 
@@ -466,12 +466,12 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 
 这样，度量 $g_{ij}$ 就可以用矩阵形式写成
 \begin{equation}
-	\mqty[g_{ij}]=\mqty[\dmat{g_{11},\ddots,g_{mm}}] \comma
+  \mqty[g_{ij}]=\mqty[\dmat{g_{11},\ddots,g_{mm}}] \comma
 \end{equation}
 它是一个对角矩阵。根据式~\eqref{eq:度量之积_矩阵形式}，我们有
 \begin{equation}
-	\mqty[g_{ik}] \mqty[g^{kj}]
-	=\mqty[\KroneckerDelta{j}{i}]=\Mat{I}_m \semicolon
+  \mqty[g_{ik}] \mqty[g^{kj}]
+  =\mqty[\KroneckerDelta{j}{i}]=\Mat{I}_m \semicolon
 \end{equation}
 而根据线性代数的知识，对角矩阵的逆同样是对角阵，
 因此 $\mqty[g^{ij}]$ 也是一个对角矩阵。
@@ -481,67 +481,67 @@ $\T{\Phi}$ 在非完整基下可以用混合分量表示如下：
 使其成为\emphA{单位正交基}\idx{单位正交基}。
 当然，之前的完整基也就成了非完整基：
 \begin{equation}
-	\V{g}_{(\alpha)} \defeq c^i_{(\alpha)}\,\V{g}_i \comma
+  \V{g}_{(\alpha)} \defeq c^i_{(\alpha)}\,\V{g}_i \comma
 \end{equation}
 式中，
 \begin{equation}
-	c^i_{(\alpha)}=\begin{dcases}
-		\frac{1}{\sqrt{g_{ii}}} \comma & i=\alpha \semicolon \\
-		0 \comma & i\neq\alpha \fullstop
-	\end{dcases}
-	\label{eq:坐标转换系数_单位正交基_1}
+  c^i_{(\alpha)}=\begin{dcases}
+    \frac{1}{\sqrt{g_{ii}}} \comma & i=\alpha \semicolon \\
+    0 \comma & i\neq\alpha \fullstop
+  \end{dcases}
+  \label{eq:坐标转换系数_单位正交基_1}
 \end{equation}
 这里 $g_{ii}$ 中的指标 $i$ 不求和。\footnote{
-	在 $i=\alpha$ 的情况下，该系数常被称作
-	\emphA{Lamé 系数}\idx{Lamé 系数}。}
+  在 $i=\alpha$ 的情况下，该系数常被称作
+  \emphA{Lamé 系数}\idx{Lamé 系数}。}
 对于逆变基，也是同样的：
 \begin{equation}
-	\V{g}^{(\alpha)} \defeq c^{(\alpha)}_i\,\V{g}^i \comma
+  \V{g}^{(\alpha)} \defeq c^{(\alpha)}_i\,\V{g}^i \comma
 \end{equation}
 其中的
 \begin{equation}
-	c^{(\alpha)}_i=\begin{dcases}
-		\sqrt{g_{ii}} \comma & i=\alpha \semicolon \\
-		0 \comma & i\neq\alpha \fullstop
-	\end{dcases}
-	\label{eq:坐标转换系数_单位正交基_2}
+  c^{(\alpha)}_i=\begin{dcases}
+    \sqrt{g_{ii}} \comma & i=\alpha \semicolon \\
+    0 \comma & i\neq\alpha \fullstop
+  \end{dcases}
+  \label{eq:坐标转换系数_单位正交基_2}
 \end{equation}
 
 \subsection{形式偏导数}
 非完整基形式运算的第一步是考虑形式偏导数：
 \begin{equation}
-	\pdv{x^{(\mu)}} \defeq c^l_{(\mu)} \pdv{x^l} \fullstop
+  \pdv{x^{(\mu)}} \defeq c^l_{(\mu)} \pdv{x^l} \fullstop
 \end{equation}
 一般来说，$\V{x}\in\Rm$，因而该式包含着 $m$ 项的求和。
 但在完整基是正交基、非完整基是单位正交基的情况下，
 系数 $c^l_{(\mu)}$ 仅在 $l=\mu$ 的时候才有非零值。所以
 \begin{equation}
-	\pdv{x^{(\mu)}}
-	=c^\mu_{(\mu)} \pdv{x^\mu}
-	=\frac{1}{\sqrt{g_{\mu\mu}}} \pdv{x^\mu} \fullstop
-	\label{eq:形式偏导数_单位正交基}
+  \pdv{x^{(\mu)}}
+  =c^\mu_{(\mu)} \pdv{x^\mu}
+  =\frac{1}{\sqrt{g_{\mu\mu}}} \pdv{x^\mu} \fullstop
+  \label{eq:形式偏导数_单位正交基}
 \end{equation}
 指标 $\mu$ 不求和，此式便只剩下了一项。
 
 \subsection{形式 Christoffel 符号}
 根据 \eqref{eq:形式Christoffel符号}~式，
 \begin{align}
-	\ChrB{(\alpha)}{(\beta)}{(\gamma)}
-	&\defeq c^i_{(\alpha)} c^j_{(\beta)} c^{(\gamma)}_k \ChrB{i}{j}{k}
-		-c^i_{(\alpha)} c^j_{(\beta)} \pdv{c^{(\gamma)}_j}{x^i} \notag
-	\intertext{同样，特殊情况下只需要考虑非零值：}
-	&=c^\alpha_{(\alpha)} c^\beta_{(\beta)} c^{(\gamma)}_\gamma
-			\ChrB{\alpha}{\beta}{\gamma}
-		-c^\alpha_{(\alpha)} c^\beta_{(\beta)}
-			\pdv{c^{(\gamma)}_\beta}{x^\alpha} \notag
-	\intertext{代入式~\eqref{eq:坐标转换系数_单位正交基_1} 和
-		\eqref{eq:坐标转换系数_单位正交基_2}，可得}
-	&=\frac{1}{\sqrt{g_{\alpha\alpha}}}
-			\frac{1}{\sqrt{g_{\beta\beta}}} \sqrt{g_{\gamma\gamma}}
-			\cdot \ChrB{\alpha}{\beta}{\gamma}
-		-\frac{1}{\sqrt{g_{\alpha\alpha}}}
-			\frac{1}{\sqrt{g_{\beta\beta}}}
-			\cdot \pdv{c^{(\gamma)}_\beta}{x^\alpha} \fullstop
+  \ChrB{(\alpha)}{(\beta)}{(\gamma)}
+  &\defeq c^i_{(\alpha)} c^j_{(\beta)} c^{(\gamma)}_k \ChrB{i}{j}{k}
+    -c^i_{(\alpha)} c^j_{(\beta)} \pdv{c^{(\gamma)}_j}{x^i} \notag
+  \intertext{同样，特殊情况下只需要考虑非零值：}
+  &=c^\alpha_{(\alpha)} c^\beta_{(\beta)} c^{(\gamma)}_\gamma
+      \ChrB{\alpha}{\beta}{\gamma}
+    -c^\alpha_{(\alpha)} c^\beta_{(\beta)}
+      \pdv{c^{(\gamma)}_\beta}{x^\alpha} \notag
+  \intertext{代入式~\eqref{eq:坐标转换系数_单位正交基_1} 和
+    \eqref{eq:坐标转换系数_单位正交基_2}，可得}
+  &=\frac{1}{\sqrt{g_{\alpha\alpha}}}
+      \frac{1}{\sqrt{g_{\beta\beta}}} \sqrt{g_{\gamma\gamma}}
+      \cdot \ChrB{\alpha}{\beta}{\gamma}
+    -\frac{1}{\sqrt{g_{\alpha\alpha}}}
+      \frac{1}{\sqrt{g_{\beta\beta}}}
+      \cdot \pdv{c^{(\gamma)}_\beta}{x^\alpha} \fullstop
 \end{align}
 此处的指标 $\alpha$、$\beta$、$\gamma$ 均不表示求和。
 
@@ -552,19 +552,19 @@ $\ChrB{\alpha}{\beta}{\gamma}$。
 \eqref{eq:第二类Christoffel符号用第一类表示}~式，
 很容易利用度量把它计算出来：
 \begin{align}
-	\ChrB{\alpha}{\beta}{\gamma}
-	&=g^{\gamma s}\,\ChrA{\alpha}{\beta}{s}
-	=g^{\gamma s} \cdot \frac{1}{2}\,
-		\qty(\pdv{g_{\beta s}}{x^\alpha}+\pdv{g_{\alpha s}}{x^\beta}
-			-\pdv{g_{\alpha\beta}}{x^s}) \notag
-	\intertext{注意指标 $s$ \emphB{需要}求和！
-		但是由于度量的非对角元均为零，所以可以直接写成}
-	&=g^{\gamma\gamma}\,\ChrA{\alpha}{\beta}{\gamma}
-	=\frac{1}{g_{\gamma\gamma}} \cdot \frac{1}{2}\,
-		\qty(\pdv{g_{\beta\gamma}}{x^\alpha}
-			+\pdv{g_{\alpha\gamma}}{x^\beta}
-			-\pdv{g_{\alpha\beta}}{x^\gamma}) \fullstop
-	\label{eq:形式Christoffel符号_单位正交基}
+  \ChrB{\alpha}{\beta}{\gamma}
+  &=g^{\gamma s}\,\ChrA{\alpha}{\beta}{s}
+  =g^{\gamma s} \cdot \frac{1}{2}\,
+    \qty(\pdv{g_{\beta s}}{x^\alpha}+\pdv{g_{\alpha s}}{x^\beta}
+      -\pdv{g_{\alpha\beta}}{x^s}) \notag
+  \intertext{注意指标 $s$ \emphB{需要}求和！
+    但是由于度量的非对角元均为零，所以可以直接写成}
+  &=g^{\gamma\gamma}\,\ChrA{\alpha}{\beta}{\gamma}
+  =\frac{1}{g_{\gamma\gamma}} \cdot \frac{1}{2}\,
+    \qty(\pdv{g_{\beta\gamma}}{x^\alpha}
+      +\pdv{g_{\alpha\gamma}}{x^\beta}
+      -\pdv{g_{\alpha\beta}}{x^\gamma}) \fullstop
+  \label{eq:形式Christoffel符号_单位正交基}
 \end{align}
 同样，指标都不表示求和。
 
@@ -574,45 +574,45 @@ $\ChrB{\alpha}{\beta}{\gamma}$。
 \item $\alpha\neq\beta\neq\gamma$。
 前文已经提到，度量的非对角元均为零，即
 \begin{equation}
-	g_{\beta\gamma}=g_{\alpha\gamma}=g_{\alpha\beta}=0 \comma
+  g_{\beta\gamma}=g_{\alpha\gamma}=g_{\alpha\beta}=0 \comma
 \end{equation}
 因此结果非常简单：
 \begin{equation}
-	\ChrB{\alpha}{\beta}{\gamma}=0 \fullstop
+  \ChrB{\alpha}{\beta}{\gamma}=0 \fullstop
 \end{equation}
 
 \item $\alpha=\beta\neq\gamma$，即 $\ChrB{\alpha}{\alpha}{\gamma}$。
 直接计算，可有
 \begin{equation}
-	\ChrB{\alpha}{\alpha}{\gamma}
-	=g^{\gamma\gamma}\,\ChrA{\alpha}{\alpha}{\gamma}
-	=\frac{1}{g_{\gamma\gamma}} \cdot \frac{1}{2}\,
-		\qty(-\pdv{g_{\alpha\alpha}}{x^\gamma})
-	=-\frac{1}{2} \frac{1}{g_{\gamma\gamma}}
-		\pdv{g_{\alpha\alpha}}{x^\gamma} \fullstop
+  \ChrB{\alpha}{\alpha}{\gamma}
+  =g^{\gamma\gamma}\,\ChrA{\alpha}{\alpha}{\gamma}
+  =\frac{1}{g_{\gamma\gamma}} \cdot \frac{1}{2}\,
+    \qty(-\pdv{g_{\alpha\alpha}}{x^\gamma})
+  =-\frac{1}{2} \frac{1}{g_{\gamma\gamma}}
+    \pdv{g_{\alpha\alpha}}{x^\gamma} \fullstop
 \end{equation}
 
 \item $\alpha=\gamma\neq\beta$，即 $\ChrB{\alpha}{\beta}{\alpha}$。
 根据式~\eqref{eq:第二类Christoffel符号指标交换}，
 它又等于 $\ChrB{\beta}{\alpha}{\alpha}$。同样，直接来进行计算：
 \begin{equation}
-	\ChrB{\alpha}{\beta}{\alpha}
-	=g^{\alpha\alpha}\,\ChrA{\alpha}{\beta}{\alpha}
-	=\frac{1}{g_{\alpha\alpha}} \cdot \frac{1}{2}\,
-		\qty(\pdv{g_{\alpha\alpha}}{x^\beta})
-	=\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
-		\pdv{g_{\alpha\alpha}}{x^\beta} \fullstop
+  \ChrB{\alpha}{\beta}{\alpha}
+  =g^{\alpha\alpha}\,\ChrA{\alpha}{\beta}{\alpha}
+  =\frac{1}{g_{\alpha\alpha}} \cdot \frac{1}{2}\,
+    \qty(\pdv{g_{\alpha\alpha}}{x^\beta})
+  =\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
+    \pdv{g_{\alpha\alpha}}{x^\beta} \fullstop
 \end{equation}
 
 \item $\alpha=\beta=\gamma$，即 $\ChrB{\alpha}{\alpha}{\alpha}$。
 指标只剩下了一个，喜闻乐见。
 \begin{equation}
-	\ChrB{\alpha}{\alpha}{\alpha}
-	=g^{\alpha\alpha}\,\ChrA{\alpha}{\alpha}{\alpha}
-	=\frac{1}{g_{\alpha\alpha}} \cdot \frac{1}{2}\,
-		\qty(\pdv{g_{\alpha\alpha}}{x^\alpha})
-	=\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
-		\pdv{g_{\alpha\alpha}}{x^\alpha} \fullstop
+  \ChrB{\alpha}{\alpha}{\alpha}
+  =g^{\alpha\alpha}\,\ChrA{\alpha}{\alpha}{\alpha}
+  =\frac{1}{g_{\alpha\alpha}} \cdot \frac{1}{2}\,
+    \qty(\pdv{g_{\alpha\alpha}}{x^\alpha})
+  =\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
+    \pdv{g_{\alpha\alpha}}{x^\alpha} \fullstop
 \end{equation}
 \end{myEnum}
 
@@ -628,52 +628,52 @@ $\ChrB{\alpha}{\beta}{\gamma}$。
 而根据 \eqref{eq:坐标转换系数_单位正交基_2}~式，
 又有 $c^{(\gamma)}_\beta=0$，于是
 \begin{equation}
-	\ChrB{(\alpha)}{(\beta)}{(\gamma)}=0 \fullstop
+  \ChrB{(\alpha)}{(\beta)}{(\gamma)}=0 \fullstop
 \end{equation}
 
 \item $\alpha=\beta\neq\gamma$。此时有
 \begin{align}
-	\ChrB{(\alpha)}{(\alpha)}{(\gamma)}
-	&=\frac{1}{g_{\alpha\alpha}} \sqrt{g_{\gamma\gamma}}
-			\cdot \ChrB{\alpha}{\alpha}{\gamma}
-		-\frac{1}{g_{\alpha\alpha}}
-			\cdot \pdv{c^{(\gamma)}_\alpha}{x^\alpha} \notag \\
-	&=\frac{1}{g_{\alpha\alpha}} \sqrt{g_{\gamma\gamma}}
-		\cdot \qty(-\frac{1}{2} \frac{1}{g_{\gamma\gamma}}
-			\pdv{g_{\alpha\alpha}}{x^\gamma}) - 0 \notag \\
-	&=-\frac{1}{\sqrt{g_{\gamma\gamma}}}
-		\cdot \qty(\frac{1}{2g_{\alpha\alpha}}
-			\pdv{g_{\alpha\alpha}}{x^\gamma}) \fullstop
+  \ChrB{(\alpha)}{(\alpha)}{(\gamma)}
+  &=\frac{1}{g_{\alpha\alpha}} \sqrt{g_{\gamma\gamma}}
+      \cdot \ChrB{\alpha}{\alpha}{\gamma}
+    -\frac{1}{g_{\alpha\alpha}}
+      \cdot \pdv{c^{(\gamma)}_\alpha}{x^\alpha} \notag \\
+  &=\frac{1}{g_{\alpha\alpha}} \sqrt{g_{\gamma\gamma}}
+    \cdot \qty(-\frac{1}{2} \frac{1}{g_{\gamma\gamma}}
+      \pdv{g_{\alpha\alpha}}{x^\gamma}) - 0 \notag \\
+  &=-\frac{1}{\sqrt{g_{\gamma\gamma}}}
+    \cdot \qty(\frac{1}{2g_{\alpha\alpha}}
+      \pdv{g_{\alpha\alpha}}{x^\gamma}) \fullstop
 \end{align}
 考虑到
 \begin{equation}
-	\pdv{x} \ln\sqrt{f(x)}
-	=\pdv{x} \qty[\frac{1}{2} \ln f(x)]
-	=\frac{1}{2} \frac{1}{f(x)} \pdv{f(x)}{x} \comma
+  \pdv{x} \ln\sqrt{f(x)}
+  =\pdv{x} \qty[\frac{1}{2} \ln f(x)]
+  =\frac{1}{2} \frac{1}{f(x)} \pdv{f(x)}{x} \comma
 \end{equation}
 于是
 \begin{equation}
-	\ChrB{(\alpha)}{(\alpha)}{(\gamma)}
-	=-\frac{1}{\sqrt{g_{\gamma\gamma}}}
-		\pdv{x^\gamma} \qty(\vphantom{\frac{0}{0}}
-			\ln \sqrt{g_{\alpha\alpha}}) \fullstop
+  \ChrB{(\alpha)}{(\alpha)}{(\gamma)}
+  =-\frac{1}{\sqrt{g_{\gamma\gamma}}}
+    \pdv{x^\gamma} \qty(\vphantom{\frac{0}{0}}
+      \ln \sqrt{g_{\alpha\alpha}}) \fullstop
 \end{equation}
 
 \item $\alpha=\gamma\neq\beta$。此时
 \begin{align}
-	\ChrB{(\alpha)}{(\beta)}{(\alpha)}
-	&=\frac{1}{\sqrt{g_{\beta\beta}}}
-			\cdot \ChrB{\alpha}{\beta}{\alpha}
-		-\frac{1}{\sqrt{g_{\alpha\alpha}}}
-			\frac{1}{\sqrt{g_{\beta\beta}}}
-			\cdot \pdv{c^{(\alpha)}_\beta}{x^\alpha} \notag \\
-	&=\frac{1}{\sqrt{g_{\beta\beta}}}
-		\cdot \qty(\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
-			\pdv{g_{\alpha\alpha}}{x^\beta}) - 0 \notag
-	\intertext{同理，利用对数，可得}
-	&=\frac{1}{\sqrt{g_{\beta\beta}}}
-		\pdv{x^\beta} \qty(\vphantom{\frac{0}{0}}
-			\ln \sqrt{g_{\alpha\alpha}}) \fullstop
+  \ChrB{(\alpha)}{(\beta)}{(\alpha)}
+  &=\frac{1}{\sqrt{g_{\beta\beta}}}
+      \cdot \ChrB{\alpha}{\beta}{\alpha}
+    -\frac{1}{\sqrt{g_{\alpha\alpha}}}
+      \frac{1}{\sqrt{g_{\beta\beta}}}
+      \cdot \pdv{c^{(\alpha)}_\beta}{x^\alpha} \notag \\
+  &=\frac{1}{\sqrt{g_{\beta\beta}}}
+    \cdot \qty(\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
+      \pdv{g_{\alpha\alpha}}{x^\beta}) - 0 \notag
+  \intertext{同理，利用对数，可得}
+  &=\frac{1}{\sqrt{g_{\beta\beta}}}
+    \pdv{x^\beta} \qty(\vphantom{\frac{0}{0}}
+      \ln \sqrt{g_{\alpha\alpha}}) \fullstop
 \end{align}
 注意这里没有负号。
 
@@ -686,129 +686,129 @@ $\ChrB{\alpha}{\beta}{\gamma}$。
 \footnote{所以这里也多了一种情况需要讨论。}，
 因而仍要从头来算：
 \begin{align}
-	\ChrB{(\beta)}{(\alpha)}{(\alpha)}
-	&=\frac{1}{\sqrt{g_{\beta\beta}}}
-			\cdot \ChrB{\beta}{\alpha}{\alpha}
-		-\frac{1}{\sqrt{g_{\beta\beta}}}
-			\frac{1}{\sqrt{g_{\alpha\alpha}}}
-			\cdot \pdv{c^{(\alpha)}_\alpha}{x^\beta} \notag
-	\intertext{交换 Christoffel 符号的下标，
-		同时代入\eqref{eq:坐标转换系数_单位正交基_2}~式，可有}
-	&=\frac{1}{\sqrt{g_{\beta\beta}}}
-			\cdot \ChrB{\alpha}{\beta}{\alpha}
-		-\frac{1}{\sqrt{g_{\beta\beta}}}
-			\frac{1}{\sqrt{g_{\alpha\alpha}}}
-			\cdot \pdv{x^\beta} \sqrt{g_{\alpha\alpha}} \notag \\
-	&=\frac{1}{\sqrt{g_{\beta\beta}}}
-		\cdot \qty(\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
-			\pdv{g_{\alpha\alpha}}{x^\beta})
-		-\frac{1}{\sqrt{g_{\beta\beta}}}
-			\frac{1}{\sqrt{g_{\alpha\alpha}}}
-			\cdot \frac{1}{2\sqrt{g_{\alpha\alpha}}}
-			\pdv{g_{\alpha\alpha}}{x^\beta} \notag \\
-	&=0 \fullstop
+  \ChrB{(\beta)}{(\alpha)}{(\alpha)}
+  &=\frac{1}{\sqrt{g_{\beta\beta}}}
+      \cdot \ChrB{\beta}{\alpha}{\alpha}
+    -\frac{1}{\sqrt{g_{\beta\beta}}}
+      \frac{1}{\sqrt{g_{\alpha\alpha}}}
+      \cdot \pdv{c^{(\alpha)}_\alpha}{x^\beta} \notag
+  \intertext{交换 Christoffel 符号的下标，
+    同时代入\eqref{eq:坐标转换系数_单位正交基_2}~式，可有}
+  &=\frac{1}{\sqrt{g_{\beta\beta}}}
+      \cdot \ChrB{\alpha}{\beta}{\alpha}
+    -\frac{1}{\sqrt{g_{\beta\beta}}}
+      \frac{1}{\sqrt{g_{\alpha\alpha}}}
+      \cdot \pdv{x^\beta} \sqrt{g_{\alpha\alpha}} \notag \\
+  &=\frac{1}{\sqrt{g_{\beta\beta}}}
+    \cdot \qty(\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
+      \pdv{g_{\alpha\alpha}}{x^\beta})
+    -\frac{1}{\sqrt{g_{\beta\beta}}}
+      \frac{1}{\sqrt{g_{\alpha\alpha}}}
+      \cdot \frac{1}{2\sqrt{g_{\alpha\alpha}}}
+      \pdv{g_{\alpha\alpha}}{x^\beta} \notag \\
+  &=0 \fullstop
 \end{align}
 
 回过头来，若要得到 $\ChrB{(\alpha)}{(\beta)}{(\beta)}$，
 只需交换 $\alpha$、$\beta$，结果当然不变：
 \begin{equation}
-	\ChrB{(\alpha)}{(\beta)}{(\beta)}=0 \fullstop
+  \ChrB{(\alpha)}{(\beta)}{(\beta)}=0 \fullstop
 \end{equation}
 
 \item $\alpha=\beta=\gamma$。指标全部相同，有
 \begin{align}
-	\ChrB{(\alpha)}{(\alpha)}{(\alpha)}
-	&=\frac{1}{\sqrt{g_{\alpha\alpha}}}
-			\cdot \ChrB{\alpha}{\alpha}{\alpha}
-		-\frac{1}{g_{\alpha\alpha}}
-			\cdot \pdv{c^{(\alpha)}_\alpha}{x^\alpha} \notag \\
-	&=\frac{1}{\sqrt{g_{\alpha\alpha}}}
-		\cdot \qty(\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
-			\pdv{g_{\alpha\alpha}}{x^\alpha})
-		-\frac{1}{g_{\alpha\alpha}}
-			\cdot \pdv{x^\alpha} \sqrt{g_{\alpha\alpha}} \notag \\
-	&=\frac{1}{2g_{\alpha\alpha} \sqrt{g_{\alpha\alpha}}}
-			\pdv{g_{\alpha\alpha}}{x^\alpha}
-		-\frac{1}{g_{\alpha\alpha}}
-			\cdot \frac{1}{2\sqrt{g_{\alpha\alpha}}}
-			\pdv{g_{\alpha\alpha}}{x^\alpha} \notag \\
-	&=0 \comma
+  \ChrB{(\alpha)}{(\alpha)}{(\alpha)}
+  &=\frac{1}{\sqrt{g_{\alpha\alpha}}}
+      \cdot \ChrB{\alpha}{\alpha}{\alpha}
+    -\frac{1}{g_{\alpha\alpha}}
+      \cdot \pdv{c^{(\alpha)}_\alpha}{x^\alpha} \notag \\
+  &=\frac{1}{\sqrt{g_{\alpha\alpha}}}
+    \cdot \qty(\frac{1}{2} \frac{1}{g_{\alpha\alpha}}
+      \pdv{g_{\alpha\alpha}}{x^\alpha})
+    -\frac{1}{g_{\alpha\alpha}}
+      \cdot \pdv{x^\alpha} \sqrt{g_{\alpha\alpha}} \notag \\
+  &=\frac{1}{2g_{\alpha\alpha} \sqrt{g_{\alpha\alpha}}}
+      \pdv{g_{\alpha\alpha}}{x^\alpha}
+    -\frac{1}{g_{\alpha\alpha}}
+      \cdot \frac{1}{2\sqrt{g_{\alpha\alpha}}}
+      \pdv{g_{\alpha\alpha}}{x^\alpha} \notag \\
+  &=0 \comma
 \end{align}
 依然是个很漂亮的结果。
 \end{myEnum}
 
 到此，我们可以看到，只有两种形式的 Christoffel 符号非零：
 \begin{braceEq}
-	\ChrB{(\alpha)}{(\alpha)}{(\beta)}
-	&=-\frac{1}{\sqrt{g_{\beta\beta}}}
-		\pdv{x^\beta} \qty(\vphantom{\frac{0}{0}}
-			\ln \sqrt{g_{\alpha\alpha}})
-	=-\pdv{x^{(\beta)}} \ln\sqrt{g_{\alpha\alpha}} \comma \\
-	\ChrB{(\alpha)}{(\beta)}{(\alpha)}
-	&=\frac{1}{\sqrt{g_{\beta\beta}}}
-		\pdv{x^\beta} \qty(\vphantom{\frac{0}{0}}
-			\ln \sqrt{g_{\alpha\alpha}})
-	=\pdv{x^{(\beta)}} \ln\sqrt{g_{\alpha\alpha}} \fullstop
+  \ChrB{(\alpha)}{(\alpha)}{(\beta)}
+  &=-\frac{1}{\sqrt{g_{\beta\beta}}}
+    \pdv{x^\beta} \qty(\vphantom{\frac{0}{0}}
+      \ln \sqrt{g_{\alpha\alpha}})
+  =-\pdv{x^{(\beta)}} \ln\sqrt{g_{\alpha\alpha}} \comma \\
+  \ChrB{(\alpha)}{(\beta)}{(\alpha)}
+  &=\frac{1}{\sqrt{g_{\beta\beta}}}
+    \pdv{x^\beta} \qty(\vphantom{\frac{0}{0}}
+      \ln \sqrt{g_{\alpha\alpha}})
+  =\pdv{x^{(\beta)}} \ln\sqrt{g_{\alpha\alpha}} \fullstop
 \end{braceEq}
 后一个等号利用了形式偏导数 \eqref{eq:形式偏导数_单位正交基}~式。
 
 对于单位正交基，其度量满足
 \begin{equation}
-	g^{(\alpha)(\beta)}=g_{(\alpha)(\beta)}
-	=\KroneckerDelta*{\alpha\beta} \comma
+  g^{(\alpha)(\beta)}=g_{(\alpha)(\beta)}
+  =\KroneckerDelta*{\alpha\beta} \comma
 \end{equation}
 因此协变基与逆变基只好相同。
 这样一来，协变分量与逆变分量也就没有了差别，我们统一用尖括号标出。
 于是上面的 Christoffel 符号就可以写成
 \begin{braceEq}
-	\ChrU{\alpha}{\alpha}{\beta}
-	&=\ChrA{(\alpha)}{(\alpha)}{(\beta)}
-		=\ChrB{(\alpha)}{(\alpha)}{(\beta)}
-		=-\pdv{x^{(\beta)}} \ln\sqrt{g_{\alpha\alpha}} \comma \\
-	\ChrU{\alpha}{\beta}{\alpha}
-	&=\ChrA{(\alpha)}{(\beta)}{(\alpha)}
-		=\ChrB{(\alpha)}{(\beta)}{(\alpha)}
-		=\pdv{x^{(\beta)}} \ln\sqrt{g_{\alpha\alpha}} \fullstop
+  \ChrU{\alpha}{\alpha}{\beta}
+  &=\ChrA{(\alpha)}{(\alpha)}{(\beta)}
+    =\ChrB{(\alpha)}{(\alpha)}{(\beta)}
+    =-\pdv{x^{(\beta)}} \ln\sqrt{g_{\alpha\alpha}} \comma \\
+  \ChrU{\alpha}{\beta}{\alpha}
+  &=\ChrA{(\alpha)}{(\beta)}{(\alpha)}
+    =\ChrB{(\alpha)}{(\beta)}{(\alpha)}
+    =\pdv{x^{(\beta)}} \ln\sqrt{g_{\alpha\alpha}} \fullstop
 \end{braceEq}
 显然，它们的第二、第三指标具有反对称性：
 \begin{equation}
-	\ChrU{\alpha}{\alpha}{\beta}
-	=-\ChrU{\alpha}{\beta}{\alpha} \fullstop
-	\label{eq:单位正交基下Christoffel符号的反对称性}
+  \ChrU{\alpha}{\alpha}{\beta}
+  =-\ChrU{\alpha}{\beta}{\alpha} \fullstop
+  \label{eq:单位正交基下Christoffel符号的反对称性}
 \end{equation}
 
 \subsection{形式“协变”导数}
 根据式~\eqref{eq:形式协变导数} 中的定义（仍以三阶张量为例），我们有
 \begin{equation}
-	\coD{(\mu)}{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
-	\defeq \pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}%
-		{x^{(\mu)}}
-	+\ChrB{(\mu)}{(\sigma)}{(\alpha)}
-		\tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}}
-	-\ChrB{(\mu)}{(\beta)}{(\sigma)}
-		\tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}}
-	+\ChrB{(\mu)}{(\sigma)}{(\gamma)}
-		\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}} \fullstop
+  \coD{(\mu)}{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}
+  \defeq \pdv{\tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\gamma)}}}%
+    {x^{(\mu)}}
+  +\ChrB{(\mu)}{(\sigma)}{(\alpha)}
+    \tc{\Phi}{^{(\sigma)}_{\!(\beta)}^{\!(\gamma)}}
+  -\ChrB{(\mu)}{(\beta)}{(\sigma)}
+    \tc{\Phi}{^{(\alpha)}_{\!(\sigma)}^{\!(\gamma)}}
+  +\ChrB{(\mu)}{(\sigma)}{(\gamma)}
+    \tc{\Phi}{^{(\alpha)}_{\!(\beta)}^{\!(\sigma)}} \fullstop
 \end{equation}
 利用单位正交基不区分协变、逆变的特点，可以把它写成
 \begin{align}
-	\coD*{\mu}{\Phi\midscript{\orthIdx{\alpha\beta\gamma}}}
-	&=\pdv{\Phi\midscript{\orthIdx{\alpha\beta\gamma}}}{x^{(\mu)}}
-		+\ChrU{\mu}{\sigma}{\alpha} \,
-			\Phi\midscript{\orthIdx{\sigma\beta\gamma}}
-		-\ChrU{\mu}{\hl{\beta\sigma}}{} \,
-			\Phi\midscript{\orthIdx{\alpha\sigma\gamma}}
-		+\ChrU{\mu}{\sigma}{\gamma} \,
-			\Phi\midscript{\orthIdx{\alpha\beta\sigma}} \notag
-	\intertext{根据 Christoffel 符号的反对称性
-		\eqref{eq:单位正交基下Christoffel符号的反对称性}~式，有}
-	&=\pdv{\Phi\midscript{\orthIdx{\alpha\beta\gamma}}}{x^{(\mu)}}
-		+\ChrU{\mu}{\sigma}{\alpha} \,
-			\Phi\midscript{\orthIdx{\sigma\beta\gamma}}
-		+\ChrU{\mu}{\hl{\sigma\beta}}{} \,
-			\Phi\midscript{\orthIdx{\alpha\sigma\gamma}}
-		+\ChrU{\mu}{\sigma}{\gamma} \,
-			\Phi\midscript{\orthIdx{\alpha\beta\sigma}} \fullstop
+  \coD*{\mu}{\Phi\midscript{\orthIdx{\alpha\beta\gamma}}}
+  &=\pdv{\Phi\midscript{\orthIdx{\alpha\beta\gamma}}}{x^{(\mu)}}
+    +\ChrU{\mu}{\sigma}{\alpha} \,
+      \Phi\midscript{\orthIdx{\sigma\beta\gamma}}
+    -\ChrU{\mu}{\hl{\beta\sigma}}{} \,
+      \Phi\midscript{\orthIdx{\alpha\sigma\gamma}}
+    +\ChrU{\mu}{\sigma}{\gamma} \,
+      \Phi\midscript{\orthIdx{\alpha\beta\sigma}} \notag
+  \intertext{根据 Christoffel 符号的反对称性
+    \eqref{eq:单位正交基下Christoffel符号的反对称性}~式，有}
+  &=\pdv{\Phi\midscript{\orthIdx{\alpha\beta\gamma}}}{x^{(\mu)}}
+    +\ChrU{\mu}{\sigma}{\alpha} \,
+      \Phi\midscript{\orthIdx{\sigma\beta\gamma}}
+    +\ChrU{\mu}{\hl{\sigma\beta}}{} \,
+      \Phi\midscript{\orthIdx{\alpha\sigma\gamma}}
+    +\ChrU{\mu}{\sigma}{\gamma} \,
+      \Phi\midscript{\orthIdx{\alpha\beta\sigma}} \fullstop
 \end{align}
 这样，Christoffel 符号中的第二个指标就都是哑标 $\sigma$，
 而哑标所取代的对应指标则放在第三个位置上。

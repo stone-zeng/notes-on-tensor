@@ -6,11 +6,11 @@
 
 \documentclass{book}
 
-%\newcommand*{\DEBUG}{}%
+\newcommand*{\DEBUG}{}%
 \ifdefined\DEBUG
-	\relax
+  \relax
 \else
-	\newcommand*{\RELEASE}{}%
+  \newcommand*{\RELEASE}{}%
 \fi
 
 %TODO——宏查找
@@ -20,15 +20,15 @@
 %\immediate\openout\finder=\jobname.find
 %
 %\def\searchmacro#1{
-%	\AtBeginOfFiles{%
-%		\ifdefined#1
-%		\expandafter\def\csname \currfilename:found\endcsname{}%
-%		\fi}
-%	\AtEndOfFiles{%
-%		\ifdefined#1
-%		\unless\ifcsname \currfilename:found\endcsname
-%		\immediate\write\finder{found in '\currfilename'}%
-%		\fi\fi}}
+%  \AtBeginOfFiles{%
+%    \ifdefined#1
+%    \expandafter\def\csname \currfilename:found\endcsname{}%
+%    \fi}
+%  \AtEndOfFiles{%
+%    \ifdefined#1
+%    \unless\ifcsname \currfilename:found\endcsname
+%    \immediate\write\finder{found in '\currfilename'}%
+%    \fi\fi}}
 %
 %\searchmacro\T
 
@@ -38,28 +38,28 @@
 
 %% 页面尺寸
 \usepackage{geometry}
-	\geometry{
-		a4paper,
-		left = 2.54 cm, right = 2.54 cm, top = 3.18 cm, bottom = 3.18 cm,
-		headheight = 3 cm,
-		marginparwidth = 1.8 cm
-	}
+  \geometry{
+    a4paper,
+    left = 2.54 cm, right = 2.54 cm, top = 3.18 cm, bottom = 3.18 cm,
+    headheight = 3 cm,
+    marginparwidth = 1.8 cm
+  }
 
 \ifdefined\RELEASE
-	%% 页面格式
-	\usepackage{fancyhdr}
-		% 清除所有页面格式
-		\fancyhf{}
-		% 页眉(见 `ctex' 下的重定义)
-		\fancyhead[EL]{\nouppercase{\CJKfamily{楷体} \leftmark}}
-		\fancyhead[OR]{\nouppercase{\CJKfamily{楷体} \rightmark}}
-		% 页脚
-		\fancyfoot[C]{\thepage}
-		% 关闭横线显示
-		\renewcommand{\headrulewidth}{0 pt}
+  %% 页面格式
+  \usepackage{fancyhdr}
+    % 清除所有页面格式
+    \fancyhf{}
+    % 页眉(见 `ctex' 下的重定义)
+    \fancyhead[EL]{\nouppercase{\CJKfamily{楷体} \leftmark}}
+    \fancyhead[OR]{\nouppercase{\CJKfamily{楷体} \rightmark}}
+    % 页脚
+    \fancyfoot[C]{\thepage}
+    % 关闭横线显示
+    \renewcommand{\headrulewidth}{0 pt}
 
-	%% 空白页不显示页眉页脚
-	\usepackage{emptypage}
+  %% 空白页不显示页眉页脚
+  \usepackage{emptypage}
 \fi
 
 %% 设置标题
@@ -67,30 +67,30 @@
 
 %% 图形
 \ifdefined\DEBUG
-	\usepackage[draft]{graphicx}
+  \usepackage[draft]{graphicx}
 \else
-	\usepackage{graphicx}
+  \usepackage{graphicx}
 \fi
 
 %% 常规字体选择
 % 与 `graphicx' 冲突
 %\PassOptionsToPackage{draft}{graphicx}
 \usepackage[no-math]{fontspec}
-	\setmainfont{XITS}%[SlantedFont = XITS Italic]
-	\setsansfont{TeX Gyre Heros}%[SlantedFont = TeX Gyre Heros Italic]
-	\setmonofont{TeX Gyre Cursor}[Ligatures = NoCommon]
+  \setmainfont{XITS}%[SlantedFont = XITS Italic]
+  \setsansfont{TeX Gyre Heros}%[SlantedFont = TeX Gyre Heros Italic]
+  \setmonofont{TeX Gyre Cursor}[Ligatures = NoCommon]
 
 %% AMS 数学支持
 \usepackage{amsmath}
-	% 允许多行公式中间分页
-	\allowdisplaybreaks
-	% 调整多行公式间距
-	\setlength{\jot}{6 pt}
-	% 调整公式前后间距
-%	\AtBeginDocument{
-%		\abovedisplayshortskip = \abovedisplayskip
-%		\belowdisplayshortskip = \belowdisplayskip
-%	}
+  % 允许多行公式中间分页
+  \allowdisplaybreaks
+  % 调整多行公式间距
+  \setlength{\jot}{6 pt}
+  % 调整公式前后间距
+% \AtBeginDocument{
+%   \abovedisplayshortskip = \abovedisplayskip
+%   \belowdisplayshortskip = \belowdisplayskip
+% }
 \usepackage{amssymb}
 
 %% 数学工具
@@ -99,44 +99,44 @@
 
 %% Pi 符号
 \usepackage{pifont}
-	% 正确 √
-	\newcommand{\cmark}{\ding{51}}
-	% 错误 ×
-	\newcommand{\xmark}{\ding{55}}
+  % 正确 √
+  \newcommand{\cmark}{\ding{51}}
+  % 错误 ×
+  \newcommand{\xmark}{\ding{55}}
 
 %% 中文文字处理
 %BUG：20170225 似乎必须在 `unicode-math' 之前
 \usepackage[UTF8, heading = true, fontset = none]{ctex}
-	\ctexset{
-		section/format+ = {\normalfont\sffamily},
-		subsection/format+ = {\normalfont\sffamily}
-	}
-	\ifdefined\DEBUG
-		\pagestyle{plain}
-	\else
-		\ctexset{
-			% 目录名称
-			contentsname = {目 \quad 录},
-			% 目录格式
-			subsection/tocline = {\CJKfamily{楷体} \CTEXnumberline{#1}#2}
-		}
-		\pagestyle{fancy}
-		% 重定义右页眉格式
-		\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
-	\fi
+  \ctexset{
+    section/format+ = {\normalfont\sffamily},
+    subsection/format+ = {\normalfont\sffamily}
+  }
+  \ifdefined\DEBUG
+    \pagestyle{plain}
+  \else
+    \ctexset{
+      % 目录名称
+      contentsname = {目 \quad 录},
+      % 目录格式
+      subsection/tocline = {\CJKfamily{楷体} \CTEXnumberline{#1}#2}
+    }
+    \pagestyle{fancy}
+    % 重定义右页眉格式
+    \renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
+  \fi
 
 %% XeTeX 下 CJK 文字处理
 %\usepackage{xeCJK}
-	\setCJKmainfont{FZShuSong-Z01}%
-		[BoldFont = FZHei-B01, ItalicFont = FZKai-Z03]
-	\setCJKsansfont{FZHei-B01}%
-		[BoldFont = FZHei-B01, ItalicFont = FZHei-B01]
-	\setCJKmonofont{FZFangSong-Z02}%
-		[BoldFont = FZFangSong-Z02, ItalicFont = FZKai-Z03]
-	\setCJKfamilyfont{宋体}{FZShuSong-Z01}
-	\setCJKfamilyfont{楷体}{FZKai-Z03}
-	\setCJKfamilyfont{黑体}{FZHei-B01}
-	\setCJKfamilyfont{仿宋}{FZFangSong-Z02}
+  \setCJKmainfont{FZShuSong-Z01}%
+    [BoldFont = FZHei-B01, ItalicFont = FZKai-Z03]
+  \setCJKsansfont{FZHei-B01}%
+    [BoldFont = FZHei-B01, ItalicFont = FZHei-B01]
+  \setCJKmonofont{FZFangSong-Z02}%
+    [BoldFont = FZFangSong-Z02, ItalicFont = FZKai-Z03]
+  \setCJKfamilyfont{宋体}{FZShuSong-Z01}
+  \setCJKfamilyfont{楷体}{FZKai-Z03}
+  \setCJKfamilyfont{黑体}{FZHei-B01}
+  \setCJKfamilyfont{仿宋}{FZFangSong-Z02}
 
 %% LuaLaTeX 下的句号处理
 \catcode`\。 = \active
@@ -144,30 +144,30 @@
 
 %% 调用 Unicode OpenType 数学字体
 \usepackage{unicode-math}
-	\setmathfont{xits-math.otf}[math-style = ISO, bold-style = ISO]
+  \setmathfont{xits-math.otf}[math-style = ISO, bold-style = ISO]
 % 加粗使用 \symbf{}
 % 直立希腊字母：\uppi 等
 
 %% 脚注增强版
 \usepackage[stable, perpage, bottom]{footmisc}
-	% 需要调用 pifont 宏包
-	% 衬线加圈阳文数字：\ding{172}~\ding{181} (1~10)
-	% 无衬线加圈阳文数字：\ding{192}~\ding{201} (1~10)
-	\renewcommand{\thefootnote}{\ding{\numexpr191+\value{footnote} } }
-	%TODO：20160705 脚注不用上标
-	%HACK：20160709 见 http://tex.stackexchange.com/q/19844
-	\makeatletter
-		\newlength{\fnBreite}
-		\renewcommand{\@makefntext}[1]{%
-			\settowidth{\fnBreite}{\footnotesize\@thefnmark.i}%
-			\protect\footnotesize\upshape%
-			\setlength{\@tempdima}{\columnwidth}%
-			\addtolength{\@tempdima}{-\fnBreite}%
-			\makebox[\fnBreite][l]{\@thefnmark\phantom{  }}%
-			\parbox[t]{\@tempdima}%
-			{\everypar{\hspace*{1em}}\hspace*{-1em}\upshape#1}%
-		}
-	\makeatother
+  % 需要调用 pifont 宏包
+  % 衬线加圈阳文数字：\ding{172}~\ding{181} (1~10)
+  % 无衬线加圈阳文数字：\ding{192}~\ding{201} (1~10)
+  \renewcommand{\thefootnote}{\ding{\numexpr191+\value{footnote} } }
+  %TODO：20160705 脚注不用上标
+  %HACK：20160709 见 http://tex.stackexchange.com/q/19844
+  \makeatletter
+    \newlength{\fnBreite}
+    \renewcommand{\@makefntext}[1]{%
+      \settowidth{\fnBreite}{\footnotesize\@thefnmark.i}%
+      \protect\footnotesize\upshape%
+      \setlength{\@tempdima}{\columnwidth}%
+      \addtolength{\@tempdima}{-\fnBreite}%
+      \makebox[\fnBreite][l]{\@thefnmark\phantom{  }}%
+      \parbox[t]{\@tempdima}%
+      {\everypar{\hspace*{1em}}\hspace*{-1em}\upshape#1}%
+    }
+  \makeatother
 
 %% 颜色
 \usepackage[svgnames]{xcolor}
@@ -181,8 +181,8 @@
 
 %% 绘图
 %\usepackage{tikz}
-%	\usepgflibrary{arrows.meta}
-%	\tikzset{>=Stealth}
+% \usepgflibrary{arrows.meta}
+% \tikzset{>=Stealth}
 
 %% 强调公式
 \usepackage[ntheorem]{empheq}
@@ -198,131 +198,131 @@
 
 %% 定制列表环境
 \usepackage{enumitem}
-	% 定义带缩进的左对齐格式
-	% 前一个参数 0 em 确定标签的位置
-	% 后一个参数 1.45 em 确定标签与文字的距离
-	%HACK：20160924 与字体、字号、标签内容有关
-	\SetLabelAlign{leftalignwithindent}%
-		{\hspace{0 em} \makebox[1.45 em][l]{#1}}
+  % 定义带缩进的左对齐格式
+  % 前一个参数 0 em 确定标签的位置
+  % 后一个参数 1.45 em 确定标签与文字的距离
+  %HACK：20160924 与字体、字号、标签内容有关
+  \SetLabelAlign{leftalignwithindent}%
+    {\hspace{0 em} \makebox[1.45 em][l]{#1}}
 
 %% 定理类环境
 \usepackage[thmmarks, amsmath]{ntheorem}
-	\theoremstyle{nonumberplain} %带编号
-	\theoremheaderfont{\bfseries}
-	\theorembodyfont{\normalfont}
-	\theoremsymbol{\mbox{$\Box$}}
-		\newtheorem{myProof}{证明：}
+  \theoremstyle{nonumberplain} %带编号
+  \theoremheaderfont{\bfseries}
+  \theorembodyfont{\normalfont}
+  \theoremsymbol{\mbox{$\Box$}}
+    \newtheorem{myProof}{证明：}
 
 %% 目录内容控制(draft 下禁用)
 %% 必须在 `idxlayout' 之前
 \ifdefined\RELEASE
-	\usepackage[nottoc]{tocbibind}
+  \usepackage[nottoc]{tocbibind}
 \fi
 
 %% 索引(draft 下禁用)
 \ifdefined\RELEASE
-	\usepackage{makeidx}
-	\makeindex
-	\newcommand{\idx}[1]{\index{#1}}
-	%HACK：20170114 缺字，改用浪纹连接符代替
-	\newcommand{\idxOmit}{\linkTilde}
+  \usepackage{makeidx}
+  \makeindex
+  \newcommand{\idx}[1]{\index{#1}}
+  %HACK：20170114 缺字，改用浪纹连接符代替
+  \newcommand{\idxOmit}{\linkTilde}
 \else
-	\newcommand{\idx}[1]{}
-	\newcommand{\idxOmit}{}
+  \newcommand{\idx}[1]{}
+  \newcommand{\idxOmit}{}
 \fi
 
 %% 索引格式(draft 下禁用)
 \ifdefined\RELEASE
-	\usepackage[
-			hangindent = 6 em,
-			subindent = 2 em,
-			subsubindent = 4 em,
-			% 加入目录
-			totoc = true
-		]{idxlayout}
+  \usepackage[
+      hangindent = 6 em,
+      subindent = 2 em,
+      subsubindent = 4 em,
+      % 加入目录
+      totoc = true
+    ]{idxlayout}
 \fi
 
 %% 标记引用
 \ifdefined\DEBUG
-	\usepackage[draft, color]{showkeys}
-	\definecolor{refkey}{named}{pink}
-	\definecolor{labelkey}{named}{lime}
+  \usepackage[draft, color]{showkeys}
+  \definecolor{refkey}{named}{pink}
+  \definecolor{labelkey}{named}{lime}
 \fi
 
 %% 错误标注
 \usepackage[draft]{fixme}
-	\fxsetup{author = }
-	\fxusetheme{color}
-	\newcommand{\myPROBLEM}[2][2016-09-01]{\fxnote{#1\\#2}}
-	\WithSuffix\newcommand\myPROBLEM*[2][2016-09-01]{\fxwarning{#1\\#2}}
-	\renewcommand{\englishlistfixmename}{问题列表}
-%	\definecolor{fxnote}{named}{red}
+  \fxsetup{author = }
+  \fxusetheme{color}
+  \newcommand{\myPROBLEM}[2][2016-09-01]{\fxnote{#1\\#2}}
+  \WithSuffix\newcommand\myPROBLEM*[2][2016-09-01]{\fxwarning{#1\\#2}}
+  \renewcommand{\englishlistfixmename}{问题列表}
+% \definecolor{fxnote}{named}{red}
 
 %% 交叉引用，超链接等
 \usepackage[hyperindex]{hyperref}
-	\hypersetup{
-		%% PDF 标题作者
-		pdftitle = {谢锡麟《张量分析与微分几何基础》讲稿},
-		pdfauthor = {曾祥东},
-		%% PDF 书签
-		bookmarksopen = true,
-		bookmarksopenlevel = 1,
-		bookmarksnumbered = true,
-		%% 脚注
-%			hyperfootnotes = false,
-		%% 目录  只引用页码
-		linktoc = page,
-		%% 超链接边框
-		pdfborder = 0 0 0,
-		%% 超链接颜色
-		colorlinks,
-		linkcolor = {red!60!black},
-		citecolor = {green!50!black},
-		urlcolor = {blue!70!black}
-	}
+  \hypersetup{
+    %% PDF 标题作者
+    pdftitle = {谢锡麟《张量分析与微分几何基础》讲稿},
+    pdfauthor = {曾祥东},
+    %% PDF 书签
+    bookmarksopen = true,
+    bookmarksopenlevel = 1,
+    bookmarksnumbered = true,
+    %% 脚注
+%     hyperfootnotes = false,
+    %% 目录  只引用页码
+    linktoc = page,
+    %% 超链接边框
+    pdfborder = 0 0 0,
+    %% 超链接颜色
+    colorlinks,
+    linkcolor = {red!60!black},
+    citecolor = {green!50!black},
+    urlcolor = {blue!70!black}
+  }
 % 脚注引用
 % 直接用 \ref
 %\makeatletter
 %\newcommand{\footnoteref}[1]{\protected@xdef%
-%	\@thefnmark{\ref{#1}}\@footnotemark}
+% \@thefnmark{\ref{#1}}\@footnotemark}
 %\makeatother
 
 %TODO——环境
 %% 定制列表（编号）
 \newenvironment{myEnum}
-	{\enumerate[
-		align = leftalignwithindent,
-		% 条目第一段缩进
-		itemindent = 2 em,
-		% 条目第二段缩进
-		listparindent = 2 em,
-		% 文字左边距
-		leftmargin = 0 pt,
-		topsep = 0 pt,
-		itemsep = 0 pt,
-		parsep = 0 pt
-	]}
-	{\endenumerate}
+  {\enumerate[
+    align = leftalignwithindent,
+    % 条目第一段缩进
+    itemindent = 2 em,
+    % 条目第二段缩进
+    listparindent = 2 em,
+    % 文字左边距
+    leftmargin = 0 pt,
+    topsep = 0 pt,
+    itemsep = 0 pt,
+    parsep = 0 pt
+  ]}
+  {\endenumerate}
 %% 子公式
 \newenvironment{mySubEq}
-	{\subequations \renewcommand{\theequation}%
-		{\theparentequation-\alph{equation}}}%
-	{\endsubequations%
-		\ignorespacesafterend}
+  {\subequations \renewcommand{\theequation}%
+    {\theparentequation-\alph{equation}}}%
+  {\endsubequations%
+    \ignorespacesafterend}
 %% 大括号公式
 \newenvironment{braceEq}[1][align]
-	{\mySubEq%
-		\setkeys{EmphEqEnv}{#1}%
-		\setkeys{EmphEqOpt}{left=\empheqlbrace}%
-		\EmphEqMainEnv}%
-	{\endEmphEqMainEnv \endmySubEq}
+  {\mySubEq%
+    \setkeys{EmphEqEnv}{#1}%
+    \setkeys{EmphEqOpt}{left=\empheqlbrace}%
+    \EmphEqMainEnv}%
+  {\endEmphEqMainEnv \endmySubEq}
 %% 大括号公式2(分情况讨论)
 \newenvironment{braceEq*}[2][align]
-	{\mySubEq%
-		\setkeys{EmphEqEnv}{#1}%
-		\setkeys{EmphEqOpt}{left={{\displaystyle #2}\empheqlbrace}}%
-		\EmphEqMainEnv}%
-	{\endEmphEqMainEnv \endmySubEq}
+  {\mySubEq%
+    \setkeys{EmphEqEnv}{#1}%
+    \setkeys{EmphEqOpt}{left={{\displaystyle #2}\empheqlbrace}}%
+    \EmphEqMainEnv}%
+  {\endEmphEqMainEnv \endmySubEq}
 
 %TODO——命令
 %% 浪纹连接号、代字符
@@ -341,15 +341,15 @@
 % 设置带框盒子边距
 \setlength{\fboxsep}{0.5 pt}
 \newcommand{\hl}[2][yellow!60!white]{\mathchoice%
-	{\colorbox{#1}{$\displaystyle #2$}}%
-	{\colorbox{#1}{$\textstyle #2$}}%
-	{\colorbox{#1}{$\scriptstyle #2$}}%
-	{\colorbox{#1}{$\scriptscriptstyle #2$}}}
+  {\colorbox{#1}{$\displaystyle #2$}}%
+  {\colorbox{#1}{$\textstyle #2$}}%
+  {\colorbox{#1}{$\scriptstyle #2$}}%
+  {\colorbox{#1}{$\scriptscriptstyle #2$}}}
 \newcommand{\hlw}[1]{\mathchoice%
-	{\colorbox{white}{$\displaystyle #1$}}%
-	{\colorbox{white}{$\textstyle #1$}}%
-	{\colorbox{white}{$\scriptstyle #1$}}%
-	{\colorbox{white}{$\scriptscriptstyle #1$}}}
+  {\colorbox{white}{$\displaystyle #1$}}%
+  {\colorbox{white}{$\textstyle #1$}}%
+  {\colorbox{white}{$\scriptstyle #1$}}%
+  {\colorbox{white}{$\scriptscriptstyle #1$}}}
 %\newcommand{\myPROBLEM}[2][\today]{\colorbox{red}{#1\quad#2}}
 
 %TODO——数学命令
@@ -377,6 +377,8 @@
 \WithSuffix\newcommand\Rm*{\realR^{m+1}}
 %% 自然数集(正整数集)
 \newcommand{\natN}{\intN^{*}}
+%% Minkowski 空间
+\newcommand{\minkM}{\SET{M}^4}
 
 %--------空间--------%
 %% 以 m 维实空间为底空间的(r)阶张量全体
@@ -467,10 +469,10 @@
 \makeatletter
 \newcommand{\mid@script}[2]{\vcenter{\hbox{$\m@th#1#2$}}}
 \DeclareRobustCommand{\midscript}[1]{\mathchoice%
-	{\mid@script\scriptstyle{#1}}%
-	{\mid@script\scriptstyle{#1}}%
-	{\mid@script\scriptscriptstyle{#1}}%
-	{\mid@script\scriptscriptstyle{#1}}%
+  {\mid@script\scriptstyle{#1}}%
+  {\mid@script\scriptstyle{#1}}%
+  {\mid@script\scriptscriptstyle{#1}}%
+  {\mid@script\scriptscriptstyle{#1}}%
 }
 \makeatother
 %% 单位正交基指标(Orthonormal Index)
@@ -503,7 +505,7 @@
 \newcommand{\coD}[2]{\nabla_{\! #1}\,{#2}}
 %% 单位正交基下的协变导数
 \WithSuffix\newcommand\coD*[2]{%
-	\nabla\midscript{\!\orthIdx{#1}}\,{#2}}
+  \nabla\midscript{\!\orthIdx{#1}}\,{#2}}
 %% 逆变导数(Contravariant Derivative)
 \newcommand{\ctrD}[2]{\nabla^{#1}\,{#2}}
 %% C^p 微分同胚(Diffeomorphism)
@@ -516,20 +518,20 @@
 \newcommand{\sO}[1]{\mathop{\mscro\!}\qty(#1)}
 %% 小 O 记号(带上下标)
 \WithSuffix\newcommand\sO*[2]{\mathop{
-	\tc{\mscro}{#1} \!}\qty(#2)}
+  \tc{\mscro}{#1} \!}\qty(#2)}
 %% 向量形式小 O 记号
 \newcommand{\sOv}[1]{\mathop{\mbfscro\!}\qty(#1)}
 %% 向量形式小 O 记号(带上下标)
 \WithSuffix\newcommand\sOv*[2]{\mathop{
-	\tc{\mbfscro}{#1} \!}\qty(#2)}
+  \tc{\mbfscro}{#1} \!}\qty(#2)}
 %% 复合(Composite)
 \newcommand{\comp}{\circ}
 %% 定义等号(Definition Equal)
 \newcommand{\defeq}{\triangleq}
 %% 转置(Transpose)
-\newcommand{\trans}{^{\mkern-1.5mu\mathsf{T}}}
+\newcommand{\trans}{^{\mkern-1.5mu\symsfup{T}}}
 %% 取逆并转置(Inverse and Transpose)
-\newcommand{\invTrans}{^{-\mkern-1.5mu\mathsf{T}}}
+\newcommand{\invTrans}{^{-\mkern-1.5mu\symsfup{T}}}
 %% 增量(Increment)
 \newcommand{\incr}{\increment}
 
@@ -543,11 +545,11 @@
 %--------公式杂项--------%
 %% 带圈数字(Circle digit)
 \newcommand{\circNum}[1]{%
-	\ifnum #1=0%
-		\mathord{\symbol{9450}}%
-	\else%
-		\mathord{\symbol{\numexpr9311+#1}}%
-	\fi}
+  \ifnum #1=0%
+    \mathord{\symbol{9450}}%
+  \else%
+    \mathord{\symbol{\numexpr9311+#1}}%
+  \fi}
 %% align 空格
 \newcommand{\alspace}{\mathrel{\phantom{=}}}
 %% 标点、文字
@@ -560,71 +562,73 @@
 
 %TODO——标题页
 \ifdefined\RELEASE
-	\title{现代张量分析讲义}
-	\author{复旦大学　谢锡麟} % 此处为全角空格
-	\date{\today}
+  \title{现代张量分析讲义}
+  \author{复旦大学　谢锡麟} % 此处为全角空格
+  \date{\today}
 \fi
 
 \makeatletter
-	\newcommand{\HUGE}{\@setfontsize\Huge{45}{54}}
+  \newcommand{\HUGE}{\@setfontsize\Huge{45}{54}}
 \makeatother
 
 \newcommand{\myTitle}{
 \begin{titlepage}
-	\begin{center}
-		\vspace*{2 cm}
-		{\HUGE\bfseries 现代张量分析讲义}
-		
-		\vspace{2 cm}
-		{\LARGE 复旦大学 \quad 谢锡麟}
-		
-		\vspace{15 cm}
-		{\LARGE\CJKfamily{楷体} \today}
-	\end{center}
+  \begin{center}
+    \vspace*{2 cm}
+    {\HUGE\bfseries 现代张量分析讲义}
+    
+    \vspace{2 cm}
+    {\LARGE 复旦大学 \quad 谢锡麟}
+    
+    \vspace{15 cm}
+    {\LARGE\CJKfamily{楷体} \today}
+  \end{center}
 \end{titlepage}}
 
 %TODO——选择编译
 \ifdefined\DEBUG
-	\includeonly{Chapters/Surface_Frame}
-	\renewcommand{\part}[1]{}
-	\renewcommand{\chapter}[1]{}
+  \includeonly{Chapters/Relativities}
+  \renewcommand{\part}[1]{}
+  \renewcommand{\chapter}[1]{}
 \fi
 
 \begin{document}
 \ifdefined\RELEASE
-	\frontmatter
-		\myTitle
-		\tableofcontents
-		
-	\mainmatter
+  \frontmatter
+    \myTitle
+    \tableofcontents
+
+  \mainmatter
 \fi
 
-	\part{张量代数}
-		% 张量的定义及表示
-		\include{Chapters/Tensor_Definition}
-		% 张量的运算性质
-		\include{Chapters/Tensor_Properties}
-	
-	\part{体积上的张量场场论}
-		% 微分同胚（曲线坐标系）
-		\include{Chapters/Diffeomorphism}
-		% 张量场可微性
-		\include{Chapters/Tensor_Field_Derivative}
-		% 非完整基理论
-		\include{Chapters/Nonholonomic_Basis_Theory}
-		% 曲线上的标架及其运动方程
-		\include{Chapters/Curve_Frame}
-	
-	\part{曲面上的张量场场论}
-		% 曲面与曲面标架
-		\include{Chapters/Surface_Frame}
-	
-%	\part{微分流形}
-	
+  \part{张量代数}
+    % 张量的定义及表示
+    \include{Chapters/Tensor_Definition}
+    % 张量的运算性质
+    \include{Chapters/Tensor_Properties}
+    % 相对论简介
+    \include{Chapters/Relativities}
+
+  \part{体积上的张量场场论}
+    % 微分同胚（曲线坐标系）
+    \include{Chapters/Diffeomorphism}
+    % 张量场可微性
+    \include{Chapters/Tensor_Field_Derivative}
+    % 非完整基理论
+    \include{Chapters/Nonholonomic_Basis_Theory}
+    % 曲线上的标架及其运动方程
+    \include{Chapters/Curve_Frame}
+
+  \part{曲面上的张量场场论}
+    % 曲面与曲面标架
+    \include{Chapters/Surface_Frame}
+
+%  \part{微分流形}
+
 \ifdefined\RELEASE
-	\backmatter
-		\listoffixmes
-		\printindex
-%		\bibliography{Reference}
+  \backmatter
+    \listoffixmes
+    \printindex
+%   \bibliography{Reference}
 \fi
 \end{document}

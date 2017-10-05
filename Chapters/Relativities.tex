@@ -1,0 +1,320 @@
+%\documentclass{article}
+%
+%\usepackage{suffix}
+%
+%\usepackage{geometry}
+%\geometry{a4paper,left=1.5in,right=1.5in,top=1in,bottom=1in}
+%
+%\usepackage[no-math]{fontspec}
+%\usepackage{amsmath,mathtools,unicode-math}
+%\usepackage[fontset=none]{ctex}
+%\setmainfont{XITS}
+%\setsansfont{TeX Gyre Heros}
+%\setmonofont{TeX Gyre Cursor}[Ligatures = NoCommon]
+%\setmathfont{xits-math.otf}[math-style = ISO, bold-style = ISO]
+%\setCJKmainfont{FZShuSong-Z01}[BoldFont = FZHei-B01, ItalicFont = FZKai-Z03]
+%\setCJKsansfont{FZHei-B01}[BoldFont = FZHei-B01, ItalicFont = FZHei-B01]
+%\setCJKmonofont{FZFangSong-Z02}[BoldFont = FZFangSong-Z02, ItalicFont = FZKai-Z03]
+%
+%\catcode`\。 = \active
+%\newcommand{。}{．}
+%
+%\usepackage{physics,tensor}
+%
+%
+%%TODO——命令
+%%% 浪纹连接号、代字符
+%% Unicode FF5E ～ FULLWIDTH TILDE
+%\newcommand{\linkTilde}{\symbol{65374}}
+%% Unicode 2053 ⁓ SWUNG DASH
+%% see \idxOmit
+%\newcommand{\swungDash}{\symbol{8275}}
+%%% 空行
+%%\newcommand{\blankline}{\mbox{}\par\mbox{}}
+%\newcommand{\blankline}{\mbox{}}
+%%% 强调
+%\newcommand{\emphA}[1]{{\bfseries #1}}
+%\newcommand{\emphB}[1]{{\itshape #1}}
+%
+%%TODO——数学命令
+%%--------数学字体--------%
+%%% 数集 黑板粗体
+%\let\SET=\symbb
+%%% 空间 花体
+%\let\SPACE=\symcal
+%%% 特殊空间 无衬线直立
+%\let\SPACEX=\symsfup
+%%% 域(领域，定义域) 哥特体
+%\let\DOMAIN=\symfrak
+%%% 符号 倾斜粗体
+%\let\SYMBOL=\symbf
+%%% 一般算子 无衬线直立
+%\let\OPERATOR=\symsfup
+%%% 特殊算子 无衬线直立粗体
+%\let\OPERATORX=\symbfsfup
+%
+%%--------数集--------%
+%\newcommand{\realR}{\SET{R}}
+%\newcommand{\intN}{\SET{N}}
+%%\newcommand{\minkM}{\SET{M}}
+%%% m 维实空间
+%\newcommand{\Rm}{\realR^m}
+%\WithSuffix\newcommand\Rm*{\realR^{m+1}}
+%%% 自然数集(正整数集)
+%\newcommand{\natN}{\intN^{*}}
+%%% Minkowski 空间
+%\newcommand{\minkM}{\SET{M}^4}
+%
+%%--------空间--------%
+%%% 以 m 维实空间为底空间的(r)阶张量全体
+%\newcommand{\Tensors}[2][\Rm]{\SPACE{T}^{#2}\qty(#1)}
+%%% (r)阶置换全体
+%\newcommand{\Permutations}[1]{\SPACE{P}_{#1}}
+%%% 以 m 维实空间为底空间的(r)阶对称张量全体
+%\newcommand{\SymTensors}[2][\Rm]{\SPACE{S}^{#2}\qty(#1)}
+%%% 以 m 维实空间为底空间的(r)阶反对称张量全体
+%\newcommand{\SkwTensors}[2][\Rm]{\Lambda^{#2}\qty(#1)}
+%%% 线性变换全体
+%\newcommand{\LinearT}[2]{\SPACE{L}\qty(#1,\,#2)}
+%
+%%--------特殊空间--------%
+%%% 正交矩阵全体(Orthogonal Matrices)
+%\newcommand{\Orth}{\SPACEX{Orth}}
+%%% 对称张量全体(Symmetric Tensors)
+%\newcommand{\Sym}{\SPACEX{Sym}}
+%%% 反对称张量全体(Anti-symmetric Tensors)
+%\newcommand{\Skw}{\SPACEX{Skw}}
+%
+%%--------区域--------%
+%%% 邻域(Neighborhood)
+%\newcommand{\domB}[2]{\DOMAIN{B}_{#1}\qty(#2)}
+%%% 定义域(Domain)
+%\newcommand{\domD}[1]{\DOMAIN{D}_{#1}}
+%
+%%--------量(Quantity)--------%
+%%% 向量(Vector)
+%\newcommand{\V}[1]{\SYMBOL{#1}}
+%%% 张量(Tensor)
+%\renewcommand{\T}[1]{\SYMBOL{#1}}
+%%% 张量分量(Tensor Components)
+%%\let\tc=\tensor
+%\newcommand{\tc}[2]{\tensor{#1}{#2}}
+%%% 矩阵(Matrix)
+%\newcommand{\Mat}[1]{\symbfup{#1}}
+%%% 置换(Permutation)
+%\newcommand{\Perm}[1]{\SYMBOL{#1}}
+%
+%%--------特殊量--------%
+%%% Kronecker Delta
+%\newcommand{\KroneckerDelta}[2]{\delta^{#1}_{#2}}
+%%% Kronecker Delta (全下标形式)
+%\WithSuffix\newcommand\KroneckerDelta*[1]{\delta_{#1}}
+%%% Levi-Civita 记号
+%\newcommand{\LeviCivita}[1]{\tc{\epsilon}{#1}}
+%%% Eddington 张量
+%\newcommand{\EdTensor}{\T{\epsilon}}
+%%% 第一类 Christoffel 符号
+%\newcommand{\ChrA}[3]{\Gamma_{#1#2,\,#3}}
+%%% 第二类 Christoffel 符号
+%\newcommand{\ChrB}[3]{\tc{\Gamma}{^{#3}_{#1#2}}}
+%%% 单位正交基下的 Christoffel 符号
+%\newcommand{\ChrU}[3]{\Gamma\midscript{\!\orthIdx{#1#2#3}}}
+%%% Gauss 曲率
+%\newcommand{\KG}{K_\text{G}}
+%
+%%--------算子--------%
+%%% 置换算子(Permutation Operator)
+%\newcommand{\opPerm}[1][\Perm{\sigma}]{\OPERATOR{I}_{#1}}
+%%% 对称化算子(Symmetrizer)
+%\newcommand{\opSym}{\symcal{S}}
+%%% 反对称化算子(Antisymmetrizer)
+%\newcommand{\opSkw}{\symcal{A}}
+%%% Jacobi 矩阵(Differential Operator)
+%\DeclareMathOperator{\JacobiD}{\OPERATOR{D}\!}
+%%% 梯度算子(Gradient Operator)
+%\newcommand{\opGrad}{\T{\nabla}}
+%%% Laplace 算子(Laplace Operator)
+%\newcommand{\opLap}{\T{\nabla}^2}
+%%\newcommand{\opLap}{\symbfup{\Delta}}
+%%% 切空间(Tangent Space)
+%\newcommand{\Tspace}[2]{\OPERATOR{T}_{\!#2}{#1}}
+%%% 余切空间(Cotangent Space)
+%
+%%--------特殊算子--------%
+%%% 恒等映照(Identity)
+%\newcommand{\Id}{\OPERATORX{Id}}
+%
+%%--------数学符号--------%
+%%% 映射(X: x → X)(Math Map)
+%\newcommand{\mmap}[3]{{#1}:\,{#2}\mapsto{#3}}
+%%% 带描述集合
+%\DeclarePairedDelimiterX\set[2]{\{}{\}}{#1 \;\delimsize\vert\; #2}
+%%% 中标
+%% 见 http://tex.stackexchange.com/q/250961
+%\makeatletter
+%\newcommand{\mid@script}[2]{\vcenter{\hbox{$\m@th#1#2$}}}
+%\DeclareRobustCommand{\midscript}[1]{\mathchoice%
+%  {\mid@script\scriptstyle{#1}}%
+%  {\mid@script\scriptstyle{#1}}%
+%  {\mid@script\scriptscriptstyle{#1}}%
+%  {\mid@script\scriptscriptstyle{#1}}%
+%}
+%\makeatother
+%%% 单位正交基指标(Orthonormal Index)
+%\newcommand{\orthIdx}[1]{\langle{#1}\rangle}
+%%% 范数
+%% 已在 `physics' 中定义
+%\let\PHYSICSNORM=\norm
+%\renewcommand{\norm}[2][\Rm]{\abs{#2}_{#1}}
+%%% 线性分式，已有命令 \flatfrac
+%%\WithSuffix\newcommand\frac*[2]{\left.#1\middle/#2\right.}
+%%% 内积(括号形式)(Inner Product Braket)
+%\newcommand{\ipb}[3][\Rm]{\left\langle#2,\,#3\right\rangle_{#1}}
+%%% 张量积(Tensor Product)
+%\newcommand{\tp}{\otimes}
+%%% e-点积(e Dot Product)
+%\newcommand{\edp}[1][e]{\mathbin{\dbinom{#1}{\mathord{\cdot}}}}
+%%% 全点积(Full Dot Product)
+%\newcommand{\fdp}{\odot}
+%%% 点乘([Vector] Dot Product)
+%% 使用 \cdot 表示普通乘法，使用 \vdp 表示点乘
+%%% \dp 是 LaTeX 内部定义
+%\newcommand{\vdp}{\vysmblkcircle}
+%%% \cdot 作为 ordinary 符号
+%\newcommand{\cdotord}{\mathord{\cdot}}
+%%% 叉乘(Cross Product)
+%% 已在 `physics' 中定义
+%\let\PHYSICSCP=\cp
+%\renewcommand{\cp}{\vectimes}
+%%% 协变导数(Covariant Derivative)
+%\newcommand{\coD}[2]{\nabla_{\! #1}\,{#2}}
+%%% 单位正交基下的协变导数
+%\WithSuffix\newcommand\coD*[2]{%
+%  \nabla\midscript{\!\orthIdx{#1}}\,{#2}}
+%%% 逆变导数(Contravariant Derivative)
+%\newcommand{\ctrD}[2]{\nabla^{#1}\,{#2}}
+%%% C^p 微分同胚(Diffeomorphism)
+%\newcommand{\DiffMorp}[1][p]{\symcal{C}^{#1}}
+%%% 直至 p 阶偏导数连续的函数(Continuous Function)
+%\newcommand{\cf}[3][p]{\symcal{C}^{#1}\qty(#2;\,#3)}
+%%% 大 O 记号
+%\newcommand{\bO}[1]{\mathop{\mscrO\!}\qty(#1)}
+%%% 小 O 记号
+%\newcommand{\sO}[1]{\mathop{\mscro\!}\qty(#1)}
+%%% 小 O 记号(带上下标)
+%\WithSuffix\newcommand\sO*[2]{\mathop{
+%  \tc{\mscro}{#1} \!}\qty(#2)}
+%%% 向量形式小 O 记号
+%\newcommand{\sOv}[1]{\mathop{\mbfscro\!}\qty(#1)}
+%%% 向量形式小 O 记号(带上下标)
+%\WithSuffix\newcommand\sOv*[2]{\mathop{
+%  \tc{\mbfscro}{#1} \!}\qty(#2)}
+%%% 复合(Composite)
+%\newcommand{\comp}{\circ}
+%%% 定义等号(Definition Equal)
+%\newcommand{\defeq}{\triangleq}
+%%% 转置(Transpose)
+%\newcommand{\trans}{^{\mkern-1.5mu\symsfup{T}}}
+%%% 取逆并转置(Inverse and Transpose)
+%\newcommand{\invTrans}{^{-\mkern-1.5mu\symsfup{T}}}
+%%% 增量(Increment)
+%\newcommand{\incr}{\increment}
+%
+%
+%%--------公式杂项--------%
+%%% 带圈数字(Circle digit)
+%\newcommand{\circNum}[1]{%
+%	\ifnum #1=0%
+%		\mathord{\symbol{9450}}%
+%	\else%
+%		\mathord{\symbol{\numexpr9311+#1}}%
+%	\fi}
+%%% align 空格
+%\newcommand{\alspace}{\mathrel{\phantom{=}}}
+%%% 标点、文字
+%\newcommand{\comma}{\text{，}}
+%\newcommand{\fullstop}{\text{．}}
+%\newcommand{\semicolon}{\text{；}}
+%\newcommand{\const}{\text{const.}}
+%\newcommand{\res}{\text{res.}}
+%
+%
+%\begin{document}
+
+
+\chapter{相对论简介}
+\section{Lorentz 变换}
+狭义相对论研究的空间是 \emphA{Minkowski 空间}（或称 \emphA{Minkowski 时空}）
+$\minkM$。它是一个四维空间，第一个维度是时间，之后的三个维度则是一般的 Euclid
+空间。也就是说，Minkowski 空间中的向量可以表示为
+\begin{equation}
+  \V{x} = \qty(x_0,\,x_1,\,x_2,\,x_3) = \qty(ct,\,x,\,y,\,z)\in\minkM \comma
+\end{equation}
+其中的 $c$ 是真空中的光速，它是一个常数。在自然单位制下，光速 $c=1$，此时
+时间与空间具有相同的量纲。
+
+根据惯例，我们用\emphB{希腊字母}指代任意一个指标（$0,\,1,\,2,\,3$），
+而用\emphB{拉丁字母}指代空间指标（$1,\,2,\,3$）。
+
+Minkowski 空间中也可定义协变基 $\qty{\V{g}_\mu}_{\mu=0}^3$ 与逆变基
+$\qty{\V{g}^\mu_{\vphantom{\mu}}}_{\mu=0}^3$。向量 $\V{x}\in\minkM$
+可以用它们展开：
+\begin{equation}
+  \V{x} = x^\mu\,\V{g}_\mu = x_\mu\,\V{g}^\mu \fullstop
+\end{equation}
+由基向量的内积可获得度量（物理上也称为\emphA{度规}）：
+\begin{equation}
+  \eta_{\mu\nu} = \ipb[\minkM]{\V{g}_\mu}{\V{g}_\nu} \fullstop
+\end{equation}
+写成矩阵形式，为\footnote{
+  在不同的著作中，度量的符号可以有不同的取法。此处为
+  $(\mathord{+}\mathord{-}\mathord{-}\mathord{-})$，为粒子物理学家所偏爱；
+  另一种是 $(\mathord{-}\mathord{+}\mathord{+}\mathord{+})$，在 $c\to\infty$
+  的极限下自然退化到 Euclid 空间，数学家更喜欢用。当然，这两种符号约定并没有
+  本质区别。}
+\begin{equation}
+  \qty[\eta_{\mu\nu}] = \mqty[\dmat{c^2, -1, -1, -1}] \fullstop
+\end{equation}
+根据度量满足的一般关系
+\begin{equation}
+  g_{ik}\,g^{kj} = \KroneckerDelta{j}{i} \comma
+\end{equation}
+可以知道
+\begin{equation}
+  \qty[\eta^{\mu\nu}] = \mqty[\dmat{c^{-2}, -1, -1, -1}] \fullstop
+\end{equation}
+
+%\begin{itemize}
+%  \item 在本文的惯例中，
+%  \item 在自然单位制下，光速 $c=1$，此时可将度量写为
+%    \begin{equation*}
+%      \qty[\eta_{\mu\nu}] = \mqty[\dmat{1, -1, -1, -1}] \fullstop
+%    \end{equation*}
+%\end{itemize}
+
+%%\section{Lorentz 与 Poincaré 对称性}
+%%
+%%\begin{problem}{1.1}
+%%\question{证明 Lorentz 变换满足 $\mat{\Lambda}\trans \mat{g} \mat{\Lambda} =\mat{g}$，
+%%  并证明它们构成一个群。}
+%%根据定义，变换后的向量
+%%\[ {x'}^\mu = \Lambda\ids{^\mu_\nu} x^\nu \]
+%%满足
+%%\[ \qty(x')^2 = (x)^2 \]
+%%因此
+%%\[
+%%  \qty(x')^2 = g_{\mu\nu} {x'}^\mu {x'}^\nu
+%%  = g_{\mu\nu} \qty(\Lambda\ids{^\mu_\tau} x^\tau) \qty(\Lambda\ids{^\nu_\sigma} x^\sigma)
+%%  = (x)^2 = g_{\tau\sigma} x^\tau x^\sigma
+%%\]
+%%由于 $\vb{x}$ 的任意性，可知
+%%\[ g_{\mu\nu} \Lambda\ids{^\mu_\tau} \Lambda\ids{^\nu_\sigma} = g_{\tau\sigma} \]
+%%为把该式写成矩阵形式，需要保证各指标依次排列，即
+%%\[ \qty(\Lambda\trans)\ids{_\tau^\mu} g_{\mu\nu} \Lambda\ids{^\nu_\sigma} = g_{\tau\sigma} \]
+%%这里用到了 $\qty(\Lambda\trans)\ids{_\nu^\mu} = \Lambda\ids{^\mu_\nu}$。此时可将上式写成
+%%\[ \mat{\Lambda}\trans\mat{g}\mat{\Lambda} =\mat{g} \]
+%%
+%%群满足
+%%\end{problem}
+
+\end{document}

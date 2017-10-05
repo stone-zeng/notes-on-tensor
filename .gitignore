@@ -200,7 +200,8 @@ TSWLatexianTemp*
 *.xls
 *.xlsx
 
-# Programs
+# Programs and scripts
+*.bat
 *.exe
 
 # Macro finding result
