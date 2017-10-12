@@ -6,7 +6,10 @@
 
 \documentclass{book}
 
-\newcommand*{\DEBUG}{}%
+%\usepackage{syntonly}
+%\syntaxonly
+
+%\newcommand*{\DEBUG}{}%
 \ifdefined\DEBUG
   \relax
 \else
@@ -587,7 +590,7 @@
 
 %TODO——选择编译
 \ifdefined\DEBUG
-  \includeonly{Chapters/Relativities}
+  \includeonly{chapters/relativities}
   \renewcommand{\part}[1]{}
   \renewcommand{\chapter}[1]{}
 \fi
@@ -603,25 +606,25 @@
 
   \part{张量代数}
     % 张量的定义及表示
-    \include{Chapters/Tensor_Definition}
+    \include{chapters/tensor-definition}
     % 张量的运算性质
-    \include{Chapters/Tensor_Properties}
+    \include{chapters/tensor-properties}
     % 相对论简介
-    \include{Chapters/Relativities}
+    \include{chapters/relativities}
 
   \part{体积上的张量场场论}
     % 微分同胚（曲线坐标系）
-    \include{Chapters/Diffeomorphism}
+    \include{chapters/diffeomorphism}
     % 张量场可微性
-    \include{Chapters/Tensor_Field_Derivative}
+    \include{chapters/tensor-field-derivative}
     % 非完整基理论
-    \include{Chapters/Nonholonomic_Basis_Theory}
+    \include{chapters/nonholonomic-basis-theory}
     % 曲线上的标架及其运动方程
-    \include{Chapters/Curve_Frame}
+    \include{chapters/curve-frame}
 
   \part{曲面上的张量场场论}
     % 曲面与曲面标架
-    \include{Chapters/Surface_Frame}
+    \include{chapters/surface-frame}
 
 %  \part{微分流形}
 
@@ -629,6 +632,6 @@
   \backmatter
     \listoffixmes
     \printindex
-%   \bibliography{Reference}
+%   \bibliography{reference}
 \fi
 \end{document}
