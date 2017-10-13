@@ -9,7 +9,7 @@
 %\usepackage{syntonly}
 %\syntaxonly
 
-%\newcommand*{\DEBUG}{}%
+\newcommand*{\DEBUG}{}%
 \ifdefined\DEBUG
   \relax
 \else
@@ -590,7 +590,7 @@
 
 %TODO——选择编译
 \ifdefined\DEBUG
-  \includeonly{chapters/relativities}
+  \includeonly{chapters/preliminaries}
   \renewcommand{\part}[1]{}
   \renewcommand{\chapter}[1]{}
 \fi
@@ -605,6 +605,8 @@
 \fi
 
   \part{张量代数}
+    % 预备知识
+    \include{chapters/preliminaries}
     % 张量的定义及表示
     \include{chapters/tensor-definition}
     % 张量的运算性质
@@ -618,9 +620,9 @@
     % 张量场可微性
     \include{chapters/tensor-field-derivative}
     % 非完整基理论
-    \include{chapters/nonholonomic-basis-theory}
+    \include{chapters/nonholonomic-basis}
     % 曲线上的标架及其运动方程
-    \include{chapters/curve-frame}
+    \include{chapters/curve}
 
   \part{曲面上的张量场场论}
     % 曲面与曲面标架
