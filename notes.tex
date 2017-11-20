@@ -363,7 +363,7 @@
 \let\SPACE=\symcal
 %% 特殊空间 无衬线直立
 \let\SPACEX=\symsfup
-%% 域(领域，定义域) 哥特体
+%% 域(邻域，定义域) 哥特体
 \let\DOMAIN=\symfrak
 %% 符号 倾斜粗体
 \let\SYMBOL=\symbf
@@ -374,6 +374,7 @@
 
 %--------数集--------%
 \newcommand{\realR}{\SET{R}}
+\newcommand{\comC}{\SET{C}}
 \newcommand{\intN}{\SET{N}}
 %% m 维实空间
 \newcommand{\Rm}{\realR^m}
@@ -384,6 +385,10 @@
 \newcommand{\minkM}{\SET{M}^4}
 
 %--------空间--------%
+%% 向量空间
+\newcommand{\vecV}{\SPACE{V}}
+%% 数域
+\newcommand{\numF}{\SPACE{F}}
 %% 以 m 维实空间为底空间的(r)阶张量全体
 \newcommand{\Tensors}[2][\Rm]{\SPACE{T}^{#2}\qty(#1)}
 %% (r)阶置换全体
@@ -592,7 +597,7 @@
 \ifdefined\DEBUG
   \includeonly{chapters/preliminaries}
   \renewcommand{\part}[1]{}
-  \renewcommand{\chapter}[1]{}
+  %\renewcommand{\chapter}[1]{}
 \fi
 
 \begin{document}

@@ -1,1 +1,138 @@
 \chapter{预备知识}
+
+\section{Euclid 空间}
+
+我们生活在三维 \emphA{Euclid 空间}\idx{Euclid 空间}中。
+Euclid 空间的存在，使我们得以完成平面几何与立体几何的计算与证明，
+进而能够刻画诸多物理现象。
+
+Euclid 空间具有很好的性质。
+
+\begin{itemize}
+  \item 封闭性：使得平移、缩放等操作可以完成；
+  \item 完备性：允许微积分运算；
+  \item 平坦：这是 Euclid 空间的根本属性；
+  \item 数学结构：可以明确距离、角和旋转等概念。
+\end{itemize}
+
+为了较为严格地刻画以上这些性质，我们需要引入一些定义。
+
+\subsection{向量空间}
+
+\emphA{向量空间}\idx{向量空间} $\vecV$ 是定义在数域\idx{数域} $\numF$
+\footnote{这里不再给出域的严格定义，只需知道 $\numF$ 可以取为实数域
+  $\realR$ 或复数域 $\comC$。}
+上的一个集合。其上需要定义有两种二元运算，一种是%
+\emphA{向量加法}\idx{向量加法}（简称\emphA{加法}）：
+\begin{equation}
+  \mmap{+}{\vecV\times\vecV \ni (\V{u},\,\V{v})}%
+    {\V{u}+\V{v} \in \vecV} \semicolon
+\end{equation}
+另一种是\emphA{标量乘法}\idx{标量乘法}（也称\emphA{数乘}）：
+\begin{equation} \label{eq:标量乘法}
+  \mmap{\cdot}{\numF\times\vecV \ni (a,\,\V{u})}%
+  {a\cdot\V{u} \in \vecV} \fullstop
+\end{equation}
+它们需要满足如下公理：
+
+\begin{itemize}
+  \item 加法结合律：对于 $\forall\,\V{u},\,\V{v},\,\V{w}\in\vecV$，
+    满足
+    \begin{equation}
+      (\V{u}+\V{v})+\V{w} = \V{u}+(\V{v}+\V{w}) \fullstop
+    \end{equation}
+  \item 加法交换律：对于 $\forall\,\V{u},\,\V{v}\in\vecV$，满足
+    \begin{equation}
+      \V{u}+\V{v} = \V{v}+\V{u} \fullstop
+    \end{equation}
+  \item 加法单位元：存在 $\V{0}\in\vecV$，使得
+    \begin{equation}
+      \forall \, \V{u}\in\vecV \qc \V{u} + \V{0} = \V{u} \fullstop
+    \end{equation}
+  \item 加法逆元：对于 $\forall\,\V{x}\in\vecV$，存在逆元
+    $-\V{x}\in\vecV$，满足
+    \begin{equation}
+      \V{x}+(-\V{x})=\V{0} \fullstop
+    \end{equation}
+    注意此处的“$-$”不表示减法，因为我们并没有给出减法的定义。
+  \item 标量乘法与数域乘法相容：对于
+    $\forall\,\alpha,\,\beta\in\numF$ 和 $\V{u}\in\vecV$，满足
+    \begin{equation}
+      \alpha \, (\beta\,\V{u}) = (\alpha\beta) \, \V{u} \fullstop
+    \end{equation}
+    式中，左侧括号里的为 \eqref{eq:标量乘法}~式中定义的标量乘法，
+    而右侧括号里的则为数域上的普通乘法。
+  \item 标量乘法单位元：存在 $1\in\numF$，使得
+    \begin{equation}
+      \forall \V{u}\in\vecV \qc 1 \cdot \V{u} = \V{u} \fullstop
+    \end{equation}
+  \item 标量乘法关于加法的分配律：对于 $\forall\,\alpha,\,\beta
+    \in\numF$ 和 $\V{u},\,\V{v}\in\vecV$，满足
+    \begin{mySubEq}
+      \begin{align}
+        (\alpha+\beta) \, \V{u}
+          &= \alpha \, \V{u} + \beta \, \V{u} \comma \\
+        \alpha \, (\V{u}+\V{v})
+          &= \alpha \, \V{u} + \alpha \, \V{v} \fullstop
+      \end{align}
+    \end{mySubEq}
+    其中，第一式为关于\emphB{向量加法}的分配律，第二式则为关于%
+    \emphB{数域加法}的分配律。
+\end{itemize}
+
+前四条公理 说明向量空间 $\vecV$ 是一个\emphB{交换群}\idx{交换群}。
+
+\subsection{代数结构}
+
+向量空间上可以定一些数学结构，包括\emphA{度量}（也称\emphA{度规}）、
+\emphA{范数}、\emphA{内积}等。
+
+\emphA{度量}是对距离的刻画。向量空间 $\vecV$ 上的度量是一个映照：
+\begin{equation}
+  \mmap{d}{\vecV\times\vecV \ni (\V{x},\,\V{y})}%
+    {d(\V{x},\,\V{y}) \in \realR} \comma
+\end{equation}
+它满足
+
+\begin{itemize}
+  \item 非负性：对于 $\forall\,\V{x},\,\V{y}\in\vecV$，满足
+    \begin{equation}
+      d(\V{x},\,\V{y}) \geqslant 0 \comma
+    \end{equation}
+    当且仅当 $\V{x}=\V{y}$ 时取等号；
+  \item 对称性：对于 $\forall\,\V{x},\,\V{y}\in\vecV$，满足
+    \begin{equation}
+      d(\V{x},\,\V{y}) = d(\V{y},\,\V{x}) \semicolon
+    \end{equation}
+  \item 三角不等式：对于 $\forall\,\V{x},\,\V{y},\,\V{z}\in\vecV$，
+    满足
+    \begin{equation}
+      d(\V{x},\,\V{z}) \leqslant d(\V{x},\,\V{y}) + d(\V{y},\,\V{z})
+      \fullstop
+    \end{equation}
+\end{itemize}
+
+\emphA{范数}反映了向量的“长度”。它也是一个映照：
+\begin{equation}
+  \mmap{\norm[\vecV]{\cdot}}{\vecV \ni \V{x}}%
+    {\norm[\vecV]{\V{x}} \in \realR} \comma
+\end{equation}
+并满足
+
+\begin{itemize}
+  \item 非负性：对于 $\forall\,\V{x},\,\V{y}\in\vecV$，满足
+    \begin{equation}
+      d(\V{x},\,\V{y}) \geqslant 0 \comma
+    \end{equation}
+    当且仅当 $\V{x}=\V{y}$ 时取等号；
+  \item 正齐次性：对于 $\forall\,\V{x},\,\V{y}\in\vecV$，满足
+    \begin{equation}
+      d(\V{x},\,\V{y}) = d(\V{y},\,\V{x}) \semicolon
+    \end{equation}
+  \item 三角不等式：对于 $\forall\,\V{x},\,\V{y},\,\V{z}\in\vecV$，
+    满足
+    \begin{equation}
+      d(\V{x},\,\V{z}) \leqslant d(\V{x},\,\V{y}) + d(\V{y},\,\V{z})
+      \fullstop
+    \end{equation}
+\end{itemize}
