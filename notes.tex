@@ -100,13 +100,6 @@
 % 必须在 `unicode-math' 之前
 \usepackage{mathtools}
 
-%% Pi 符号
-\usepackage{pifont}
-  % 正确 √
-  \newcommand{\cmark}{\ding{51}}
-  % 错误 ×
-  \newcommand{\xmark}{\ding{55}}
-
 %% 中文文字处理
 %BUG：20170225 似乎必须在 `unicode-math' 之前
 \usepackage[UTF8, heading = true, fontset = none]{ctex}
@@ -153,10 +146,8 @@
 
 %% 脚注增强版
 \usepackage[stable, perpage, bottom]{footmisc}
-  % 需要调用 pifont 宏包
-  % 衬线加圈阳文数字：\ding{172}~\ding{181} (1~10)
-  % 无衬线加圈阳文数字：\ding{192}~\ding{201} (1~10)
-  \renewcommand{\thefootnote}{\ding{\numexpr191+\value{footnote} } }
+  % 来自 XITS 字体（U+2460 ~ U+2468）
+  \renewcommand{\thefootnote}{\symbol{\numexpr"245F+\value{footnote}}}
   %TODO：20160705 脚注不用上标
   %HACK：20160709 见 http://tex.stackexchange.com/q/19844
   \makeatletter
