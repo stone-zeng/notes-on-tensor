@@ -154,7 +154,7 @@
     \newlength{\fnBreite}
     \renewcommand{\@makefntext}[1]{%
       \settowidth{\fnBreite}{\footnotesize\@thefnmark.i}%
-      \protect\footnotesize\upshape%
+      \protect\footnotesize\upshape
       \setlength{\@tempdima}{\columnwidth}%
       \addtolength{\@tempdima}{-\fnBreite}%
       \makebox[\fnBreite][l]{\@thefnmark\phantom{  }}%
@@ -277,7 +277,7 @@
 % 脚注引用
 % 直接用 \ref
 %\makeatletter
-%\newcommand{\footnoteref}[1]{\protected@xdef%
+%\newcommand{\footnoteref}[1]{\protected@xdef
 % \@thefnmark{\ref{#1}}\@footnotemark}
 %\makeatother
 
@@ -301,18 +301,18 @@
 \newenvironment{mySubEq}
   {\subequations \renewcommand{\theequation}%
     {\theparentequation-\alph{equation}}}%
-  {\endsubequations%
+  {\endsubequations
     \ignorespacesafterend}
 %% 大括号公式
 \newenvironment{braceEq}[1][align]
-  {\mySubEq%
+  {\mySubEq
     \setkeys{EmphEqEnv}{#1}%
     \setkeys{EmphEqOpt}{left=\empheqlbrace}%
     \EmphEqMainEnv}%
   {\endEmphEqMainEnv \endmySubEq}
 %% 大括号公式2(分情况讨论)
 \newenvironment{braceEq*}[2][align]
-  {\mySubEq%
+  {\mySubEq
     \setkeys{EmphEqEnv}{#1}%
     \setkeys{EmphEqOpt}{left={{\displaystyle #2}\empheqlbrace}}%
     \EmphEqMainEnv}%
@@ -334,12 +334,12 @@
 %% 高亮(Highlight)
 % 设置带框盒子边距
 \setlength{\fboxsep}{0.5 pt}
-\newcommand{\hl}[2][yellow!60!white]{\mathchoice%
+\newcommand{\hl}[2][yellow!60!white]{\mathchoice
   {\colorbox{#1}{$\displaystyle #2$}}%
   {\colorbox{#1}{$\textstyle #2$}}%
   {\colorbox{#1}{$\scriptstyle #2$}}%
   {\colorbox{#1}{$\scriptscriptstyle #2$}}}
-\newcommand{\hlw}[1]{\mathchoice%
+\newcommand{\hlw}[1]{\mathchoice
   {\colorbox{white}{$\displaystyle #1$}}%
   {\colorbox{white}{$\textstyle #1$}}%
   {\colorbox{white}{$\scriptstyle #1$}}%
@@ -409,7 +409,7 @@
 %% 向量(Vector)
 \newcommand{\V}[1]{\SYMBOL{#1}}
 %% 张量(Tensor)
-\renewcommand{\T}[1]{\SYMBOL{#1}}
+\def\T#1{\SYMBOL{#1}}
 %% 张量分量(Tensor Components)
 %\let\tc=\tensor
 \newcommand{\tc}[2]{\tensor{#1}{#2}}
@@ -467,7 +467,7 @@
 % 见 http://tex.stackexchange.com/q/250961
 \makeatletter
 \newcommand{\mid@script}[2]{\vcenter{\hbox{$\m@th#1#2$}}}
-\DeclareRobustCommand{\midscript}[1]{\mathchoice%
+\DeclareRobustCommand{\midscript}[1]{\mathchoice
   {\mid@script\scriptstyle{#1}}%
   {\mid@script\scriptstyle{#1}}%
   {\mid@script\scriptscriptstyle{#1}}%
@@ -546,7 +546,7 @@
 \newcommand{\circNum}[1]{%
   \ifnum #1=0%
     \mathord{\symbol{9450}}%
-  \else%
+  \else
     \mathord{\symbol{\numexpr9311+#1}}%
   \fi}
 %% align 空格
@@ -586,7 +586,7 @@
 
 %TODO——选择编译
 \ifdefined\DEBUG
-  \includeonly{chapters/preliminaries}
+  \includeonly{chapters/preliminaries,chapters/tensor-definition}
   \renewcommand{\part}[1]{}
   %\renewcommand{\chapter}[1]{}
 \fi

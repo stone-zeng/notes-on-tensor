@@ -6,13 +6,12 @@
 Euclid 空间的存在，使我们得以完成平面几何与立体几何的计算与证明，
 进而能够刻画诸多物理现象。
 
-Euclid 空间具有很好的性质。
-
+Euclid 空间具有很好的性质：
 \begin{itemize}
   \item 封闭性：使得平移、缩放等操作可以完成；
   \item 完备性：允许微积分运算；
   \item 平坦：这是 Euclid 空间的根本属性；
-  \item 数学结构：可以明确距离、角和旋转等概念。
+  \item 数学结构：可以明确距离、角度和旋转等概念。
 \end{itemize}
 
 为了较为严格地刻画以上这些性质，我们需要引入一些定义。
@@ -34,7 +33,6 @@ Euclid 空间具有很好的性质。
   {a\cdot\V{u} \in \vecV} \fullstop
 \end{equation}
 它们需要满足如下公理：
-
 \begin{itemize}
   \item 加法结合律：对于 $\forall\,\V{u},\,\V{v},\,\V{w}\in\vecV$，
     满足
@@ -93,7 +91,6 @@ Euclid 空间具有很好的性质。
     {d(\V{x},\,\V{y}) \in \realR} \comma
 \end{equation}
 它满足
-
 \begin{itemize}
   \item 非负性：对于 $\forall\,\V{x},\,\V{y}\in\vecV$，满足
     \begin{equation}
@@ -118,21 +115,60 @@ Euclid 空间具有很好的性质。
     {\norm[\vecV]{\V{x}} \in \realR} \comma
 \end{equation}
 并满足
-
 \begin{itemize}
-  \item 非负性：对于 $\forall\,\V{x},\,\V{y}\in\vecV$，满足
+  \item 非负性：对于 $\forall\,\V{x}\in\vecV$，满足
     \begin{equation}
-      d(\V{x},\,\V{y}) \geqslant 0 \comma
+      \norm[\vecV]{\V{x}} \geqslant 0 \comma
     \end{equation}
-    当且仅当 $\V{x}=\V{y}$ 时取等号；
-  \item 正齐次性：对于 $\forall\,\V{x},\,\V{y}\in\vecV$，满足
-    \begin{equation}
-      d(\V{x},\,\V{y}) = d(\V{y},\,\V{x}) \semicolon
-    \end{equation}
-  \item 三角不等式：对于 $\forall\,\V{x},\,\V{y},\,\V{z}\in\vecV$，
+    当且仅当 $\V{x}=\V{0}$ 时取等号；
+  \item 正齐次性：对于 $\forall\,\V{x}\in\vecV$ 和 $\forall\,\lambda\in\realR$，
     满足
     \begin{equation}
-      d(\V{x},\,\V{z}) \leqslant d(\V{x},\,\V{y}) + d(\V{y},\,\V{z})
-      \fullstop
+     \norm[\vecV]{\lambda\V{x}} = \abs{\lambda} \norm[\vecV]{\V{x}} \semicolon
+    \end{equation}
+  \item 三角不等式：对于 $\forall\,\V{x},\,\V{y}\in\vecV$，
+    满足
+    \begin{equation}
+      \norm[\vecV]{\V{x}+\V{y}} \leqslant
+      \norm[\vecV]{\V{x}} + \norm[\vecV]{\V{y}} \fullstop
     \end{equation}
 \end{itemize}
+
+\emphA{内积}用来刻画向量的之间的“夹角”。它同样用映照来定义：
+\begin{equation}
+  \mmap{\ipb[\vecV]{\cdot}{\cdot}}{\vecV \ni (\V{x},\,\V{y})}%
+    {\ipb[\vecV]{\V{x}}{\V{y}} \in \realR} \comma
+\end{equation}
+满足
+\begin{itemize}
+  \item 非负性：对于 $\forall\,\V{x}\in\vecV$，满足
+    \begin{equation}
+      \ipb[\vecV]{\V{x}}{\V{x}} \geqslant 0 \comma
+    \end{equation}
+    当且仅当 $\V{x}=\V{0}$ 时取等号；
+  \item 对称性：对于 $\forall\,\V{x},\,\V{y}\in\vecV$，满足
+    \begin{equation}
+      \ipb[\vecV]{\V{x}}{\V{y}} = \ipb[\vecV]{\V{y}}{\V{x}} \semicolon
+    \end{equation}
+  \item 对第一个元素的线性性：对于 $\forall\,\V{x},\,\V{y},\,\V{z}\in\vecV$ 和
+    $\forall\,\alpha,\,\beta\in\realR$，满足
+    \begin{equation}
+      \ipb[\vecV]{\alpha\V{x}+\beta\V{y}}{\V{z}}
+      = \alpha \ipb[\vecV]{\V{x}}{\V{z}} + \beta \ipb[\vecV]{\V{y}}{\V{z}}
+      \fullstop
+    \end{equation}
+    根据对称性，内积对第二个元素显然也具有线性性：
+    \begin{equation}
+      \ipb[\vecV]{\V{x}}{\alpha\V{y}+\beta\V{z}}
+      = \ipb[\vecV]{\alpha\V{y}+\beta\V{z}}{\V{x}}
+      = \alpha \ipb[\vecV]{\V{y}}{\V{x}} + \beta \ipb[\vecV]{\V{z}}{\V{x}}
+      = \alpha \ipb[\vecV]{\V{x}}{\V{y}} + \beta \ipb[\vecV]{\V{x}}{\V{z}}.
+    \end{equation}
+\end{itemize}
+
+以上三种代数结构并非是独立的。事实上，内积可以诱导范数，范数又可以诱导度量。
+如果线性空间 $\vecV$ 上装备有内积，则可以定义度量：
+\begin{equation}
+  \norm[\vecV]{\V{x}} = \sqrt{\ipb[\vecV]{\V{x}}{\V{x}}} \qc
+  \forall\,\V{x}\in\vecV.
+\end{equation}
