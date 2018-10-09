@@ -1,322 +1,4 @@
-%TODO 等的使用
-%%TODO 内容问题
-%%HACK 粗鄙技巧
-%%CODE 代码改进
-%%BUG  如题
-
-\documentclass{book}
-
-%\usepackage{syntonly}
-%\syntaxonly
-
-\newcommand*{\DEBUG}{}%
-\ifdefined\DEBUG
-  \relax
-\else
-  \newcommand*{\RELEASE}{}%
-\fi
-
-%TODO——宏查找
-% 见 http://tex.stackexchange.com/a/8523
-%\usepackage{filehook,currfile}
-%\newwrite\finder
-%\immediate\openout\finder=\jobname.find
-%
-%\def\searchmacro#1{
-%  \AtBeginOfFiles{%
-%    \ifdefined#1
-%    \expandafter\def\csname \currfilename:found\endcsname{}%
-%    \fi}
-%  \AtEndOfFiles{%
-%    \ifdefined#1
-%    \unless\ifcsname \currfilename:found\endcsname
-%    \immediate\write\finder{found in '\currfilename'}%
-%    \fi\fi}}
-%
-%\searchmacro\T
-
-%TODO——宏包
-%% 方便定义命令(星号版本)
-\usepackage{suffix}
-
-%% 页面尺寸
-\usepackage{geometry}
-  \geometry{
-    a4paper,
-    left = 2.54 cm, right = 2.54 cm, top = 3.18 cm, bottom = 3.18 cm,
-    headheight = 3 cm,
-    marginparwidth = 1.8 cm
-  }
-
-\ifdefined\RELEASE
-  %% 页面格式
-  \usepackage{fancyhdr}
-    % 清除所有页面格式
-    \fancyhf{}
-    % 页眉(见 `ctex' 下的重定义)
-    \fancyhead[EL]{\nouppercase{\CJKfamily{楷体} \leftmark}}
-    \fancyhead[OR]{\nouppercase{\CJKfamily{楷体} \rightmark}}
-    % 页脚
-    \fancyfoot[C]{\thepage}
-    % 关闭横线显示
-    \renewcommand{\headrulewidth}{0 pt}
-
-  %% 空白页不显示页眉页脚
-  \usepackage{emptypage}
-\fi
-
-%% 设置标题
-%\usepackage{titlesec}
-
-%% 图形
-\ifdefined\DEBUG
-  \usepackage[draft]{graphicx}
-\else
-  \usepackage{graphicx}
-\fi
-
-%% 常规字体选择
-% 与 `graphicx' 冲突
-%\PassOptionsToPackage{draft}{graphicx}
-\usepackage[no-math]{fontspec}
-  \setmainfont{XITS}%[SlantedFont = XITS Italic]
-  \setsansfont{TeX Gyre Heros}%[SlantedFont = TeX Gyre Heros Italic]
-  \setmonofont{TeX Gyre Cursor}[Ligatures = NoCommon]
-
-%% AMS 数学支持
-\usepackage{amsmath}
-  % 允许多行公式中间分页
-  \allowdisplaybreaks
-  % 调整多行公式间距
-  \setlength{\jot}{6 pt}
-  % 调整公式前后间距
-% \AtBeginDocument{
-%   \abovedisplayshortskip = \abovedisplayskip
-%   \belowdisplayshortskip = \belowdisplayskip
-% }
-\usepackage{amssymb}
-
-%% 数学工具
-% 必须在 `unicode-math' 之前
-\usepackage{mathtools}
-
-%% 中文文字处理
-%BUG：20170225 似乎必须在 `unicode-math' 之前
-\usepackage[UTF8, heading = true, fontset = none]{ctex}
-  \ctexset{
-    section/format+ = {\normalfont\sffamily},
-    subsection/format+ = {\normalfont\sffamily}
-  }
-  \ifdefined\DEBUG
-    \pagestyle{plain}
-  \else
-    \ctexset{
-      % 目录名称
-      contentsname = {目 \quad 录},
-      % 目录格式
-      subsection/tocline = {\CJKfamily{楷体} \CTEXnumberline{#1}#2}
-    }
-    \pagestyle{fancy}
-    % 重定义右页眉格式
-    \renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
-  \fi
-
-%% XeTeX 下 CJK 文字处理
-%\usepackage{xeCJK}
-  \setCJKmainfont{FZShuSong-Z01}%
-    [BoldFont = FZHei-B01, ItalicFont = FZKai-Z03]
-  \setCJKsansfont{FZHei-B01}%
-    [BoldFont = FZHei-B01, ItalicFont = FZHei-B01]
-  \setCJKmonofont{FZFangSong-Z02}%
-    [BoldFont = FZFangSong-Z02, ItalicFont = FZKai-Z03]
-  \setCJKfamilyfont{宋体}{FZShuSong-Z01}
-  \setCJKfamilyfont{楷体}{FZKai-Z03}
-  \setCJKfamilyfont{黑体}{FZHei-B01}
-  \setCJKfamilyfont{仿宋}{FZFangSong-Z02}
-
-%% LuaLaTeX 下的句号处理
-\catcode`\。 = \active
-\newcommand{。}{．}
-
-%% 调用 Unicode OpenType 数学字体
-\usepackage{unicode-math}
-  \setmathfont{xits-math.otf}[math-style = ISO, bold-style = ISO]
-% 加粗使用 \symbf{}
-% 直立希腊字母：\uppi 等
-
-%% 脚注增强版
-\usepackage[stable, perpage, bottom]{footmisc}
-  % 来自 XITS 字体（U+2460 ~ U+2468）
-  \renewcommand{\thefootnote}{\symbol{\numexpr"245F+\value{footnote}}}
-  %TODO：20160705 脚注不用上标
-  %HACK：20160709 见 http://tex.stackexchange.com/q/19844
-  \makeatletter
-    \newlength{\fnBreite}
-    \renewcommand{\@makefntext}[1]{%
-      \settowidth{\fnBreite}{\footnotesize\@thefnmark.i}%
-      \protect\footnotesize\upshape
-      \setlength{\@tempdima}{\columnwidth}%
-      \addtolength{\@tempdima}{-\fnBreite}%
-      \makebox[\fnBreite][l]{\@thefnmark\phantom{  }}%
-      \parbox[t]{\@tempdima}%
-      {\everypar{\hspace*{1em}}\hspace*{-1em}\upshape#1}%
-    }
-  \makeatother
-
-%% 颜色
-\usepackage[svgnames]{xcolor}
-
-%% 表格
-\usepackage{tabularx}
-
-%% 表格虚线
-% 需要 `tabularx' 宏包
-\usepackage{arydshln}
-
-%% 绘图
-%\usepackage{tikz}
-% \usepgflibrary{arrows.meta}
-% \tikzset{>=Stealth}
-
-%% 强调公式
-\usepackage[ntheorem]{empheq}
-
-%% 张量
-\usepackage{tensor}
-
-%% 物理、数学符号
-\usepackage{physics}
-
-%% 单位
-%\usepackage{siunitx}
-
-%% 定制列表环境
-\usepackage{enumitem}
-  % 定义带缩进的左对齐格式
-  % 前一个参数 0 em 确定标签的位置
-  % 后一个参数 1.45 em 确定标签与文字的距离
-  %HACK：20160924 与字体、字号、标签内容有关
-  \SetLabelAlign{leftalignwithindent}%
-    {\hspace{0 em} \makebox[1.45 em][l]{#1}}
-
-%% 定理类环境
-\usepackage[thmmarks, amsmath]{ntheorem}
-  \theoremstyle{nonumberplain} %带编号
-  \theoremheaderfont{\bfseries}
-  \theorembodyfont{\normalfont}
-  \theoremsymbol{\mbox{$\Box$}}
-    \newtheorem{myProof}{证明：}
-
-%% 目录内容控制(draft 下禁用)
-%% 必须在 `idxlayout' 之前
-\ifdefined\RELEASE
-  \usepackage[nottoc]{tocbibind}
-\fi
-
-%% 索引(draft 下禁用)
-\ifdefined\RELEASE
-  \usepackage{makeidx}
-  \makeindex
-  \newcommand{\idx}[1]{\index{#1}}
-  %HACK：20170114 缺字，改用浪纹连接符代替
-  \newcommand{\idxOmit}{\linkTilde}
-\else
-  \newcommand{\idx}[1]{}
-  \newcommand{\idxOmit}{}
-\fi
-
-%% 索引格式(draft 下禁用)
-\ifdefined\RELEASE
-  \usepackage[
-      hangindent = 6 em,
-      subindent = 2 em,
-      subsubindent = 4 em,
-      % 加入目录
-      totoc = true
-    ]{idxlayout}
-\fi
-
-%% 标记引用
-\ifdefined\DEBUG
-  \usepackage[draft, color]{showkeys}
-  \definecolor{refkey}{named}{pink}
-  \definecolor{labelkey}{named}{lime}
-\fi
-
-%% 错误标注
-\usepackage[draft]{fixme}
-  \fxsetup{author = }
-  \fxusetheme{color}
-  \newcommand{\myPROBLEM}[2][2016-09-01]{\fxnote{#1\\#2}}
-  \WithSuffix\newcommand\myPROBLEM*[2][2016-09-01]{\fxwarning{#1\\#2}}
-  \renewcommand{\englishlistfixmename}{问题列表}
-% \definecolor{fxnote}{named}{red}
-
-%% 交叉引用，超链接等
-\usepackage[hyperindex]{hyperref}
-  \hypersetup{
-    %% PDF 标题作者
-    pdftitle = {谢锡麟《张量分析与微分几何基础》讲稿},
-    pdfauthor = {曾祥东},
-    %% PDF 书签
-    bookmarksopen = true,
-    bookmarksopenlevel = 1,
-    bookmarksnumbered = true,
-    %% 脚注
-%     hyperfootnotes = false,
-    %% 目录  只引用页码
-    linktoc = page,
-    %% 超链接边框
-    pdfborder = 0 0 0,
-    %% 超链接颜色
-    colorlinks,
-    linkcolor = {red!60!black},
-    citecolor = {green!50!black},
-    urlcolor = {blue!70!black}
-  }
-% 脚注引用
-% 直接用 \ref
-%\makeatletter
-%\newcommand{\footnoteref}[1]{\protected@xdef
-% \@thefnmark{\ref{#1}}\@footnotemark}
-%\makeatother
-
-%TODO——环境
-%% 定制列表（编号）
-\newenvironment{myEnum}
-  {\enumerate[
-    align = leftalignwithindent,
-    % 条目第一段缩进
-    itemindent = 2 em,
-    % 条目第二段缩进
-    listparindent = 2 em,
-    % 文字左边距
-    leftmargin = 0 pt,
-    topsep = 0 pt,
-    itemsep = 0 pt,
-    parsep = 0 pt
-  ]}
-  {\endenumerate}
-%% 子公式
-\newenvironment{mySubEq}
-  {\subequations \renewcommand{\theequation}%
-    {\theparentequation-\alph{equation}}}%
-  {\endsubequations
-    \ignorespacesafterend}
-%% 大括号公式
-\newenvironment{braceEq}[1][align]
-  {\mySubEq
-    \setkeys{EmphEqEnv}{#1}%
-    \setkeys{EmphEqOpt}{left=\empheqlbrace}%
-    \EmphEqMainEnv}%
-  {\endEmphEqMainEnv \endmySubEq}
-%% 大括号公式2(分情况讨论)
-\newenvironment{braceEq*}[2][align]
-  {\mySubEq
-    \setkeys{EmphEqEnv}{#1}%
-    \setkeys{EmphEqOpt}{left={{\displaystyle #2}\empheqlbrace}}%
-    \EmphEqMainEnv}%
-  {\endEmphEqMainEnv \endmySubEq}
+\documentclass{notes-class}
 
 %TODO——命令
 %% 浪纹连接号、代字符
@@ -368,8 +50,10 @@
 \newcommand{\comC}{\SET{C}}
 \newcommand{\intN}{\SET{N}}
 %% m 维实空间
-\newcommand{\Rm}{\realR^m}
-\WithSuffix\newcommand\Rm*{\realR^{m+1}}
+% \newcommand{\Rm}{\realR^m}
+% \WithSuffix\newcommand\Rm*{\realR^{m+1}}
+\NewDocumentCommand\Rm{s}%
+  {\IfBooleanTF{#1}{\realR^{m+1}}{\realR^m}}
 %% 自然数集(正整数集)
 \newcommand{\natN}{\intN^{*}}
 %% Minkowski 空间
@@ -407,22 +91,24 @@
 
 %--------量(Quantity)--------%
 %% 向量(Vector)
-\newcommand{\V}[1]{\SYMBOL{#1}}
+\newcommand{\V}[1]{{\SYMBOL{#1}}}
 %% 张量(Tensor)
-\def\T#1{\SYMBOL{#1}}
+\newcommand{\T}[1]{{\SYMBOL{#1}}}
 %% 张量分量(Tensor Components)
 %\let\tc=\tensor
 \newcommand{\tc}[2]{\tensor{#1}{#2}}
 %% 矩阵(Matrix)
-\newcommand{\Mat}[1]{\symbfup{#1}}
+\newcommand{\Mat}[1]{{\symbfup{#1}}}
 %% 置换(Permutation)
-\newcommand{\Perm}[1]{\SYMBOL{#1}}
+\newcommand{\Perm}[1]{{\SYMBOL{#1}}}
 
 %--------特殊量--------%
 %% Kronecker Delta
-\newcommand{\KroneckerDelta}[2]{\delta^{#1}_{#2}}
+% \newcommand{\KroneckerDelta}[2]{\delta^{#1}_{#2}}
 %% Kronecker Delta (全下标形式)
-\WithSuffix\newcommand\KroneckerDelta*[1]{\delta_{#1}}
+% \WithSuffix\newcommand\KroneckerDelta*[1]{\delta_{#1}}
+\NewDocumentCommand\KroneckerDelta{smg}%
+  {\IfBooleanTF{#1}{\delta_{#2}}{\delta^{#2}_{#3}}}
 %% Levi-Civita 记号
 \newcommand{\LeviCivita}[1]{\tc{\epsilon}{#1}}
 %% Eddington 张量
@@ -462,7 +148,8 @@
 %% 映射(X: x → X)(Math Map)
 \newcommand{\mmap}[3]{{#1}:\,{#2}\mapsto{#3}}
 %% 带描述集合
-\DeclarePairedDelimiterX\set[2]{\{}{\}}{#1 \;\delimsize\vert\; #2}
+% \DeclarePairedDelimiterX\set[2]{\{}{\}}{#1 \;\delimsize\vert\; #2}
+\def\set{}
 %% 中标
 % 见 http://tex.stackexchange.com/q/250961
 \makeatletter
@@ -501,10 +188,12 @@
 \let\PHYSICSCP=\cp
 \renewcommand{\cp}{\vectimes}
 %% 协变导数(Covariant Derivative)
-\newcommand{\coD}[2]{\nabla_{\! #1}\,{#2}}
+% \newcommand{\coD}[2]{\nabla_{\! #1}\,{#2}}
 %% 单位正交基下的协变导数
-\WithSuffix\newcommand\coD*[2]{%
-  \nabla\midscript{\!\orthIdx{#1}}\,{#2}}
+% \WithSuffix\newcommand\coD*[2]{%
+%   \nabla\midscript{\!\orthIdx{#1}}\,{#2}}
+\NewDocumentCommand\coD{smm}%
+  {\IfBooleanTF{#1}{\nabla\midscript{\!\orthIdx{#2}}\,{#3}}{\nabla_{\!#2}\,{#3}}}
 %% 逆变导数(Contravariant Derivative)
 \newcommand{\ctrD}[2]{\nabla^{#1}\,{#2}}
 %% C^p 微分同胚(Diffeomorphism)
@@ -514,15 +203,27 @@
 %% 大 O 记号
 \newcommand{\bO}[1]{\mathop{\mscrO\!}\qty(#1)}
 %% 小 O 记号
-\newcommand{\sO}[1]{\mathop{\mscro\!}\qty(#1)}
+% \newcommand{\sO}[1]{\mathop{\mscro\!}\qty(#1)}
 %% 小 O 记号(带上下标)
-\WithSuffix\newcommand\sO*[2]{\mathop{
-  \tc{\mscro}{#1} \!}\qty(#2)}
+%  \WithSuffix\newcommand\sO*[2]{\mathop{
+%    \tc{\mscro}{#1} \!}\qty(#2)}
+\NewDocumentCommand\sO{smg}%
+  {
+    \IfBooleanTF{#1}%
+      {\mathop{\tc{\mscro}{#2}\!}\qty(#3)}
+      {\mathop{\mscro\!}\qty(#2)}
+  }
 %% 向量形式小 O 记号
-\newcommand{\sOv}[1]{\mathop{\mbfscro\!}\qty(#1)}
+% \newcommand{\sOv}[1]{\mathop{\mbfscro\!}\qty(#1)}
 %% 向量形式小 O 记号(带上下标)
-\WithSuffix\newcommand\sOv*[2]{\mathop{
-  \tc{\mbfscro}{#1} \!}\qty(#2)}
+% \WithSuffix\newcommand\sOv*[2]{\mathop{
+%   \tc{\mbfscro}{#1} \!}\qty(#2)}
+\NewDocumentCommand\sOv{smg}%
+  {
+    \IfBooleanTF{#1}%
+      {\mathop{\tc{\mbfscro}{#2}\!}\qty(#3)}
+      {\mathop{\mbfscro\!}\qty(#2)}
+  }
 %% 复合(Composite)
 \newcommand{\comp}{\circ}
 %% 定义等号(Definition Equal)
@@ -559,77 +260,50 @@
 \newcommand{\res}{\text{res.}}
 %\renewcommand{\intertext}[1]{\shortintertext{\textit{#1}}}
 
-%TODO——标题页
-\ifdefined\RELEASE
-  \title{现代张量分析讲义}
-  \author{复旦大学　谢锡麟} % 此处为全角空格
-  \date{\today}
-\fi
+\def\idx#1{}
+\newcommand{\myPROBLEM}[2][\today]{\colorbox{red}{#1\quad#2}}
 
-\makeatletter
-  \newcommand{\HUGE}{\@setfontsize\Huge{45}{54}}
-\makeatother
 
-\newcommand{\myTitle}{
-\begin{titlepage}
-  \begin{center}
-    \vspace*{2 cm}
-    {\HUGE\bfseries 现代张量分析讲义}
-    
-    \vspace{2 cm}
-    {\LARGE 复旦大学 \quad 谢锡麟}
-    
-    \vspace{15 cm}
-    {\LARGE\CJKfamily{楷体} \today}
-  \end{center}
-\end{titlepage}}
+\title{现代张量分析讲义}
+\author{复旦大学\quad 谢锡麟}
 
-%TODO——选择编译
-\ifdefined\DEBUG
-  \includeonly{chapters/preliminaries,chapters/tensor-definition}
-  \renewcommand{\part}[1]{}
-  %\renewcommand{\chapter}[1]{}
-\fi
+\hypersetup{%
+  pdftitle={谢锡麟《张量分析与微分几何基础》讲稿},
+  pdfauthor={曾祥东}}
+
 
 \begin{document}
-\ifdefined\RELEASE
-  \frontmatter
-    \myTitle
-    \tableofcontents
 
-  \mainmatter
-\fi
+\frontmatter
 
-  \part{张量代数}
-    % 预备知识
-    \include{chapters/preliminaries}
-    % 张量的定义及表示
-    \include{chapters/tensor-definition}
-    % 张量的运算性质
-    \include{chapters/tensor-properties}
-    % 相对论简介
-    \include{chapters/relativities}
+\maketitle
 
-  \part{体积上的张量场场论}
-    % 微分同胚（曲线坐标系）
-    \include{chapters/diffeomorphism}
-    % 张量场可微性
-    \include{chapters/tensor-field-derivative}
-    % 非完整基理论
-    \include{chapters/nonholonomic-basis}
-    % 曲线上的标架及其运动方程
-    \include{chapters/curve}
+\tableofcontents
 
-  \part{曲面上的张量场场论}
-    % 曲面与曲面标架
-    \include{chapters/surface-frame}
+\mainmatter
 
-%  \part{微分流形}
+\part{张量代数}
+% 预备知识
+\input{chapters/preliminaries}
+% 张量的定义及表示
+\input{chapters/tensor-definition}
+% 张量的运算性质
+\input{chapters/tensor-properties}
+% 相对论简介
+\input{chapters/relativities}
 
-\ifdefined\RELEASE
-  \backmatter
-    \listoffixmes
-    \printindex
-%   \bibliography{reference}
-\fi
+\part{体积上的张量场场论}
+% 微分同胚（曲线坐标系）
+\input{chapters/diffeomorphism}
+% 张量场可微性
+\input{chapters/tensor-field-derivative}
+% 非完整基理论
+\input{chapters/nonholonomic-basis}
+% 曲线上的标架及其运动方程
+\input{chapters/curve}
+
+\part{曲面上的张量场场论}
+% 曲面与曲面标架
+\input{chapters/surface-frame}
+
 \end{document}
